@@ -36,7 +36,7 @@ namespace TESTWF2020.Clases
         /// <returns></returns>
         public Usuario BuscarUsuario(string nombre, string clave)
         {
-            string consulta = "";
+            string consulta = string.Format("SELECT * FROM Users WHERE n_usuario = '{0}' AND password = '{1}'", nombre,clave);
             var resultado = Datos.Consultar(consulta);
 
             Usuario usuarioEncontrado = null;

@@ -21,7 +21,8 @@ namespace TESTWF2020
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
         }
 
 
