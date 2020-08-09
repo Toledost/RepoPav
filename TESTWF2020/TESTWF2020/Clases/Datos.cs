@@ -11,16 +11,16 @@ namespace TESTWF2020.Clases
 {
     static class Datos
     {
-        private static string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Federico\Documents\ProyectoBugs.mdb";
+        private static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
 
         public static DataTable Consultar(string consultaSQL)
         {
-            using (var conn = new OleDbConnection())
+            using (var conn = new SqlConnection())
             {
                 conn.ConnectionString = connectionString;
                 conn.Open();                
 
-                using (var command = new OleDbCommand(consultaSQL, conn))
+                using (var command = new SqlCommand(consultaSQL, conn))
                 {
                     DataTable tabla = new DataTable();
                     tabla.Load(command.ExecuteReader());
