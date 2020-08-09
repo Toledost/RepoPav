@@ -36,7 +36,18 @@ namespace TESTWF2020.Clases
         /// <returns></returns>
         public Usuario BuscarUsuario(string nombre, string clave)
         {
+            string consulta = "";
+            var resultado = Datos.Consultar(consulta);
 
+            Usuario usuarioEncontrado = null;
+            if (resultado.Rows.Count != 0)
+            {
+                usuarioEncontrado.IdUsuario = (int)resultado.Rows[0]["id_usuario"];
+                usuarioEncontrado.NUsuario = resultado.Rows[0]["n_usuario"].ToString();
+                usuarioEncontrado.Password = resultado.Rows[0]["password"].ToString();
+                usuarioEncontrado.Email = resultado.Rows[0]["email"].ToString();
+            }
+            return usuarioEncontrado;
         }
 
         #endregion
