@@ -26,16 +26,21 @@ namespace TESTWF2020
             
             if (!TextoCompletado(txtClave.Text, "Clave"))
                 return;
-            UsuarioLogueado = UsuarioLogueado.BuscarUsuario(txtUsuario.Text,txtClave.Text);
+
+            Usuario usuarioBuscador = new Usuario();
+            UsuarioLogueado = usuarioBuscador.BuscarUsuario(txtUsuario.Text,txtClave.Text);
+
             if (UsuarioLogueado != null)
             {
                 MessageBox.Show("Logueado con exito");
                 this.Close();
             }
-            MessageBox.Show("Usuario y/o clave incorrectos");
+            else
+                MessageBox.Show("Usuario y/o clave incorrectos");
+            return;
         }
 
-        private Usuario usuarioLogueado = new Usuario();
+        private Usuario usuarioLogueado;
         
         internal Usuario UsuarioLogueado { get => usuarioLogueado; set => usuarioLogueado = value; }
 

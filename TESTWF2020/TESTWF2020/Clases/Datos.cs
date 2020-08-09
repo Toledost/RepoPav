@@ -11,7 +11,8 @@ namespace TESTWF2020.Clases
 {
     static class Datos
     {
-        private static string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\TERCER AÑO\PAV1\clase 2\ProyectoBugs.mdb";
+        private static string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Federico\Documents\ProyectoBugs.mdb";
+
         public static DataTable Consultar(string consultaSQL)
         {
             using (var conn = new OleDbConnection())

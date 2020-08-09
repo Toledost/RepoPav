@@ -17,12 +17,11 @@ namespace TESTWF2020
             InitializeComponent();
         }
 
-
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             frmLogin login = new frmLogin();
             login.ShowDialog();
+            MessageBox.Show(login.UsuarioLogueado.NUsuario);
         }
 
 
