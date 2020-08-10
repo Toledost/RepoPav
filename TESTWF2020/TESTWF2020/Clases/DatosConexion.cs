@@ -13,7 +13,7 @@ namespace TESTWF2020.Clases
         //public static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
 
         //Lautaro
-        //public static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
+        //public static string connectionString = @"Data Source=DESKTOP-VA1EDAU\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
 
         //Bruno
         //public static string connectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
