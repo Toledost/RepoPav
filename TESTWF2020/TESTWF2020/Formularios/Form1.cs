@@ -21,7 +21,12 @@ namespace TESTWF2020
         {
             frmLogin login = new frmLogin();
             login.ShowDialog();
-            MessageBox.Show(login.UsuarioLogueado.NUsuario);
+            if (login.UsuarioLogueado != null)
+            {
+                //MessageBox.Show(login.UsuarioLogueado.NUsuario);
+                this.btnLogin.Dispose();
+                this.Text += login.UsuarioLogueado.NUsuario;
+            }
         }
 
 
