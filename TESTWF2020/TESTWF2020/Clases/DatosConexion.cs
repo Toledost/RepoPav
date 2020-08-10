@@ -8,6 +8,7 @@ namespace TESTWF2020.Clases
 {
     static class DatosConexion
     {
+        //Esta es la configuracion de cada uno
         //Federico
         //public static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
 
@@ -15,7 +16,7 @@ namespace TESTWF2020.Clases
         //public static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
 
         ////Bruno
-        public static string connectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
+        //public static string connectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
 
         ////Martin
         public static string connectionString = @"Data Source=DESKTOP-J8IAG5M\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
