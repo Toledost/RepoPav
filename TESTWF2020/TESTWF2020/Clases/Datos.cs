@@ -11,13 +11,11 @@ namespace TESTWF2020.Clases
 {
     static class Datos
     {
-        private static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
-
         public static DataTable Consultar(string consultaSQL)
         {
             using (var conn = new SqlConnection())
-            
-                conn.ConnectionString = "asd";
+            {
+                conn.ConnectionString = DatosConexion.connectionString;
                 conn.Open();                
 
                 using (var command = new SqlCommand(consultaSQL, conn))
