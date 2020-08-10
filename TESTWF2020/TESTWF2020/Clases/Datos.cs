@@ -16,8 +16,8 @@ namespace TESTWF2020.Clases
         public static DataTable Consultar(string consultaSQL)
         {
             using (var conn = new SqlConnection())
-            {
-                conn.ConnectionString = connectionString;
+            
+                conn.ConnectionString = "asd";
                 conn.Open();                
 
                 using (var command = new SqlCommand(consultaSQL, conn))
