@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 namespace TESTWF2020.Clases
 {
     static class DatosConexion
-    {   
-        //Esta era la config de c/u
+    {
+        // este es un comentario para explicar que estas son las cadenas de conexion de cada uno
         //Federico
         //public static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
 
         //Lautaro
         //public static string connectionString = @"Data Source=DESKTOP-8I3ONNI;Initial Catalog=prueba;Integrated Security=True";
 
-        ////Bruno
-        public static string connectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
+        //Bruno
+        //public static string connectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
 
-        ////Martin
+        //Martin
         //public static string connectionString = @"Data Source=DESKTOP-J8IAG5M\SQLEXPRESS;Initial Catalog=prueba;Integrated Security=True";
     }
 }
