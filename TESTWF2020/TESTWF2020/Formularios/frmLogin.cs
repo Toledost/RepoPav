@@ -22,12 +22,12 @@ namespace TESTWF2020
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             if (!TextoCompletado(txtUsuario.Text,"Usuario"))
-                return;
+                return;  
             
             if (!TextoCompletado(txtClave.Text, "Clave"))
                 return;
 
-            Usuario usuarioBuscador = new Usuario();
+            Usuario usuarioBuscador = new Usuario(); 
             UsuarioLogueado = usuarioBuscador.BuscarUsuario(txtUsuario.Text,txtClave.Text);
 
             if (UsuarioLogueado != null)
@@ -43,7 +43,7 @@ namespace TESTWF2020
         private Usuario usuarioLogueado;
         
         internal Usuario UsuarioLogueado { get => usuarioLogueado; set => usuarioLogueado = value; }
-
+        
         
         #region MetodosVerificadores
         private bool TextoCompletado(string campo,string nombreCampo)
