@@ -28,7 +28,7 @@ namespace TESTWF2020
             if (login.UsuarioLogueado != null)
             {
                 this.btnLogin.Dispose();
-                this.Text += login.UsuarioLogueado.NUsuario;
+                this.Text += login.UsuarioLogueado;
             }
         }
 

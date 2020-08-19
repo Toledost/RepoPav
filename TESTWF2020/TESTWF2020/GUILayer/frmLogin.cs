@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.Clases;
+using TESTWF2020.BusinessLayer;
 
 namespace TESTWF2020
 {
@@ -17,6 +18,7 @@ namespace TESTWF2020
         public frmLogin()
         {
             InitializeComponent();
+            usuarioService = new UsuarioService();
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -27,12 +29,13 @@ namespace TESTWF2020
             if (!TextoCompletado(txtClave.Text, "Clave"))
                 return;
 
-            Usuario usuarioBuscador = new Usuario(); 
-            UsuarioLogueado = usuarioBuscador.BuscarUsuario(txtUsuario.Text,txtClave.Text);
+            
+            var user = usuarioService.ValidarUsuario(txtUsuario.Text, txtClave.Text);
 
-            if (UsuarioLogueado != null)
+            if (user != null)
             {
-                MessageBox.Show("Logueado con exito");
+                UsuarioLogueado = user.Nombre;
+                MessageBox.Show(UsuarioLogueado);
                 this.Close();
             }
             else
@@ -40,10 +43,10 @@ namespace TESTWF2020
             return;
         }
 
-        private Usuario usuarioLogueado;
-        
-        internal Usuario UsuarioLogueado { get => usuarioLogueado; set => usuarioLogueado = value; }
+        private UsuarioService usuarioService;
+        public string UsuarioLogueado { get; set; }
 
+        
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,8 +62,12 @@ namespace TESTWF2020
             }
             return true;
         }
+
         #endregion
 
-        
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
