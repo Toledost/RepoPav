@@ -49,6 +49,7 @@
     <Compile Include="BusinessLayer\UsuarioService.cs" />
     <Compile Include="Clases\DatosConexion.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Usuario.cs" />
@@ -58,7 +59,6 @@
     <Compile Include="GUILayer\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clases\Datos.cs" />
     <Compile Include="GUILayer\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

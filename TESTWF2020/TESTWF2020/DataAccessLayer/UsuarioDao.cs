@@ -8,7 +8,7 @@ using TESTWF2020.Entities;
 
 namespace TESTWF2020.DataAccessLayer
 {
-    class UsuarioDao
+    public class UsuarioDao
     {
         #region Metodos Publicos
         public Usuario GetUsuario(string nombreUsuario)
@@ -16,7 +16,7 @@ namespace TESTWF2020.DataAccessLayer
             string consultaSQL = string.Format ("SELECT u.usuario, u.contraseña, u.fechaAlta, p.idPerfil, p.nombre" +
                 "p.descripcion FROM usuario u JOIN perfil p ON u.idPerfil = p.idPerfil WHERE u.nombre ='{0}' ",nombreUsuario);
 
-            DataTable resultado = null;
+            DataTable resultado = DBHelper.GetDBHelper().ConsultaSql(consultaSQL);
 
             if (resultado.Rows.Count > 0)
             {
