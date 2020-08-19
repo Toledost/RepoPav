@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\asd.cs" />
     <Compile Include="Clases\DatosConexion.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="DataAccessLayer\asd.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="GUILayer\frmPrincipal.cs">
@@ -94,10 +96,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessLayer\" />
-    <Folder Include="DataAccessLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Imagenes\CASAFELIZ.png" />
   </ItemGroup>
