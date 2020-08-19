@@ -50,6 +50,7 @@
     <Compile Include="Clases\DatosConexion.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DataAccessLayer\asd.cs" />
+    <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="GUILayer\frmPrincipal.cs">
