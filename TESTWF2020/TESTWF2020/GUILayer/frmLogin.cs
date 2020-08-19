@@ -43,8 +43,12 @@ namespace TESTWF2020
         private Usuario usuarioLogueado;
         
         internal Usuario UsuarioLogueado { get => usuarioLogueado; set => usuarioLogueado = value; }
-        
-        
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #region MetodosVerificadores
         private bool TextoCompletado(string campo,string nombreCampo)
         {
@@ -56,5 +60,7 @@ namespace TESTWF2020
             return true;
         }
         #endregion
+
+        
     }
 }
