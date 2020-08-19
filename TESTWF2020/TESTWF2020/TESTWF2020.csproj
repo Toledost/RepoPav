@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Clases\DatosConexion.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Entities\Perfil.cs" />
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,7 +97,6 @@
   <ItemGroup>
     <Folder Include="BusinessLayer\" />
     <Folder Include="DataAccessLayer\" />
-    <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Imagenes\CASAFELIZ.png" />
