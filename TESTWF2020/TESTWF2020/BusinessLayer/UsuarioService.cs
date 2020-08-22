@@ -16,7 +16,7 @@ namespace TESTWF2020.BusinessLayer
             usuarioDao = new UsuarioDao();
         }
 
-        public Usuario ValidarUsuario(string usuario,string password)
+        public Usuario ValidarUsuario(string usuario, string password)
         {
             var resUsuario  = usuarioDao.GetUsuario(usuario);
             if (resUsuario != null && password == resUsuario.Contraseña)

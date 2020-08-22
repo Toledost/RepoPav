@@ -1,43 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using TESTWF2020.Entities;
 
 namespace TESTWF2020
 {
     public partial class frmPrincipal : Form
     {
-        private string titulo = "Inmobiliaria Casa Feliz";
-
+        private frmLogin login;
+        private readonly string tituloOriginal = "Inmobiliaria Casa Feliz";
         public frmPrincipal()
         {
             InitializeComponent();
-        }
-
-
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
-            if (login.UsuarioLogueado != null)
-            {
-                this.btnLogin.Dispose();
-                this.Text += login.UsuarioLogueado;
-            }
+            login = new frmLogin();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            this.btnLogin.Dispose();
-            frmLogin login = new frmLogin();
+            this.Hide();
             login.ShowDialog();
-            //if (login.UsuarioLogueado != null)
+            if (login.UsuarioLogueado == null)
+            {
+                this.Close();
+                return;
+            }
+            this.Show();
+            this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            login.UsuarioLogueado = null;
+            frmPrincipal_Load(sender, e);
         }
     }
 }

@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
+using TESTWF2020.Entities;
 
 namespace TESTWF2020
 {
     public partial class frmLogin : Form
     {
+        #region properties and privates
+
+        private UsuarioService usuarioService;
+        public Usuario UsuarioLogueado { get; set; }
+
+        #endregion
+
         public frmLogin()
         {
             InitializeComponent();
@@ -22,51 +22,55 @@ namespace TESTWF2020
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (!TextoCompletado(txtUsuario.Text,"Usuario"))
-                return;  
-            
+            if (!TextoCompletado(txtUsuario.Text, "Usuario"))
+                return;
+
             if (!TextoCompletado(txtClave.Text, "Clave"))
                 return;
 
-            
-            var user = usuarioService.ValidarUsuario(txtUsuario.Text, txtClave.Text);
+            UsuarioLogueado = usuarioService.ValidarUsuario(txtUsuario.Text, txtClave.Text);
 
-            if (user != null)
+            if (UsuarioLogueado != null)
             {
-                UsuarioLogueado = user.Nombre;
-                MessageBox.Show(UsuarioLogueado);
+                MessageBox.Show($"Logueado con exito: {UsuarioLogueado.Nombre}");
                 this.Close();
             }
             else
-                MessageBox.Show("Usuario y/o clave incorrectos");
-            return;
+            {
+                MessageBox.Show("Usuario y/o clave incorrectos",
+                    "Error de logueo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }                
         }
 
-        private UsuarioService usuarioService;
-        public string UsuarioLogueado { get; set; }
-
-        
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         #region MetodosVerificadores
-        private bool TextoCompletado(string campo,string nombreCampo)
+
+        /// <summary>
+        /// Devuelve true si se completó el campo, false si no se completó y muestra Mbox
+        /// </summary>
+        /// <param name="campo"></param>
+        /// <param name="nombreCampo"></param>
+        /// <returns></returns>
+        private bool TextoCompletado(string campo, string nombreCampo)
         {
             if (string.IsNullOrEmpty(campo))
             {
-                MessageBox.Show("Falta colocar " + nombreCampo);
+                MessageBox.Show("Falta colocar " + nombreCampo,
+                    "Error de logueo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 return false;
             }
             return true;
         }
 
         #endregion
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

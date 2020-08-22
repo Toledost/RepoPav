@@ -30,7 +30,7 @@ namespace TESTWF2020.DataAccessLayer
         {
             Usuario usuario = new Usuario
             {
-                Nombre = row["nombre"].ToString(),
+                Nombre = row["usuario"].ToString(),
                 Contraseña = row["contraseña"].ToString(),
                 FechaAlta = (DateTime)row["fechaAlta"],
                 Perfil = new Perfil
