@@ -7,7 +7,7 @@ namespace TESTWF2020
 {
     public partial class frmPrincipal : Form
     {
-        //Comentario de conflico de Bruno frmPrincipal
+        //Comentario del frmPricipal
         private frmLogin login;
         private readonly string tituloOriginal = "Inmobiliaria Casa Feliz";
         public frmPrincipal()
