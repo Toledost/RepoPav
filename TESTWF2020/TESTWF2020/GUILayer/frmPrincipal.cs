@@ -7,6 +7,7 @@ namespace TESTWF2020
 {
     public partial class frmPrincipal : Form
     {
+        // Clase del form principal (federico)
         private frmLogin login;
         private readonly string tituloOriginal = "Inmobiliaria Casa Feliz";
         public frmPrincipal()
