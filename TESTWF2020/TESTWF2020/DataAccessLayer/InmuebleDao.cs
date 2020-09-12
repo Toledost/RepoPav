@@ -42,7 +42,7 @@ namespace TESTWF2020.DataAccessLayer
 
             if (parametros.ContainsKey("montoVtaMax"))
                 consultaSql += " AND (montoVenta <= @montoVtaMax) ";
-          
+            
             DataManager dm = new DataManager();
             dm.Open();
             var resultado = dm.ConsultaSQLConParametros(consultaSql, parametros);
@@ -58,11 +58,23 @@ namespace TESTWF2020.DataAccessLayer
         #region Mapeo
         private Inmueble MapToEntity(DataRow row)
         {
-            Inmueble usuario = new Inmueble
+            Inmueble inmueble = new Inmueble
             {
-                
+                Calle = row["calle"].ToString(),
+                CalleNumero = (int)row["calleNumero"],
+                Baños = (int)row["cantBaños"],
+                Descripcion = row["descripcion"].ToString(),
+                Habitaciones = (int)row["cantHabitaciones"],
+                Id = (int)row["id"],
+                MetrosCuadrados = (int)row["m2"],
+                MontoAlquiler = (int)row["montoAlquiler"],
+                MontoVenta = (int)row["montoVenta"],
+                TipoInmueble = new TipoInmueble
+
+
+
             };
-            return usuario;
+            return inmueble;
         }
         #endregion
     }
