@@ -31,7 +31,8 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.deptosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inmueblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,18 +63,27 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deptosToolStripMenuItem});
+            this.soporteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(993, 33);
-            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // deptosToolStripMenuItem
+            // soporteToolStripMenuItem
             // 
-            this.deptosToolStripMenuItem.Name = "deptosToolStripMenuItem";
-            this.deptosToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
-            this.deptosToolStripMenuItem.Text = "Deptos";
+            this.soporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inmueblesToolStripMenuItem});
+            this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
+            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
+            this.soporteToolStripMenuItem.Text = "Soporte";
+            // 
+            // inmueblesToolStripMenuItem
+            // 
+            this.inmueblesToolStripMenuItem.Name = "inmueblesToolStripMenuItem";
+            this.inmueblesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.inmueblesToolStripMenuItem.Text = "Inmuebles";
+            this.inmueblesToolStripMenuItem.Click += new System.EventHandler(this.inmueblesToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -101,7 +111,8 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem deptosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem soporteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inmueblesToolStripMenuItem;
     }
 }
 

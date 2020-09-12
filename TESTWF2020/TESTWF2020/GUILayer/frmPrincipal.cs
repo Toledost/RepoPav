@@ -34,5 +34,10 @@ namespace TESTWF2020
             login.UsuarioLogueado = null;
             frmPrincipal_Load(sender, e);
         }
+
+        private void inmueblesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
