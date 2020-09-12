@@ -9,7 +9,6 @@ namespace TESTWF2020.Entities
     public class Inmueble
     {
         public int Id { get; set; }
-        public string TipoInmueble { get; set; }
         public string Calle { get; set; }
         public int CalleNumero { get; set; }
         public int MetrosCuadrados { get; set; }
@@ -18,8 +17,6 @@ namespace TESTWF2020.Entities
         public int MontoAlquiler { get; set; }
         public int MontoVenta { get; set; }
         public string Descripcion { get; set; }
-
-
-
+        public TipoInmueble TipoInmueble { get; set; }
     }
 }

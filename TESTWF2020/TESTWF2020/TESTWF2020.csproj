@@ -53,6 +53,7 @@
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Inmueble.cs" />
     <Compile Include="Entities\Perfil.cs" />
+    <Compile Include="Entities\TipoInmueble.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="GUILayer\ABM\frmABMCInmueble.cs">
       <SubType>Form</SubType>
