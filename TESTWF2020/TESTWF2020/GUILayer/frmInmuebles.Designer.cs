@@ -436,13 +436,14 @@
             this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // cboTipo
             // 
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Location = new System.Drawing.Point(748, 185);
             this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(121, 28);
+            this.cboTipo.Size = new System.Drawing.Size(148, 28);
             this.cboTipo.TabIndex = 38;
             // 
             // frmInmuebles

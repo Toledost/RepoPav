@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\UsuarioService.cs" />
+    <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\InmuebleDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Usuario.cs" />

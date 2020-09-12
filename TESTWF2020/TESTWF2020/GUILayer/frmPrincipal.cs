@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using TESTWF2020.Entities;
+using TESTWF2020.GUILayer;
 
 namespace TESTWF2020
 {
@@ -37,7 +38,9 @@ namespace TESTWF2020
 
         private void inmueblesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmInmuebles frmInmuebles = new frmInmuebles();
+            this.Hide();
+            frmInmuebles.ShowDialog();
         }
     }
 }

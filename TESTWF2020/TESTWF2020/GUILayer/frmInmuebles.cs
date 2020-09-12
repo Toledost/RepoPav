@@ -17,6 +17,9 @@ namespace TESTWF2020.GUILayer
             InitializeComponent();
         }
 
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
