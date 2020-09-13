@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\InmuebleService.cs" />
+    <Compile Include="BusinessLayer\TipoInmuebleService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="Entities\EstadoConsulta.cs" />
+    <Compile Include="Entities\EstadoInmueble.cs" />
+    <Compile Include="Entities\HistorialEstado.cs" />
     <Compile Include="Entities\Inmueble.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\TipoInmueble.cs" />

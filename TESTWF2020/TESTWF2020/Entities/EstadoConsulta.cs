@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TESTWF2020.Entities
+﻿namespace TESTWF2020.Entities
 {
-    public class TipoInmueble
+    public class EstadoConsulta
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

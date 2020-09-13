@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TESTWF2020.DataAccessLayer
 {
     public class DataManager
     {
-        private SqlConnection dbConnection;
+        public SqlConnection dbConnection;
         private SqlTransaction dbTransaction;
 
         private static DataManager instance = new DataManager();
@@ -34,7 +31,7 @@ namespace TESTWF2020.DataAccessLayer
             if (instance == null)
                 instance = new DataManager();
 
-            instance.Open();
+            //instance.Open();
 
             return instance;
         }
@@ -90,6 +87,28 @@ namespace TESTWF2020.DataAccessLayer
             }
         }
 
+        public DataTable ConsultaSQL2(string consulta)
+        {
+            using (var conn = dbConnection)
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (var command = new SqlCommand(consulta, conn))
+                    {
+                        DataTable tabla = new DataTable();
+                        tabla.Load(command.ExecuteReader());
+                        return tabla;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+            }
+        }
+
         /// Resumen:
         ///      Se utiliza para sentencias SQL del tipo “Select” con parámetros recibidos desde la interfaz
         ///      La función recibe por valor una sentencia sql como string y un diccionario de objetos como parámetros
@@ -122,6 +141,34 @@ namespace TESTWF2020.DataAccessLayer
             catch (Exception ex)
             {
                 throw (ex);
+            }
+        }
+
+        public DataTable ConsultaSQLConParametros2(string consulta, Dictionary<string, object> parametros)
+        {
+            using (var conn = dbConnection)
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (var command = new SqlCommand(consulta, conn))
+                    {
+                        foreach (var item in parametros)
+                        {
+                            command.Parameters.AddWithValue(item.Key, item.Value);
+                        }
+                        DataTable tabla = new DataTable();
+                        tabla.Load(command.ExecuteReader());
+                        return tabla;
+                    }   
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw (ex);
+                }
             }
         }
 
@@ -169,6 +216,40 @@ namespace TESTWF2020.DataAccessLayer
                 throw ex;
             }
             return rtdo;
+        }
+
+        public int EjecutarSQLConParametros2(string consulta, Dictionary<string, object> parametros = null)
+        {
+            // Se utiliza para sentencias SQL del tipo “Insert/Update/Delete”
+
+            int resultado = 0;
+
+            using (var conn = dbConnection)
+            {
+                try
+                {
+                    conn.Open();
+                    BeginTransaction();
+
+                    using (var command = new SqlCommand(consulta, conn))
+                    {
+                        command.Transaction = dbTransaction;
+                        foreach (var item in parametros)
+                        {
+                            command.Parameters.AddWithValue(item.Key, item.Value);
+                        }
+
+                        resultado = command.ExecuteNonQuery();
+                    }
+                    Commit();
+                }
+                catch (Exception ex)
+                {
+                    Rollback();
+                    throw (ex);
+                }
+            }
+            return resultado;
         }
 
         public int EjecutarSQL(string strSql)

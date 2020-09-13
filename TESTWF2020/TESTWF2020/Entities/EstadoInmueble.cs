@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TESTWF2020.Entities
 {
-    public class Perfil
+    public class EstadoInmueble
     {
-        public int IdPerfil { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 

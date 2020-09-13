@@ -11,7 +11,7 @@ namespace TESTWF2020.Entities
         public int Id { get; set; }
         public string Calle { get; set; }
         public int CalleNumero { get; set; }
-        public int MetrosCuadrados { get; set; }
+        public double MetrosCuadrados { get; set; }
         public int Baños { get; set; }
         public int Habitaciones { get; set; }
         public int MontoAlquiler { get; set; }

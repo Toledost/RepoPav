@@ -165,6 +165,7 @@
             this.txtID.Location = new System.Drawing.Point(262, 57);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(148, 26);
             this.txtID.TabIndex = 10;
             // 
@@ -354,6 +355,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmABMCInmueble";
             this.Text = "frmABMCInmueble";
+            this.Load += new System.EventHandler(this.frmABMCInmueble_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

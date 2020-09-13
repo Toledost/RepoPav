@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TESTWF2020.Entities;
 
 namespace TESTWF2020.DataAccessLayer
@@ -14,65 +15,170 @@ namespace TESTWF2020.DataAccessLayer
         {
             var inmuebles = new List<Inmueble>();
 
-            string consultaSql = "SELECT * FROM Inmueble WHERE borrado = 0";
+            string consultaSql = "SELECT " +
+                "i.[idInmueble]" +
+                ", i.[calle]" +
+                ", i.[calleNro]" +
+                ", i.[m2]" +
+                ", i.[cantBaños]" +
+                ", i.[cantHabitaciones]" +
+                ", i.[idTipoInmueble]" +
+                ", i.[descripcion]" +
+                ", i.[montoAlquiler]" +
+                ", i.[montoVenta]" +
+                ", t.[idTipoInmueble]" +
+                ", t.[nombre]" +
+                ", t.[descripcion] AS descripcionTipoInmueble " +
+                "FROM Inmueble i " +
+                "INNER JOIN TipoInmueble t ON i.idTipoInmueble = t.idTipoInmueble " +
+                "WHERE i.borrado = 0";
 
-            if (parametros.ContainsKey("calle"))
-                consultaSql += " AND (calle LIKE '%' + @calle + '%') ";
+            consultaSql = AgregarParametros(parametros, consultaSql);
 
-            if (parametros.ContainsKey("baños"))
-                consultaSql += " AND (baños = @baños) ";
-
-            if (parametros.ContainsKey("habitaciones"))
-                consultaSql += " AND (habitaciones = @habitaciones) ";
-
-            if (parametros.ContainsKey("mtsMin"))
-                consultaSql += " AND (m2 >= @mtsMin) ";
-
-            if (parametros.ContainsKey("mtsMax"))
-                consultaSql += " AND (m2 <= @mtsMax) ";
-
-            if (parametros.ContainsKey("montoAlqMin"))
-                consultaSql += " AND (montoAlquiler >= @montoAlqMin) ";
-
-            if (parametros.ContainsKey("montoAlqMax"))
-                consultaSql += " AND (montoAlquiler <= @montoAlqMax) ";
-
-            if (parametros.ContainsKey("montoVtaMin"))
-                consultaSql += " AND (montoVenta >= @montoVtaMin) ";
-
-            if (parametros.ContainsKey("montoVtaMax"))
-                consultaSql += " AND (montoVenta <= @montoVtaMax) ";
-            
             DataManager dm = new DataManager();
-            dm.Open();
-            var resultado = dm.ConsultaSQLConParametros(consultaSql, parametros);
-
+            //dm.Open();
+            //var resultado = dm.ConsultaSQLConParametros(consultaSql, parametros);
+            var resultado = dm.ConsultaSQLConParametros2(consultaSql, parametros);
             foreach (DataRow row in resultado.Rows)
                 inmuebles.Add(MapToEntity(row));
 
-            dm.Close();
+            //dm.Close();
 
             return inmuebles;
         }
+
+        internal Inmueble GetById(int idInmueble)
+        {
+            Inmueble resultado = null;
+            var dm = new DataManager();
+
+            string consultaSql = "SELECT " +
+                "i.[idInmueble]" +
+                ", i.[calle]" +
+                ", i.[calleNro]" +
+                ", i.[m2]" +
+                ", i.[cantBaños]" +
+                ", i.[cantHabitaciones]" +
+                ", i.[idTipoInmueble]" +
+                ", i.[descripcion]" +
+                ", i.[montoAlquiler]" +
+                ", i.[montoVenta]" +
+                ", t.[idTipoInmueble]" +
+                ", t.[nombre]" +
+                ", t.[descripcion] AS descripcionTipoInmueble " +
+                "FROM Inmueble i " +
+                "INNER JOIN TipoInmueble t ON i.idTipoInmueble = t.idTipoInmueble " +
+                "WHERE i.borrado = 0 " +
+                $"AND i.idInmueble = {idInmueble}";
+
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+            if (busqueda.Rows.Count > 0)
+            {
+                resultado = MapToEntity(busqueda.Rows[0]);
+            }
+            return resultado;
+        }
+
+        public void Create(Inmueble inmueble)
+        {
+            string consultaSql = "INSERT INTO Inmueble " +
+                "(calle) " +
+                "VALUES ('123')";
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, new Dictionary<string, object>());
+                
+        }
+
+        public void Update(Inmueble inmueble)
+        {
+            string consultaSql = "UPDATE Inmueble " +
+                "SET " +
+                "WHERE idInmueble = @id";
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, new Dictionary<string, object>());
+
+        }
+
+        public void Delete(int id)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            string consultaSql = "DELETE FROM Inmueble WHERE idInmueble = @id";
+
+            parametros.Add("id", id);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+        }
+
+        #region metodos privados
+
+        /// <summary>
+        /// Agrega a la consulta SQL los parametros del diccionario
+        /// </summary>
+        /// <param name="parametros"></param>
+        /// <param name="consultaSql"></param>
+        /// <returns></returns>
+        private string AgregarParametros(Dictionary<string, object> parametros, string consultaSql)
+        {
+            if (parametros.ContainsKey("id"))
+                consultaSql += " AND (i.idInmueble LIKE =@id) ";
+
+            if (parametros.ContainsKey("calle"))
+                consultaSql += " AND (i.calle LIKE '%' + @calle + '%') ";
+
+            if (parametros.ContainsKey("baños"))
+                consultaSql += " AND (i.cantBaños = @baños) ";
+
+            if (parametros.ContainsKey("habitaciones"))
+                consultaSql += " AND (i.cantHabitaciones = @habitaciones) ";
+
+            if (parametros.ContainsKey("mtsMin"))
+                consultaSql += " AND (i.m2 >= @mtsMin) ";
+
+            if (parametros.ContainsKey("mtsMax"))
+                consultaSql += " AND (i.m2 <= @mtsMax) ";
+
+            if (parametros.ContainsKey("montoAlqMin"))
+                consultaSql += " AND (i.montoAlquiler >= @montoAlqMin) ";
+
+            if (parametros.ContainsKey("montoAlqMax"))
+                consultaSql += " AND (i.montoAlquiler <= @montoAlqMax) ";
+
+            if (parametros.ContainsKey("montoVtaMin"))
+                consultaSql += " AND (i.montoVenta >= @montoVtaMin) ";
+
+            if (parametros.ContainsKey("montoVtaMax"))
+                consultaSql += " AND (i.montoVenta <= @montoVtaMax) ";
+
+            if (parametros.ContainsKey("tipoInmueble"))
+                consultaSql += " AND (i.idTipoInmueble = @tipoInmueble) ";
+
+            return consultaSql;
+        }
+
+        #endregion
 
         #region Mapeo
         private Inmueble MapToEntity(DataRow row)
         {
             Inmueble inmueble = new Inmueble
             {
+                Id = (int)row["idInmueble"],
                 Calle = row["calle"].ToString(),
-                CalleNumero = (int)row["calleNumero"],
+                CalleNumero = (int)row["calleNro"],
+                MetrosCuadrados = (double)row["m2"],
                 Baños = (int)row["cantBaños"],
-                Descripcion = row["descripcion"].ToString(),
                 Habitaciones = (int)row["cantHabitaciones"],
-                Id = (int)row["id"],
-                MetrosCuadrados = (int)row["m2"],
-                MontoAlquiler = (int)row["montoAlquiler"],
-                MontoVenta = (int)row["montoVenta"],
-                TipoInmueble = new TipoInmueble
-
-
-
+                Descripcion = row["descripcion"].ToString(),
+                MontoAlquiler = (int)row["montoalquiler"],
+                MontoVenta = (int)row["montoventa"],
+                TipoInmueble = new TipoInmueble()
+                {
+                    Id = (int)row["idTipoInmueble"],
+                    Nombre = row["nombre"].ToString(),
+                    Descripcion = row["descripcionTipoInmueble"].ToString()
+                }
             };
             return inmueble;
         }
