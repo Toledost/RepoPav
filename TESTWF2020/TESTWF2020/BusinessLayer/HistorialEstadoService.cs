@@ -21,5 +21,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return historialDao.GetHistorialEstadoByInmuebleID(idInmueble);
         }
+
+        internal IList<HistorialEstado> GetAll()
+        {
+            return historialDao.GetAll();
+        }
     }
 }

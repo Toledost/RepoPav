@@ -130,5 +130,10 @@ namespace TESTWF2020.GUILayer
         {
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

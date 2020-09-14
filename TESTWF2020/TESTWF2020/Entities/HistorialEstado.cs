@@ -11,7 +11,7 @@ namespace TESTWF2020.Entities
         public Inmueble Inmueble { get; set; }
         public EstadoInmueble Estado { get; set; }
         public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+        public DateTime? FechaFin { get; set; }
 
     }
 }

@@ -37,6 +37,31 @@ namespace TESTWF2020.DataAccessLayer
             return historial;
         }
 
+        internal IList<HistorialEstado> GetAll()
+        {
+            IList<HistorialEstado> historial = new List<HistorialEstado>();
+            var dm = new DataManager();
+
+            string consultaSQL = "SELECT " +
+                "h.idInmueble, " +
+                "e.nombre AS nombreEstado, " +
+                "e.idEstadoInmueble " +
+                "FROM HistorialEstado h " +
+                "JOIN EstadoInmueble e ON h.idEstadoInmueble = e.idEstadoInmueble " +
+                "WHERE h.borrado = 0";
+                
+            var busqueda = dm.ConsultaSQL2(consultaSQL);
+
+            if (busqueda.Rows.Count > 0)
+            {
+                foreach (DataRow row in busqueda.Rows)
+                {
+                    historial.Add(MapToEntity(row));
+                }
+            }
+            return historial;
+        }
+
         public HistorialEstado MapToEntity(DataRow dataRow)
         {
             HistorialEstado historialEstado = new HistorialEstado
