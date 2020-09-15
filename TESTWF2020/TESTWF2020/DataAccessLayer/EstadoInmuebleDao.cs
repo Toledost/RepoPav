@@ -8,7 +8,7 @@ using TESTWF2020.Entities;
 
 namespace TESTWF2020.DataAccessLayer
 {
-    public class EstadoDao
+    public class EstadoInmuebleDao
     {
         internal IList<EstadoInmueble> GetAll()
         {

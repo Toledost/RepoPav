@@ -8,12 +8,12 @@ using TESTWF2020.Entities;
 
 namespace TESTWF2020.BusinessLayer
 {
-    public class EstadoService
+    public class EstadoInmuebleService
     {
-        private EstadoDao estadoDao;
-        public EstadoService()
+        private EstadoInmuebleDao estadoDao;
+        public EstadoInmuebleService()
         {
-            this.estadoDao = new EstadoDao();
+            this.estadoDao = new EstadoInmuebleDao();
         }
 
         internal IList<EstadoInmueble> GetAll()

@@ -20,14 +20,14 @@ namespace TESTWF2020.GUILayer.ABM
         private int idInmueble;
         private InmuebleService inmuebleService;
         private HistorialEstadoService historialService;
-        private EstadoService estadoService;
+        private EstadoInmuebleService estadoInmuebleService;
 
         public frmABMCInmueble()
         {
             InitializeComponent();
             this.inmuebleService = new InmuebleService();
             this.historialService = new HistorialEstadoService();
-            this.estadoService = new EstadoService();
+            this.estadoInmuebleService = new EstadoInmuebleService();
         }
 
         public frmABMCInmueble(bool esNuevo)
@@ -36,7 +36,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.esNuevo = esNuevo;
             this.inmuebleService = new InmuebleService();
             this.historialService = new HistorialEstadoService();
-            this.estadoService = new EstadoService();
+            this.estadoInmuebleService = new EstadoInmuebleService();
         }
 
         public frmABMCInmueble(bool esNuevo, int idInmueble)
@@ -46,7 +46,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.idInmueble = idInmueble;
             this.inmuebleService = new InmuebleService();
             this.historialService = new HistorialEstadoService();
-            this.estadoService = new EstadoService();
+            this.estadoInmuebleService = new EstadoInmuebleService();
         }
 
         private void frmABMCInmueble_Load(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void CargarComboEstado()
         {
-            this.cboEstado.DataSource = estadoService.GetAll();
+            this.cboEstado.DataSource = estadoInmuebleService.GetAll();
             this.cboEstado.SelectedIndex = -1;
             //this.cboEstado.ValueMember = ;
 
