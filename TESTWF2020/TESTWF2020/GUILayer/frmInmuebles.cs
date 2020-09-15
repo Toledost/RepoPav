@@ -123,7 +123,16 @@ namespace TESTWF2020.GUILayer
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (dgvInmuebles.SelectedRows.Count == 1)
+            {
+                var idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
+                inmuebleService.Delete(idInmuebleSeleccionado);
+                btnConsultar_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ningún Inmueble");
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -134,6 +143,15 @@ namespace TESTWF2020.GUILayer
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            foreach (var textBox in Controls.OfType<TextBox>())
+            {
+                textBox.Clear();
+            }
+            cboTipo.SelectedIndex = -1;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace TESTWF2020.DataAccessLayer
         {
             var resultado = new List<TipoInmueble>();
 
-            string consultaSql = "SELECT * FROM TipoInmueble";
+            string consultaSql = "SELECT * FROM TipoInmueble WHERE borrado = 0";
 
             var dm = new DataManager();
 

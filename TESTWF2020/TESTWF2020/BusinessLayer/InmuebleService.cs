@@ -31,9 +31,16 @@ namespace TESTWF2020.BusinessLayer
             inmuebleDao.Delete(id);
         }
 
+
+
         internal Inmueble GetById(int idInmueble)
         {
             return inmuebleDao.GetById(idInmueble);
+        }
+
+        internal void Update(Inmueble inmueble, bool v)
+        {
+            inmuebleDao.Update(inmueble, v);
         }
     }
 }

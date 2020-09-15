@@ -37,6 +37,26 @@ namespace TESTWF2020.DataAccessLayer
             return historial;
         }
 
+        internal void Create(HistorialEstado historialEstado)
+        {
+            string consultaSql = "INSERT INTO HistorialEstado " +
+                "(idInmueble, " +
+                "idEstadoInmueble, " +
+                "fechaInicio) " +
+                "VALUES (@idInmueble, " +
+                "@idEstadoInmueble, " +
+                "@fechaInicio) ";
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("idInmueble", historialEstado.Inmueble.Id);
+            parametros.Add("idEstadoInmueble", historialEstado.Estado.Id);
+            parametros.Add("fechaInicio", historialEstado.FechaInicio);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+        }
+
         internal IList<HistorialEstado> GetAll()
         {
             IList<HistorialEstado> historial = new List<HistorialEstado>();

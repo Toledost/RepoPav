@@ -26,5 +26,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return historialDao.GetAll();
         }
+
+        internal void Create(HistorialEstado historialEstado)
+        {
+            historialDao.Create(historialEstado);
+        }
     }
 }

@@ -82,20 +82,81 @@ namespace TESTWF2020.DataAccessLayer
         public void Create(Inmueble inmueble)
         {
             string consultaSql = "INSERT INTO Inmueble " +
-                "(calle) " +
-                "VALUES ('123')";
+                "([calle]" +
+                ",[calleNro]" +
+                ",[m2]" +
+                ",[cantBaños]" +
+                ",[cantHabitaciones]" +
+                ",[idTipoInmueble]" +
+                ",[descripcion]" +
+                ",[montoAlquiler]" +
+                ",[montoVenta]) " +
+                "VALUES " +
+                "(@calle" +
+                ",@calleNro" +
+                ",@m2" +
+                ",@cantBaños" +
+                ",@cantHabitaciones" +
+                ",@idTipoInmueble" +
+                ",@descripcion" +
+                ",@montoAlquiler" +
+                ",@montoVenta) ";
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("calle", inmueble.Calle);
+            parametros.Add("idTipoInmueble", inmueble.TipoInmueble.Id);
+            parametros.Add("calleNro", inmueble.CalleNumero);
+            parametros.Add("m2", inmueble.MetrosCuadrados);
+            parametros.Add("cantBaños", inmueble.Baños);
+            parametros.Add("cantHabitaciones", inmueble.Habitaciones);
+            parametros.Add("descripcion", inmueble.Descripcion);
+            parametros.Add("montoAlquiler", inmueble.MontoAlquiler);
+            parametros.Add("montoVenta", inmueble.MontoVenta);
+
+
+
             DataManager dm = new DataManager();
-            var resultado = dm.EjecutarSQLConParametros2(consultaSql, new Dictionary<string, object>());
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
                 
         }
 
-        public void Update(Inmueble inmueble)
+        public void Update(Inmueble inmueble, bool cambioEstado)
         {
             string consultaSql = "UPDATE Inmueble " +
                 "SET " +
-                "WHERE idInmueble = @id";
+                "[calle] = @calle" +
+                ",[calleNro] = @calleNro" +
+                ",[m2] = @m2" +
+                ",[cantBaños] = @cantBaños" +
+                ",[cantHabitaciones] = @cantHabitaciones" +
+                ",[idTipoInmueble] = @idTipoInmueble" +
+                ",[descripcion] = @descripcion" +
+                ",[montoAlquiler] = @montoAlquiler" +
+                ",[montoVenta] = @montoVenta " +
+                "WHERE idInmueble = @id ";
+
+            if (cambioEstado)
+            {
+                consultaSql += " UPDATE HistorialEstado SET fechaFin = GetUTCDATE() " +
+                    "WHERE idInmueble = @id ";
+            }
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("calle", inmueble.Calle);
+            parametros.Add("idTipoInmueble", inmueble.TipoInmueble.Id);
+            parametros.Add("calleNro", inmueble.CalleNumero);
+            parametros.Add("m2", inmueble.MetrosCuadrados);
+            parametros.Add("cantBaños", inmueble.Baños);
+            parametros.Add("cantHabitaciones", inmueble.Habitaciones);
+            parametros.Add("descripcion", inmueble.Descripcion);
+            parametros.Add("montoAlquiler", inmueble.MontoAlquiler);
+            parametros.Add("montoVenta", inmueble.MontoVenta);
+            parametros.Add("id", inmueble.Id);
+
             DataManager dm = new DataManager();
-            var resultado = dm.EjecutarSQLConParametros2(consultaSql, new Dictionary<string, object>());
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
 
         }
 
@@ -103,7 +164,8 @@ namespace TESTWF2020.DataAccessLayer
         {
             var parametros = new Dictionary<string, object>();
 
-            string consultaSql = "DELETE FROM Inmueble WHERE idInmueble = @id";
+            string consultaSql = "UPDATE Inmueble SET borrado = 1 WHERE idInmueble = @id " +
+                "UPDATE HistorialEstado SET borrado = 1 WHERE idInmueble = @id";
 
             parametros.Add("id", id);
 

@@ -41,6 +41,7 @@ namespace TESTWF2020
             frmInmuebles frmInmuebles = new frmInmuebles();
             this.Hide();
             frmInmuebles.ShowDialog();
+            this.Show();
         }
     }
 }
