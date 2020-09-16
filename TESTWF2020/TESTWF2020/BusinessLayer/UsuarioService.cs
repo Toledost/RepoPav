@@ -8,6 +8,7 @@ using TESTWF2020.Entities;
 
 namespace TESTWF2020.BusinessLayer
 {
+    
     public class UsuarioService
     {
         private UsuarioDao usuarioDao;
@@ -24,6 +25,16 @@ namespace TESTWF2020.BusinessLayer
                 return resUsuario;
             }
             return null;
+        }
+
+        internal void Insert(Usuario user)
+        {
+            usuarioDao.Insert(user);
+        }
+
+        internal void GetAll()
+        {
+            usuarioDao.GetAll();
         }
     }
 }

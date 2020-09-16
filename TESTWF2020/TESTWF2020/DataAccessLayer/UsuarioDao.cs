@@ -23,8 +23,53 @@ namespace TESTWF2020.DataAccessLayer
             }
             return null;
         }
+
+        internal void Insert(Usuario user)
+        {
+            string consultaSQL = "INSERT INTO Usuario " +
+                                "(usuario, " +
+                                "contraseña, " +
+                                "fechaAlta, " +
+                                "idPerfil) " +
+                                "VALUES " +
+                                "(@usuario, " +
+                                "@contraseña, " +
+                                "GetUTCDATE(), " +
+                                "@idPerfil)";
+            var parametros = CrearDiccionarioDeParametros(user);
+            DataManager dm = new DataManager();
+            var insertado = dm.EjecutarSQLConParametros2(consultaSQL,parametros);
+
+        }
+
+        internal IList<Usuario> GetAll()
+        {
+            IList<Usuario> usuarios = new List<Usuario>();
+            DataManager dm = new DataManager();
+            string consultaSQL = "SELECT * " +
+                                "FROM Usuario " +
+                                "WHERE borrado = 0";
+            var resultadoSQL = dm.ConsultaSQL2(consultaSQL);
+            if (resultadoSQL.Rows.Count > 0)
+            {
+                foreach (DataRow row in resultadoSQL.Rows)
+                {
+                    usuarios.Add(MapToEntity(row));
+                }
+            }
+            return usuarios;
+        }
+
+        private Dictionary<string,object> CrearDiccionarioDeParametros(Usuario user)
+        {
+            Dictionary<string, object> diccionario = new Dictionary<string, object>();
+            diccionario.Add("usuario", user.Nombre);
+            diccionario.Add("contraseña", user.Contraseña);
+            diccionario.Add("idPerfil", user.Perfil.IdPerfil);
+            return diccionario;
+        }
         #endregion
-        
+
         #region Mapeo
         private Usuario MapToEntity(DataRow row)
         {
