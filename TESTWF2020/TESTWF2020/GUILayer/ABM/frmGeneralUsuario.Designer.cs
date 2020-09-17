@@ -32,7 +32,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.cboPerfil = new System.Windows.Forms.ComboBox();
+            this.cboPerfilGeneral = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -75,13 +75,13 @@
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 5;
             // 
-            // cboPerfil
+            // cboPerfilGeneral
             // 
-            this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Location = new System.Drawing.Point(205, 72);
-            this.cboPerfil.Name = "cboPerfil";
-            this.cboPerfil.Size = new System.Drawing.Size(121, 21);
-            this.cboPerfil.TabIndex = 6;
+            this.cboPerfilGeneral.FormattingEnabled = true;
+            this.cboPerfilGeneral.Location = new System.Drawing.Point(205, 72);
+            this.cboPerfilGeneral.Name = "cboPerfilGeneral";
+            this.cboPerfilGeneral.Size = new System.Drawing.Size(121, 21);
+            this.cboPerfilGeneral.TabIndex = 6;
             // 
             // btnBuscar
             // 
@@ -120,7 +120,7 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.cboPerfil);
+            this.Controls.Add(this.cboPerfilGeneral);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblNombre);
@@ -140,7 +140,7 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.ComboBox cboPerfil;
+        private System.Windows.Forms.ComboBox cboPerfilGeneral;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSalir;

@@ -28,7 +28,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text) &&
-                cboPerfil.SelectedIndex ==-1)
+                cboPerfilGeneral.SelectedIndex ==-1)
             {
                 usuarioService.GetAll();
             }
@@ -41,10 +41,10 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void CargarComboBox()
         {
-            //cboPerfil.DataSource = usuarioService.GetAll();
-            //cboPerfil.ValueMember = "usuario";
-            //cboPerfil.DisplayMember = "usuario";
-            //cboPerfil.SelectedIndex = -1;
+            cboPerfilGeneral.DataSource = usuarioService.GetAll();
+            cboPerfilGeneral.ValueMember = "nombre";
+            cboPerfilGeneral.DisplayMember = "nombre";
+            cboPerfilGeneral.SelectedIndex = -1;
         }
     }
 }

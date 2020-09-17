@@ -45,10 +45,11 @@ namespace TESTWF2020.DataAccessLayer
         internal IList<Usuario> GetAll()
         {
             IList<Usuario> usuarios = new List<Usuario>();
-            DataManager dm = new DataManager();
             string consultaSQL = "SELECT * " +
-                                "FROM Usuario " +
-                                "WHERE borrado = 0";
+                                "FROM Usuario u " +
+                                "JOIN Perfil p ON u.idPerfil = p.idPerfil ";
+                                //+ "WHERE borrado = 0";
+            DataManager dm = new DataManager();
             var resultadoSQL = dm.ConsultaSQL2(consultaSQL);
             if (resultadoSQL.Rows.Count > 0)
             {

@@ -32,9 +32,9 @@ namespace TESTWF2020.BusinessLayer
             usuarioDao.Insert(user);
         }
 
-        internal void GetAll()
+        internal IList<Usuario> GetAll()
         {
-            usuarioDao.GetAll();
+            return usuarioDao.GetAll();
         }
     }
 }
