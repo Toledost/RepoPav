@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dgvGeneralUsuario = new System.Windows.Forms.DataGridView();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.cboPerfilGeneral = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneralUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,70 +52,8 @@
             this.dgvGeneralUsuario.Location = new System.Drawing.Point(55, 201);
             this.dgvGeneralUsuario.Name = "dgvGeneralUsuario";
             this.dgvGeneralUsuario.ReadOnly = true;
-            this.dgvGeneralUsuario.Size = new System.Drawing.Size(486, 150);
+            this.dgvGeneralUsuario.Size = new System.Drawing.Size(251, 140);
             this.dgvGeneralUsuario.TabIndex = 0;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(62, 37);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre";
-            // 
-            // lblPerfil
-            // 
-            this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Location = new System.Drawing.Point(76, 72);
-            this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(30, 13);
-            this.lblPerfil.TabIndex = 3;
-            this.lblPerfil.Text = "Perfil";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(205, 37);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
-            // 
-            // cboPerfilGeneral
-            // 
-            this.cboPerfilGeneral.FormattingEnabled = true;
-            this.cboPerfilGeneral.Location = new System.Drawing.Point(205, 72);
-            this.cboPerfilGeneral.Name = "cboPerfilGeneral";
-            this.cboPerfilGeneral.Size = new System.Drawing.Size(121, 21);
-            this.cboPerfilGeneral.TabIndex = 6;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(428, 70);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 7;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(65, 384);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(478, 384);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 9;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // nombre
             // 
@@ -129,13 +67,76 @@
             this.Perfil.Name = "Perfil";
             this.Perfil.ReadOnly = true;
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(79, 46);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // lblPerfil
+            // 
+            this.lblPerfil.AutoSize = true;
+            this.lblPerfil.Location = new System.Drawing.Point(93, 91);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(30, 13);
+            this.lblPerfil.TabIndex = 3;
+            this.lblPerfil.Text = "Perfil";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(145, 46);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(146, 20);
+            this.txtNombre.TabIndex = 5;
+            // 
+            // cboPerfilGeneral
+            // 
+            this.cboPerfilGeneral.FormattingEnabled = true;
+            this.cboPerfilGeneral.Location = new System.Drawing.Point(145, 83);
+            this.cboPerfilGeneral.Name = "cboPerfilGeneral";
+            this.cboPerfilGeneral.Size = new System.Drawing.Size(146, 21);
+            this.cboPerfilGeneral.TabIndex = 6;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(216, 135);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(231, 384);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 9;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(55, 384);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 10;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // frmGeneralUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 443);
+            this.ClientSize = new System.Drawing.Size(370, 449);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cboPerfilGeneral);
             this.Controls.Add(this.txtNombre);
@@ -159,9 +160,9 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox cboPerfilGeneral;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Perfil;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }

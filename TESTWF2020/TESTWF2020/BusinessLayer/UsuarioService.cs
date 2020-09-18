@@ -41,5 +41,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return usuarioDao.GetByFilters(dicc);
         }
+
+        //internal Usuario GetNombre(Usuario usuarioSeleccionado)
+        //{
+        //    return UsuarioDao.GetNombre(usuarioSeleccionado);
+        //}
     }
 }

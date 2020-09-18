@@ -41,14 +41,14 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(242, 137);
+            this.txtNombre.Location = new System.Drawing.Point(224, 98);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 0;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(242, 163);
+            this.txtContraseña.Location = new System.Drawing.Point(224, 124);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(100, 20);
             this.txtContraseña.TabIndex = 1;
@@ -56,16 +56,15 @@
             // cboPerfil
             // 
             this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Location = new System.Drawing.Point(242, 189);
+            this.cboPerfil.Location = new System.Drawing.Point(224, 150);
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(121, 21);
             this.cboPerfil.TabIndex = 2;
-            
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(169, 163);
+            this.lblContraseña.Location = new System.Drawing.Point(151, 124);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(67, 13);
             this.lblContraseña.TabIndex = 4;
@@ -74,7 +73,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(186, 141);
+            this.lblNombre.Location = new System.Drawing.Point(168, 102);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(50, 13);
             this.lblNombre.TabIndex = 5;
@@ -83,7 +82,7 @@
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Location = new System.Drawing.Point(200, 194);
+            this.lblPerfil.Location = new System.Drawing.Point(182, 155);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(36, 13);
             this.lblPerfil.TabIndex = 6;
@@ -91,7 +90,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(115, 331);
+            this.btnRegistrar.Location = new System.Drawing.Point(97, 292);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 7;
@@ -101,7 +100,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(356, 331);
+            this.btnSalir.Location = new System.Drawing.Point(338, 292);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
@@ -111,7 +110,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(242, 331);
+            this.btnConsultar.Location = new System.Drawing.Point(224, 292);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 10;
@@ -123,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 449);
+            this.ClientSize = new System.Drawing.Size(513, 409);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnRegistrar);

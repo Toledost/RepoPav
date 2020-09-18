@@ -84,5 +84,24 @@ namespace TESTWF2020.GUILayer.ABM
                 this.dgvGeneralUsuario.Rows.Add(usuario.Nombre, usuario.Perfil);
             }
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            //frmEditarUsuarios frmEditarUsuarios = new frmEditarUsuarios();
+            //this.Hide();
+            //frmEditarUsuarios.ShowDialog();
+            //this.Show();
+
+            if (dgvGeneralUsuario.SelectedRows.Count == 1)
+            {
+                var usuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["nombre"].Value;
+                frmEditarUsuarios frmEditarUsuarios = new frmEditarUsuarios();
+                frmEditarUsuarios.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ningún Inmueble");
+            }
+        }
     }
 }
