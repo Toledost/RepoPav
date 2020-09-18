@@ -71,6 +71,5 @@ namespace TESTWF2020.GUILayer.ABM
             this.Show();
         }
 
-        
     }
 }

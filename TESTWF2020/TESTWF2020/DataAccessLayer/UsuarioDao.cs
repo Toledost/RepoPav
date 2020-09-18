@@ -42,6 +42,24 @@ namespace TESTWF2020.DataAccessLayer
 
         }
 
+        //internal Usuario GetNombre(Usuario usuarioSeleccionado)
+        //{
+        //    IList<Usuario> usuarios = new List<Usuario>();
+        //    string consultaSQL = "SELECT usuario" +
+        //        "   FROM Usuario " +
+        //        "   WHERE borrado = 0 ";
+        //    DataManager dm = new DataManager();
+        //    var resultado = dm.ConsultaSQL2(consultaSQL);
+        //    if (resultado.Rows.Count>0)
+        //    {
+        //        foreach (DataRow row in resultado.Rows)
+        //        {
+        //            usuarios.Add(MapToEntity(row));
+        //        }
+        //    }
+        //    return (Usuario)usuarios;
+        //}
+
         internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc)
         {
             IList<Usuario> usuarios = new List<Usuario>();
@@ -63,7 +81,6 @@ namespace TESTWF2020.DataAccessLayer
                 foreach (DataRow row in resultado.Rows)
                 {
                     usuarios.Add(MapToEntity(row));
-                    
                 }
             }
             return usuarios;
