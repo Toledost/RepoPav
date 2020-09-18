@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TESTWF2020.DataAccessLayer;
+using TESTWF2020.Entities;
+
+namespace TESTWF2020.BusinessLayer
+{
+    public class ClienteService
+    {
+        private ClienteDao clienteDao;
+        public ClienteService()
+        {
+            this.clienteDao = new ClienteDao();
+        }
+
+        internal IList<Cliente> GetAll()
+        {
+            return clienteDao.GetAll();
+        }
+
+    }
+}
