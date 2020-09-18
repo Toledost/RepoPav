@@ -8,16 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
+using TESTWF2020.Entities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
     public partial class frmGeneralUsuario : Form
     {
         private UsuarioService usuarioService;
+        private PerfilService perfilService;
         public frmGeneralUsuario()
         {
             InitializeComponent();
             usuarioService = new UsuarioService();
+            perfilService = new PerfilService();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -27,11 +30,37 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            IList<Usuario> listaUsuarios = new List<Usuario>();
+
             if (string.IsNullOrWhiteSpace(txtNombre.Text) &&
                 cboPerfilGeneral.SelectedIndex ==-1)
             {
-                usuarioService.GetAll();
+                listaUsuarios =  usuarioService.GetAll();
             }
+            else
+            {
+                var dicc = CrearDiccionario();
+                listaUsuarios = usuarioService.GetByFilters(dicc);
+            }
+            CargarGrilla(listaUsuarios);
+        }
+        private Dictionary<string,object> CrearDiccionario()
+        {
+            var dicc = new Dictionary<string, object>();
+            if (!string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                dicc.Add("usuario", txtNombre.Text);
+            }
+            if (!(cboPerfilGeneral.SelectedIndex ==-1))
+            {
+                dicc.Add("idPerfil",cboPerfilGeneral.SelectedValue);
+            }
+            return dicc;
+        }
+        private void CargarTextBox(Usuario usuario)
+        {
+            this.txtNombre.Text = usuario.Nombre.ToString();
+            this.cboPerfilGeneral.SelectedValue = usuario.Perfil.IdPerfil.ToString();
         }
 
         private void frmGeneralUsuario_Load(object sender, EventArgs e)
@@ -41,10 +70,19 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void CargarComboBox()
         {
-            cboPerfilGeneral.DataSource = usuarioService.GetAll();
-            cboPerfilGeneral.ValueMember = "nombre";
+            cboPerfilGeneral.DataSource = perfilService.GetAll();
+            cboPerfilGeneral.ValueMember = "idPerfil";
             cboPerfilGeneral.DisplayMember = "nombre";
             cboPerfilGeneral.SelectedIndex = -1;
+        }
+
+        private void CargarGrilla(IList<Usuario> lista)
+        {
+            this.dgvGeneralUsuario.Rows.Clear();
+            foreach (var usuario in lista)
+            {   
+                this.dgvGeneralUsuario.Rows.Add(usuario.Nombre, usuario.Perfil);
+            }
         }
     }
 }

@@ -60,6 +60,7 @@
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(121, 21);
             this.cboPerfil.TabIndex = 2;
+            
             // 
             // lblContraseña
             // 

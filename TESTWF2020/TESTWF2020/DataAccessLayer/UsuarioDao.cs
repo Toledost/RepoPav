@@ -42,13 +42,57 @@ namespace TESTWF2020.DataAccessLayer
 
         }
 
+        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc)
+        {
+            IList<Usuario> usuarios = new List<Usuario>();
+            string consultaSQL = "SELECT u.usuario," +
+                " p.idPerfil," +
+                " p.nombre," +
+                " u.contraseña," +
+                " u.fechaAlta " +
+                " FROM Usuario u " +
+                " JOIN Perfil p on u.idPerfil = p.idPerfil " +
+                " WHERE " +
+                " u.borrado = 0 ";
+
+            DataManager dm = new DataManager();
+            consultaSQL = AgregarParametros(dicc, consultaSQL);
+            var resultado = dm.ConsultaSQLConParametros2(consultaSQL,dicc);
+            if (resultado.Rows.Count > 0)
+            {
+                foreach (DataRow row in resultado.Rows)
+                {
+                    usuarios.Add(MapToEntity(row));
+                    
+                }
+            }
+            return usuarios;
+            
+        }
+        private string AgregarParametros(Dictionary<string,object> dicc, string consultaSQL)
+        {
+            if (dicc.ContainsKey("usuario"))
+            {
+                consultaSQL += " AND u.usuario LIKE '%' + @usuario + '%' ";
+            }
+            if (dicc.ContainsKey("idPerfil"))
+            {
+                consultaSQL += " AND p.idPerfil = @idPerfil ";
+            }
+            return consultaSQL;
+        }
+
         internal IList<Usuario> GetAll()
         {
             IList<Usuario> usuarios = new List<Usuario>();
-            string consultaSQL = "SELECT * " +
-                                "FROM Usuario u " +
-                                "JOIN Perfil p ON u.idPerfil = p.idPerfil ";
-                                //+ "WHERE borrado = 0";
+            string consultaSQL = "SELECT u.usuario," +
+                " p.idPerfil," +
+                " p.nombre," +
+                " u.contraseña," +
+                " u.fechaAlta " +
+                " FROM Usuario u " +
+                " JOIN Perfil p on u.idPerfil = p.idPerfil " +
+                " WHERE u.borrado = 0";
             DataManager dm = new DataManager();
             var resultadoSQL = dm.ConsultaSQL2(consultaSQL);
             if (resultadoSQL.Rows.Count > 0)
@@ -81,13 +125,22 @@ namespace TESTWF2020.DataAccessLayer
                 FechaAlta = (DateTime)row["fechaAlta"],
                 Perfil = new Perfil
                 {
-                    Descripcion = row["descripcion"].ToString(),
                     Nombre = row["nombre"].ToString(),
                     IdPerfil = (int)row["idPerfil"]
                 }
             };
             return usuario; 
         }
+        //private Perfil MapToEntity2(DataRow row)
+        //{
+        //    Perfil perfil = new Perfil
+        //    {
+        //        IdPerfil = (int)row["idPerfil"],
+        //        Nombre = row["nombre"].ToString(),
+        //        Descripcion = row["descripcion"].ToString()
+        //    };
+        //    return perfil;
+        //}
         #endregion
     }
 }

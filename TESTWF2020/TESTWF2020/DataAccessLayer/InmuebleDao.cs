@@ -184,7 +184,7 @@ namespace TESTWF2020.DataAccessLayer
         private string AgregarParametros(Dictionary<string, object> parametros, string consultaSql)
         {
             if (parametros.ContainsKey("id"))
-                consultaSql += " AND (i.idInmueble LIKE =@id) ";
+                consultaSql += " AND (i.idInmueble = @id) ";
 
             if (parametros.ContainsKey("calle"))
                 consultaSql += " AND (i.calle LIKE '%' + @calle + '%') ";

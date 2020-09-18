@@ -36,6 +36,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneralUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,9 @@
             this.dgvGeneralUsuario.AllowUserToAddRows = false;
             this.dgvGeneralUsuario.AllowUserToDeleteRows = false;
             this.dgvGeneralUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGeneralUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombre,
+            this.Perfil});
             this.dgvGeneralUsuario.Location = new System.Drawing.Point(55, 201);
             this.dgvGeneralUsuario.Name = "dgvGeneralUsuario";
             this.dgvGeneralUsuario.ReadOnly = true;
@@ -112,6 +117,18 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // Perfil
+            // 
+            this.Perfil.HeaderText = "Perfil";
+            this.Perfil.Name = "Perfil";
+            this.Perfil.ReadOnly = true;
+            // 
             // frmGeneralUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,5 +161,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Perfil;
     }
 }

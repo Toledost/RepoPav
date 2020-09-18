@@ -36,5 +36,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return usuarioDao.GetAll();
         }
+
+        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc)
+        {
+            return usuarioDao.GetByFilters(dicc);
+        }
     }
 }

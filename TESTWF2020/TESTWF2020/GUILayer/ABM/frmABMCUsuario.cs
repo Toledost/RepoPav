@@ -70,5 +70,7 @@ namespace TESTWF2020.GUILayer.ABM
             frmGeneralUsuario.ShowDialog();
             this.Show();
         }
+
+        
     }
 }
