@@ -45,6 +45,14 @@ namespace TESTWF2020
             this.Show();
         }
 
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCliente frmCliente = new frmABMCliente();
+            this.Hide();
+            frmCliente.ShowDialog();
+            this.Show();
+        }
+
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmABMCUsuario frmABMCUsuario = new frmABMCUsuario();
