@@ -44,6 +44,7 @@ namespace TESTWF2020.GUILayer.ABM
             }
             CargarGrilla(listaUsuarios);
         }
+
         private Dictionary<string,object> CrearDiccionario()
         {
             var dicc = new Dictionary<string, object>();
@@ -66,6 +67,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void frmGeneralUsuario_Load(object sender, EventArgs e)
         {
             CargarComboBox();
+            
         }
 
         private void CargarComboBox()
@@ -87,20 +89,15 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-            //frmEditarUsuarios frmEditarUsuarios = new frmEditarUsuarios();
-            //this.Hide();
-            //frmEditarUsuarios.ShowDialog();
-            //this.Show();
-
             if (dgvGeneralUsuario.SelectedRows.Count == 1)
             {
-                var usuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["nombre"].Value;
-                frmEditarUsuarios frmEditarUsuarios = new frmEditarUsuarios();
-                frmEditarUsuarios.ShowDialog();
+                var usuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value;
+                frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(usuarioSeleccionado);
+                frmABMCUsuario.ShowDialog();
             }
             else
             {
-                MessageBox.Show("No seleccionó ningún Inmueble");
+                MessageBox.Show("No seleccionó ningún Usuario");
             }
         }
     }

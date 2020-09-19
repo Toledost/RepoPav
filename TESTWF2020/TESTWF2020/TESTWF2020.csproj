@@ -79,12 +79,6 @@
     <Compile Include="GUILayer\ABM\frmABMCUsuario.Designer.cs">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmEditarUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\ABM\frmEditarUsuarios.Designer.cs">
-      <DependentUpon>frmEditarUsuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUILayer\ABM\frmGeneralUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,9 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCUsuario.resx">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmEditarUsuarios.resx">
-      <DependentUpon>frmEditarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmGeneralUsuario.resx">
       <DependentUpon>frmGeneralUsuario.cs</DependentUpon>

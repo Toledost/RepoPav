@@ -47,9 +47,9 @@ namespace TESTWF2020
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmABMCUsuario frmABMCUsuario = new frmABMCUsuario();
+            frmGeneralUsuario frmGeneralUsuario = new frmGeneralUsuario();
             this.Hide();
-            frmABMCUsuario.ShowDialog();
+            frmGeneralUsuario.ShowDialog();
             this.Show();
         }
     }

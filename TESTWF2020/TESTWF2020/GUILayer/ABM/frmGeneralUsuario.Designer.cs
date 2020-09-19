@@ -38,6 +38,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnDetalle = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneralUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             this.dgvGeneralUsuario.Location = new System.Drawing.Point(55, 201);
             this.dgvGeneralUsuario.Name = "dgvGeneralUsuario";
             this.dgvGeneralUsuario.ReadOnly = true;
-            this.dgvGeneralUsuario.Size = new System.Drawing.Size(251, 140);
+            this.dgvGeneralUsuario.Size = new System.Drawing.Size(366, 140);
             this.dgvGeneralUsuario.TabIndex = 0;
             // 
             // nombre
@@ -89,7 +91,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(145, 46);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(146, 20);
+            this.txtNombre.Size = new System.Drawing.Size(234, 20);
             this.txtNombre.TabIndex = 5;
             // 
             // cboPerfilGeneral
@@ -97,12 +99,12 @@
             this.cboPerfilGeneral.FormattingEnabled = true;
             this.cboPerfilGeneral.Location = new System.Drawing.Point(145, 83);
             this.cboPerfilGeneral.Name = "cboPerfilGeneral";
-            this.cboPerfilGeneral.Size = new System.Drawing.Size(146, 21);
+            this.cboPerfilGeneral.Size = new System.Drawing.Size(234, 21);
             this.cboPerfilGeneral.TabIndex = 6;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(216, 135);
+            this.btnBuscar.Location = new System.Drawing.Point(304, 134);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 7;
@@ -112,7 +114,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(231, 384);
+            this.btnSalir.Location = new System.Drawing.Point(335, 384);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
@@ -122,7 +124,7 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(55, 384);
+            this.btnDetalle.Location = new System.Drawing.Point(131, 384);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 10;
@@ -130,11 +132,31 @@
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(36, 384);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 11;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(221, 384);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
             // frmGeneralUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 449);
+            this.ClientSize = new System.Drawing.Size(485, 441);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
@@ -164,5 +186,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Perfil;
         private System.Windows.Forms.Button btnDetalle;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

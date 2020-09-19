@@ -16,6 +16,8 @@ namespace TESTWF2020.GUILayer.ABM
     {
         private PerfilService perfilService;
         private UsuarioService usuarioService;
+        private object usuarioSeleccionado;
+
         public frmABMCUsuario()
         {
             InitializeComponent();
@@ -23,7 +25,15 @@ namespace TESTWF2020.GUILayer.ABM
             usuarioService = new UsuarioService();
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)
+        public frmABMCUsuario(object usuarioSeleccionado)
+        {
+            InitializeComponent();
+            this.usuarioSeleccionado = usuarioSeleccionado;
+            perfilService = new PerfilService();
+            usuarioService = new UsuarioService();
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(this.txtNombre.Text) 
                 && !string.IsNullOrWhiteSpace(this.txtContraseña.Text)
@@ -41,13 +51,16 @@ namespace TESTWF2020.GUILayer.ABM
                 usuarioService.Insert(user);
                 MessageBox.Show("Se creo correctamente el usuario");
             }
-
-            
         }
 
         private void frmABMCUsuario_Load(object sender, EventArgs e)
         {
             CargarComboBox();
+            if (usuarioSeleccionado != "")
+            {
+                this.btnGrabar.Enabled = false;
+                //Usuario usuarioSelec = 
+            }
         }
 
         private void CargarComboBox()
@@ -61,14 +74,6 @@ namespace TESTWF2020.GUILayer.ABM
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            frmGeneralUsuario frmGeneralUsuario = new frmGeneralUsuario();
-            this.Hide();
-            frmGeneralUsuario.ShowDialog();
-            this.Show();
         }
 
     }

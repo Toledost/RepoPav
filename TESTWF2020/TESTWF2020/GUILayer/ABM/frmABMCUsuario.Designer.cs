@@ -34,9 +34,9 @@
             this.lblContraseña = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -88,15 +88,15 @@
             this.lblPerfil.TabIndex = 6;
             this.lblPerfil.Text = "Perfil: ";
             // 
-            // btnRegistrar
+            // btnGrabar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(97, 292);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 7;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.btnGrabar.Location = new System.Drawing.Point(224, 292);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
+            this.btnGrabar.TabIndex = 7;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnSalir
             // 
@@ -108,24 +108,24 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnConsultar
+            // btnEditar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(224, 292);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 10;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.btnEditar.Location = new System.Drawing.Point(108, 292);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 10;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            
             // 
             // frmABMCUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 409);
-            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnRegistrar);
+            this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblContraseña);
@@ -148,8 +148,8 @@
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblPerfil;
-        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
