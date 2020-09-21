@@ -47,20 +47,20 @@ namespace TESTWF2020.GUILayer.ABM
             this.cboEstadoConsulta.DisplayMember = "Nombre";
             this.cboEstadoConsulta.SelectedIndex = -1;
 
-            this.cboViaConsulta.DataSource = viaDeConsultaService.GetAll();
-            this.cboViaConsulta.ValueMember = "Id";
-            this.cboViaConsulta.DisplayMember = "Nombre";
-            this.cboViaConsulta.SelectedIndex = -1;
+            //this.cboViaConsulta.DataSource = viaDeConsultaService.GetAll();
+            //this.cboViaConsulta.ValueMember = "Id";
+            //this.cboViaConsulta.DisplayMember = "Nombre";
+            //this.cboViaConsulta.SelectedIndex = -1;
 
-            this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
-            this.cboIDMedioConocimiento.ValueMember = "Id";
-            this.cboIDMedioConocimiento.DisplayMember = "Nombre";
-            this.cboIDMedioConocimiento.SelectedIndex = -1;
+            //this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
+            //this.cboIDMedioConocimiento.ValueMember = "Id";
+            //this.cboIDMedioConocimiento.DisplayMember = "Nombre";
+            //this.cboIDMedioConocimiento.SelectedIndex = -1;
 
-            this.cboIDTipoTrans.DataSource = tipoTransaccionService.GetAll();
-            this.cboIDTipoTrans.ValueMember = "Id";
-            this.cboIDTipoTrans.DisplayMember = "Nombre";
-            this.cboIDTipoTrans.SelectedIndex = -1;
+            //this.cboIDTipoTrans.DataSource = tipoTransaccionService.GetAll();
+            //this.cboIDTipoTrans.ValueMember = "Id";
+            //this.cboIDTipoTrans.DisplayMember = "Nombre";
+            //this.cboIDTipoTrans.SelectedIndex = -1;
 
 
 

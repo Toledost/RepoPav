@@ -64,6 +64,7 @@
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
     <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\EstadoConsulta.cs" />
     <Compile Include="Entities\EstadoInmueble.cs" />
@@ -86,6 +87,12 @@
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.Designer.cs">
+      <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmInmuebles.cs">
       <SubType>Form</SubType>
@@ -112,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCInmueble.resx">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCViaDeConsulta.resx">
+      <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>

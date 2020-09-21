@@ -20,15 +20,15 @@ namespace TESTWF2020
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            login.ShowDialog();
-            if (login.UsuarioLogueado == null)
-            {
-                this.Close();
-                return;
-            }
-            this.Show();
-            this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
+            //this.Hide();
+            //login.ShowDialog();
+            //if (login.UsuarioLogueado == null)
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            //this.Show();
+            //this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -50,6 +50,14 @@ namespace TESTWF2020
             frmABMCConsultas frmConsultas = new frmABMCConsultas();
             this.Hide();
             frmConsultas.ShowDialog();
+            this.Show();
+        }
+
+        private void viaDeConsultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCViaDeConsulta frmABMCViaDeConsulta = new frmABMCViaDeConsulta();
+            this.Hide();
+            frmABMCViaDeConsulta.ShowDialog();
             this.Show();
         }
     }
