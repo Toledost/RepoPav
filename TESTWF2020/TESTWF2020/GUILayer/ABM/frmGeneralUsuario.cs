@@ -44,6 +44,7 @@ namespace TESTWF2020.GUILayer.ABM
             }
             CargarGrilla(listaUsuarios);
         }
+
         private Dictionary<string,object> CrearDiccionario()
         {
             var dicc = new Dictionary<string, object>();
@@ -66,6 +67,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void frmGeneralUsuario_Load(object sender, EventArgs e)
         {
             CargarComboBox();
+            
         }
 
         private void CargarComboBox()
@@ -82,6 +84,20 @@ namespace TESTWF2020.GUILayer.ABM
             foreach (var usuario in lista)
             {   
                 this.dgvGeneralUsuario.Rows.Add(usuario.Nombre, usuario.Perfil);
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvGeneralUsuario.SelectedRows.Count == 1)
+            {
+                var usuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value;
+                frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(usuarioSeleccionado);
+                frmABMCUsuario.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ningún Usuario");
             }
         }
     }

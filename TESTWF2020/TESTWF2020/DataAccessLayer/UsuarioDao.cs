@@ -63,7 +63,6 @@ namespace TESTWF2020.DataAccessLayer
                 foreach (DataRow row in resultado.Rows)
                 {
                     usuarios.Add(MapToEntity(row));
-                    
                 }
             }
             return usuarios;

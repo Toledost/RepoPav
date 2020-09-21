@@ -12,6 +12,7 @@ namespace TESTWF2020.BusinessLayer
     public class UsuarioService
     {
         private UsuarioDao usuarioDao;
+        
         public UsuarioService()
         {
             usuarioDao = new UsuarioDao();
@@ -41,5 +42,6 @@ namespace TESTWF2020.BusinessLayer
         {
             return usuarioDao.GetByFilters(dicc);
         }
+
     }
 }
