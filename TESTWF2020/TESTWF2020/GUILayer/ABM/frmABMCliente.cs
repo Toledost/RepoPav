@@ -105,8 +105,24 @@ namespace TESTWF2020.GUILayer.ABM
 
             if (dniClienteSeleccionado == 0)
             {
-                clienteService.Create(cliente);
-                MessageBox.Show("Cliente creado", "Crear cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                
+                var res = clienteService.GetByDni(cliente.Dni, true);
+                if (res == null)
+                {
+                    clienteService.Create(cliente);
+                    MessageBox.Show("Cliente creado", "Crear cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Este cliente fue eliminado anteriormente ¿Desea restablecerlo?", "Recuperar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (dr == DialogResult.Yes)
+                    {
+                        clienteService.Recuperar(res);
+                        MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }                   
+                }                
+                
+               
             }
 
             else

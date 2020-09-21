@@ -26,9 +26,9 @@ namespace TESTWF2020.BusinessLayer
             return clienteDao.GetByFilters(dicc);
         }
 
-        internal Cliente GetByDni(int dniClienteSeleccionado)
+        internal Cliente GetByDni(int dniClienteSeleccionado, bool buscarBorrado = false)
         {
-            return clienteDao.GetByDni(dniClienteSeleccionado);
+            return clienteDao.GetByDni(dniClienteSeleccionado, buscarBorrado);
         }
 
         internal void Create(Cliente cliente)
@@ -44,6 +44,11 @@ namespace TESTWF2020.BusinessLayer
         internal void Delete(int clienteSeleccionado)
         {
             clienteDao.Delete(clienteSeleccionado);
+        }
+
+        internal void Recuperar(Cliente cliente)
+        {
+            clienteDao.Recuperar(cliente);
         }
     }
 }

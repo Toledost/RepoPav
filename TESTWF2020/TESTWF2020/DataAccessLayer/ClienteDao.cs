@@ -63,6 +63,20 @@ namespace TESTWF2020.DataAccessLayer
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
+        internal void Recuperar(Cliente cliente)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            string consultaSql = "UPDATE Cliente " +
+                "SET borrado = 0 " +
+                "WHERE dni = @dni ";
+
+            parametros.Add("dni", cliente.Dni);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+        }
+
         internal void Delete(int clienteSeleccionado)
         {
             var parametros = new Dictionary<string, object>();
@@ -105,7 +119,7 @@ namespace TESTWF2020.DataAccessLayer
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
-        internal Cliente GetByDni(int dniClienteSeleccionado)
+        internal Cliente GetByDni(int dniClienteSeleccionado, bool buscarBorrados = false)
         {
             Cliente resultado = null;
             var dm = new DataManager();
@@ -117,8 +131,8 @@ namespace TESTWF2020.DataAccessLayer
                  "mail, " +
                  "telefono " +
                  "FROM  Cliente " +
-                 "WHERE borrado = 0 " +
-            $"AND dni = {dniClienteSeleccionado}";
+                 $"WHERE borrado = {(buscarBorrados ? 1 : 0)} " +
+            $"AND dni = {dniClienteSeleccionado}";            
 
             var busqueda = dm.ConsultaSQL2(consultaSQL);
             if (busqueda.Rows.Count > 0)
