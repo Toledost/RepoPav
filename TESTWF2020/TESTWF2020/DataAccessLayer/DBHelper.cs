@@ -11,10 +11,8 @@ namespace TESTWF2020.DataAccessLayer
     public class DBHelper
     {
         private static DBHelper instance = new DBHelper();
-        //private string connectionString = @"Data Source=186.13.121.219;Initial Catalog=BDInmobiliariaCasaFeliz;Persist Security Info=True;User ID=usertest;Password=pepito";
-        private string connectionString = @"Data Source=DESKTOP-60MCHVF;Initial Catalog=BDInmobiliariaCasaFeliz;Integrated Security=True";
-
-
+        private string connectionString = @"Data Source=186.13.121.219;Initial Catalog=BDInmobiliariaCasaFeliz;Persist Security Info=True;User ID=usertest;Password=pepito";
+        
         public static DBHelper GetDBHelper()
         {
             if (instance == null)
