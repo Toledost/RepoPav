@@ -17,9 +17,14 @@ namespace TESTWF2020.BusinessLayer
             empleadoDao = new EmpleadoDao();
         }
 
-        public IList<Empleado> GetEmpleados()
+        public IList<Empleado> GetByFilters(Dictionary<string, object> parametros)
         {
-            return empleadoDao.GetEmpleados();
+            return empleadoDao.GetByFilters(parametros);
+        }
+
+        public void Delete(int legajoSeleccionado)
+        {
+            empleadoDao.Delete(legajoSeleccionado);
         }
     }
 }

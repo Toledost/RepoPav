@@ -24,21 +24,64 @@ namespace TESTWF2020.GUILayer
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            var listaEmpleados = empleadoService.GetEmpleados();
-            CargarGrilla(listaEmpleados);
+            CargarGrilla();
         }
 
-        private void CargarGrilla(IList<Empleado> lista)
+        private void CargarGrilla()
         {
-            foreach (var empleado in lista)
+            var dicParametros = CrearDiccionario();
+            var empleados = empleadoService.GetByFilters(dicParametros);
+            dgvEmpleados.DataSource = empleados;
+        }
+
+        private Dictionary<string, object> CrearDiccionario()
+        {
+            var dic = new Dictionary<string, object>();
+
+            if (!string.IsNullOrWhiteSpace(this.txtNombre.Text))
             {
-                this.dgvEmpleados.Rows.Add(empleado.Legajo, empleado.Nombre, empleado.Apellido, empleado.Usuario.Nombre);
+                dic.Add("nombre", txtNombre.Text);
             }
+
+            if (!string.IsNullOrWhiteSpace(this.txtApellido.Text))
+            {
+                dic.Add("apellido", txtApellido.Text);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtUsuario.Text))
+            {
+                dic.Add("usuario", txtUsuario.Text);
+            }
+
+            return dic;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            this.txtNombre.Clear();
+            this.txtApellido.Clear();
+            this.txtUsuario.Clear();
+
+            CargarGrilla();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.SelectedRows.Count == 1)
+            {
+                var legajoSeleccionado = (int)this.dgvEmpleados.CurrentRow.Cells["legajo"].Value;
+                empleadoService.Delete(legajoSeleccionado);
+                btnConsultar_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ningún Emplado.");
+            }
         }
     }
 }

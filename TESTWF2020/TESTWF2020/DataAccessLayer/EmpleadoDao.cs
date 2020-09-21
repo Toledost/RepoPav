@@ -12,7 +12,7 @@ namespace TESTWF2020.DataAccessLayer
     {
         #region Metodos Publicos
 
-        public IList<Empleado> GetEmpleados()
+        public IList<Empleado> GetByFilters(Dictionary<string, object> parametros)
         {
             var empleados = new List<Empleado>();
             DataManager dm = new DataManager();
@@ -22,14 +22,27 @@ namespace TESTWF2020.DataAccessLayer
                                  "JOIN Usuario u ON e.usuario = u.nombre " +
                                  "WHERE e.borrado = 0";
 
-            var busqueda = dm.ConsultaSQL2(consultaSQL);
+            consultaSQL = AgregarParametros(parametros, consultaSQL);
 
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, parametros);
             foreach (DataRow row in busqueda.Rows)
             {
                 empleados.Add(MapToEntity(row));
             }
-            return empleados;
 
+            return empleados;
+        }
+
+        public void Delete(int legajo)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            string consultaSql = "UPDATE Empleado SET borrado = 1 WHERE legajo = @legajo";
+
+            parametros.Add("legajo", legajo);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
         #endregion
@@ -49,6 +62,20 @@ namespace TESTWF2020.DataAccessLayer
             };
 
             return empleado;
+        }
+
+        private string AgregarParametros(Dictionary<string, object> parametros, string consultaSql)
+        {
+            if (parametros.ContainsKey("nombre"))
+                consultaSql += "AND (e.nombre LIKE @nombre) ";
+
+            if (parametros.ContainsKey("apellido"))
+                consultaSql += "AND (e.apellido LIKE @apellido) ";
+
+            if (parametros.ContainsKey("usuario"))
+                consultaSql += "AND (u.nombre LIKE @usuario) ";
+
+            return consultaSql;
         }
 
         #endregion
