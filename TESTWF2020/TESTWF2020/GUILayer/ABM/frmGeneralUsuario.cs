@@ -50,7 +50,7 @@ namespace TESTWF2020.GUILayer.ABM
             var dicc = new Dictionary<string, object>();
             if (!string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                dicc.Add("usuario", txtNombre.Text);
+                dicc.Add("nombre", txtNombre.Text);
             }
             if (!(cboPerfilGeneral.SelectedIndex ==-1))
             {
@@ -66,8 +66,8 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void frmGeneralUsuario_Load(object sender, EventArgs e)
         {
+            btnBuscar.Focus();
             CargarComboBox();
-            
         }
 
         private void CargarComboBox()
@@ -91,14 +91,39 @@ namespace TESTWF2020.GUILayer.ABM
         {
             if (dgvGeneralUsuario.SelectedRows.Count == 1)
             {
-                var usuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value;
-                frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(usuarioSeleccionado);
+                var nombreUsuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value.ToString();
+                frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(false, nombreUsuarioSeleccionado);
                 frmABMCUsuario.ShowDialog();
             }
             else
             {
                 MessageBox.Show("No seleccionó ningún Usuario");
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(true);
+            frmABMCUsuario.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvGeneralUsuario.SelectedRows.Count == 1)
+            {
+                var nombreUsuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value.ToString();
+                Delete(nombreUsuarioSeleccionado);
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ningún Usuario");
+            }
+        }
+
+        private void Delete(string nombreUsuarioSeleccionado)
+        {
+            usuarioService.Delete(nombreUsuarioSeleccionado);
+            MessageBox.Show("Usuario eliminado correctamente");
         }
     }
 }

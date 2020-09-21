@@ -54,6 +54,7 @@
             this.dgvGeneralUsuario.Location = new System.Drawing.Point(55, 201);
             this.dgvGeneralUsuario.Name = "dgvGeneralUsuario";
             this.dgvGeneralUsuario.ReadOnly = true;
+            this.dgvGeneralUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGeneralUsuario.Size = new System.Drawing.Size(366, 140);
             this.dgvGeneralUsuario.TabIndex = 0;
             // 
@@ -140,6 +141,7 @@
             this.btnNuevo.TabIndex = 11;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEliminar
             // 
@@ -149,6 +151,7 @@
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmGeneralUsuario
             // 

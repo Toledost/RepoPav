@@ -43,5 +43,24 @@ namespace TESTWF2020.BusinessLayer
             return usuarioDao.GetByFilters(dicc);
         }
 
+        internal Usuario GetUsuario(string nombreUsuario, bool buscarBorrado = false)
+        {
+            return usuarioDao.GetUsuario(nombreUsuario, buscarBorrado);
+        }
+
+        internal void UpDate(Usuario user)
+        {
+            usuarioDao.UpDate(user);
+        }
+
+        internal void Delete(string nombreUsuarioSeleccionado)
+        {
+            usuarioDao.Delete(nombreUsuarioSeleccionado);
+        }
+
+        internal void Recuperar(string nombreUsuarioSeleccinado)
+        {
+            usuarioDao.Recuperar(nombreUsuarioSeleccinado);
+        }
     }
 }
