@@ -28,9 +28,36 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            IList<Financiacion> listaFinanciacion = financiacionService.GetAll();
+            IList<Financiacion> listaFinanciacion = new List<Financiacion>();
+            if (string.IsNullOrWhiteSpace(txtAumentoMaximo.Text) && string.IsNullOrWhiteSpace(txtCantidadCuotas.Text))
+            {
+                listaFinanciacion = financiacionService.GetAll();
 
+            }
+            else
+            {
+                var dicc = CrearDiccionario();
+                listaFinanciacion = financiacionService.GetByFilters(dicc);
+            }
+
+            this.dgvFinanciacion.Rows.Clear();
             CargarGrilla(listaFinanciacion);
+        }
+
+        private Dictionary<string, object> CrearDiccionario()
+        {
+            Dictionary<string, object> dicc = new Dictionary<string, object>();
+
+            if (!string.IsNullOrWhiteSpace(txtAumentoMaximo.Text))
+            {
+                dicc.Add("aumentoMaximo", txtAumentoMaximo.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(txtCantidadCuotas.Text))
+            {
+                dicc.Add("cantidadCuotas", txtCantidadCuotas.Text);
+            }
+
+            return dicc;
         }
 
         private void CargarGrilla(IList<Financiacion> listaFinanciacion)
@@ -70,16 +97,19 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnDetalle_Click(object sender, EventArgs e)
         {
             try
             {
-                int idFinanciacionElegida = (int)dgvFinanciacion.CurrentRow.Cells["IdFinanciacion"].Value;
-
-                if (idFinanciacionElegida > -1)
+                if(dgvFinanciacion.CurrentRow.Cells["IdFinanciacion"].Value != null)
                 {
-                    frmDetalleFinanciacion frmDetalleFinanciacion = new frmDetalleFinanciacion(idFinanciacionElegida);
-                    frmDetalleFinanciacion.ShowDialog();
+                    int idFinanciacionElegida = (int)dgvFinanciacion.CurrentRow.Cells["IdFinanciacion"].Value;
+
+                    if (idFinanciacionElegida > -1)
+                    {
+                        frmDetalleFinanciacion frmDetalleFinanciacion = new frmDetalleFinanciacion(idFinanciacionElegida);
+                        frmDetalleFinanciacion.ShowDialog();
+                    }
                 }
 
             }
@@ -88,6 +118,14 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            foreach(TextBox textbox in Controls.OfType<TextBox>())
+            {
+                textbox.Clear();
+            }
         }
     }
 }

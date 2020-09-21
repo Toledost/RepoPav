@@ -41,5 +41,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return financiacionDao.GetById(idFinanciacionElegida);
         }
+
+        internal IList<Financiacion> GetByFilters(Dictionary<string, object> dicc)
+        {
+            return financiacionDao.GetByFilters(dicc);
+        }
     }
 }

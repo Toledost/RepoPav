@@ -20,15 +20,15 @@ namespace TESTWF2020
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            login.ShowDialog();
-            if (login.UsuarioLogueado == null)
-            {
-                this.Close();
-                return;
-            }
-            this.Show();
-            this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
+            //this.Hide();
+            //login.ShowDialog();
+            //if (login.UsuarioLogueado == null)
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            //this.Show();
+            //this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

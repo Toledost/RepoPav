@@ -37,23 +37,34 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            txtNombre.Enabled = true;
-            txtPorcAumento.Enabled = true;
-            txtCantCuotas.Enabled = true;
+            txtNombre.ReadOnly = false;
+            txtPorcAumento.ReadOnly = false;
+            txtCantCuotas.ReadOnly = false;
             btnGrabar.Enabled = true;
+            btnEditar.Enabled = false;
         }
 
         private void frmDetalleFinanciacion_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(idFinanciacionElegida.ToString());
             if (idFinanciacionElegida > 0)
             {
                 Financiacion financiacion = financiacionService.GetById(idFinanciacionElegida);
-                txtNombre.Text = financiacion.Nombre;
-                txtPorcAumento.Text = financiacion.PorcentajeAumento.ToString();
-                txtCantCuotas.Text = financiacion.CantidadCuotas.ToString();
+                CargarTextBox(financiacion);
 
+                this.btnGrabar.Enabled = false;
             }
+        }
+
+        private void CargarTextBox(Financiacion financiacion)
+        {
+            txtNombre.ReadOnly = true;
+            txtNombre.Text = financiacion.Nombre;
+
+            txtPorcAumento.ReadOnly = true;
+            txtPorcAumento.Text = financiacion.PorcentajeAumento.ToString();
+
+            txtCantCuotas.ReadOnly = true;
+            txtCantCuotas.Text = financiacion.CantidadCuotas.ToString();
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -70,12 +81,18 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
                 CantidadCuotas = Convert.ToInt32(txtCantCuotas.Text)
             };
 
-            var resultado = financiacionService.Create(newFinanciacion);
-
-            if (resultado == 1)
+            if (idFinanciacionElegida == 0)
             {
+                var resultado = financiacionService.Create(newFinanciacion);
                 MessageBox.Show("Creado");
             }
+            else
+            {
+                newFinanciacion.IdFinanciacion = idFinanciacionElegida;
+                var res = financiacionService.Update(newFinanciacion);
+                MessageBox.Show("Editado");
+            }
+            this.Close();
         }
     }
 }

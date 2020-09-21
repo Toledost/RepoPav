@@ -61,6 +61,47 @@ namespace TESTWF2020.DataAccessLayer
             return MapToEntity(resultado.Rows[0]);
         }
 
+        internal IList<Financiacion> GetByFilters(Dictionary<string, object> dicc)
+        {
+            IList<Financiacion> listaFinanciacion = new List<Financiacion>();
+
+            string consultaSql = "SELECT " +
+                "idFinanciacion, " +
+                "nombre, " +
+                "porcentajeAumento, " +
+                "cantCuotas " +
+                "FROM Financiacion " +
+                "WHERE borrado = 0 ";
+
+            DataManager dm = new DataManager();
+            consultaSql = AgregarFiltros(dicc, consultaSql);
+
+            var resultado = dm.ConsultaSQLConParametros2(consultaSql, dicc);
+            if (resultado.Rows.Count > 0)
+            {
+                foreach (DataRow row in resultado.Rows)
+                {
+                    listaFinanciacion.Add(MapToEntity(row));
+                }
+            }
+
+            return listaFinanciacion;
+        }
+
+        private string AgregarFiltros(Dictionary<string, object> dicc, string consultaSql)
+        {
+            if (dicc.ContainsKey("aumentoMaximo"))
+            {
+                consultaSql += " AND porcentajeAumento <= @aumentoMaximo ";
+            }
+            if (dicc.ContainsKey("cantidadCuotas"))
+            {
+                consultaSql += " AND cantCuotas >= @cantidadCuotas";
+            }
+
+            return consultaSql;
+        }
+
         public int Create(Financiacion financiacion)
         {
             string consultaSql = "INSERT INTO Financiacion " +
