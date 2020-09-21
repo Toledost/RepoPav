@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\EstadoInmuebleService.cs" />
     <Compile Include="BusinessLayer\HistorialEstadoService.cs" />
     <Compile Include="BusinessLayer\InmuebleService.cs" />
@@ -53,11 +54,13 @@
     <Compile Include="BusinessLayer\UsuarioService.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
     <Compile Include="DataAccessLayer\EstadoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\HistorialEstadoDao.cs" />
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\EstadoConsulta.cs" />
     <Compile Include="Entities\EstadoInmueble.cs" />
     <Compile Include="Entities\HistorialEstado.cs" />
@@ -65,11 +68,23 @@
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\TipoInmueble.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="GUILayer\ABM\frmABMCEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCEmpleado.Designer.cs">
+      <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmInmuebles.cs">
       <SubType>Form</SubType>
@@ -91,8 +106,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCEmpleado.resx">
+      <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCInmueble.resx">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>
