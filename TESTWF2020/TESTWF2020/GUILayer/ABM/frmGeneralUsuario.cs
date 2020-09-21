@@ -57,6 +57,8 @@ namespace TESTWF2020.GUILayer.ABM
                 dicc.Add("idPerfil",cboPerfilGeneral.SelectedValue);
             }
             return dicc;
+            
+
         }
         private void CargarTextBox(Usuario usuario)
         {
@@ -118,6 +120,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 MessageBox.Show("No seleccionó ningún Usuario");
             }
+            btnBuscar_Click(sender, e);
         }
 
         private void Delete(string nombreUsuarioSeleccionado)
