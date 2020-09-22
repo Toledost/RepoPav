@@ -52,7 +52,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.cboViaConsulta.DisplayMember = "Nombre";
             this.cboViaConsulta.SelectedIndex = -1;
 
-            //this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
+            this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
             this.cboIDMedioConocimiento.ValueMember = "Id";
             this.cboIDMedioConocimiento.DisplayMember = "Nombre";
             this.cboIDMedioConocimiento.SelectedIndex = -1;

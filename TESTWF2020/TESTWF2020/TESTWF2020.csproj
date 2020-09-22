@@ -59,6 +59,7 @@
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\EstadoConsultaDao.cs" />
     <Compile Include="DataAccessLayer\EstadoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\HistorialEstadoDao.cs" />
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
