@@ -33,6 +33,26 @@ namespace TESTWF2020.DataAccessLayer
             return empleados;
         }
 
+        public Empleado GetByLegajo(int legajo)
+        {
+            Empleado empleado = null;
+            DataManager dm = new DataManager();
+
+            string consultaSQL = "SELECT legajo, nombre, apellido, usuario " +
+                                 "FROM Empleado " +
+                                 "WHERE borrado = 0 " +
+                                 $"AND legajo = {legajo}";
+
+            var busqueda = dm.ConsultaSQL2(consultaSQL);
+
+            if (busqueda.Rows.Count > 0)
+            {
+                empleado = MapToEntity(busqueda.Rows[0]);
+            }
+
+            return empleado;
+        }
+
         public void Delete(int legajo)
         {
             var parametros = new Dictionary<string, object>();
@@ -43,6 +63,30 @@ namespace TESTWF2020.DataAccessLayer
 
             DataManager dm = new DataManager();
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+        }
+
+        public void Create(Empleado empleado)
+        {
+            string consultaSQL = "INSERT INTO Empleado " +
+                                 "([legajo], " +
+                                 "[nombre], " +
+                                 "[apellido], " +
+                                 "[usuario]) " +
+                                 "VALUES " +
+                                 "(@legajo," +
+                                 "@nombre," +
+                                 "@apellido, " +
+                                 "@usuario)";
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("legajo", empleado.Legajo);
+            parametros.Add("nombre", empleado.Nombre);
+            parametros.Add("apellido", empleado.Apellido);
+            parametros.Add("usuario", empleado.Usuario.Nombre);
+
+            DataManager dm = new DataManager();
+            dm.EjecutarSQLConParametros2(consultaSQL, parametros);
         }
 
         #endregion

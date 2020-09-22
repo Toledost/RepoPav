@@ -150,6 +150,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Imagenes\CASAFELIZ.png" />
+    <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

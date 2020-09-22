@@ -22,9 +22,19 @@ namespace TESTWF2020.BusinessLayer
             return empleadoDao.GetByFilters(parametros);
         }
 
+        public void Create(Empleado emplado)
+        {
+            empleadoDao.Create(emplado);
+        }
+
         public void Delete(int legajoSeleccionado)
         {
             empleadoDao.Delete(legajoSeleccionado);
+        }
+
+        public Empleado GetByLegajo(int legajo)
+        {
+            return empleadoDao.GetByLegajo(legajo);
         }
     }
 }
