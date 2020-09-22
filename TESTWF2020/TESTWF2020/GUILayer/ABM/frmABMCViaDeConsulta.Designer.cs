@@ -28,71 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblViaDeConsulta = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtIdViaDeConsulta = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.dgvViaDeConsultas = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViaDeConsultas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblViaDeConsulta
-            // 
-            this.lblViaDeConsulta.AutoSize = true;
-            this.lblViaDeConsulta.Location = new System.Drawing.Point(74, 56);
-            this.lblViaDeConsulta.Name = "lblViaDeConsulta";
-            this.lblViaDeConsulta.Size = new System.Drawing.Size(96, 13);
-            this.lblViaDeConsulta.TabIndex = 0;
-            this.lblViaDeConsulta.Text = "Id Via de Consulta:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(123, 99);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(104, 145);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
-            this.lblDescripcion.TabIndex = 2;
-            this.lblDescripcion.Text = "Descripcion:";
-            // 
-            // txtIdViaDeConsulta
-            // 
-            this.txtIdViaDeConsulta.Location = new System.Drawing.Point(200, 49);
-            this.txtIdViaDeConsulta.Name = "txtIdViaDeConsulta";
-            this.txtIdViaDeConsulta.Size = new System.Drawing.Size(100, 20);
-            this.txtIdViaDeConsulta.TabIndex = 3;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(200, 145);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcion.TabIndex = 4;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(200, 99);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
             // 
             // dgvViaDeConsultas
             // 
@@ -103,12 +49,30 @@
             this.id,
             this.nombre,
             this.descripcion});
-            this.dgvViaDeConsultas.Location = new System.Drawing.Point(77, 206);
+            this.dgvViaDeConsultas.Location = new System.Drawing.Point(77, 110);
             this.dgvViaDeConsultas.Name = "dgvViaDeConsultas";
             this.dgvViaDeConsultas.ReadOnly = true;
             this.dgvViaDeConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvViaDeConsultas.Size = new System.Drawing.Size(391, 131);
+            this.dgvViaDeConsultas.Size = new System.Drawing.Size(365, 211);
             this.dgvViaDeConsultas.TabIndex = 6;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id ";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
             // 
             // btnDetalle
             // 
@@ -118,10 +82,11 @@
             this.btnDetalle.TabIndex = 7;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(384, 161);
+            this.btnBuscar.Location = new System.Drawing.Point(367, 70);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 8;
@@ -156,24 +121,7 @@
             this.btnNuevo.TabIndex = 11;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id ";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // frmABMCViaDeConsulta
             // 
@@ -186,28 +134,14 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.dgvViaDeConsultas);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.txtIdViaDeConsulta);
-            this.Controls.Add(this.lblDescripcion);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblViaDeConsulta);
             this.Name = "frmABMCViaDeConsulta";
             this.Text = "frmABMCViaDeConsulta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvViaDeConsultas)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblViaDeConsulta;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox txtIdViaDeConsulta;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.DataGridView dgvViaDeConsultas;
         private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.Button btnBuscar;

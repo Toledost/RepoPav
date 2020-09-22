@@ -20,5 +20,15 @@ namespace TESTWF2020.BusinessLayer
         {
             return viaDeConsultaDao.GetAll();
         }
+
+        internal ViaDeConsulta GetById(int idViaConsulta)
+        {
+            return viaDeConsultaDao.GetById(idViaConsulta);
+        }
+
+        internal void Create(ViaDeConsulta viaDeConsulta)
+        {
+            viaDeConsultaDao.Create(viaDeConsulta);
+        }
     }
 }

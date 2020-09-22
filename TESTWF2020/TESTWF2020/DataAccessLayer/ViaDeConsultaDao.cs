@@ -32,6 +32,47 @@ namespace TESTWF2020.DataAccessLayer
             return listaViaDeConsultas;
         }
 
+        internal void Create(ViaDeConsulta viaDeConsulta)
+        {
+            string consultaSQL = "INSERT INTO ViaDeConsulta " +
+                "([nombre] " +
+                //",[idViaDeConsulta] " +
+                ",[descripcion]) " +
+                "VALUES " +
+                "(@nombre " +
+                //",@idViaDeConsulta " +
+                ",@descripcion) ";
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("nombre", viaDeConsulta.Nombre);
+            parametros.Add("idViaDeConsulta", viaDeConsulta.Id);
+            parametros.Add("descripcion", viaDeConsulta.Descripcion);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.ConsultaSQLConParametros2(consultaSQL, parametros);
+        }
+
+        internal ViaDeConsulta GetById(int idViaConsulta)
+        {
+            ViaDeConsulta resultado = null;
+            DataManager dm = new DataManager();
+
+            string consultaSQL = "SELECT idViaDeConsulta, " +
+                " nombre, " +
+                " descripcion " +
+                " FROM ViaDeConsulta" +
+                " WHERE borrado = 0 " +
+                $" AND idViaDeConsulta= { idViaConsulta }";
+
+            var busqueda = dm.ConsultaSQL2(consultaSQL);
+            if (busqueda.Rows.Count >0)
+            {
+                resultado = MapToEntity(busqueda.Rows[0]);
+            }
+            return resultado;
+        }
+
         private ViaDeConsulta MapToEntity(DataRow row)
         {
             ViaDeConsulta viaDeConsulta = new ViaDeConsulta

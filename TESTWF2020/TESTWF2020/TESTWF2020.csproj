@@ -94,6 +94,12 @@
     <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.Designer.cs">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.Designer.cs">
+      <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmInmuebles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCViaDeConsulta.resx">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.resx">
+      <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>

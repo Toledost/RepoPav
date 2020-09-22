@@ -225,9 +225,6 @@ namespace TESTWF2020.GUILayer.ABM
 
                 MessageBox.Show("Editado");
             }
-
-
-            
             this.Close();
         }
 
@@ -241,7 +238,5 @@ namespace TESTWF2020.GUILayer.ABM
             this.btnGrabar.Enabled = true;
             HabilitarCampos();
         }
-
-        
     }
 }

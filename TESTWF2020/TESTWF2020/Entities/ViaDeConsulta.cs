@@ -13,5 +13,9 @@ namespace TESTWF2020.Entities
         public string Descripcion { get; set; }
         public bool borrado { get; set; }
 
+        internal ViaDeConsulta GetById(int idViaConsulta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
