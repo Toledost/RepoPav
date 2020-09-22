@@ -36,14 +36,15 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioConocimiento)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(281, 361);
+            this.btnBuscar.Location = new System.Drawing.Point(640, 53);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(65, 46);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -51,7 +52,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(683, 361);
+            this.btnSalir.Location = new System.Drawing.Point(660, 361);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -67,6 +68,7 @@
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnDetalle
             // 
@@ -87,7 +89,7 @@
             this.id,
             this.nombre,
             this.descripcion});
-            this.dgvMedioConocimiento.Location = new System.Drawing.Point(166, 60);
+            this.dgvMedioConocimiento.Location = new System.Drawing.Point(166, 53);
             this.dgvMedioConocimiento.Name = "dgvMedioConocimiento";
             this.dgvMedioConocimiento.ReadOnly = true;
             this.dgvMedioConocimiento.Size = new System.Drawing.Size(445, 248);
@@ -112,11 +114,22 @@
             this.descripcion.ReadOnly = true;
             this.descripcion.Width = 200;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(270, 361);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // frmABMCMedioDeConocimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvMedioConocimiento);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnNuevo);
@@ -124,6 +137,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Name = "frmABMCMedioDeConocimiento";
             this.Text = "frmABMCMedioDeConocimiento";
+            this.Load += new System.EventHandler(this.frmABMCMedioDeConocimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioConocimiento)).EndInit();
             this.ResumeLayout(false);
 
@@ -139,5 +153,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

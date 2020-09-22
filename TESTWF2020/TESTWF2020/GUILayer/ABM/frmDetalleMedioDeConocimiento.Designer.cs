@@ -28,25 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblID = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(131, 79);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 13);
-            this.lblID.TabIndex = 0;
-            this.lblID.Text = "ID:";
             // 
             // lblNombre
             // 
@@ -65,13 +54,6 @@
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 2;
             this.lblDescripcion.Text = "Descripcion:";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(217, 72);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
-            this.txtID.TabIndex = 3;
             // 
             // txtNombre
             // 
@@ -95,6 +77,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGrabar
             // 
@@ -104,6 +87,7 @@
             this.btnGrabar.TabIndex = 7;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnSalir
             // 
@@ -125,10 +109,8 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblID);
             this.Name = "frmDetalleMedioDeConocimiento";
             this.Text = "frmDetalleMedioDeConocimiento";
             this.Load += new System.EventHandler(this.frmDetalleMedioDeConocimiento_Load);
@@ -138,11 +120,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnEditar;

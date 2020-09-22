@@ -21,6 +21,25 @@ namespace TESTWF2020.BusinessLayer
         {
             return medioDeConocimientoDao.GetAll();
         }
-     
+
+        internal MedioDeConocimiento GetById(int idMedioSeleccionado, bool borrado = false)
+        {
+            return medioDeConocimientoDao.GetById(idMedioSeleccionado, borrado);
+        }
+
+        internal void Create(MedioDeConocimiento medio)
+        {
+            medioDeConocimientoDao.Create(medio);
+        }
+
+        internal void Update(MedioDeConocimiento medio)
+        {
+            medioDeConocimientoDao.Update(medio);
+        }
+
+        internal void Delete(int medioSeleccionado)
+        {
+            medioDeConocimientoDao.Delete(medioSeleccionado);
+        }
     }
 }
