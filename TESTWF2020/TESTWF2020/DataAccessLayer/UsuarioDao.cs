@@ -15,7 +15,9 @@ namespace TESTWF2020.DataAccessLayer
         {
             string consultaSQL = string.Format ("SELECT u.usuario, u.contraseña, u.fechaAlta, p.idPerfil, p.nombre, p.descripcion FROM usuario u JOIN perfil p ON u.idPerfil = p.idPerfil WHERE u.usuario = '{0}'", nombreUsuario);
 
-            DataTable resultado = DBHelper.GetDBHelper().ConsultaSql(consultaSQL);
+            DataManager dm = new DataManager();
+            //DataTable resultado = DBHelper.GetDBHelper().ConsultaSql(consultaSQL);
+            var resultado = dm.ConsultaSQL2(consultaSQL);
 
             if (resultado.Rows.Count > 0)
             {
