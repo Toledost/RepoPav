@@ -64,6 +64,7 @@
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
     <Compile Include="DataAccessLayer\MedioDeConocimientoDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\EstadoConsulta.cs" />

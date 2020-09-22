@@ -42,7 +42,7 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void CargarCombos()
         {
-            this.cboEstadoConsulta.DataSource = estadoConsultaService.GetAll();
+            //this.cboEstadoConsulta.DataSource = estadoConsultaService.GetAll();
             this.cboEstadoConsulta.ValueMember = "Id";
             this.cboEstadoConsulta.DisplayMember = "Nombre";
             this.cboEstadoConsulta.SelectedIndex = -1;
@@ -52,12 +52,12 @@ namespace TESTWF2020.GUILayer.ABM
             this.cboViaConsulta.DisplayMember = "Nombre";
             this.cboViaConsulta.SelectedIndex = -1;
 
-            //this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
+            this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
             this.cboIDMedioConocimiento.ValueMember = "Id";
             this.cboIDMedioConocimiento.DisplayMember = "Nombre";
             this.cboIDMedioConocimiento.SelectedIndex = -1;
 
-            //this.cboIDTipoTrans.DataSource = tipoTransaccionService.GetAll();
+            this.cboIDTipoTrans.DataSource = tipoTransaccionService.GetAll();
             this.cboIDTipoTrans.ValueMember = "Id";
             this.cboIDTipoTrans.DisplayMember = "Nombre";
             this.cboIDTipoTrans.SelectedIndex = -1;
