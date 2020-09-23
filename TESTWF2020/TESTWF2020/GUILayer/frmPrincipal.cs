@@ -69,5 +69,13 @@ namespace TESTWF2020
             frmEmpleados.ShowDialog();
             this.Show();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGeneralUsuario frmGeneralUsuario = new frmGeneralUsuario();
+            this.Hide();
+            frmGeneralUsuario.ShowDialog();
+            this.Show();
+        }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="BusinessLayer\FinanciacionService.cs" />
     <Compile Include="BusinessLayer\HistorialEstadoService.cs" />
     <Compile Include="BusinessLayer\InmuebleService.cs" />
+    <Compile Include="BusinessLayer\PerfilService.cs" />
     <Compile Include="BusinessLayer\TipoInmuebleService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="DataAccessLayer\FinanciacionDao.cs" />
     <Compile Include="DataAccessLayer\HistorialEstadoDao.cs" />
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\PerfilDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="Entities\Empleado.cs" />
@@ -85,6 +87,18 @@
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCUsuario.Designer.cs">
+      <DependentUpon>frmABMCUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmGeneralUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmGeneralUsuario.Designer.cs">
+      <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </Compile>
 
     <Compile Include="GUILayer\ABM\frmABMCliente.cs">
@@ -160,6 +174,12 @@
     <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.resx">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
 
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCUsuario.resx">
+      <DependentUpon>frmABMCUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmGeneralUsuario.resx">
+      <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>
