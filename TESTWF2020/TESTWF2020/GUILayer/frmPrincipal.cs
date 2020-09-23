@@ -61,5 +61,13 @@ namespace TESTWF2020
             frmConsultaFinanciacion.ShowDialog();
             this.Show();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmpleados frmEmpleados = new frmEmpleados();
+            this.Hide();
+            frmEmpleados.ShowDialog();
+            this.Show();
+        }
     }
 }
