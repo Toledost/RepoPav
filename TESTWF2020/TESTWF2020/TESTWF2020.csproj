@@ -112,7 +112,7 @@
     </Compile>
     <Compile Include="GUILayer\ABM\frmConsultarClientes.Designer.cs">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
-
+	</Compile>
     <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,13 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmConsultarClientes.resx">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
-
+	</EmbeddedResource>
     <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.resx">
       <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.resx">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCUsuario.resx">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
