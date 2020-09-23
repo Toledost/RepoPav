@@ -17,5 +17,9 @@ namespace TESTWF2020.BusinessLayer
             consultaDao = new ConsultaDao(); 
         }
 
+        public IList<Consulta> GetAll()
+        {
+            return  consultaDao.GetAll();
+        }
     }
 }

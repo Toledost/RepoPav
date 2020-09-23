@@ -14,6 +14,8 @@ namespace TESTWF2020.GUILayer.ABM
 {
     public partial class frmABMCConsultas : Form
     {
+        private Consulta consulta;
+        private ConsultaService consultaService;
         private EstadoConsultaService estadoConsultaService;
         private ViaDeConsultaService viaDeConsultaService;
         private MedioDeConocimientoService medioDeConocimientoService;
@@ -22,10 +24,13 @@ namespace TESTWF2020.GUILayer.ABM
         public frmABMCConsultas()
         {
             InitializeComponent();
+            this.consulta = new Consulta();
+            this.consultaService = new ConsultaService();
             this.estadoConsultaService = new EstadoConsultaService();
             this.viaDeConsultaService = new ViaDeConsultaService();
             this.medioDeConocimientoService = new MedioDeConocimientoService();
             this.tipoTransaccionService = new TipoTransaccionService();
+            
 
         }
 
@@ -42,7 +47,7 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void CargarCombos()
         {
-            //this.cboEstadoConsulta.DataSource = estadoConsultaService.GetAll();
+            this.cboEstadoConsulta.DataSource = estadoConsultaService.GetAll();
             this.cboEstadoConsulta.ValueMember = "Id";
             this.cboEstadoConsulta.DisplayMember = "Nombre";
             this.cboEstadoConsulta.SelectedIndex = -1;
@@ -64,6 +69,20 @@ namespace TESTWF2020.GUILayer.ABM
 
 
 
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            this.dgvConsultas.Rows.Clear();
+            var consultas = consultaService.GetAll();
+
+            foreach (var consulta in consultas)
+            {
+                this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre, 
+                    consulta.UsuarioCreado, consulta.TipoTransaccion, consulta.Inmueble, consulta.DniCliente, 
+                    consulta.NombreCliente, consulta.ApellidoCliente, consulta.MedioConocimiento, consulta.ViaDeConsulta,
+                    consulta.EstadoConsulta);
+            }
         }
     }
 }
