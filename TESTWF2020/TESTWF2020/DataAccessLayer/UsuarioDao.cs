@@ -13,7 +13,7 @@ namespace TESTWF2020.DataAccessLayer
         #region Metodos Publicos
         public Usuario GetUsuario(string nombreUsuario)
         {
-            string consultaSQL = string.Format ("SELECT u.usuario, u.contraseña, u.fechaAlta, p.idPerfil, p.nombre, p.descripcion FROM usuario u JOIN perfil p ON u.idPerfil = p.idPerfil WHERE u.usuario = '{0}'", nombreUsuario);
+            string consultaSQL = string.Format ("SELECT u.nombre, u.contraseña, u.fechaAlta, p.idPerfil, p.nombre, p.descripcion FROM usuario u JOIN perfil p ON u.idPerfil = p.idPerfil WHERE u.nombre = '{0}'", nombreUsuario);
 
             DataTable resultado = DBHelper.GetDBHelper().ConsultaSql(consultaSQL);
 

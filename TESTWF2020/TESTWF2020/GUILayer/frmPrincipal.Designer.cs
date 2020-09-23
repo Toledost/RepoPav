@@ -34,6 +34,7 @@
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inmueblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viaDeConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mediosDeConocimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -76,7 +77,9 @@
             this.soporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inmueblesToolStripMenuItem,
             this.consultasToolStripMenuItem,
-            this.mediosDeConocimientoToolStripMenuItem});
+            this.mediosDeConocimientoToolStripMenuItem,
+            
+            this.viaDeConsultasToolStripMenuItem});
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
             this.soporteToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.soporteToolStripMenuItem.Text = "Soporte";
@@ -101,6 +104,13 @@
             this.mediosDeConocimientoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mediosDeConocimientoToolStripMenuItem.Text = "Medios de Conocimiento";
             this.mediosDeConocimientoToolStripMenuItem.Click += new System.EventHandler(this.mediosDeConocimientoToolStripMenuItem_Click);
+            // 
+            // viaDeConsultasToolStripMenuItem
+            // 
+            this.viaDeConsultasToolStripMenuItem.Name = "viaDeConsultasToolStripMenuItem";
+            this.viaDeConsultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viaDeConsultasToolStripMenuItem.Text = "Via de consultas";
+            this.viaDeConsultasToolStripMenuItem.Click += new System.EventHandler(this.viaDeConsultasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -131,6 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem inmueblesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mediosDeConocimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viaDeConsultasToolStripMenuItem;
     }
 }
 

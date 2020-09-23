@@ -60,5 +60,13 @@ namespace TESTWF2020
             frmMedios.ShowDialog();
             this.Show();
         }
+
+        private void viaDeConsultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCViaDeConsulta frmABMCViaDeConsulta = new frmABMCViaDeConsulta();
+            this.Hide();
+            frmABMCViaDeConsulta.ShowDialog();
+            this.Show();
+        }
     }
 }
