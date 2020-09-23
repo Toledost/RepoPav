@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using TESTWF2020.Entities;
 using TESTWF2020.GUILayer;
 using TESTWF2020.GUILayer.ABM;
+using TESTWF2020.GUILayer.FORMFinanciacion;
 
 namespace TESTWF2020
 {
@@ -42,6 +43,30 @@ namespace TESTWF2020
             frmInmuebles frmInmuebles = new frmInmuebles();
             this.Hide();
             frmInmuebles.ShowDialog();
+            this.Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarClientes frmConsultarClientes = new frmConsultarClientes();
+            this.Hide();
+            frmConsultarClientes.ShowDialog();
+            this.Show();
+        }
+
+        private void planesFinanciacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaFinanciacion frmConsultaFinanciacion = new frmConsultaFinanciacion();
+            this.Hide();
+            frmConsultaFinanciacion.ShowDialog();
+            this.Show();
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmpleados frmEmpleados = new frmEmpleados();
+            this.Hide();
+            frmEmpleados.ShowDialog();
             this.Show();
         }
 
