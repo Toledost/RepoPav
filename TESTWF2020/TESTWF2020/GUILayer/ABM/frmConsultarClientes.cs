@@ -93,6 +93,7 @@ namespace TESTWF2020.GUILayer
                 this.Hide();
                 frmDetalleCliente.ShowDialog();
                 this.Show();
+                btnBuscar_Click(sender, e);
             }
             else
             {
@@ -107,6 +108,7 @@ namespace TESTWF2020.GUILayer
             this.Hide();
             frmDetalleCliente.ShowDialog();
             this.Show();
+            btnBuscar_Click(sender, e);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -48,9 +48,9 @@ namespace TESTWF2020.BusinessLayer
             return usuarioDao.GetUsuario(nombreUsuario, buscarBorrado);
         }
 
-        internal void UpDate(Usuario user)
+        internal void Update(Usuario user, string nombreOriginal)
         {
-            usuarioDao.UpDate(user);
+            usuarioDao.Update(user, nombreOriginal);
         }
 
         internal void Delete(string nombreUsuarioSeleccionado)
