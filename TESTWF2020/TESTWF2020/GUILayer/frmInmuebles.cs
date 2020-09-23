@@ -135,11 +135,6 @@ namespace TESTWF2020.GUILayer
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -153,5 +148,6 @@ namespace TESTWF2020.GUILayer
             }
             cboTipo.SelectedIndex = -1;
         }
+
     }
 }

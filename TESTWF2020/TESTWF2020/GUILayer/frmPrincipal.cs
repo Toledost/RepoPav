@@ -53,6 +53,14 @@ namespace TESTWF2020
             this.Show();
         }
 
+        private void mediosDeConocimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCMedioDeConocimiento frmMedios = new frmABMCMedioDeConocimiento();
+            this.Hide();
+            frmMedios.ShowDialog();
+            this.Show();
+        }
+
         private void viaDeConsultasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmABMCViaDeConsulta frmABMCViaDeConsulta = new frmABMCViaDeConsulta();

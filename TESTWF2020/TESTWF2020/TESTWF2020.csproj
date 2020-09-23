@@ -59,10 +59,13 @@
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\EstadoConsultaDao.cs" />
     <Compile Include="DataAccessLayer\EstadoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\HistorialEstadoDao.cs" />
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\MedioDeConocimientoDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
     <Compile Include="Entities\Consulta.cs" />
@@ -87,6 +90,18 @@
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.Designer.cs">
+      <DependentUpon>frmABMCMedioDeConocimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.Designer.cs">
+      <DependentUpon>frmDetalleMedioDeConocimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.cs">
       <SubType>Form</SubType>
@@ -131,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.resx">
       <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCMedioDeConocimiento.resx">
+      <DependentUpon>frmABMCMedioDeConocimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.resx">
+      <DependentUpon>frmDetalleMedioDeConocimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvInmuebles = new System.Windows.Forms.DataGridView();
+            this.dgvConsultas = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,15 +73,15 @@
             this.cboEstadoConsulta = new System.Windows.Forms.ComboBox();
             this.dtpFechaCreada = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaCierre = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvInmuebles
+            // dgvConsultas
             // 
-            this.dgvInmuebles.AllowUserToAddRows = false;
-            this.dgvInmuebles.AllowUserToDeleteRows = false;
-            this.dgvInmuebles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInmuebles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvConsultas.AllowUserToAddRows = false;
+            this.dgvConsultas.AllowUserToDeleteRows = false;
+            this.dgvConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.fechaCreada,
             this.fechaCierre,
@@ -94,88 +94,112 @@
             this.medioConocimiento,
             this.viaConsulta,
             this.usuarioActualizacion});
-            this.dgvInmuebles.Location = new System.Drawing.Point(11, 329);
-            this.dgvInmuebles.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvInmuebles.MultiSelect = false;
-            this.dgvInmuebles.Name = "dgvInmuebles";
-            this.dgvInmuebles.ReadOnly = true;
-            this.dgvInmuebles.RowHeadersWidth = 62;
-            this.dgvInmuebles.RowTemplate.Height = 28;
-            this.dgvInmuebles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInmuebles.Size = new System.Drawing.Size(1275, 181);
-            this.dgvInmuebles.TabIndex = 44;
+            this.dgvConsultas.Location = new System.Drawing.Point(11, 329);
+            this.dgvConsultas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvConsultas.MultiSelect = false;
+            this.dgvConsultas.Name = "dgvConsultas";
+            this.dgvConsultas.ReadOnly = true;
+            this.dgvConsultas.RowHeadersWidth = 62;
+            this.dgvConsultas.RowTemplate.Height = 28;
+            this.dgvConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsultas.Size = new System.Drawing.Size(1275, 181);
+            this.dgvConsultas.TabIndex = 44;
             // 
             // id
             // 
             this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 8;
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Width = 150;
             // 
             // fechaCreada
             // 
             this.fechaCreada.HeaderText = "Fecha Creada";
+            this.fechaCreada.MinimumWidth = 8;
             this.fechaCreada.Name = "fechaCreada";
             this.fechaCreada.ReadOnly = true;
+            this.fechaCreada.Width = 150;
             // 
             // fechaCierre
             // 
             this.fechaCierre.HeaderText = "Fecha Cierre";
+            this.fechaCierre.MinimumWidth = 8;
             this.fechaCierre.Name = "fechaCierre";
             this.fechaCierre.ReadOnly = true;
+            this.fechaCierre.Width = 150;
             // 
             // usuarioCreador
             // 
             this.usuarioCreador.HeaderText = "Usuario Creador";
+            this.usuarioCreador.MinimumWidth = 8;
             this.usuarioCreador.Name = "usuarioCreador";
             this.usuarioCreador.ReadOnly = true;
+            this.usuarioCreador.Width = 150;
             // 
             // tipoTransaccion
             // 
             this.tipoTransaccion.HeaderText = "Tipo transaccion";
+            this.tipoTransaccion.MinimumWidth = 8;
             this.tipoTransaccion.Name = "tipoTransaccion";
             this.tipoTransaccion.ReadOnly = true;
+            this.tipoTransaccion.Width = 150;
             // 
             // idInmueble
             // 
             this.idInmueble.HeaderText = "ID inmueble";
+            this.idInmueble.MinimumWidth = 8;
             this.idInmueble.Name = "idInmueble";
             this.idInmueble.ReadOnly = true;
+            this.idInmueble.Width = 150;
             // 
             // dniCliente
             // 
             this.dniCliente.HeaderText = "DNI Cliente";
+            this.dniCliente.MinimumWidth = 8;
             this.dniCliente.Name = "dniCliente";
             this.dniCliente.ReadOnly = true;
+            this.dniCliente.Width = 150;
             // 
             // nombreCliente
             // 
             this.nombreCliente.HeaderText = "Nombre Cliente";
+            this.nombreCliente.MinimumWidth = 8;
             this.nombreCliente.Name = "nombreCliente";
             this.nombreCliente.ReadOnly = true;
+            this.nombreCliente.Width = 150;
             // 
             // apellidoCliente
             // 
             this.apellidoCliente.HeaderText = "Apellido Cliente";
+            this.apellidoCliente.MinimumWidth = 8;
             this.apellidoCliente.Name = "apellidoCliente";
             this.apellidoCliente.ReadOnly = true;
+            this.apellidoCliente.Width = 150;
             // 
             // medioConocimiento
             // 
             this.medioConocimiento.HeaderText = "Medio Conocimieneto";
+            this.medioConocimiento.MinimumWidth = 8;
             this.medioConocimiento.Name = "medioConocimiento";
             this.medioConocimiento.ReadOnly = true;
+            this.medioConocimiento.Width = 150;
             // 
             // viaConsulta
             // 
             this.viaConsulta.HeaderText = "Via de Consulta";
+            this.viaConsulta.MinimumWidth = 8;
             this.viaConsulta.Name = "viaConsulta";
             this.viaConsulta.ReadOnly = true;
+            this.viaConsulta.Width = 150;
             // 
             // usuarioActualizacion
             // 
             this.usuarioActualizacion.HeaderText = "Usuario Actualizacion";
+            this.usuarioActualizacion.MinimumWidth = 8;
             this.usuarioActualizacion.Name = "usuarioActualizacion";
             this.usuarioActualizacion.ReadOnly = true;
+            this.usuarioActualizacion.Width = 150;
             // 
             // btnSalir
             // 
@@ -231,6 +255,7 @@
             this.btnConsultar.TabIndex = 45;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // lblID
             // 
@@ -450,7 +475,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 582);
+            this.ClientSize = new System.Drawing.Size(1283, 582);
             this.Controls.Add(this.dtpFechaCierre);
             this.Controls.Add(this.dtpFechaCreada);
             this.Controls.Add(this.cboEstadoConsulta);
@@ -479,15 +504,16 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.dgvInmuebles);
+            this.Controls.Add(this.dgvConsultas);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnNuevo);
             this.Name = "frmABMCConsultas";
             this.Text = "frmABMCConsultas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmABMCConsultas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,7 +521,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvInmuebles;
+        private System.Windows.Forms.DataGridView dgvConsultas;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnDetalle;

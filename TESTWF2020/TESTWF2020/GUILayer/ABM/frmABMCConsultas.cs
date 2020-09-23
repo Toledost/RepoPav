@@ -14,6 +14,8 @@ namespace TESTWF2020.GUILayer.ABM
 {
     public partial class frmABMCConsultas : Form
     {
+        private Consulta consulta;
+        private ConsultaService consultaService;
         private EstadoConsultaService estadoConsultaService;
         private ViaDeConsultaService viaDeConsultaService;
         private MedioDeConocimientoService medioDeConocimientoService;
@@ -22,10 +24,13 @@ namespace TESTWF2020.GUILayer.ABM
         public frmABMCConsultas()
         {
             InitializeComponent();
+            this.consulta = new Consulta();
+            this.consultaService = new ConsultaService();
             this.estadoConsultaService = new EstadoConsultaService();
             this.viaDeConsultaService = new ViaDeConsultaService();
             this.medioDeConocimientoService = new MedioDeConocimientoService();
             this.tipoTransaccionService = new TipoTransaccionService();
+            
 
         }
 
@@ -48,22 +53,36 @@ namespace TESTWF2020.GUILayer.ABM
             this.cboEstadoConsulta.SelectedIndex = -1;
 
             //this.cboViaConsulta.DataSource = viaDeConsultaService.GetAll();
-            //this.cboViaConsulta.ValueMember = "Id";
-            //this.cboViaConsulta.DisplayMember = "Nombre";
-            //this.cboViaConsulta.SelectedIndex = -1;
+            this.cboViaConsulta.ValueMember = "Id";
+            this.cboViaConsulta.DisplayMember = "Nombre";
+            this.cboViaConsulta.SelectedIndex = -1;
 
-            //this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
-            //this.cboIDMedioConocimiento.ValueMember = "Id";
-            //this.cboIDMedioConocimiento.DisplayMember = "Nombre";
-            //this.cboIDMedioConocimiento.SelectedIndex = -1;
+            this.cboIDMedioConocimiento.DataSource = medioDeConocimientoService.GetAll();
+            this.cboIDMedioConocimiento.ValueMember = "Id";
+            this.cboIDMedioConocimiento.DisplayMember = "Nombre";
+            this.cboIDMedioConocimiento.SelectedIndex = -1;
 
-            //this.cboIDTipoTrans.DataSource = tipoTransaccionService.GetAll();
-            //this.cboIDTipoTrans.ValueMember = "Id";
-            //this.cboIDTipoTrans.DisplayMember = "Nombre";
-            //this.cboIDTipoTrans.SelectedIndex = -1;
+            this.cboIDTipoTrans.DataSource = tipoTransaccionService.GetAll();
+            this.cboIDTipoTrans.ValueMember = "Id";
+            this.cboIDTipoTrans.DisplayMember = "Nombre";
+            this.cboIDTipoTrans.SelectedIndex = -1;
 
 
 
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            this.dgvConsultas.Rows.Clear();
+            var consultas = consultaService.GetAll();
+
+            foreach (var consulta in consultas)
+            {
+                this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre, 
+                    consulta.UsuarioCreado, consulta.TipoTransaccion, consulta.Inmueble, consulta.DniCliente, 
+                    consulta.NombreCliente, consulta.ApellidoCliente, consulta.MedioConocimiento, consulta.ViaDeConsulta,
+                    consulta.EstadoConsulta);
+            }
         }
     }
 }

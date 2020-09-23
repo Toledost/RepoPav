@@ -35,6 +35,7 @@
             this.inmueblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viaDeConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mediosDeConocimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +77,8 @@
             this.soporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inmueblesToolStripMenuItem,
             this.consultasToolStripMenuItem,
+            this.mediosDeConocimientoToolStripMenuItem,
+            
             this.viaDeConsultasToolStripMenuItem});
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
             this.soporteToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
@@ -84,16 +87,23 @@
             // inmueblesToolStripMenuItem
             // 
             this.inmueblesToolStripMenuItem.Name = "inmueblesToolStripMenuItem";
-            this.inmueblesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inmueblesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.inmueblesToolStripMenuItem.Text = "Inmuebles";
             this.inmueblesToolStripMenuItem.Click += new System.EventHandler(this.inmueblesToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
             this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
+            // 
+            // mediosDeConocimientoToolStripMenuItem
+            // 
+            this.mediosDeConocimientoToolStripMenuItem.Name = "mediosDeConocimientoToolStripMenuItem";
+            this.mediosDeConocimientoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mediosDeConocimientoToolStripMenuItem.Text = "Medios de Conocimiento";
+            this.mediosDeConocimientoToolStripMenuItem.Click += new System.EventHandler(this.mediosDeConocimientoToolStripMenuItem_Click);
             // 
             // viaDeConsultasToolStripMenuItem
             // 
@@ -130,6 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem soporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inmueblesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mediosDeConocimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viaDeConsultasToolStripMenuItem;
     }
 }
