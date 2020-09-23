@@ -52,7 +52,7 @@ namespace TESTWF2020.GUILayer.ABM
             else
             {
                 this.btnGrabar.Enabled = false;
-
+                HabilitarCampos(false);
                 Empleado empleadoSeleccionado = empleadoService.GetByLegajo(legajo);
                 CargarTextBox(empleadoSeleccionado);
             }
@@ -86,15 +86,58 @@ namespace TESTWF2020.GUILayer.ABM
                 Apellido = this.txtApellido.Text,
                 Usuario = new Usuario
                 {
-                    Nombre = this.txtNombre.Text
+                    Nombre = this.txtUsuario.Text
                 }
             };
 
             if (esNuevo)
             {
-                empleadoService.Create(empleado);
-                MessageBox.Show("Empleado Creado.");
+                try
+                {
+                    empleadoService.Create(empleado);
+                    MessageBox.Show("Empleado Creado.");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El usuario ingresado es incorrecto. Error del tipo: " + ex.GetType().ToString());
+                }
             }
+            else
+            {
+                if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text)))
+                {
+                    MessageBox.Show("Falta completar algún campo.");
+                    return;
+                }
+
+                try
+                {
+                    empleadoService.Update(empleado, legajo);
+                    MessageBox.Show("Empleado editado con exito.");
+                    HabilitarCampos(false);
+                    this.btnEditar.Enabled = true;
+                    this.btnGrabar.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El usuario ingresado es incorrecto. Error del tipo: " + ex.GetType().ToString());
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos(true);
+            this.btnGrabar.Enabled = true;
+        }
+
+        private void HabilitarCampos(bool x)
+        {
+            this.txtLegajo.Enabled = x;
+            this.txtNombre.Enabled = x;
+            this.txtApellido.Enabled = x;
+            this.txtUsuario.Enabled = x;
         }
     }
 }

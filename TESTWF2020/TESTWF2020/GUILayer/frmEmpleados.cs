@@ -28,7 +28,6 @@ namespace TESTWF2020.GUILayer
 
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
-            CargarGrilla();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -50,8 +49,15 @@ namespace TESTWF2020.GUILayer
             if (dgvEmpleados.SelectedRows.Count == 1)
             {
                 var legajoSeleccionado = (int)this.dgvEmpleados.CurrentRow.Cells["legajo"].Value;
-                empleadoService.Delete(legajoSeleccionado);
-                btnConsultar_Click(sender, e);
+
+                DialogResult dr = MessageBox.Show("¿Desea eliminar este usuario?",
+                        "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dr == DialogResult.Yes)
+                {
+                    empleadoService.Delete(legajoSeleccionado);
+                    MessageBox.Show("Empleado eliminado con exito.");
+                    CargarGrilla();
+                }
             }
             else
             {
