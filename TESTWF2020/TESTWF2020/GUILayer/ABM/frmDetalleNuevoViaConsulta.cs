@@ -42,7 +42,8 @@ namespace TESTWF2020.GUILayer.ABM
             if (esNuevo)
             {
                 this.btnEditar.Enabled = false;
-
+                this.txtIdViaDeConsulta.Enabled = false;
+                
             }
             else
             {
@@ -51,6 +52,7 @@ namespace TESTWF2020.GUILayer.ABM
                 CargarTextBox(viaDeConsulta);
                 DeshabilitarCampos();
             }
+            
         }
 
         private void DeshabilitarCampos()
@@ -76,6 +78,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.btnGrabar.Enabled = true;
+            this.txtIdViaDeConsulta.Enabled = false;
             HabilitarCampos();
         }
 
@@ -105,21 +108,25 @@ namespace TESTWF2020.GUILayer.ABM
 
             ViaDeConsulta viaDeConsulta = new ViaDeConsulta
             {
-                Id = Convert.ToInt32(this.txtIdViaDeConsulta.Text),
+                //Id = Convert.ToInt32(this.txtIdViaDeConsulta.Text),
                 Nombre = this.txtNombre.Text,
                 Descripcion = this.txtDescripcion.Text
             };
 
             if (esNuevo)
             {
-                this.txtIdViaDeConsulta.Enabled = false;
+                
                 viaDeConsultaService.Create(viaDeConsulta);
                 MessageBox.Show("Creado");
+                this.Close();
                 
             }
             else
             {
-                //
+                viaDeConsultaService.UpDate(viaDeConsulta);
+                MessageBox.Show("Editado");
+                this.Close();
+                
             }
         }
     }

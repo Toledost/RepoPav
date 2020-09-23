@@ -30,5 +30,15 @@ namespace TESTWF2020.BusinessLayer
         {
             viaDeConsultaDao.Create(viaDeConsulta);
         }
+
+        internal void UpDate(ViaDeConsulta viaDeConsulta)
+        {
+            viaDeConsultaDao.UpDate(viaDeConsulta);
+        }
+
+        internal void Delete(int idViaDeConsulta)
+        {
+            viaDeConsultaDao.Delete(idViaDeConsulta);
+        }
     }
 }

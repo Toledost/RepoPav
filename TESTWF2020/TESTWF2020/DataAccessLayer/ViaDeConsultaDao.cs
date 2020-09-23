@@ -32,6 +32,38 @@ namespace TESTWF2020.DataAccessLayer
             return listaViaDeConsultas;
         }
 
+        internal void UpDate(ViaDeConsulta viaDeConsulta)
+        {
+            string consultaSql = "UPDATE ViaDeConsulta " +
+                "SET " +
+                "[nombre] = @nombre " +
+                //"[idViaDeConsulta] = @idViaDeConsulta " +
+                ",[descripcion] = @descripcion " +
+                "WHERE nombre = @nombre AND borrado = 0 ";
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("nombre", viaDeConsulta.Nombre);
+            parametros.Add("descripcion", viaDeConsulta.Descripcion);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+        }
+
+        internal void Delete(int idViaDeConsulta)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            string consultaSql = "UPDATE ViaDeConsulta " +
+                "SET borrado = 1 " +
+                "WHERE idViaDeConsulta = @idViaDeConsulta " ;
+
+            parametros.Add("idViaDeConsulta", idViaDeConsulta);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+        }
+
         internal void Create(ViaDeConsulta viaDeConsulta)
         {
             string consultaSQL = "INSERT INTO ViaDeConsulta " +
@@ -46,7 +78,7 @@ namespace TESTWF2020.DataAccessLayer
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("nombre", viaDeConsulta.Nombre);
-            parametros.Add("idViaDeConsulta", viaDeConsulta.Id);
+            //parametros.Add("idViaDeConsulta", viaDeConsulta.Id);
             parametros.Add("descripcion", viaDeConsulta.Descripcion);
 
             DataManager dm = new DataManager();

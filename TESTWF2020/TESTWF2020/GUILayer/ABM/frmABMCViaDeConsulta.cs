@@ -56,12 +56,31 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 MessageBox.Show("No seleccionó ninguna via de consulta");
             }
+            btnBuscar_Click(sender, e);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmDetalleNuevoViaConsulta frmDetalleNuevoViaConsulta = new frmDetalleNuevoViaConsulta(true);
             frmDetalleNuevoViaConsulta.ShowDialog();
+            btnBuscar_Click(sender, e);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvViaDeConsultas.SelectedRows.Count == 1)
+            {
+                var idViaDeConsulta = (int)this.dgvViaDeConsultas.CurrentRow.Cells["Id"].Value;
+                viaDeConsultaService.Delete(idViaDeConsulta);
+                btnBuscar_Click(sender, e);
+                MessageBox.Show("Eliminado");
+                
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ninguna via de consulta");
+            }
+            btnBuscar_Click(sender, e);
         }
     }
 }
