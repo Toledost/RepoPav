@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using TESTWF2020.Entities;
 using TESTWF2020.GUILayer;
+using TESTWF2020.GUILayer.ABM;
+using TESTWF2020.GUILayer.FORMFinanciacion;
 
 namespace TESTWF2020
 {
@@ -19,15 +21,15 @@ namespace TESTWF2020
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            login.ShowDialog();
-            if (login.UsuarioLogueado == null)
-            {
-                this.Close();
-                return;
-            }
-            this.Show();
-            this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
+            //this.Hide();
+            //login.ShowDialog();
+            //if (login.UsuarioLogueado == null)
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            //this.Show();
+            //this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -41,6 +43,22 @@ namespace TESTWF2020
             frmInmuebles frmInmuebles = new frmInmuebles();
             this.Hide();
             frmInmuebles.ShowDialog();
+            this.Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarClientes frmConsultarClientes = new frmConsultarClientes();
+            this.Hide();
+            frmConsultarClientes.ShowDialog();
+            this.Show();
+        }
+
+        private void planesFinanciacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaFinanciacion frmConsultaFinanciacion = new frmConsultaFinanciacion();
+            this.Hide();
+            frmConsultaFinanciacion.ShowDialog();
             this.Show();
         }
 
