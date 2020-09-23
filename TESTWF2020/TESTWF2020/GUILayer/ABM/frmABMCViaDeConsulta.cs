@@ -21,7 +21,6 @@ namespace TESTWF2020.GUILayer.ABM
         {
             InitializeComponent();
             viaDeConsultaService = new ViaDeConsultaService();
-            this.esNuevo = esNuevo;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

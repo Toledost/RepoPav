@@ -79,9 +79,10 @@ namespace TESTWF2020.GUILayer.ABM
             foreach (var consulta in consultas)
             {
                 this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre, 
-                    consulta.UsuarioCreado, consulta.TipoTransaccion, consulta.Inmueble, consulta.DniCliente, 
-                    consulta.NombreCliente, consulta.ApellidoCliente, consulta.MedioConocimiento, consulta.ViaDeConsulta,
-                    consulta.EstadoConsulta);
+                    consulta.UsuarioCreado, consulta.TipoTransaccion.Id, consulta.Inmueble.Id, 
+                    consulta.MedioConocimiento.Id, consulta.ViaDeConsulta.Id,
+                    consulta.EstadoConsulta.Id);
+                    //consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
             }
         }
     }
