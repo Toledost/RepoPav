@@ -10,7 +10,7 @@ namespace TESTWF2020.DataAccessLayer
 {
     public class ConsultaDao
     {
-        internal  IList<Consulta> GetAll()
+        internal IList<Consulta> GetAll()
         {
             var listaConsulta = new List<Consulta>();
 
@@ -18,24 +18,24 @@ namespace TESTWF2020.DataAccessLayer
                 "c.idConsulta, " +
                 "c.fechaCreada, " +
                 "c.usuarioCreado, " +
-                "t.idTipoTransaccion, " +
+                "t.nombre as nombreTipoTransaccion, " +
                 "i.idInmueble, " +
-                //"cl.dni, " +
-                //"cl.nombre, " +
-                //"cl.apellido, " +
-                "m.idMedioConocimiento, " +
-                "v.idViaDeConsulta, " +
-                "e.idEstadoConsulta, " +
+                "cl.dni as dni, " +
+                "cl.nombre as nombre, " +
+                "cl.apellido as apellido, " +
+                "m.nombre as nombreMedioConocimiento, " +
+                "v.nombre as nombreViaDeConsulta, " +
+                "e.nombre as nombreEstadoConsulta, " +
                 "c.fechaCierre, " +
                 "c.usuarioActualizacion " +
                 "FROM Consulta c " +
                 //"INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
                 "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
                 "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
-                //"INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
+                "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
                 "INNER JOIN MedioConocimiento m on c.idMedioConocimiento = m.idMedioConocimiento " +
                 "INNER JOIN ViaDeConsulta v on c.idViaDeConsulta = v.idViaDeConsulta " +
-                "INNER JOIN EstadoConsulta e on e.idEstadoConsulta = e.idEstadoConsulta " +
+                "INNER JOIN EstadoConsulta e on c.idEstadoConsulta = e.idEstadoConsulta " +
                 "WHERE c.borrado = 0 ";
 
             DataManager dm = new DataManager();
@@ -47,10 +47,99 @@ namespace TESTWF2020.DataAccessLayer
                 foreach (DataRow row in resultado.Rows)
                 {
                     listaConsulta.Add(MapToEntity(row));
-                }               
+                }
             }
 
             return listaConsulta;
+        }
+
+        public IList<Consulta> GetByFilters(Dictionary<string, object> diccParametros)
+        {
+            var listaConsultas = new List<Consulta>();
+
+            string consultaSql = "SELECT " +
+                "c.idConsulta, " +
+                "c.fechaCreada, " +
+                "c.usuarioCreado, " +
+                "t.nombre as nombreTipoTransaccion, " +
+                "i.idInmueble, " +
+                "cl.dni as dni, " +
+                "cl.nombre as nombre, " +
+                "cl.apellido as apellido, " +
+                "m.nombre as nombreMedioConocimiento, " +
+                "v.nombre as nombreViaDeConsulta, " +
+                "e.nombre as nombreEstadoConsulta, " +
+                "c.fechaCierre, " +
+                "c.usuarioActualizacion " +
+                "FROM Consulta c " +
+                //"INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
+                "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
+                "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
+                "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
+                "INNER JOIN MedioConocimiento m on c.idMedioConocimiento = m.idMedioConocimiento " +
+                "INNER JOIN ViaDeConsulta v on c.idViaDeConsulta = v.idViaDeConsulta " +
+                "INNER JOIN EstadoConsulta e on c.idEstadoConsulta = e.idEstadoConsulta " +
+                "WHERE c.borrado = 0 ";
+
+            consultaSql = AgregarParametros(diccParametros, consultaSql);
+
+            DataManager dm = new DataManager();
+
+            var resultado = dm.ConsultaSQLConParametros2(consultaSql, diccParametros);
+            foreach (DataRow row in resultado.Rows)
+                listaConsultas.Add(MapToEntity(row));
+
+            return listaConsultas;
+        }
+
+        private string AgregarParametros(Dictionary<string, object> diccParametros, string consultaSql)
+        {
+            if (diccParametros.ContainsKey("idConsulta"))
+                consultaSql += " AND (c.idConsulta = @idConsulta) ";
+
+            if (diccParametros.ContainsKey("usuarioCreador"))
+                consultaSql += " AND (c.usuarioCreado LIKE '%' + @usuarioCreador + '%') ";
+
+            if (diccParametros.ContainsKey("tipoTransaccion"))
+                consultaSql += " AND (t.idTipoTransaccion = @tipoTransaccion) ";
+
+            if (diccParametros.ContainsKey("idInmueble"))
+                consultaSql += " AND (i.idInmueble = @idInmueble) ";
+
+            if (diccParametros.ContainsKey("dniCliente"))
+                consultaSql += " AND (cl.dni LIKE '%' + @dniCliente + '%') ";
+
+            if (diccParametros.ContainsKey("nombreCliente"))
+                consultaSql += " AND (cl.nombre LIKE '%' + @nombreCliente + '%') ";
+
+            if (diccParametros.ContainsKey("apellidoCliente"))
+                consultaSql += " AND (cl.apellido LIKE '%' + @apellidoCliente + '%') ";
+
+            if (diccParametros.ContainsKey("medioConocimiento"))
+                consultaSql += " AND (m.idMedioConocimiento = @medioConocimiento) ";
+
+            if (diccParametros.ContainsKey("viaDeConsulta"))
+                consultaSql += " AND (v.idViaDeConsulta = @viaDeConsulta) ";
+
+            if (diccParametros.ContainsKey("estadoConsulta"))
+                consultaSql += " AND (e.idEstadoConsulta = @estadoConsulta) ";
+
+            if (diccParametros.ContainsKey("usuarioActualizacion"))
+                consultaSql += " AND (c.usuarioActualizacion LIKE '%' + @usuarioActualizacion + '%') ";
+
+            return consultaSql;
+        }
+
+        public void Delete(int id)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            string consultaSql = "UPDATE Consulta SET borrado = 1 WHERE idConsulta = @id " ;
+
+            parametros.Add("id", id);
+
+            DataManager dm = new DataManager();
+            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
         private Consulta MapToEntity(DataRow row)
@@ -62,8 +151,8 @@ namespace TESTWF2020.DataAccessLayer
                 UsuarioCreado = row["usuarioCreado"].ToString(),
                 TipoTransaccion = new TipoTransaccion
                 {
-                    Id = (int)row["idTipoTransaccion"],
-                    //Nombre = row["nombre"].ToString(),
+                    //Id = (int)row["idTipoTransaccion"],
+                    Nombre = row["nombreTipoTransaccion"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
                 Inmueble = new Inmueble
@@ -85,26 +174,26 @@ namespace TESTWF2020.DataAccessLayer
                     //}
                 },
 
-                //DniCliente = (int)row["dniCliente"],
-                //NombreCliente = row["nombreCliente"].ToString(),
-                //ApellidoCliente = row["apellidoCliente"].ToString(),
+                DniCliente = (int)row["dni"],
+                NombreCliente = row["nombre"].ToString(),
+                ApellidoCliente = row["apellido"].ToString(),
 
                 MedioConocimiento = new MedioDeConocimiento
                 {
-                    Id = (int)row["idMedioConocimiento"],
-                    //Nombre = row["nombre"].ToString(),
+                    //Id = (int)row["idMedioConocimiento"],
+                    Nombre = row["nombreMedioConocimiento"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
                 ViaDeConsulta = new ViaDeConsulta
                 {
-                    Id = (int)row["idViaDeConsulta"],
-                    //Nombre = row["nombre"].ToString(),
+                    //Id = (int)row["idViaDeConsulta"],
+                    Nombre = row["nombreViaDeConsulta"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
                 EstadoConsulta = new EstadoConsulta
                 {
-                    Id = (int)row["idEstadoConsulta"],
-                    //Nombre = row["nombre"].ToString(),
+                    //Id = (int)row["idEstadoConsulta"],
+                    Nombre = row["nombreEstadoConsulta"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
                 FechaCierre = row["fechaCierre"] != DBNull.Value ? (DateTime)row["fechaCierre"] : default,

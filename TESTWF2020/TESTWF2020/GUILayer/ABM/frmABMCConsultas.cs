@@ -29,8 +29,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.estadoConsultaService = new EstadoConsultaService();
             this.viaDeConsultaService = new ViaDeConsultaService();
             this.medioDeConocimientoService = new MedioDeConocimientoService();
-            this.tipoTransaccionService = new TipoTransaccionService();
-            
+            this.tipoTransaccionService = new TipoTransaccionService();           
 
         }
 
@@ -66,24 +65,121 @@ namespace TESTWF2020.GUILayer.ABM
             this.cboIDTipoTrans.ValueMember = "Id";
             this.cboIDTipoTrans.DisplayMember = "Nombre";
             this.cboIDTipoTrans.SelectedIndex = -1;
-
-
-
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             this.dgvConsultas.Rows.Clear();
-            var consultas = consultaService.GetAll();
+            //var consultas = consultaService.GetAll();
+            var diccParametros = CrearDiccionario();
+            var consultas = consultaService.GetByFilters(diccParametros);
+
+            //this.dgvConsultas.DataSource = consultas;
 
             foreach (var consulta in consultas)
             {
-                this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre, 
-                    consulta.UsuarioCreado, consulta.TipoTransaccion.Id, consulta.Inmueble.Id, 
-                    consulta.MedioConocimiento.Id, consulta.ViaDeConsulta.Id,
-                    consulta.EstadoConsulta.Id);
-                    //consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
+                this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre,
+                    consulta.UsuarioCreado, consulta.TipoTransaccion.Nombre, consulta.Inmueble.Id,
+                    consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
+                    consulta.MedioConocimiento.Nombre, consulta.ViaDeConsulta.Nombre,
+                    consulta.EstadoConsulta.Nombre, consulta.UsuarioActualizacion);
             }
+        }
+        
+
+        private Dictionary<string, object> CrearDiccionario()
+        {
+            var dicc = new Dictionary<string, object>();
+
+            if (!string.IsNullOrWhiteSpace(this.txtIDConsulta.Text))
+            {
+                dicc.Add("idConsulta", txtIDConsulta.Text);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtUsuarioCreador.Text))
+            {
+                dicc.Add("usuarioCreador", txtUsuarioCreador.Text);
+            }
+
+            if (!(cboIDTipoTrans.SelectedIndex == -1))
+            {
+                dicc.Add("tipoTransaccion", cboIDTipoTrans.SelectedValue);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtIDInmueble.Text))
+            {
+                dicc.Add("idInmueble", txtIDInmueble.Text);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtDNICliente.Text))
+            {
+                dicc.Add("dniCliente", txtDNICliente.Text);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtNombreCliente.Text))
+            {
+                dicc.Add("nombreCliente", txtNombreCliente.Text);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtApellidoCliente.Text))
+            {
+                dicc.Add("apellidoCliente", txtApellidoCliente.Text);
+            }
+
+            if (!(cboIDMedioConocimiento.SelectedIndex == -1))
+            {
+                dicc.Add("medioConocimiento", cboIDMedioConocimiento.SelectedValue);
+            }
+
+            if (!(cboViaConsulta.SelectedIndex == -1))
+            {
+                dicc.Add("viaDeConsulta", cboViaConsulta.SelectedValue);
+            }
+
+            if (!(cboEstadoConsulta.SelectedIndex == -1))
+            {
+                dicc.Add("estadoConsulta", cboEstadoConsulta.SelectedValue);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.txtUsuarioActualizacion.Text))
+            {
+                dicc.Add("usuarioActualizacion", txtUsuarioActualizacion.Text);
+            }
+
+            return dicc;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvConsultas.SelectedRows.Count == 1)
+            {
+                DialogResult dr = MessageBox.Show($"¿ Esta seguro de desea eliminar la Consulta N°: {this.dgvConsultas.CurrentRow.Cells["Id"].Value} ?", "Eliminar Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                
+                if (dr == DialogResult.Yes)
+                {
+                    var idConsultaSeleccionada = (int)this.dgvConsultas.CurrentRow.Cells["Id"].Value;
+                    consultaService.Delete(idConsultaSeleccionada);
+                    MessageBox.Show("Consulta eliminado", "Eliminar Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnConsultar_Click(sender, e);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("No seleccionó ninguna Consulta");
+            }
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            foreach (var textBox in Controls.OfType<TextBox>())
+            {
+                textBox.Clear();
+            }
+            cboIDTipoTrans.SelectedIndex = -1;
+            cboIDMedioConocimiento.SelectedIndex = -1;
+            cboEstadoConsulta.SelectedIndex = -1;
+            cboViaConsulta.SelectedIndex = -1;
         }
     }
 }

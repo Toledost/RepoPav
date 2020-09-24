@@ -21,5 +21,15 @@ namespace TESTWF2020.BusinessLayer
         {
             return  consultaDao.GetAll();
         }
+
+        internal void Delete(int idConsultaSeleccionada)
+        {
+            consultaDao.Delete(idConsultaSeleccionada);
+        }
+
+        public IList<Consulta> GetByFilters(Dictionary<string, object> diccParametros)
+        {
+            return consultaDao.GetByFilters(diccParametros);
+        }
     }
 }
