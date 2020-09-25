@@ -36,5 +36,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return empleadoDao.GetByLegajo(legajo);
         }
+
+        public void Update(Empleado empleado, int legajo)
+        {
+            empleadoDao.Update(empleado, legajo);
+        }
     }
 }

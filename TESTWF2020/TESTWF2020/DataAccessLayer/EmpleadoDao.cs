@@ -89,6 +89,28 @@ namespace TESTWF2020.DataAccessLayer
             dm.EjecutarSQLConParametros2(consultaSQL, parametros);
         }
 
+        public void Update(Empleado empleado, int legajo)
+        {
+            DataManager dm = new DataManager();
+            
+            string consultaSQL = "UPDATE Empleado " +
+                                 "SET " +
+                                 "[legajo] = @legajo, " +
+                                 "[nombre] = @nombre, " +
+                                 "[apellido] = @apellido, " +
+                                 "[usuario] = @usuario " +
+                                 $"WHERE legajo = {legajo}";
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("legajo", empleado.Legajo);
+            parametros.Add("nombre", empleado.Nombre);
+            parametros.Add("apellido", empleado.Apellido);
+            parametros.Add("usuario", empleado.Usuario.Nombre);
+
+            dm.EjecutarSQLConParametros2(consultaSQL, parametros);
+        }
+
         #endregion
 
         #region Metodos Privados
@@ -111,13 +133,13 @@ namespace TESTWF2020.DataAccessLayer
         private string AgregarParametros(Dictionary<string, object> parametros, string consultaSql)
         {
             if (parametros.ContainsKey("nombre"))
-                consultaSql += "AND (e.nombre LIKE @nombre) ";
+                consultaSql += "AND (e.nombre LIKE '%' + @nombre + '%') ";
 
             if (parametros.ContainsKey("apellido"))
-                consultaSql += "AND (e.apellido LIKE @apellido) ";
+                consultaSql += "AND (e.apellido LIKE '%' + @apellido + '%') ";
 
             if (parametros.ContainsKey("usuario"))
-                consultaSql += "AND (u.nombre LIKE @usuario) ";
+                consultaSql += "AND (u.nombre LIKE '%' + @usuario + '%') ";
 
             return consultaSql;
         }
