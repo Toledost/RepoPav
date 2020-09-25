@@ -51,7 +51,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.cboEstadoConsulta.DisplayMember = "Nombre";
             this.cboEstadoConsulta.SelectedIndex = -1;
 
-            //this.cboViaConsulta.DataSource = viaDeConsultaService.GetAll();
+            this.cboViaConsulta.DataSource = viaDeConsultaService.GetAll();
             this.cboViaConsulta.ValueMember = "Id";
             this.cboViaConsulta.DisplayMember = "Nombre";
             this.cboViaConsulta.SelectedIndex = -1;
@@ -79,7 +79,7 @@ namespace TESTWF2020.GUILayer.ABM
             foreach (var consulta in consultas)
             {
                 this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre,
-                    consulta.UsuarioCreado, consulta.TipoTransaccion.Nombre, consulta.Inmueble.Id,
+                    consulta.UsuarioCreado, consulta.TipoTransaccion.Nombre, (string.Join(" ", consulta.Inmueble.Calle, consulta.Inmueble.CalleNumero)),
                     consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
                     consulta.MedioConocimiento.Nombre, consulta.ViaDeConsulta.Nombre,
                     consulta.EstadoConsulta.Nombre, consulta.UsuarioActualizacion);
@@ -106,9 +106,9 @@ namespace TESTWF2020.GUILayer.ABM
                 dicc.Add("tipoTransaccion", cboIDTipoTrans.SelectedValue);
             }
 
-            if (!string.IsNullOrWhiteSpace(this.txtIDInmueble.Text))
+            if (!string.IsNullOrWhiteSpace(this.txtDireccionInmueble.Text))
             {
-                dicc.Add("idInmueble", txtIDInmueble.Text);
+                dicc.Add("direccionInmueble", txtDireccionInmueble.Text);
             }
 
             if (!string.IsNullOrWhiteSpace(this.txtDNICliente.Text))

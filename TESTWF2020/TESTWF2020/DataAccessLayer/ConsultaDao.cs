@@ -29,7 +29,7 @@ namespace TESTWF2020.DataAccessLayer
                 "c.fechaCierre, " +
                 "c.usuarioActualizacion " +
                 "FROM Consulta c " +
-                //"INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
+                "INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
                 "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
                 "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
                 "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
@@ -63,6 +63,8 @@ namespace TESTWF2020.DataAccessLayer
                 "c.usuarioCreado, " +
                 "t.nombre as nombreTipoTransaccion, " +
                 "i.idInmueble, " +
+                "i.calle, " +
+                "i.calleNro, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombre, " +
                 "cl.apellido as apellido, " +
@@ -72,7 +74,7 @@ namespace TESTWF2020.DataAccessLayer
                 "c.fechaCierre, " +
                 "c.usuarioActualizacion " +
                 "FROM Consulta c " +
-                //"INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
+                "INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
                 "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
                 "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
                 "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
@@ -103,8 +105,8 @@ namespace TESTWF2020.DataAccessLayer
             if (diccParametros.ContainsKey("tipoTransaccion"))
                 consultaSql += " AND (t.idTipoTransaccion = @tipoTransaccion) ";
 
-            if (diccParametros.ContainsKey("idInmueble"))
-                consultaSql += " AND (i.idInmueble = @idInmueble) ";
+            if (diccParametros.ContainsKey("direccionInmueble"))
+                consultaSql += " AND (i.calle LIKE '%' + @direccionInmueble + '%') ";
 
             if (diccParametros.ContainsKey("dniCliente"))
                 consultaSql += " AND (cl.dni LIKE '%' + @dniCliente + '%') ";
@@ -142,6 +144,79 @@ namespace TESTWF2020.DataAccessLayer
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
+        public void Create(Consulta consulta)
+        {
+            string ConsultaSql = "INSERT INTO Consulta " +
+                "(fechaCreada, " +
+                "usuarioCreado, " +
+                "idTipoTransaccion, " +
+                "idInmueble, " +
+                "dniCliente, " +
+                "idMedioConocimiento, " +
+                "idViaDeConsulta, " +
+                "idEstadoConsulta, " +
+                "fechaCierre, " +
+                "usuarioActualizacion) " +
+                "VALUES " +
+                "(@fechaCreada, " +
+                "@usuarioCreado, " +
+                "@idTipoTransaccion, " +
+                "@idInmueble, " +
+                "@dniCliente, " +
+                "@idMedioConocimiento, " +
+                "@idViaDeConsulta, " +
+                "@idEstadoConsulta, " +
+                "@fechaCierre, " +
+                "@usuarioActualizacion)";
+
+            var parametros = CrearDiccionario(consulta);
+
+            DataManager dm = new DataManager();
+            dm.EjecutarSQLConParametros2(ConsultaSql, parametros);
+        }
+
+        private Dictionary<string, object> CrearDiccionario(Consulta consulta)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>();
+
+            parametros.Add("idConsulta", consulta.Id);
+            parametros.Add("fechaCreada", consulta.FechaCreada);
+            parametros.Add("usuarioCreado", consulta.UsuarioCreado);
+            parametros.Add("idTipoTransaccion", consulta.TipoTransaccion.Id);
+            parametros.Add("idInmueble", consulta.Inmueble.Id);
+            parametros.Add("dniCliente", consulta.Cliente.Dni);
+            parametros.Add("idMedioConocimiento", consulta.MedioConocimiento.Id);
+            parametros.Add("idViaDeConsulta", consulta.ViaDeConsulta.Id);
+            parametros.Add("idEstadoConsulta", consulta.EstadoConsulta.Id);
+            parametros.Add("fechaCierre", consulta.FechaCierre);
+            parametros.Add("usuarioActualizacion", consulta.UsuarioActualizacion);
+
+            return parametros;
+        }
+
+        public void Update(Consulta consulta)
+        {
+            string consultaSql = "UPDATE Consulta SET " +
+                "fechaCreada = @fechaCreada, " +
+                "usuarioCreado = @usuarioCreado, " +
+                "idTipoTransaccion = @idTipoTransaccion, " +
+                "idInmueble = @idInmueble, " +
+                "dniCliente = @dniCliente, " +
+                "idMedioConocimiento = @idMedioConocimiento, " +
+                "idViaDeConsulta = @idViaDeConsulta, " +
+                "idEstadoConsulta = @idEstadoConsulta, " +
+                "fechaCierre = @fechaCierre, " +
+                "usuarioActualizacion = @usuarioActualizacion " +
+                "WHERE idConsulta = @idConsulta ";
+
+            var parametros = CrearDiccionario(consulta);
+
+            DataManager dm = new DataManager();
+
+            dm.EjecutarSQLConParametros2(consultaSql, parametros);
+
+        }
+
         private Consulta MapToEntity(DataRow row)
         {
             Consulta consulta = new Consulta
@@ -158,8 +233,8 @@ namespace TESTWF2020.DataAccessLayer
                 Inmueble = new Inmueble
                 {
                     Id = (int)row["idInmueble"],
-                    //Calle = row["calle"].ToString(),
-                    //CalleNumero = (int)row["calleNro"],
+                    Calle = row["calle"].ToString(),
+                    CalleNumero = (int)row["calleNro"],
                     //MetrosCuadrados = (double)row["m2"],
                     //Baños = (int)row["cantBaños"],
                     //Habitaciones = (int)row["cantHabitaciones"],
@@ -196,7 +271,7 @@ namespace TESTWF2020.DataAccessLayer
                     Nombre = row["nombreEstadoConsulta"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
-                FechaCierre = row["fechaCierre"] != DBNull.Value ? (DateTime)row["fechaCierre"] : default,
+                FechaCierre = row["fechaCierre"] != DBNull.Value ? (DateTime)row["fechaCierre"] : (DateTime?)null,
                 UsuarioActualizacion = row["usuarioActualizacion"].ToString()
             };
 

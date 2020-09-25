@@ -16,9 +16,7 @@ namespace TESTWF2020.Entities
         public string UsuarioActualizacion { get; set; }
         public TipoTransaccion TipoTransaccion { get; set; }
         public Inmueble Inmueble { get; set; }
-        public int DniCliente { get; set; }
-        public string NombreCliente { get; set; }
-        public string ApellidoCliente { get; set; }
+        public Cliente Cliente { get; set; }
         public MedioDeConocimiento MedioConocimiento { get; set; }
         public ViaDeConsulta ViaDeConsulta { get; set; }
         public EstadoConsulta EstadoConsulta { get; set; }
