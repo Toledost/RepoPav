@@ -34,12 +34,12 @@ namespace TESTWF2020.BusinessLayer
 
         public void Create(Consulta consulta)
         {
-            return consultaDao.Create(consulta);
+            consultaDao.Create(consulta);
         }
 
         public void Update(Consulta consulta)
         {
-            return consultaDao.Update(consulta);
+            consultaDao.Update(consulta);
         }
     }
 }

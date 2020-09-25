@@ -34,7 +34,7 @@
             this.fechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioCreador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.idInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -161,11 +161,11 @@
             // 
             // idInmueble
             // 
-            this.idInmueble.HeaderText = "ID inmueble";
-            this.idInmueble.MinimumWidth = 8;
-            this.idInmueble.Name = "idInmueble";
-            this.idInmueble.ReadOnly = true;
-            this.idInmueble.Width = 150;
+            //this.idInmueble.HeaderText = "ID inmueble";
+            //this.idInmueble.MinimumWidth = 8;
+            //this.idInmueble.Name = "idInmueble";
+            //this.idInmueble.ReadOnly = true;
+            //this.idInmueble.Width = 150;
             // 
             // dniCliente
             // 

@@ -80,7 +80,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre,
                     consulta.UsuarioCreado, consulta.TipoTransaccion.Nombre, (string.Join(" ", consulta.Inmueble.Calle, consulta.Inmueble.CalleNumero)),
-                    consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
+                    //consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
                     consulta.MedioConocimiento.Nombre, consulta.ViaDeConsulta.Nombre,
                     consulta.EstadoConsulta.Nombre, consulta.UsuarioActualizacion);
             }
@@ -198,7 +198,7 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta(idConsultaSeleccionada);
+            frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta();
             frmDetalleConsulta.ShowDialog();
         }
     }

@@ -184,7 +184,7 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("usuarioCreado", consulta.UsuarioCreado);
             parametros.Add("idTipoTransaccion", consulta.TipoTransaccion.Id);
             parametros.Add("idInmueble", consulta.Inmueble.Id);
-            parametros.Add("dniCliente", consulta.Cliente.Dni);
+            //parametros.Add("dniCliente", consulta.Cliente.Dni);
             parametros.Add("idMedioConocimiento", consulta.MedioConocimiento.Id);
             parametros.Add("idViaDeConsulta", consulta.ViaDeConsulta.Id);
             parametros.Add("idEstadoConsulta", consulta.EstadoConsulta.Id);
@@ -249,9 +249,9 @@ namespace TESTWF2020.DataAccessLayer
                     //}
                 },
 
-                DniCliente = (int)row["dni"],
-                NombreCliente = row["nombre"].ToString(),
-                ApellidoCliente = row["apellido"].ToString(),
+                //DniCliente = (int)row["dni"],
+                //NombreCliente = row["nombre"].ToString(),
+                //ApellidoCliente = row["apellido"].ToString(),
 
                 MedioConocimiento = new MedioDeConocimiento
                 {
