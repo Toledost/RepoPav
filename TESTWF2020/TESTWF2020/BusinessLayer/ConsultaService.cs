@@ -31,5 +31,7 @@ namespace TESTWF2020.BusinessLayer
         {
             return consultaDao.GetByFilters(diccParametros);
         }
+
+
     }
 }

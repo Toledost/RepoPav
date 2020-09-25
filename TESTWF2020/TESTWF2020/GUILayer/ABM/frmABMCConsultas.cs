@@ -181,5 +181,7 @@ namespace TESTWF2020.GUILayer.ABM
             cboEstadoConsulta.SelectedIndex = -1;
             cboViaConsulta.SelectedIndex = -1;
         }
+
+        
     }
 }

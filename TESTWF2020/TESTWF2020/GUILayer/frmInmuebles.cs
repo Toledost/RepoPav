@@ -22,6 +22,8 @@ namespace TESTWF2020.GUILayer
         /// </summary>
         private InmuebleService inmuebleService;
         private TipoInmuebleService tipoInmuebleService;
+        private bool esParaElegir;
+        public int idInmuebleSeleccionado { get; set; }
 
         /// <summary>
         /// Constructor
@@ -31,6 +33,14 @@ namespace TESTWF2020.GUILayer
             InitializeComponent();
             inmuebleService = new InmuebleService();
             tipoInmuebleService = new TipoInmuebleService();
+
+        }
+        public frmInmuebles(bool esParaElegir)
+        {
+            InitializeComponent();
+            inmuebleService = new InmuebleService();
+            tipoInmuebleService = new TipoInmuebleService();
+            this.esParaElegir = esParaElegir;
         }
 
         #endregion
@@ -95,6 +105,15 @@ namespace TESTWF2020.GUILayer
 
         private void frmInmuebles_Load(object sender, EventArgs e)
         {
+            CargarComboTipo();
+            if (!esParaElegir)
+            {
+                btnElegir.Visible = false;
+            }
+        }
+
+        private void CargarComboTipo()
+        {
             this.cboTipo.DataSource = tipoInmuebleService.GetAll();
             this.cboTipo.ValueMember = "id";
             this.cboTipo.DisplayMember = "nombre";
@@ -149,5 +168,10 @@ namespace TESTWF2020.GUILayer
             cboTipo.SelectedIndex = -1;
         }
 
+        private void btnElegir_Click(object sender, EventArgs e)
+        {
+            this.idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
+            this.Close();
+        }
     }
 }

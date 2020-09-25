@@ -58,6 +58,7 @@
             this.cboTipo = new System.Windows.Forms.ComboBox();
             this.dgvInmuebles = new System.Windows.Forms.DataGridView();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.btnElegir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -295,7 +296,7 @@
             // 
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Location = new System.Drawing.Point(499, 120);
-            this.cboTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(100, 21);
             this.cboTipo.TabIndex = 38;
@@ -304,14 +305,14 @@
             // 
             this.dgvInmuebles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInmuebles.Location = new System.Drawing.Point(48, 247);
-            this.dgvInmuebles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvInmuebles.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInmuebles.MultiSelect = false;
             this.dgvInmuebles.Name = "dgvInmuebles";
             this.dgvInmuebles.RowHeadersWidth = 62;
             this.dgvInmuebles.RowTemplate.Height = 28;
             this.dgvInmuebles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInmuebles.Size = new System.Drawing.Size(565, 181);
-            this.dgvInmuebles.TabIndex = 39;           
+            this.dgvInmuebles.TabIndex = 39;
             // 
             // btnLimpiarFiltros
             // 
@@ -323,11 +324,22 @@
             this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
+            // btnElegir
+            // 
+            this.btnElegir.Location = new System.Drawing.Point(373, 435);
+            this.btnElegir.Name = "btnElegir";
+            this.btnElegir.Size = new System.Drawing.Size(75, 23);
+            this.btnElegir.TabIndex = 41;
+            this.btnElegir.Text = "Elegir";
+            this.btnElegir.UseVisualStyleBackColor = true;
+            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
+            // 
             // frmInmuebles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 481);
+            this.Controls.Add(this.btnElegir);
             this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.dgvInmuebles);
             this.Controls.Add(this.cboTipo);
@@ -399,5 +411,6 @@
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.DataGridView dgvInmuebles;
         private System.Windows.Forms.Button btnLimpiarFiltros;
+        private System.Windows.Forms.Button btnElegir;
     }
 }

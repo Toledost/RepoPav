@@ -29,6 +29,19 @@
         private void InitializeComponent()
         {
             this.dgvConsultas = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioCreador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medioConocimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viaConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnDetalle = new System.Windows.Forms.Button();
@@ -61,19 +74,6 @@
             this.cboEstadoConsulta = new System.Windows.Forms.ComboBox();
             this.dtpFechaCreada = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaCierre = new System.Windows.Forms.DateTimePicker();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioCreador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medioConocimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viaConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +96,7 @@
             this.viaConsulta,
             this.estadoConsulta,
             this.usuarioActualizacion});
-            this.dgvConsultas.Location = new System.Drawing.Point(11, 329);
+            this.dgvConsultas.Location = new System.Drawing.Point(21, 325);
             this.dgvConsultas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvConsultas.MultiSelect = false;
             this.dgvConsultas.Name = "dgvConsultas";
@@ -106,6 +106,108 @@
             this.dgvConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConsultas.Size = new System.Drawing.Size(1275, 181);
             this.dgvConsultas.TabIndex = 44;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 150;
+            // 
+            // fechaCreada
+            // 
+            this.fechaCreada.HeaderText = "Fecha Creada";
+            this.fechaCreada.MinimumWidth = 8;
+            this.fechaCreada.Name = "fechaCreada";
+            this.fechaCreada.ReadOnly = true;
+            this.fechaCreada.Width = 150;
+            // 
+            // fechaCierre
+            // 
+            this.fechaCierre.HeaderText = "Fecha Cierre";
+            this.fechaCierre.MinimumWidth = 8;
+            this.fechaCierre.Name = "fechaCierre";
+            this.fechaCierre.ReadOnly = true;
+            this.fechaCierre.Width = 150;
+            // 
+            // usuarioCreador
+            // 
+            this.usuarioCreador.HeaderText = "Usuario Creador";
+            this.usuarioCreador.MinimumWidth = 8;
+            this.usuarioCreador.Name = "usuarioCreador";
+            this.usuarioCreador.ReadOnly = true;
+            this.usuarioCreador.Width = 150;
+            // 
+            // tipoTransaccion
+            // 
+            this.tipoTransaccion.HeaderText = "Tipo transaccion";
+            this.tipoTransaccion.MinimumWidth = 8;
+            this.tipoTransaccion.Name = "tipoTransaccion";
+            this.tipoTransaccion.ReadOnly = true;
+            this.tipoTransaccion.Width = 150;
+            // 
+            // idInmueble
+            // 
+            this.idInmueble.HeaderText = "ID inmueble";
+            this.idInmueble.MinimumWidth = 8;
+            this.idInmueble.Name = "idInmueble";
+            this.idInmueble.ReadOnly = true;
+            this.idInmueble.Width = 150;
+            // 
+            // dniCliente
+            // 
+            this.dniCliente.HeaderText = "DNI Cliente";
+            this.dniCliente.MinimumWidth = 8;
+            this.dniCliente.Name = "dniCliente";
+            this.dniCliente.ReadOnly = true;
+            this.dniCliente.Width = 150;
+            // 
+            // nombreCliente
+            // 
+            this.nombreCliente.HeaderText = "Nombre Cliente";
+            this.nombreCliente.MinimumWidth = 8;
+            this.nombreCliente.Name = "nombreCliente";
+            this.nombreCliente.ReadOnly = true;
+            this.nombreCliente.Width = 150;
+            // 
+            // apellidoCliente
+            // 
+            this.apellidoCliente.HeaderText = "Apellido Cliente";
+            this.apellidoCliente.MinimumWidth = 8;
+            this.apellidoCliente.Name = "apellidoCliente";
+            this.apellidoCliente.ReadOnly = true;
+            this.apellidoCliente.Width = 150;
+            // 
+            // medioConocimiento
+            // 
+            this.medioConocimiento.HeaderText = "Medio Conocimieneto";
+            this.medioConocimiento.MinimumWidth = 8;
+            this.medioConocimiento.Name = "medioConocimiento";
+            this.medioConocimiento.ReadOnly = true;
+            this.medioConocimiento.Width = 150;
+            // 
+            // viaConsulta
+            // 
+            this.viaConsulta.HeaderText = "Via de Consulta";
+            this.viaConsulta.MinimumWidth = 8;
+            this.viaConsulta.Name = "viaConsulta";
+            this.viaConsulta.ReadOnly = true;
+            this.viaConsulta.Width = 150;
+            // 
+            // estadoConsulta
+            // 
+            this.estadoConsulta.HeaderText = "Estado de Consulta";
+            this.estadoConsulta.Name = "estadoConsulta";
+            this.estadoConsulta.ReadOnly = true;
+            // 
+            // usuarioActualizacion
+            // 
+            this.usuarioActualizacion.HeaderText = "Usuario Actualizacion";
+            this.usuarioActualizacion.MinimumWidth = 8;
+            this.usuarioActualizacion.Name = "usuarioActualizacion";
+            this.usuarioActualizacion.ReadOnly = true;
+            this.usuarioActualizacion.Width = 150;
             // 
             // btnSalir
             // 
@@ -378,108 +480,6 @@
             this.dtpFechaCierre.Name = "dtpFechaCierre";
             this.dtpFechaCierre.Size = new System.Drawing.Size(121, 20);
             this.dtpFechaCierre.TabIndex = 78;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 150;
-            // 
-            // fechaCreada
-            // 
-            this.fechaCreada.HeaderText = "Fecha Creada";
-            this.fechaCreada.MinimumWidth = 8;
-            this.fechaCreada.Name = "fechaCreada";
-            this.fechaCreada.ReadOnly = true;
-            this.fechaCreada.Width = 150;
-            // 
-            // fechaCierre
-            // 
-            this.fechaCierre.HeaderText = "Fecha Cierre";
-            this.fechaCierre.MinimumWidth = 8;
-            this.fechaCierre.Name = "fechaCierre";
-            this.fechaCierre.ReadOnly = true;
-            this.fechaCierre.Width = 150;
-            // 
-            // usuarioCreador
-            // 
-            this.usuarioCreador.HeaderText = "Usuario Creador";
-            this.usuarioCreador.MinimumWidth = 8;
-            this.usuarioCreador.Name = "usuarioCreador";
-            this.usuarioCreador.ReadOnly = true;
-            this.usuarioCreador.Width = 150;
-            // 
-            // tipoTransaccion
-            // 
-            this.tipoTransaccion.HeaderText = "Tipo transaccion";
-            this.tipoTransaccion.MinimumWidth = 8;
-            this.tipoTransaccion.Name = "tipoTransaccion";
-            this.tipoTransaccion.ReadOnly = true;
-            this.tipoTransaccion.Width = 150;
-            // 
-            // idInmueble
-            // 
-            this.idInmueble.HeaderText = "ID inmueble";
-            this.idInmueble.MinimumWidth = 8;
-            this.idInmueble.Name = "idInmueble";
-            this.idInmueble.ReadOnly = true;
-            this.idInmueble.Width = 150;
-            // 
-            // dniCliente
-            // 
-            this.dniCliente.HeaderText = "DNI Cliente";
-            this.dniCliente.MinimumWidth = 8;
-            this.dniCliente.Name = "dniCliente";
-            this.dniCliente.ReadOnly = true;
-            this.dniCliente.Width = 150;
-            // 
-            // nombreCliente
-            // 
-            this.nombreCliente.HeaderText = "Nombre Cliente";
-            this.nombreCliente.MinimumWidth = 8;
-            this.nombreCliente.Name = "nombreCliente";
-            this.nombreCliente.ReadOnly = true;
-            this.nombreCliente.Width = 150;
-            // 
-            // apellidoCliente
-            // 
-            this.apellidoCliente.HeaderText = "Apellido Cliente";
-            this.apellidoCliente.MinimumWidth = 8;
-            this.apellidoCliente.Name = "apellidoCliente";
-            this.apellidoCliente.ReadOnly = true;
-            this.apellidoCliente.Width = 150;
-            // 
-            // medioConocimiento
-            // 
-            this.medioConocimiento.HeaderText = "Medio Conocimieneto";
-            this.medioConocimiento.MinimumWidth = 8;
-            this.medioConocimiento.Name = "medioConocimiento";
-            this.medioConocimiento.ReadOnly = true;
-            this.medioConocimiento.Width = 150;
-            // 
-            // viaConsulta
-            // 
-            this.viaConsulta.HeaderText = "Via de Consulta";
-            this.viaConsulta.MinimumWidth = 8;
-            this.viaConsulta.Name = "viaConsulta";
-            this.viaConsulta.ReadOnly = true;
-            this.viaConsulta.Width = 150;
-            // 
-            // estadoConsulta
-            // 
-            this.estadoConsulta.HeaderText = "Estado de Consulta";
-            this.estadoConsulta.Name = "estadoConsulta";
-            this.estadoConsulta.ReadOnly = true;
-            // 
-            // usuarioActualizacion
-            // 
-            this.usuarioActualizacion.HeaderText = "Usuario Actualizacion";
-            this.usuarioActualizacion.MinimumWidth = 8;
-            this.usuarioActualizacion.Name = "usuarioActualizacion";
-            this.usuarioActualizacion.ReadOnly = true;
-            this.usuarioActualizacion.Width = 150;
             // 
             // frmABMCConsultas
             // 
