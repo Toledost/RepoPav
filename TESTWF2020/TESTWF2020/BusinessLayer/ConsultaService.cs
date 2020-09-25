@@ -31,5 +31,15 @@ namespace TESTWF2020.BusinessLayer
         {
             return consultaDao.GetByFilters(diccParametros);
         }
+
+        public void Create(Consulta consulta)
+        {
+            return consultaDao.Create(consulta);
+        }
+
+        public void Update(Consulta consulta)
+        {
+            return consultaDao.Update(consulta);
+        }
     }
 }
