@@ -50,8 +50,7 @@ namespace TESTWF2020.GUILayer.ABM
             }
             else
             {
-                this.btnEditar.Enabled = false;
-                //this.txtID.Enabled = false;
+                this.btnEditar.Enabled = false;               
             }
         }
 
