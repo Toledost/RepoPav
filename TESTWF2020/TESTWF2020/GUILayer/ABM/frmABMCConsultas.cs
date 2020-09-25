@@ -181,5 +181,25 @@ namespace TESTWF2020.GUILayer.ABM
             cboEstadoConsulta.SelectedIndex = -1;
             cboViaConsulta.SelectedIndex = -1;
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvConsultas.SelectedRows.Count == 1)
+            {
+                var idConsultaSeleccionada = (int)this.dgvConsultas.CurrentRow.Cells["Id"].Value;
+                frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta(idConsultaSeleccionada);
+                frmDetalleConsulta.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ninguna Consulta");
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta(idConsultaSeleccionada);
+            frmDetalleConsulta.ShowDialog();
+        }
     }
 }
