@@ -201,5 +201,6 @@ namespace TESTWF2020.GUILayer.ABM
             frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta();
             frmDetalleConsulta.ShowDialog();
         }
+
     }
 }

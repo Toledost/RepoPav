@@ -38,6 +38,9 @@ namespace TESTWF2020.GUILayer.ABM
             this.txtIDInmueble.Text = frmInmuebles.idInmuebleSeleccionado.ToString();
         }
 
-        
+        private void frmDetalleConsulta_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

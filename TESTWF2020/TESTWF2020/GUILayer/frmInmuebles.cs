@@ -170,8 +170,12 @@ namespace TESTWF2020.GUILayer
 
         private void btnElegir_Click(object sender, EventArgs e)
         {
-            this.idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
-            this.Close();
+            if (dgvInmuebles.SelectedRows.Count == 1)
+            {
+                this.idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
+                this.Close();
+
+            }
         }
     }
 }
