@@ -16,7 +16,6 @@ namespace TESTWF2020.DataAccessLayer
             dbConnection = new SqlConnection();
             // var dataBaseName = ConfigurationManager.AppSettings["dataBaseName"];
             // var string_conexion = ConfigurationManager.ConnectionStrings[dataBaseName].ConnectionString;
-
             dbConnection.ConnectionString = @"Data Source=186.13.121.219;Initial Catalog=BDInmobiliariaCasaFeliz;Persist Security Info=True;User ID=usertest;Password=pepito";
         }
 

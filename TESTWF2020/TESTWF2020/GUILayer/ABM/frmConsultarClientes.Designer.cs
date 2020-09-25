@@ -78,6 +78,7 @@
             this.dgvCliente.Location = new System.Drawing.Point(127, 220);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(545, 150);
             this.dgvCliente.TabIndex = 2;
             // 
@@ -155,7 +156,7 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(127, 394);
+            this.btnDetalle.Location = new System.Drawing.Point(229, 394);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 8;
@@ -185,7 +186,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(229, 394);
+            this.btnNuevo.Location = new System.Drawing.Point(127, 394);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 11;

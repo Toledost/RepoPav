@@ -79,14 +79,15 @@ namespace TESTWF2020.DataAccessLayer
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
-        internal void UpDate(Usuario user)
+        internal void Update(Usuario user, string nombreOriginal)
         {
             string consultaSql = " UPDATE Usuario " +
                 "SET " +
                 " [nombre] = @nombre " +
                 ",[contraseña] = @contraseña " +
                 ",[idPerfil] = @idPerfil " +
-                " WHERE nombre = @nombre ";
+                " WHERE nombre = @nombreOriginal ";
+               
 
             //no va esta parte
             //if (cambioEstado)
@@ -99,6 +100,7 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("nombre", user.Nombre);
             parametros.Add("contraseña", user.Contraseña);
             parametros.Add("idPerfil", user.Perfil.IdPerfil);
+            parametros.Add("nombreOriginal", nombreOriginal);
 
             DataManager dm = new DataManager();
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
