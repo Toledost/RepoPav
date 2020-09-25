@@ -48,6 +48,8 @@
             // 
             // dgvFinanciacion
             // 
+            this.dgvFinanciacion.AllowUserToAddRows = false;
+            this.dgvFinanciacion.AllowUserToDeleteRows = false;
             this.dgvFinanciacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFinanciacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdFinanciacion,
@@ -57,6 +59,7 @@
             this.dgvFinanciacion.Location = new System.Drawing.Point(162, 274);
             this.dgvFinanciacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvFinanciacion.Name = "dgvFinanciacion";
+            this.dgvFinanciacion.ReadOnly = true;
             this.dgvFinanciacion.RowHeadersWidth = 62;
             this.dgvFinanciacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFinanciacion.Size = new System.Drawing.Size(843, 295);
@@ -67,6 +70,7 @@
             this.IdFinanciacion.HeaderText = "Id";
             this.IdFinanciacion.MinimumWidth = 8;
             this.IdFinanciacion.Name = "IdFinanciacion";
+            this.IdFinanciacion.ReadOnly = true;
             this.IdFinanciacion.Width = 150;
             // 
             // Nombre
@@ -74,6 +78,7 @@
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             this.Nombre.Width = 150;
             // 
             // PorcAumento
@@ -81,6 +86,7 @@
             this.PorcAumento.HeaderText = "Porcentaje Aumento";
             this.PorcAumento.MinimumWidth = 8;
             this.PorcAumento.Name = "PorcAumento";
+            this.PorcAumento.ReadOnly = true;
             this.PorcAumento.Width = 150;
             // 
             // CantCuotas
@@ -88,6 +94,7 @@
             this.CantCuotas.HeaderText = "Cantidad de Cuotas";
             this.CantCuotas.MinimumWidth = 8;
             this.CantCuotas.Name = "CantCuotas";
+            this.CantCuotas.ReadOnly = true;
             this.CantCuotas.Width = 150;
             // 
             // btnConsultar
