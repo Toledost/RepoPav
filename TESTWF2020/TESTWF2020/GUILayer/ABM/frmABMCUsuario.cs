@@ -62,7 +62,7 @@ namespace TESTWF2020.GUILayer.ABM
                     IdPerfil = Convert.ToInt32(this.cboPerfil.SelectedValue)
                 }
             };
-                
+
             if (esNuevo)
             {
 
@@ -74,25 +74,28 @@ namespace TESTWF2020.GUILayer.ABM
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Este usuario fue eliminado anteriormente ¿Desea restablecerlo?", 
+                    DialogResult dr = MessageBox.Show("Este usuario fue eliminado anteriormente ¿Desea restablecerlo?",
                         "Recuperar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (dr == DialogResult.Yes)
                     {
                         usuarioService.Recuperar(txtNombre.Text);
-                        MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK, 
+                        MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
                 }
+                this.Close();
 
                 //usuarioService.Insert(user);
                 //MessageBox.Show("Se creo correctamente el usuario");
             }
             else
             {
-                usuarioService.UpDate(user);
+                usuarioService.Update(user, nombreUsuarioSeleccionado);
                 //usuarioService.UpDate(user, true);
                 MessageBox.Show("Se edito correctamente");
+                this.Close();
             }
+            
         }
 
         private void frmABMCUsuario_Load(object sender, EventArgs e)

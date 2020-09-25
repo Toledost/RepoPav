@@ -96,17 +96,20 @@ namespace TESTWF2020.GUILayer.ABM
                 var nombreUsuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value.ToString();
                 frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(false, nombreUsuarioSeleccionado);
                 frmABMCUsuario.ShowDialog();
+                btnBuscar_Click(sender, e);
             }
             else
             {
                 MessageBox.Show("No seleccionó ningún Usuario");
             }
+            //btnBuscar_Click(sender, e);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmABMCUsuario frmABMCUsuario = new frmABMCUsuario(true);
             frmABMCUsuario.ShowDialog();
+            btnBuscar_Click(sender, e);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
