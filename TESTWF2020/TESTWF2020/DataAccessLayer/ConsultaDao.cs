@@ -17,7 +17,7 @@ namespace TESTWF2020.DataAccessLayer
             string consultaSql = "SELECT " +
                 "c.idConsulta, " +
                 "c.fechaCreada, " +
-                "c.usuarioCreado, " +
+                "c.usuarioUltimaModificacion, " +
                 "t.nombre as nombreTipoTransaccion, " +
                 "i.idInmueble, " +
                 "cl.dni as dni, " +
@@ -26,10 +26,9 @@ namespace TESTWF2020.DataAccessLayer
                 "m.nombre as nombreMedioConocimiento, " +
                 "v.nombre as nombreViaDeConsulta, " +
                 "e.nombre as nombreEstadoConsulta, " +
-                "c.fechaCierre, " +
-                "c.usuarioActualizacion " +
+                "c.fechaCierre " +
                 "FROM Consulta c " +
-                "INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
+                "INNER JOIN Usuario u on c.usuarioUltimaModificacion = u.nombre " +
                 "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
                 "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
                 "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
@@ -60,7 +59,7 @@ namespace TESTWF2020.DataAccessLayer
             string consultaSql = "SELECT " +
                 "c.idConsulta, " +
                 "c.fechaCreada, " +
-                "c.usuarioCreado, " +
+                "c.usuarioUltimaModificacion, " +
                 "t.nombre as nombreTipoTransaccion, " +
                 "i.idInmueble, " +
                 "i.calle, " +
@@ -71,10 +70,9 @@ namespace TESTWF2020.DataAccessLayer
                 "m.nombre as nombreMedioConocimiento, " +
                 "v.nombre as nombreViaDeConsulta, " +
                 "e.nombre as nombreEstadoConsulta, " +
-                "c.fechaCierre, " +
-                "c.usuarioActualizacion " +
+                "c.fechaCierre " +
                 "FROM Consulta c " +
-                "INNER JOIN Usuario u on c.usuarioCreado = u.nombre " +
+                "INNER JOIN Usuario u on c.usuarioUltimaModificacion = u.nombre " +
                 "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
                 "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
                 "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
@@ -99,8 +97,8 @@ namespace TESTWF2020.DataAccessLayer
             if (diccParametros.ContainsKey("idConsulta"))
                 consultaSql += " AND (c.idConsulta = @idConsulta) ";
 
-            if (diccParametros.ContainsKey("usuarioCreador"))
-                consultaSql += " AND (c.usuarioCreado LIKE '%' + @usuarioCreador + '%') ";
+            if (diccParametros.ContainsKey("usuarioUltimaModificacion"))
+                consultaSql += " AND (c.usuarioUltimaModificacion LIKE '%' + @usuarioUltimaModificacion + '%') ";
 
             if (diccParametros.ContainsKey("tipoTransaccion"))
                 consultaSql += " AND (t.idTipoTransaccion = @tipoTransaccion) ";
@@ -126,9 +124,6 @@ namespace TESTWF2020.DataAccessLayer
             if (diccParametros.ContainsKey("estadoConsulta"))
                 consultaSql += " AND (e.idEstadoConsulta = @estadoConsulta) ";
 
-            if (diccParametros.ContainsKey("usuarioActualizacion"))
-                consultaSql += " AND (c.usuarioActualizacion LIKE '%' + @usuarioActualizacion + '%') ";
-
             return consultaSql;
         }
 
@@ -148,26 +143,24 @@ namespace TESTWF2020.DataAccessLayer
         {
             string ConsultaSql = "INSERT INTO Consulta " +
                 "(fechaCreada, " +
-                "usuarioCreado, " +
+                "usuarioUltimaModificacion, " +
                 "idTipoTransaccion, " +
                 "idInmueble, " +
                 "dniCliente, " +
                 "idMedioConocimiento, " +
                 "idViaDeConsulta, " +
                 "idEstadoConsulta, " +
-                "fechaCierre, " +
-                "usuarioActualizacion) " +
+                "fechaCierre) " +
                 "VALUES " +
                 "(@fechaCreada, " +
-                "@usuarioCreado, " +
+                "@usuarioUltimaModificacion, " +
                 "@idTipoTransaccion, " +
                 "@idInmueble, " +
                 "@dniCliente, " +
                 "@idMedioConocimiento, " +
                 "@idViaDeConsulta, " +
                 "@idEstadoConsulta, " +
-                "@fechaCierre, " +
-                "@usuarioActualizacion)";
+                "@fechaCierre)";
 
             var parametros = CrearDiccionario(consulta);
 
@@ -181,7 +174,7 @@ namespace TESTWF2020.DataAccessLayer
 
             parametros.Add("idConsulta", consulta.Id);
             parametros.Add("fechaCreada", consulta.FechaCreada);
-            parametros.Add("usuarioCreado", consulta.UsuarioCreado);
+            parametros.Add("usuarioUltimaModificacion", consulta.UsuarioUltimaModificacion.Nombre);
             parametros.Add("idTipoTransaccion", consulta.TipoTransaccion.Id);
             parametros.Add("idInmueble", consulta.Inmueble.Id);
             //parametros.Add("dniCliente", consulta.Cliente.Dni);
@@ -189,7 +182,6 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("idViaDeConsulta", consulta.ViaDeConsulta.Id);
             parametros.Add("idEstadoConsulta", consulta.EstadoConsulta.Id);
             parametros.Add("fechaCierre", consulta.FechaCierre);
-            parametros.Add("usuarioActualizacion", consulta.UsuarioActualizacion);
 
             return parametros;
         }
@@ -198,7 +190,7 @@ namespace TESTWF2020.DataAccessLayer
         {
             string consultaSql = "UPDATE Consulta SET " +
                 "fechaCreada = @fechaCreada, " +
-                "usuarioCreado = @usuarioCreado, " +
+                "usuarioUltimaModificacion = @usuarioUltimaModificacion, " +
                 "idTipoTransaccion = @idTipoTransaccion, " +
                 "idInmueble = @idInmueble, " +
                 "dniCliente = @dniCliente, " +
@@ -206,7 +198,6 @@ namespace TESTWF2020.DataAccessLayer
                 "idViaDeConsulta = @idViaDeConsulta, " +
                 "idEstadoConsulta = @idEstadoConsulta, " +
                 "fechaCierre = @fechaCierre, " +
-                "usuarioActualizacion = @usuarioActualizacion " +
                 "WHERE idConsulta = @idConsulta ";
 
             var parametros = CrearDiccionario(consulta);
@@ -223,7 +214,10 @@ namespace TESTWF2020.DataAccessLayer
             {
                 Id = (int)row["idConsulta"],
                 FechaCreada = (DateTime)row["fechaCreada"],
-                UsuarioCreado = row["usuarioCreado"].ToString(),
+                UsuarioUltimaModificacion = new Usuario
+                {
+                    Nombre = row["usuarioUltimaModificacion"].ToString(),
+                },                
                 TipoTransaccion = new TipoTransaccion
                 {
                     //Id = (int)row["idTipoTransaccion"],
@@ -272,7 +266,6 @@ namespace TESTWF2020.DataAccessLayer
                     //Descripcion = row["descripcion"].ToString()
                 },
                 FechaCierre = row["fechaCierre"] != DBNull.Value ? (DateTime)row["fechaCierre"] : (DateTime?)null,
-                UsuarioActualizacion = row["usuarioActualizacion"].ToString()
             };
 
             return consulta;

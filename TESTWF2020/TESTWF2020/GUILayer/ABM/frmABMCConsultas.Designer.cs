@@ -50,7 +50,7 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.lblFechaCreada = new System.Windows.Forms.Label();
-            this.lblUsrCreador = new System.Windows.Forms.Label();
+            this.lblUserModificador = new System.Windows.Forms.Label();
             this.lblTipoTrans = new System.Windows.Forms.Label();
             this.lblDireccionnuemble = new System.Windows.Forms.Label();
             this.lblDNICliente = new System.Windows.Forms.Label();
@@ -59,15 +59,13 @@
             this.lblIDMedioConocomiento = new System.Windows.Forms.Label();
             this.lblIDEstadoConsulta = new System.Windows.Forms.Label();
             this.lblIDviaConsulta = new System.Windows.Forms.Label();
-            this.lblUsuarioActualizacion = new System.Windows.Forms.Label();
             this.lblFechaCierre = new System.Windows.Forms.Label();
             this.txtIDConsulta = new System.Windows.Forms.TextBox();
-            this.txtUsuarioCreador = new System.Windows.Forms.TextBox();
+            this.txtUsuarioModificador = new System.Windows.Forms.TextBox();
             this.txtDireccionInmueble = new System.Windows.Forms.TextBox();
             this.txtDNICliente = new System.Windows.Forms.TextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
-            this.txtUsuarioActualizacion = new System.Windows.Forms.TextBox();
             this.cboIDTipoTrans = new System.Windows.Forms.ComboBox();
             this.cboIDMedioConocimiento = new System.Windows.Forms.ComboBox();
             this.cboViaConsulta = new System.Windows.Forms.ComboBox();
@@ -295,15 +293,15 @@
             this.lblFechaCreada.TabIndex = 48;
             this.lblFechaCreada.Text = "Fecha creada:";
             // 
-            // lblUsrCreador
+            // lblUserModificador
             // 
-            this.lblUsrCreador.AutoSize = true;
-            this.lblUsrCreador.Location = new System.Drawing.Point(226, 188);
-            this.lblUsrCreador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsrCreador.Name = "lblUsrCreador";
-            this.lblUsrCreador.Size = new System.Drawing.Size(126, 20);
-            this.lblUsrCreador.TabIndex = 49;
-            this.lblUsrCreador.Text = "Usuario creador:";
+            this.lblUserModificador.AutoSize = true;
+            this.lblUserModificador.Location = new System.Drawing.Point(226, 188);
+            this.lblUserModificador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserModificador.Name = "lblUserModificador";
+            this.lblUserModificador.Size = new System.Drawing.Size(206, 20);
+            this.lblUserModificador.TabIndex = 49;
+            this.lblUserModificador.Text = "Usuario ultima modificacion:";
             // 
             // lblTipoTrans
             // 
@@ -385,16 +383,6 @@
             this.lblIDviaConsulta.TabIndex = 57;
             this.lblIDviaConsulta.Text = "Via de consulta:";
             // 
-            // lblUsuarioActualizacion
-            // 
-            this.lblUsuarioActualizacion.AutoSize = true;
-            this.lblUsuarioActualizacion.Location = new System.Drawing.Point(1236, 274);
-            this.lblUsuarioActualizacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsuarioActualizacion.Name = "lblUsuarioActualizacion";
-            this.lblUsuarioActualizacion.Size = new System.Drawing.Size(164, 20);
-            this.lblUsuarioActualizacion.TabIndex = 58;
-            this.lblUsuarioActualizacion.Text = "Usuario actualizacion:";
-            // 
             // lblFechaCierre
             // 
             this.lblFechaCierre.AutoSize = true;
@@ -407,23 +395,23 @@
             // 
             // txtIDConsulta
             // 
-            this.txtIDConsulta.Location = new System.Drawing.Point(396, 18);
+            this.txtIDConsulta.Location = new System.Drawing.Point(433, 22);
             this.txtIDConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIDConsulta.Name = "txtIDConsulta";
             this.txtIDConsulta.Size = new System.Drawing.Size(187, 26);
             this.txtIDConsulta.TabIndex = 60;
             // 
-            // txtUsuarioCreador
+            // txtUsuarioModificador
             // 
-            this.txtUsuarioCreador.Location = new System.Drawing.Point(404, 177);
-            this.txtUsuarioCreador.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtUsuarioCreador.Name = "txtUsuarioCreador";
-            this.txtUsuarioCreador.Size = new System.Drawing.Size(180, 26);
-            this.txtUsuarioCreador.TabIndex = 62;
+            this.txtUsuarioModificador.Location = new System.Drawing.Point(441, 181);
+            this.txtUsuarioModificador.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsuarioModificador.Name = "txtUsuarioModificador";
+            this.txtUsuarioModificador.Size = new System.Drawing.Size(180, 26);
+            this.txtUsuarioModificador.TabIndex = 62;
             // 
             // txtDireccionInmueble
             // 
-            this.txtDireccionInmueble.Location = new System.Drawing.Point(404, 292);
+            this.txtDireccionInmueble.Location = new System.Drawing.Point(441, 296);
             this.txtDireccionInmueble.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDireccionInmueble.Name = "txtDireccionInmueble";
             this.txtDireccionInmueble.Size = new System.Drawing.Size(180, 26);
@@ -431,7 +419,7 @@
             // 
             // txtDNICliente
             // 
-            this.txtDNICliente.Location = new System.Drawing.Point(404, 360);
+            this.txtDNICliente.Location = new System.Drawing.Point(441, 364);
             this.txtDNICliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDNICliente.Name = "txtDNICliente";
             this.txtDNICliente.Size = new System.Drawing.Size(180, 26);
@@ -439,7 +427,7 @@
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(404, 406);
+            this.txtNombreCliente.Location = new System.Drawing.Point(441, 410);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(180, 26);
@@ -447,24 +435,16 @@
             // 
             // txtApellidoCliente
             // 
-            this.txtApellidoCliente.Location = new System.Drawing.Point(404, 462);
+            this.txtApellidoCliente.Location = new System.Drawing.Point(441, 466);
             this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.Size = new System.Drawing.Size(180, 26);
             this.txtApellidoCliente.TabIndex = 68;
             // 
-            // txtUsuarioActualizacion
-            // 
-            this.txtUsuarioActualizacion.Location = new System.Drawing.Point(1449, 275);
-            this.txtUsuarioActualizacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtUsuarioActualizacion.Name = "txtUsuarioActualizacion";
-            this.txtUsuarioActualizacion.Size = new System.Drawing.Size(180, 26);
-            this.txtUsuarioActualizacion.TabIndex = 72;
-            // 
             // cboIDTipoTrans
             // 
             this.cboIDTipoTrans.FormattingEnabled = true;
-            this.cboIDTipoTrans.Location = new System.Drawing.Point(404, 228);
+            this.cboIDTipoTrans.Location = new System.Drawing.Point(441, 232);
             this.cboIDTipoTrans.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboIDTipoTrans.Name = "cboIDTipoTrans";
             this.cboIDTipoTrans.Size = new System.Drawing.Size(180, 28);
@@ -500,7 +480,7 @@
             // dtpFechaCreada
             // 
             this.dtpFechaCreada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCreada.Location = new System.Drawing.Point(396, 77);
+            this.dtpFechaCreada.Location = new System.Drawing.Point(433, 81);
             this.dtpFechaCreada.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaCreada.Name = "dtpFechaCreada";
             this.dtpFechaCreada.Size = new System.Drawing.Size(187, 26);
@@ -509,7 +489,7 @@
             // dtpFechaCierre
             // 
             this.dtpFechaCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCierre.Location = new System.Drawing.Point(396, 122);
+            this.dtpFechaCierre.Location = new System.Drawing.Point(433, 126);
             this.dtpFechaCierre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaCierre.Name = "dtpFechaCierre";
             this.dtpFechaCierre.Size = new System.Drawing.Size(180, 26);
@@ -526,15 +506,13 @@
             this.Controls.Add(this.cboViaConsulta);
             this.Controls.Add(this.cboIDMedioConocimiento);
             this.Controls.Add(this.cboIDTipoTrans);
-            this.Controls.Add(this.txtUsuarioActualizacion);
             this.Controls.Add(this.txtApellidoCliente);
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.txtDNICliente);
             this.Controls.Add(this.txtDireccionInmueble);
-            this.Controls.Add(this.txtUsuarioCreador);
+            this.Controls.Add(this.txtUsuarioModificador);
             this.Controls.Add(this.txtIDConsulta);
             this.Controls.Add(this.lblFechaCierre);
-            this.Controls.Add(this.lblUsuarioActualizacion);
             this.Controls.Add(this.lblIDviaConsulta);
             this.Controls.Add(this.lblIDEstadoConsulta);
             this.Controls.Add(this.lblIDMedioConocomiento);
@@ -543,7 +521,7 @@
             this.Controls.Add(this.lblDNICliente);
             this.Controls.Add(this.lblDireccionnuemble);
             this.Controls.Add(this.lblTipoTrans);
-            this.Controls.Add(this.lblUsrCreador);
+            this.Controls.Add(this.lblUserModificador);
             this.Controls.Add(this.lblFechaCreada);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnLimpiarFiltros);
@@ -575,7 +553,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblFechaCreada;
-        private System.Windows.Forms.Label lblUsrCreador;
+        private System.Windows.Forms.Label lblUserModificador;
         private System.Windows.Forms.Label lblTipoTrans;
         private System.Windows.Forms.Label lblDireccionnuemble;
         private System.Windows.Forms.Label lblDNICliente;
@@ -584,15 +562,13 @@
         private System.Windows.Forms.Label lblIDMedioConocomiento;
         private System.Windows.Forms.Label lblIDEstadoConsulta;
         private System.Windows.Forms.Label lblIDviaConsulta;
-        private System.Windows.Forms.Label lblUsuarioActualizacion;
         private System.Windows.Forms.Label lblFechaCierre;
         private System.Windows.Forms.TextBox txtIDConsulta;
-        private System.Windows.Forms.TextBox txtUsuarioCreador;
+        private System.Windows.Forms.TextBox txtUsuarioModificador;
         private System.Windows.Forms.TextBox txtDireccionInmueble;
         private System.Windows.Forms.TextBox txtDNICliente;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.TextBox txtApellidoCliente;
-        private System.Windows.Forms.TextBox txtUsuarioActualizacion;
         private System.Windows.Forms.ComboBox cboIDTipoTrans;
         private System.Windows.Forms.ComboBox cboIDMedioConocimiento;
         private System.Windows.Forms.ComboBox cboViaConsulta;

@@ -79,10 +79,10 @@ namespace TESTWF2020.GUILayer.ABM
             foreach (var consulta in consultas)
             {
                 this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre,
-                    consulta.UsuarioCreado, consulta.TipoTransaccion.Nombre, (string.Join(" ", consulta.Inmueble.Calle, consulta.Inmueble.CalleNumero)),
+                    consulta.UsuarioUltimaModificacion.Nombre, consulta.TipoTransaccion.Nombre, (string.Join(" ", consulta.Inmueble.Calle, consulta.Inmueble.CalleNumero)),
                     //consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
                     consulta.MedioConocimiento.Nombre, consulta.ViaDeConsulta.Nombre,
-                    consulta.EstadoConsulta.Nombre, consulta.UsuarioActualizacion);
+                    consulta.EstadoConsulta.Nombre);
             }
         }
         
@@ -96,9 +96,9 @@ namespace TESTWF2020.GUILayer.ABM
                 dicc.Add("idConsulta", txtIDConsulta.Text);
             }
 
-            if (!string.IsNullOrWhiteSpace(this.txtUsuarioCreador.Text))
+            if (!string.IsNullOrWhiteSpace(this.txtUsuarioModificador.Text))
             {
-                dicc.Add("usuarioCreador", txtUsuarioCreador.Text);
+                dicc.Add("usuarioUltimaModificacion", txtUsuarioModificador.Text);
             }
 
             if (!(cboIDTipoTrans.SelectedIndex == -1))
@@ -139,11 +139,6 @@ namespace TESTWF2020.GUILayer.ABM
             if (!(cboEstadoConsulta.SelectedIndex == -1))
             {
                 dicc.Add("estadoConsulta", cboEstadoConsulta.SelectedValue);
-            }
-
-            if (!string.IsNullOrWhiteSpace(this.txtUsuarioActualizacion.Text))
-            {
-                dicc.Add("usuarioActualizacion", txtUsuarioActualizacion.Text);
             }
 
             return dicc;

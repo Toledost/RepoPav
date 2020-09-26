@@ -12,8 +12,7 @@ namespace TESTWF2020.Entities
         public int Id { get; set; }
         public DateTime FechaCreada { get; set; }
         public DateTime? FechaCierre { get; set; }
-        public string UsuarioCreado { get; set; }
-        public string UsuarioActualizacion { get; set; }
+        public Usuario UsuarioUltimaModificacion { get; set; }
         public TipoTransaccion TipoTransaccion { get; set; }
         public Inmueble Inmueble { get; set; }
         //public Cliente Cliente { get; set; }
