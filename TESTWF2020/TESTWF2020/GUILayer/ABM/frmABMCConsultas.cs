@@ -20,6 +20,7 @@ namespace TESTWF2020.GUILayer.ABM
         private ViaDeConsultaService viaDeConsultaService;
         private MedioDeConocimientoService medioDeConocimientoService;
         private TipoTransaccionService tipoTransaccionService;
+        private Usuario usuarioLogueado;
 
         public frmABMCConsultas()
         {
@@ -33,6 +34,18 @@ namespace TESTWF2020.GUILayer.ABM
 
         }
 
+        public frmABMCConsultas(Usuario usuarioLogueado)
+        {
+            InitializeComponent();
+            this.consulta = new Consulta();
+            this.consultaService = new ConsultaService();
+            this.estadoConsultaService = new EstadoConsultaService();
+            this.viaDeConsultaService = new ViaDeConsultaService();
+            this.medioDeConocimientoService = new MedioDeConocimientoService();
+            this.tipoTransaccionService = new TipoTransaccionService();
+            this.usuarioLogueado = usuarioLogueado;
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -41,7 +54,6 @@ namespace TESTWF2020.GUILayer.ABM
         private void frmABMCConsultas_Load(object sender, EventArgs e)
         {
             CargarCombos();
-
         }
 
         private void CargarCombos()
@@ -80,7 +92,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre,
                     consulta.UsuarioUltimaModificacion.Nombre, consulta.TipoTransaccion.Nombre, (string.Join(" ", consulta.Inmueble.Calle, consulta.Inmueble.CalleNumero)),
-                    //consulta.DniCliente, consulta.NombreCliente, consulta.ApellidoCliente,
+                    3321321, "un nombre de usuario", "apellido usuario",
                     consulta.MedioConocimiento.Nombre, consulta.ViaDeConsulta.Nombre,
                     consulta.EstadoConsulta.Nombre);
             }
@@ -182,8 +194,9 @@ namespace TESTWF2020.GUILayer.ABM
             if (dgvConsultas.SelectedRows.Count == 1)
             {
                 var idConsultaSeleccionada = (int)this.dgvConsultas.CurrentRow.Cells["Id"].Value;
-                frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta(idConsultaSeleccionada);
+                frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta(idConsultaSeleccionada, usuarioLogueado);
                 frmDetalleConsulta.ShowDialog();
+                btnConsultar_Click(sender, e);
             }
             else
             {
@@ -193,8 +206,9 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta();
+            frmDetalleConsulta frmDetalleConsulta = new frmDetalleConsulta(usuarioLogueado);
             frmDetalleConsulta.ShowDialog();
+            btnConsultar_Click(sender, e);
         }
 
     }

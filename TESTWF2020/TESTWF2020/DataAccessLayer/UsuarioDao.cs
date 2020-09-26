@@ -13,7 +13,16 @@ namespace TESTWF2020.DataAccessLayer
         #region Metodos Publicos
         public Usuario GetUsuario(string nombreUsuario)
         {
-            string consultaSQL = string.Format ("SELECT u.nombre, u.contraseña, u.fechaAlta, p.idPerfil, p.nombre, p.descripcion FROM usuario u JOIN perfil p ON u.idPerfil = p.idPerfil WHERE u.nombre = '{0}'", nombreUsuario);
+            string consultaSQL = string.Format ("SELECT " +
+                "u.nombre, " +
+                "u.contraseña, " +
+                "u.fechaAlta, " +
+                "p.idPerfil, " +
+                "p.nombre AS nombrePerfil, " +
+                "p.descripcion " +
+                "FROM usuario u " +
+                "JOIN perfil p ON u.idPerfil = p.idPerfil " +
+                "WHERE u.nombre = '{0}'", nombreUsuario);
 
             DataTable resultado = DBHelper.GetDBHelper().ConsultaSql(consultaSQL);
 
@@ -30,13 +39,13 @@ namespace TESTWF2020.DataAccessLayer
         {
             Usuario usuario = new Usuario
             {
-                Nombre = row["usuario"].ToString(),
+                Nombre = row["nombre"].ToString(),
                 Contraseña = row["contraseña"].ToString(),
                 FechaAlta = (DateTime)row["fechaAlta"],
                 Perfil = new Perfil
                 {
                     Descripcion = row["descripcion"].ToString(),
-                    Nombre = row["nombre"].ToString(),
+                    Nombre = row["nombrePerfil"].ToString(),
                     IdPerfil = (int)row["idPerfil"]
                 }
             };

@@ -41,5 +41,10 @@ namespace TESTWF2020.BusinessLayer
         {
             consultaDao.Update(consulta);
         }
+
+        public Consulta GetById(int idConsultaSeleccionada)
+        {
+            return consultaDao.GetById(idConsultaSeleccionada);
+        }
     }
 }

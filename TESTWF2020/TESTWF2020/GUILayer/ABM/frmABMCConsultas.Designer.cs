@@ -29,19 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvConsultas = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioCreador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medioConocimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viaConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnDetalle = new System.Windows.Forms.Button();
@@ -72,6 +59,18 @@
             this.cboEstadoConsulta = new System.Windows.Forms.ComboBox();
             this.dtpFechaCreada = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaCierre = new System.Windows.Forms.DateTimePicker();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioUltimaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medioConocimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viaConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +83,7 @@
             this.id,
             this.fechaCreada,
             this.fechaCierre,
-            this.usuarioCreador,
+            this.usuarioUltimaModificacion,
             this.tipoTransaccion,
             this.inmueble,
             this.dniCliente,
@@ -92,8 +91,7 @@
             this.apellidoCliente,
             this.medioConocimiento,
             this.viaConsulta,
-            this.estadoConsulta,
-            this.usuarioActualizacion});
+            this.estadoConsulta});
             this.dgvConsultas.Location = new System.Drawing.Point(16, 506);
             this.dgvConsultas.MultiSelect = false;
             this.dgvConsultas.Name = "dgvConsultas";
@@ -103,109 +101,6 @@
             this.dgvConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConsultas.Size = new System.Drawing.Size(1912, 278);
             this.dgvConsultas.TabIndex = 44;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // fechaCreada
-            // 
-            this.fechaCreada.HeaderText = "Fecha Creada";
-            this.fechaCreada.MinimumWidth = 8;
-            this.fechaCreada.Name = "fechaCreada";
-            this.fechaCreada.ReadOnly = true;
-            this.fechaCreada.Width = 150;
-            // 
-            // fechaCierre
-            // 
-            this.fechaCierre.HeaderText = "Fecha Cierre";
-            this.fechaCierre.MinimumWidth = 8;
-            this.fechaCierre.Name = "fechaCierre";
-            this.fechaCierre.ReadOnly = true;
-            this.fechaCierre.Width = 150;
-            // 
-            // usuarioCreador
-            // 
-            this.usuarioCreador.HeaderText = "Usuario Creador";
-            this.usuarioCreador.MinimumWidth = 8;
-            this.usuarioCreador.Name = "usuarioCreador";
-            this.usuarioCreador.ReadOnly = true;
-            this.usuarioCreador.Width = 150;
-            // 
-            // tipoTransaccion
-            // 
-            this.tipoTransaccion.HeaderText = "Tipo transaccion";
-            this.tipoTransaccion.MinimumWidth = 8;
-            this.tipoTransaccion.Name = "tipoTransaccion";
-            this.tipoTransaccion.ReadOnly = true;
-            this.tipoTransaccion.Width = 150;
-            // 
-            // inmueble
-            // 
-            this.inmueble.MinimumWidth = 8;
-            this.inmueble.Name = "inmueble";
-            this.inmueble.ReadOnly = true;
-            this.inmueble.Width = 150;
-            // 
-            // dniCliente
-            // 
-            this.dniCliente.HeaderText = "DNI Cliente";
-            this.dniCliente.MinimumWidth = 8;
-            this.dniCliente.Name = "dniCliente";
-            this.dniCliente.ReadOnly = true;
-            this.dniCliente.Width = 150;
-            // 
-            // nombreCliente
-            // 
-            this.nombreCliente.HeaderText = "Nombre Cliente";
-            this.nombreCliente.MinimumWidth = 8;
-            this.nombreCliente.Name = "nombreCliente";
-            this.nombreCliente.ReadOnly = true;
-            this.nombreCliente.Width = 150;
-            // 
-            // apellidoCliente
-            // 
-            this.apellidoCliente.HeaderText = "Apellido Cliente";
-            this.apellidoCliente.MinimumWidth = 8;
-            this.apellidoCliente.Name = "apellidoCliente";
-            this.apellidoCliente.ReadOnly = true;
-            this.apellidoCliente.Width = 150;
-            // 
-            // medioConocimiento
-            // 
-            this.medioConocimiento.HeaderText = "Medio Conocimieneto";
-            this.medioConocimiento.MinimumWidth = 8;
-            this.medioConocimiento.Name = "medioConocimiento";
-            this.medioConocimiento.ReadOnly = true;
-            this.medioConocimiento.Width = 150;
-            // 
-            // viaConsulta
-            // 
-            this.viaConsulta.HeaderText = "Via de Consulta";
-            this.viaConsulta.MinimumWidth = 8;
-            this.viaConsulta.Name = "viaConsulta";
-            this.viaConsulta.ReadOnly = true;
-            this.viaConsulta.Width = 150;
-            // 
-            // estadoConsulta
-            // 
-            this.estadoConsulta.HeaderText = "Estado de Consulta";
-            this.estadoConsulta.MinimumWidth = 8;
-            this.estadoConsulta.Name = "estadoConsulta";
-            this.estadoConsulta.ReadOnly = true;
-            this.estadoConsulta.Width = 150;
-            // 
-            // usuarioActualizacion
-            // 
-            this.usuarioActualizacion.HeaderText = "Usuario Actualizacion";
-            this.usuarioActualizacion.MinimumWidth = 8;
-            this.usuarioActualizacion.Name = "usuarioActualizacion";
-            this.usuarioActualizacion.ReadOnly = true;
-            this.usuarioActualizacion.Width = 150;
             // 
             // btnSalir
             // 
@@ -495,6 +390,102 @@
             this.dtpFechaCierre.Size = new System.Drawing.Size(180, 26);
             this.dtpFechaCierre.TabIndex = 78;
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // fechaCreada
+            // 
+            this.fechaCreada.HeaderText = "Fecha Creada";
+            this.fechaCreada.MinimumWidth = 8;
+            this.fechaCreada.Name = "fechaCreada";
+            this.fechaCreada.ReadOnly = true;
+            this.fechaCreada.Width = 150;
+            // 
+            // fechaCierre
+            // 
+            this.fechaCierre.HeaderText = "Fecha Cierre";
+            this.fechaCierre.MinimumWidth = 8;
+            this.fechaCierre.Name = "fechaCierre";
+            this.fechaCierre.ReadOnly = true;
+            this.fechaCierre.Width = 150;
+            // 
+            // usuarioUltimaModificacion
+            // 
+            this.usuarioUltimaModificacion.HeaderText = "Usuario Ultima Modificacion";
+            this.usuarioUltimaModificacion.MinimumWidth = 8;
+            this.usuarioUltimaModificacion.Name = "usuarioUltimaModificacion";
+            this.usuarioUltimaModificacion.ReadOnly = true;
+            this.usuarioUltimaModificacion.Width = 150;
+            // 
+            // tipoTransaccion
+            // 
+            this.tipoTransaccion.HeaderText = "Tipo transaccion";
+            this.tipoTransaccion.MinimumWidth = 8;
+            this.tipoTransaccion.Name = "tipoTransaccion";
+            this.tipoTransaccion.ReadOnly = true;
+            this.tipoTransaccion.Width = 150;
+            // 
+            // inmueble
+            // 
+            this.inmueble.HeaderText = "inmueble";
+            this.inmueble.MinimumWidth = 8;
+            this.inmueble.Name = "inmueble";
+            this.inmueble.ReadOnly = true;
+            this.inmueble.Width = 150;
+            // 
+            // dniCliente
+            // 
+            this.dniCliente.HeaderText = "DNI Cliente";
+            this.dniCliente.MinimumWidth = 8;
+            this.dniCliente.Name = "dniCliente";
+            this.dniCliente.ReadOnly = true;
+            this.dniCliente.Width = 150;
+            // 
+            // nombreCliente
+            // 
+            this.nombreCliente.HeaderText = "Nombre Cliente";
+            this.nombreCliente.MinimumWidth = 8;
+            this.nombreCliente.Name = "nombreCliente";
+            this.nombreCliente.ReadOnly = true;
+            this.nombreCliente.Width = 150;
+            // 
+            // apellidoCliente
+            // 
+            this.apellidoCliente.HeaderText = "Apellido Cliente";
+            this.apellidoCliente.MinimumWidth = 8;
+            this.apellidoCliente.Name = "apellidoCliente";
+            this.apellidoCliente.ReadOnly = true;
+            this.apellidoCliente.Width = 150;
+            // 
+            // medioConocimiento
+            // 
+            this.medioConocimiento.HeaderText = "Medio Conocimieneto";
+            this.medioConocimiento.MinimumWidth = 8;
+            this.medioConocimiento.Name = "medioConocimiento";
+            this.medioConocimiento.ReadOnly = true;
+            this.medioConocimiento.Width = 150;
+            // 
+            // viaConsulta
+            // 
+            this.viaConsulta.HeaderText = "Via de Consulta";
+            this.viaConsulta.MinimumWidth = 8;
+            this.viaConsulta.Name = "viaConsulta";
+            this.viaConsulta.ReadOnly = true;
+            this.viaConsulta.Width = 150;
+            // 
+            // estadoConsulta
+            // 
+            this.estadoConsulta.HeaderText = "Estado de Consulta";
+            this.estadoConsulta.MinimumWidth = 8;
+            this.estadoConsulta.Name = "estadoConsulta";
+            this.estadoConsulta.ReadOnly = true;
+            this.estadoConsulta.Width = 150;
+            // 
             // frmABMCConsultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -578,7 +569,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreada;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCierre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioCreador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioUltimaModificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoTransaccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn inmueble;
         private System.Windows.Forms.DataGridViewTextBoxColumn dniCliente;
@@ -587,6 +578,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn medioConocimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn viaConsulta;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoConsulta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioActualizacion;
     }
 }

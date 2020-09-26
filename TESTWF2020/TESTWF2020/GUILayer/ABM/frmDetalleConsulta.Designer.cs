@@ -107,6 +107,7 @@
             this.txtIDConsulta.Location = new System.Drawing.Point(326, 68);
             this.txtIDConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIDConsulta.Name = "txtIDConsulta";
+            this.txtIDConsulta.ReadOnly = true;
             this.txtIDConsulta.Size = new System.Drawing.Size(187, 26);
             this.txtIDConsulta.TabIndex = 92;
             // 
@@ -199,6 +200,7 @@
             this.btnSalir.TabIndex = 106;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
@@ -209,6 +211,7 @@
             this.btnEditar.TabIndex = 107;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGrabar
             // 
@@ -219,6 +222,7 @@
             this.btnGrabar.TabIndex = 108;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnElegir
             // 

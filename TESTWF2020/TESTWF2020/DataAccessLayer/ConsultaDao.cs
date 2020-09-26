@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TESTWF2020.Entities;
 using System.Data;
+using System.Windows.Forms;
+using TESTWF2020.BusinessLayer;
 
 namespace TESTWF2020.DataAccessLayer
 {
@@ -18,13 +20,19 @@ namespace TESTWF2020.DataAccessLayer
                 "c.idConsulta, " +
                 "c.fechaCreada, " +
                 "c.usuarioUltimaModificacion, " +
+                "t.idTipoTransaccion, " +
                 "t.nombre as nombreTipoTransaccion, " +
                 "i.idInmueble, " +
+                "i.calle, " +
+                "i.calleNro, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombre, " +
                 "cl.apellido as apellido, " +
+                "m.idMedioConocimiento, " +
                 "m.nombre as nombreMedioConocimiento, " +
+                "v.idViaDeConsulta, " +
                 "v.nombre as nombreViaDeConsulta, " +
+                "e.idEstadoConsulta, " +
                 "e.nombre as nombreEstadoConsulta, " +
                 "c.fechaCierre " +
                 "FROM Consulta c " +
@@ -60,6 +68,7 @@ namespace TESTWF2020.DataAccessLayer
                 "c.idConsulta, " +
                 "c.fechaCreada, " +
                 "c.usuarioUltimaModificacion, " +
+                "t.idTipoTransaccion, " +
                 "t.nombre as nombreTipoTransaccion, " +
                 "i.idInmueble, " +
                 "i.calle, " +
@@ -67,8 +76,11 @@ namespace TESTWF2020.DataAccessLayer
                 "cl.dni as dni, " +
                 "cl.nombre as nombre, " +
                 "cl.apellido as apellido, " +
+                "m.idMedioConocimiento, " +
                 "m.nombre as nombreMedioConocimiento, " +
+                "v.idViaDeConsulta, " +
                 "v.nombre as nombreViaDeConsulta, " +
+                "e.idEstadoConsulta, " +
                 "e.nombre as nombreEstadoConsulta, " +
                 "c.fechaCierre " +
                 "FROM Consulta c " +
@@ -90,6 +102,49 @@ namespace TESTWF2020.DataAccessLayer
                 listaConsultas.Add(MapToEntity(row));
 
             return listaConsultas;
+        }
+
+        public Consulta GetById(int id)
+        {
+            string consultaSql = "SELECT " +
+                "c.idConsulta, " +
+                "c.fechaCreada, " +
+                "c.usuarioUltimaModificacion, " +
+                "t.idTipoTransaccion, " +
+                "t.nombre as nombreTipoTransaccion, " +
+                "i.idInmueble, " +
+                "i.calle, " +
+                "i.calleNro, " +
+                "cl.dni as dni, " +
+                "cl.nombre as nombre, " +
+                "cl.apellido as apellido, " +
+                "m.idMedioConocimiento, " +
+                "m.nombre as nombreMedioConocimiento, " +
+                "v.idViaDeConsulta, " +
+                "v.nombre as nombreViaDeConsulta, " +
+                "e.idEstadoConsulta, " +
+                "e.nombre as nombreEstadoConsulta, " +
+                "c.fechaCierre " +
+                "FROM Consulta c " +
+                "INNER JOIN Usuario u on c.usuarioUltimaModificacion = u.nombre " +
+                "INNER JOIN TipoTransaccion t on c.idTipoTransaccion = t.idTipoTransaccion " +
+                "INNER JOIN Inmueble i on c.idInmueble = i.idInmueble " +
+                "INNER JOIN Cliente cl on c.dniCliente = cl.dni " +
+                "INNER JOIN MedioConocimiento m on c.idMedioConocimiento = m.idMedioConocimiento " +
+                "INNER JOIN ViaDeConsulta v on c.idViaDeConsulta = v.idViaDeConsulta " +
+                "INNER JOIN EstadoConsulta e on c.idEstadoConsulta = e.idEstadoConsulta " +
+                "WHERE c.borrado = 0 " +
+                $"AND c.idConsulta = {id}";
+
+            DataManager dm = new DataManager();
+
+            var resultado = dm.ConsultaSQL2(consultaSql);
+
+            if (resultado.Rows.Count > 0)
+            {
+                return MapToEntity(resultado.Rows[0]);
+            }
+            return null;
         }
 
         private string AgregarParametros(Dictionary<string, object> diccParametros, string consultaSql)
@@ -146,21 +201,23 @@ namespace TESTWF2020.DataAccessLayer
                 "usuarioUltimaModificacion, " +
                 "idTipoTransaccion, " +
                 "idInmueble, " +
-                "dniCliente, " +
+                //"dniCliente, " +
                 "idMedioConocimiento, " +
                 "idViaDeConsulta, " +
-                "idEstadoConsulta, " +
-                "fechaCierre) " +
+                "idEstadoConsulta " +
+                (consulta.FechaCierre != null ? ", fechaCierre" : "") +
+                ") " +
                 "VALUES " +
-                "(@fechaCreada, " +
+                "(GETUTCDATE(), " +
                 "@usuarioUltimaModificacion, " +
                 "@idTipoTransaccion, " +
                 "@idInmueble, " +
-                "@dniCliente, " +
+                //"@dniCliente, " +
                 "@idMedioConocimiento, " +
                 "@idViaDeConsulta, " +
-                "@idEstadoConsulta, " +
-                "@fechaCierre)";
+                "@idEstadoConsulta " +
+                (consulta.FechaCierre != null ? ", @fechaCierre" : "") +
+                ")";
 
             var parametros = CrearDiccionario(consulta);
 
@@ -173,7 +230,6 @@ namespace TESTWF2020.DataAccessLayer
             Dictionary<string, object> parametros = new Dictionary<string, object>();
 
             parametros.Add("idConsulta", consulta.Id);
-            parametros.Add("fechaCreada", consulta.FechaCreada);
             parametros.Add("usuarioUltimaModificacion", consulta.UsuarioUltimaModificacion.Nombre);
             parametros.Add("idTipoTransaccion", consulta.TipoTransaccion.Id);
             parametros.Add("idInmueble", consulta.Inmueble.Id);
@@ -181,7 +237,8 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("idMedioConocimiento", consulta.MedioConocimiento.Id);
             parametros.Add("idViaDeConsulta", consulta.ViaDeConsulta.Id);
             parametros.Add("idEstadoConsulta", consulta.EstadoConsulta.Id);
-            parametros.Add("fechaCierre", consulta.FechaCierre);
+            if (consulta.FechaCierre != null)
+                parametros.Add("fechaCierre", consulta.FechaCierre);
 
             return parametros;
         }
@@ -189,16 +246,15 @@ namespace TESTWF2020.DataAccessLayer
         public void Update(Consulta consulta)
         {
             string consultaSql = "UPDATE Consulta SET " +
-                "fechaCreada = @fechaCreada, " +
                 "usuarioUltimaModificacion = @usuarioUltimaModificacion, " +
                 "idTipoTransaccion = @idTipoTransaccion, " +
                 "idInmueble = @idInmueble, " +
-                "dniCliente = @dniCliente, " +
+                //"dniCliente = @dniCliente, " +
                 "idMedioConocimiento = @idMedioConocimiento, " +
                 "idViaDeConsulta = @idViaDeConsulta, " +
-                "idEstadoConsulta = @idEstadoConsulta, " +
-                "fechaCierre = @fechaCierre, " +
-                "WHERE idConsulta = @idConsulta ";
+                "idEstadoConsulta = @idEstadoConsulta " +
+                (consulta.FechaCierre != null ? ", fechaCierre = @fechaCierre " : "") +
+                " WHERE idConsulta = @idConsulta ";
 
             var parametros = CrearDiccionario(consulta);
 
@@ -220,7 +276,7 @@ namespace TESTWF2020.DataAccessLayer
                 },                
                 TipoTransaccion = new TipoTransaccion
                 {
-                    //Id = (int)row["idTipoTransaccion"],
+                    Id = (int)row["idTipoTransaccion"],
                     Nombre = row["nombreTipoTransaccion"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
@@ -249,19 +305,19 @@ namespace TESTWF2020.DataAccessLayer
 
                 MedioConocimiento = new MedioDeConocimiento
                 {
-                    //Id = (int)row["idMedioConocimiento"],
+                    Id = (int)row["idMedioConocimiento"],
                     Nombre = row["nombreMedioConocimiento"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
                 ViaDeConsulta = new ViaDeConsulta
                 {
-                    //Id = (int)row["idViaDeConsulta"],
+                    Id = (int)row["idViaDeConsulta"],
                     Nombre = row["nombreViaDeConsulta"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
                 EstadoConsulta = new EstadoConsulta
                 {
-                    //Id = (int)row["idEstadoConsulta"],
+                    Id = (int)row["idEstadoConsulta"],
                     Nombre = row["nombreEstadoConsulta"].ToString(),
                     //Descripcion = row["descripcion"].ToString()
                 },
