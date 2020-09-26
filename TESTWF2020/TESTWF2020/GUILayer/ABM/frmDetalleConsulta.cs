@@ -64,6 +64,13 @@ namespace TESTWF2020.GUILayer.ABM
             this.txtIDInmueble.Text = frmInmuebles.idInmuebleSeleccionado.ToString();
         }
 
+        private void btnElegirCliente_Click(object sender, EventArgs e)
+        {
+            frmConsultarClientes frmConsultarClientes = new frmConsultarClientes(true);
+            //this.Hide();
+            frmConsultarClientes.ShowDialog();
+            this.txtDNICliente.Text = frmConsultarClientes.dniClienteSeleccionado.ToString();
+        }
         private void frmDetalleConsulta_Load(object sender, EventArgs e)
         {
             CargarCombos();
@@ -77,6 +84,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 ConfigurarControles(true);
             }
+            
         }
 
         private void CargarCombos()
@@ -120,7 +128,6 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void ConfigurarControles(bool habilitados)
         {
-            this.txtDNICliente.ReadOnly = !habilitados;
             this.cboEstadoConsulta.Enabled = habilitados;
             this.cboIDMedioConocimiento.Enabled = habilitados;
             this.cboIDTipoTrans.Enabled = habilitados;
@@ -142,17 +149,7 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Controls.OfType<TextBox>().Where(x => x.ReadOnly == false).Any(x=> string.IsNullOrWhiteSpace(x.Text)))
-            {
-                MessageBox.Show("text");
-                return;
-            }
-
-            if(Controls.OfType<ComboBox>().Any(x => x.SelectedIndex == -1))
-            {
-                MessageBox.Show("combobox");
-                return;
-            }
+            Validar();
 
             Consulta consulta = new Consulta
             {
@@ -196,6 +193,26 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 consultaService.Create(consulta);
                 this.Close();
+            }
+        }
+
+        private void Validar()
+        {
+            if (string.IsNullOrEmpty(txtIDInmueble.Text) || txtIDInmueble.Text == "0")
+            {
+                MessageBox.Show("Falta elegir un inmueble");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtDNICliente.Text) || txtDNICliente.Text == "0")
+            {
+                MessageBox.Show("Falta elegir un cliente");
+                return;
+            }
+            if (Controls.OfType<ComboBox>().Any(x => x.SelectedIndex == -1))
+            {
+                //MessageBox.Show("combobox");
+                MessageBox.Show("Falta completar algun campo");
+                return;
             }
         }
     }
