@@ -124,6 +124,7 @@ namespace TESTWF2020.GUILayer
         {
             frmABMCInmueble frmABMCInmueble = new frmABMCInmueble(true);
             frmABMCInmueble.ShowDialog();
+            btnConsultar_Click(sender, e);
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)
@@ -133,6 +134,7 @@ namespace TESTWF2020.GUILayer
                 var idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
                 frmABMCInmueble frmABMCInmueble = new frmABMCInmueble(false, idInmuebleSeleccionado);
                 frmABMCInmueble.ShowDialog();
+                btnConsultar_Click(sender, e);
             }
             else
             {

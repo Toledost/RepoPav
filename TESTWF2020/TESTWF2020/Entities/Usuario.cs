@@ -12,5 +12,10 @@ namespace TESTWF2020.Entities
         public string Contraseña { get; set; }
         public DateTime FechaAlta { get; set; }
         public Perfil Perfil { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

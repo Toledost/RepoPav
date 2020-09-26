@@ -46,31 +46,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\EmpleadoService.cs" />
+    <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
     <Compile Include="BusinessLayer\EstadoConsultaService.cs" />
     <Compile Include="BusinessLayer\EstadoInmuebleService.cs" />
+    <Compile Include="BusinessLayer\FinanciacionService.cs" />
     <Compile Include="BusinessLayer\HistorialEstadoService.cs" />
     <Compile Include="BusinessLayer\InmuebleService.cs" />
+    <Compile Include="BusinessLayer\PerfilService.cs" />
     <Compile Include="BusinessLayer\MedioDeConocimientoService.cs" />
     <Compile Include="BusinessLayer\TipoInmuebleService.cs" />
     <Compile Include="BusinessLayer\TipoTransaccionService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
+    <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="BusinessLayer\ViaDeConsultaService.cs" />
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
     <Compile Include="DataAccessLayer\EstadoConsultaDao.cs" />
     <Compile Include="DataAccessLayer\EstadoInmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\FinanciacionDao.cs" />
     <Compile Include="DataAccessLayer\HistorialEstadoDao.cs" />
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
+    <Compile Include="DataAccessLayer\PerfilDao.cs" />
     <Compile Include="DataAccessLayer\MedioDeConocimientoDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="Entities\Empleado.cs" />
+    <Compile Include="Entities\Cliente.cs" />
     <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
     <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\EstadoConsulta.cs" />
     <Compile Include="Entities\EstadoInmueble.cs" />
+    <Compile Include="Entities\Financiacion.cs" />
     <Compile Include="Entities\HistorialEstado.cs" />
     <Compile Include="Entities\Inmueble.cs" />
     <Compile Include="Entities\MedioDeConocimiento.cs" />
@@ -85,11 +96,61 @@
     <Compile Include="GUILayer\ABM\frmABMCConsultas.Designer.cs">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCEmpleado.Designer.cs">
+      <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCUsuario.Designer.cs">
+      <DependentUpon>frmABMCUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmGeneralUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmGeneralUsuario.Designer.cs">
+      <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="GUILayer\ABM\frmABMCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCliente.Designer.cs">
+      <DependentUpon>frmABMCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmConsultarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmConsultarClientes.Designer.cs">
+      <DependentUpon>frmConsultarClientes.cs</DependentUpon>
+	</Compile>
+    <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.Designer.cs">
+      <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.Designer.cs">
+      <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
+
+    </Compile>
+    <Compile Include="GUILayer\frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.cs">
       <SubType>Form</SubType>
@@ -144,8 +205,33 @@
     <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCEmpleado.resx">
+      <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCInmueble.resx">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCliente.resx">
+      <DependentUpon>frmABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmConsultarClientes.resx">
+      <DependentUpon>frmConsultarClientes.cs</DependentUpon>
+	</EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.resx">
+      <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.resx">
+      <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCUsuario.resx">
+      <DependentUpon>frmABMCUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmGeneralUsuario.resx">
+      <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCViaDeConsulta.resx">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
@@ -197,6 +283,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Imagenes\CASAFELIZ.png" />
+    <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

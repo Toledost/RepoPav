@@ -114,11 +114,8 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("montoAlquiler", inmueble.MontoAlquiler);
             parametros.Add("montoVenta", inmueble.MontoVenta);
 
-
-
             DataManager dm = new DataManager();
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
-                
         }
 
         public void Update(Inmueble inmueble, bool cambioEstado)
@@ -184,7 +181,7 @@ namespace TESTWF2020.DataAccessLayer
         private string AgregarParametros(Dictionary<string, object> parametros, string consultaSql)
         {
             if (parametros.ContainsKey("id"))
-                consultaSql += " AND (i.idInmueble LIKE =@id) ";
+                consultaSql += " AND (i.idInmueble = @id) ";
 
             if (parametros.ContainsKey("calle"))
                 consultaSql += " AND (i.calle LIKE '%' + @calle + '%') ";
