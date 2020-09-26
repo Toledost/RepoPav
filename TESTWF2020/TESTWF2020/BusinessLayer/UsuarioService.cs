@@ -38,9 +38,9 @@ namespace TESTWF2020.BusinessLayer
             return usuarioDao.GetAll();
         }
 
-        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc)
+        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc,bool esLibre)
         {
-            return usuarioDao.GetByFilters(dicc);
+            return usuarioDao.GetByFilters(dicc, esLibre);
         }
 
         internal Usuario GetUsuario(string nombreUsuario, bool buscarBorrado = false)

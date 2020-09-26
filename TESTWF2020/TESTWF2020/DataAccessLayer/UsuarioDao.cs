@@ -107,7 +107,7 @@ namespace TESTWF2020.DataAccessLayer
 
         }
 
-        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc)
+        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc, bool esLibre)
         {
             IList<Usuario> usuarios = new List<Usuario>();
             string consultaSQL = "SELECT u.nombre," +
@@ -116,13 +116,22 @@ namespace TESTWF2020.DataAccessLayer
                 " u.contraseña," +
                 " u.fechaAlta " +
                 " FROM Usuario u " +
-                " JOIN Perfil p on u.idPerfil = p.idPerfil " +
-                " WHERE " +
-                " u.borrado = 0 ";
+                " JOIN Perfil p on u.idPerfil = p.idPerfil ";   
+                
+            if (esLibre)
+            {
+                consultaSQL += " LEFT JOIN Empleado e on e.Usuario = u.nombre " +
+                                " WHERE legajo is null " +
+                                " AND u.borrado = 0";
+            }
+            else
+            {
+                consultaSQL += " WHERE u.borrado = 0 ";
+            }
 
             DataManager dm = new DataManager();
             consultaSQL = AgregarParametros(dicc, consultaSQL);
-            var resultado = dm.ConsultaSQLConParametros2(consultaSQL,dicc);
+            var resultado = dm.ConsultaSQLConParametros2(consultaSQL, dicc);
             if (resultado.Rows.Count > 0)
             {
                 foreach (DataRow row in resultado.Rows)

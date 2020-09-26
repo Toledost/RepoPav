@@ -40,6 +40,7 @@
             this.btnDetalle = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.chkLibre = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneralUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,11 +154,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // chkLibre
+            // 
+            this.chkLibre.AutoSize = true;
+            this.chkLibre.Location = new System.Drawing.Point(385, 140);
+            this.chkLibre.Name = "chkLibre";
+            this.chkLibre.Size = new System.Drawing.Size(49, 17);
+            this.chkLibre.TabIndex = 13;
+            this.chkLibre.Text = "Libre";
+            this.chkLibre.UseVisualStyleBackColor = true;
+            // 
             // frmGeneralUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 441);
+            this.Controls.Add(this.chkLibre);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnDetalle);
@@ -191,5 +203,6 @@
         private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.CheckBox chkLibre;
     }
 }
