@@ -41,103 +41,104 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnElegirUsuario = new System.Windows.Forms.Button();
+            this.btnCambiarImg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TESTWF2020.Properties.Resources.usuario;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 23);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 268);
+            this.pictureBox1.Size = new System.Drawing.Size(215, 216);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(396, 46);
+            this.txtLegajo.Location = new System.Drawing.Point(396, 23);
             this.txtLegajo.Margin = new System.Windows.Forms.Padding(2);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(196, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(171, 20);
             this.txtLegajo.TabIndex = 1;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(396, 182);
+            this.txtApellido.Location = new System.Drawing.Point(395, 122);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(196, 20);
+            this.txtApellido.Size = new System.Drawing.Size(171, 20);
             this.txtApellido.TabIndex = 2;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(396, 110);
+            this.txtNombre.Location = new System.Drawing.Point(396, 73);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(196, 20);
+            this.txtNombre.Size = new System.Drawing.Size(171, 20);
             this.txtNombre.TabIndex = 3;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(322, 294);
+            this.txtUsuario.Location = new System.Drawing.Point(396, 173);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(270, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(171, 20);
             this.txtUsuario.TabIndex = 4;
             // 
             // lblLegajo
             // 
             this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegajo.Location = new System.Drawing.Point(318, 46);
+            this.lblLegajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegajo.Location = new System.Drawing.Point(305, 24);
             this.lblLegajo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLegajo.Name = "lblLegajo";
-            this.lblLegajo.Size = new System.Drawing.Size(62, 17);
+            this.lblLegajo.Size = new System.Drawing.Size(55, 15);
             this.lblLegajo.TabIndex = 5;
             this.lblLegajo.Text = "Legajo:";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(318, 110);
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(305, 74);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 17);
+            this.lblNombre.Size = new System.Drawing.Size(62, 15);
             this.lblNombre.TabIndex = 6;
             this.lblNombre.Text = "Nombre:";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(318, 182);
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Location = new System.Drawing.Point(304, 123);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(71, 17);
+            this.lblApellido.Size = new System.Drawing.Size(63, 15);
             this.lblApellido.TabIndex = 7;
             this.lblApellido.Text = "Apellido:";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(319, 254);
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(306, 174);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(69, 17);
+            this.lblUsuario.Size = new System.Drawing.Size(61, 15);
             this.lblUsuario.TabIndex = 8;
             this.lblUsuario.Text = "Usuario:";
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(36, 343);
+            this.btnEditar.Location = new System.Drawing.Point(36, 298);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(87, 45);
+            this.btnEditar.Size = new System.Drawing.Size(97, 32);
             this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -145,10 +146,10 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(154, 343);
+            this.btnGrabar.Location = new System.Drawing.Point(155, 298);
             this.btnGrabar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(87, 45);
+            this.btnGrabar.Size = new System.Drawing.Size(96, 32);
             this.btnGrabar.TabIndex = 10;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
@@ -156,10 +157,10 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(505, 343);
+            this.btnSalir.Location = new System.Drawing.Point(472, 298);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(87, 45);
+            this.btnSalir.Size = new System.Drawing.Size(95, 32);
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -167,19 +168,29 @@
             // 
             // btnElegirUsuario
             // 
-            this.btnElegirUsuario.Location = new System.Drawing.Point(396, 249);
+            this.btnElegirUsuario.Location = new System.Drawing.Point(309, 215);
             this.btnElegirUsuario.Name = "btnElegirUsuario";
-            this.btnElegirUsuario.Size = new System.Drawing.Size(195, 28);
+            this.btnElegirUsuario.Size = new System.Drawing.Size(258, 24);
             this.btnElegirUsuario.TabIndex = 12;
             this.btnElegirUsuario.Text = "Elegir Usuario";
             this.btnElegirUsuario.UseVisualStyleBackColor = true;
             this.btnElegirUsuario.Click += new System.EventHandler(this.btnElegirUsuario_Click);
             // 
+            // btnCambiarImg
+            // 
+            this.btnCambiarImg.Location = new System.Drawing.Point(36, 253);
+            this.btnCambiarImg.Name = "btnCambiarImg";
+            this.btnCambiarImg.Size = new System.Drawing.Size(215, 24);
+            this.btnCambiarImg.TabIndex = 13;
+            this.btnCambiarImg.Text = "Cambiar Imagen";
+            this.btnCambiarImg.UseVisualStyleBackColor = true;
+            // 
             // frmABMCEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 415);
+            this.ClientSize = new System.Drawing.Size(605, 350);
+            this.Controls.Add(this.btnCambiarImg);
             this.Controls.Add(this.btnElegirUsuario);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
@@ -195,6 +206,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmABMCEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
             this.Load += new System.EventHandler(this.frmABMCEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -218,5 +230,6 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnElegirUsuario;
+        private System.Windows.Forms.Button btnCambiarImg;
     }
 }
