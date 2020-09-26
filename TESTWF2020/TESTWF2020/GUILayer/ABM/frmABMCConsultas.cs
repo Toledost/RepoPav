@@ -92,7 +92,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 this.dgvConsultas.Rows.Add(consulta.Id, consulta.FechaCreada, consulta.FechaCierre,
                     consulta.UsuarioUltimaModificacion.Nombre, consulta.TipoTransaccion.Nombre, (string.Join(" ", consulta.Inmueble.Calle, consulta.Inmueble.CalleNumero)),
-                    3321321, "un nombre de usuario", "apellido usuario",
+                    consulta.Cliente.Dni, consulta.Cliente.Nombre, consulta.Cliente.Apellido,
                     consulta.MedioConocimiento.Nombre, consulta.ViaDeConsulta.Nombre,
                     consulta.EstadoConsulta.Nombre);
             }

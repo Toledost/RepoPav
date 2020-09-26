@@ -109,7 +109,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 this.txtIDConsulta.Text = consulta.Id.ToString();
                 this.txtIDInmueble.Text = consulta.Inmueble.Id.ToString();
-                //this.txtDNICliente.Text = consulta.Cliente.Dni.ToString();
+                this.txtDNICliente.Text = consulta.Cliente.Dni.ToString();
                 this.cboEstadoConsulta.SelectedValue = consulta.EstadoConsulta.Id;
                 this.cboIDMedioConocimiento.SelectedValue = consulta.MedioConocimiento.Id;
                 this.cboIDTipoTrans.SelectedValue = consulta.TipoTransaccion.Id;
@@ -159,6 +159,10 @@ namespace TESTWF2020.GUILayer.ABM
                 Inmueble = new Inmueble
                 {
                     Id = Convert.ToInt32(txtIDInmueble.Text)
+                },
+                Cliente = new Cliente
+                {
+                    Dni = Convert.ToInt32(txtDNICliente.Text)
                 },
                 EstadoConsulta = new EstadoConsulta
                 {

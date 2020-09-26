@@ -26,8 +26,8 @@ namespace TESTWF2020.DataAccessLayer
                 "i.calle, " +
                 "i.calleNro, " +
                 "cl.dni as dni, " +
-                "cl.nombre as nombre, " +
-                "cl.apellido as apellido, " +
+                "cl.nombre as nombreCliente, " +
+                "cl.apellido as apellidoCliente, " +
                 "m.idMedioConocimiento, " +
                 "m.nombre as nombreMedioConocimiento, " +
                 "v.idViaDeConsulta, " +
@@ -74,8 +74,8 @@ namespace TESTWF2020.DataAccessLayer
                 "i.calle, " +
                 "i.calleNro, " +
                 "cl.dni as dni, " +
-                "cl.nombre as nombre, " +
-                "cl.apellido as apellido, " +
+                "cl.nombre as nombreCliente, " +
+                "cl.apellido as apellidoCliente, " +
                 "m.idMedioConocimiento, " +
                 "m.nombre as nombreMedioConocimiento, " +
                 "v.idViaDeConsulta, " +
@@ -116,8 +116,8 @@ namespace TESTWF2020.DataAccessLayer
                 "i.calle, " +
                 "i.calleNro, " +
                 "cl.dni as dni, " +
-                "cl.nombre as nombre, " +
-                "cl.apellido as apellido, " +
+                "cl.nombre as nombreCliente, " +
+                "cl.apellido as apellidoCliente, " +
                 "m.idMedioConocimiento, " +
                 "m.nombre as nombreMedioConocimiento, " +
                 "v.idViaDeConsulta, " +
@@ -201,18 +201,18 @@ namespace TESTWF2020.DataAccessLayer
                 "usuarioUltimaModificacion, " +
                 "idTipoTransaccion, " +
                 "idInmueble, " +
-                //"dniCliente, " +
+                "dniCliente, " +
                 "idMedioConocimiento, " +
                 "idViaDeConsulta, " +
                 "idEstadoConsulta " +
                 (consulta.FechaCierre != null ? ", fechaCierre" : "") +
                 ") " +
                 "VALUES " +
-                "(GETUTCDATE(), " +
+                "(GETDATE(), " +
                 "@usuarioUltimaModificacion, " +
                 "@idTipoTransaccion, " +
                 "@idInmueble, " +
-                //"@dniCliente, " +
+                "@dniCliente, " +
                 "@idMedioConocimiento, " +
                 "@idViaDeConsulta, " +
                 "@idEstadoConsulta " +
@@ -233,7 +233,7 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("usuarioUltimaModificacion", consulta.UsuarioUltimaModificacion.Nombre);
             parametros.Add("idTipoTransaccion", consulta.TipoTransaccion.Id);
             parametros.Add("idInmueble", consulta.Inmueble.Id);
-            //parametros.Add("dniCliente", consulta.Cliente.Dni);
+            parametros.Add("dniCliente", consulta.Cliente.Dni);
             parametros.Add("idMedioConocimiento", consulta.MedioConocimiento.Id);
             parametros.Add("idViaDeConsulta", consulta.ViaDeConsulta.Id);
             parametros.Add("idEstadoConsulta", consulta.EstadoConsulta.Id);
@@ -249,7 +249,7 @@ namespace TESTWF2020.DataAccessLayer
                 "usuarioUltimaModificacion = @usuarioUltimaModificacion, " +
                 "idTipoTransaccion = @idTipoTransaccion, " +
                 "idInmueble = @idInmueble, " +
-                //"dniCliente = @dniCliente, " +
+                "dniCliente = @dniCliente, " +
                 "idMedioConocimiento = @idMedioConocimiento, " +
                 "idViaDeConsulta = @idViaDeConsulta, " +
                 "idEstadoConsulta = @idEstadoConsulta " +
@@ -299,9 +299,12 @@ namespace TESTWF2020.DataAccessLayer
                     //}
                 },
 
-                //DniCliente = (int)row["dni"],
-                //NombreCliente = row["nombre"].ToString(),
-                //ApellidoCliente = row["apellido"].ToString(),
+                Cliente = new Cliente
+                {
+                    Dni = (int)row["dni"],
+                    Nombre = row["nombreCliente"].ToString(),
+                    Apellido = row["apellidoCliente"].ToString(),
+                },
 
                 MedioConocimiento = new MedioDeConocimiento
                 {
