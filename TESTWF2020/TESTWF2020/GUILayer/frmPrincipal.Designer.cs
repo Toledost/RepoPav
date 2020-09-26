@@ -37,9 +37,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.planesFinanciacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viaDeConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mediosDeConocimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -83,7 +85,11 @@
             this.empleadosToolStripMenuItem,
             this.clienteToolStripMenuItem,
             this.planesFinanciacionToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.consultasToolStripMenuItem,
+            this.mediosDeConocimientoToolStripMenuItem,
+            
+            this.viaDeConsultasToolStripMenuItem});
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
             this.soporteToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.soporteToolStripMenuItem.Text = "Soporte";
@@ -123,6 +129,27 @@
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // consultasToolStripMenuItem
+            // 
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.consultasToolStripMenuItem.Text = "Consultas";
+            this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
+            // 
+            // mediosDeConocimientoToolStripMenuItem
+            // 
+            this.mediosDeConocimientoToolStripMenuItem.Name = "mediosDeConocimientoToolStripMenuItem";
+            this.mediosDeConocimientoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mediosDeConocimientoToolStripMenuItem.Text = "Medios de Conocimiento";
+            this.mediosDeConocimientoToolStripMenuItem.Click += new System.EventHandler(this.mediosDeConocimientoToolStripMenuItem_Click);
+            // 
+            // viaDeConsultasToolStripMenuItem
+            // 
+            this.viaDeConsultasToolStripMenuItem.Name = "viaDeConsultasToolStripMenuItem";
+            this.viaDeConsultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viaDeConsultasToolStripMenuItem.Text = "Via de consultas";
+            this.viaDeConsultasToolStripMenuItem.Click += new System.EventHandler(this.viaDeConsultasToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -155,6 +182,9 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planesFinanciacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mediosDeConocimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viaDeConsultasToolStripMenuItem;
     }
 }
 

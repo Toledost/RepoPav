@@ -13,6 +13,7 @@ namespace TESTWF2020
         //Comentario del frmPricipal
         private frmLogin login;
         private readonly string tituloOriginal = "Inmobiliaria Casa Feliz";
+        private Usuario usuarioLogueado;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -21,15 +22,16 @@ namespace TESTWF2020
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            //this.Hide();
-            //login.ShowDialog();
-            //if (login.UsuarioLogueado == null)
-            //{
-            //    this.Close();
-            //    return;
-            //}
-            //this.Show();
-            //this.Text = string.Concat(tituloOriginal, " - Usuario: ", login.UsuarioLogueado.Nombre);
+            this.Hide();
+            login.ShowDialog();
+            if (login.UsuarioLogueado == null)
+            {
+                this.Close();
+                return;
+            }
+            usuarioLogueado = login.UsuarioLogueado;
+            this.Show();
+            this.Text = string.Concat(tituloOriginal, " - Usuario: ", usuarioLogueado.Nombre);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -75,6 +77,30 @@ namespace TESTWF2020
             frmGeneralUsuario frmGeneralUsuario = new frmGeneralUsuario();
             this.Hide();
             frmGeneralUsuario.ShowDialog();
+            this.Show();
+        }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCConsultas frmConsultas = new frmABMCConsultas(usuarioLogueado);
+            this.Hide();
+            frmConsultas.ShowDialog();
+            this.Show();
+        }
+
+        private void mediosDeConocimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCMedioDeConocimiento frmMedios = new frmABMCMedioDeConocimiento();
+            this.Hide();
+            frmMedios.ShowDialog();
+            this.Show();
+        }
+
+        private void viaDeConsultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCViaDeConsulta frmABMCViaDeConsulta = new frmABMCViaDeConsulta();
+            this.Hide();
+            frmABMCViaDeConsulta.ShowDialog();
             this.Show();
         }
     }
