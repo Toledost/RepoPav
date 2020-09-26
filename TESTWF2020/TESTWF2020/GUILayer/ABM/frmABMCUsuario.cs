@@ -43,6 +43,7 @@ namespace TESTWF2020.GUILayer.ABM
             usuarioService = new UsuarioService();
         }
 
+
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.txtNombre.Text) 
@@ -106,7 +107,6 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 CargarComboBox();
                 btnEditar.Enabled = false;
-
             }
             else
             {

@@ -16,11 +16,23 @@ namespace TESTWF2020.GUILayer.ABM
     {
         private UsuarioService usuarioService;
         private PerfilService perfilService;
+        private bool esParaElegir = false;
+
+        public string NombreUsuarioSeleccionado { get; set; }
+
         public frmGeneralUsuario()
         {
             InitializeComponent();
             usuarioService = new UsuarioService();
             perfilService = new PerfilService();
+        }
+
+        public frmGeneralUsuario(bool elegir)
+        {
+            InitializeComponent();
+            usuarioService = new UsuarioService();
+            perfilService = new PerfilService();
+            this.esParaElegir = elegir;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -60,6 +72,7 @@ namespace TESTWF2020.GUILayer.ABM
             
 
         }
+
         private void CargarTextBox(Usuario usuario)
         {
             this.txtNombre.Text = usuario.Nombre.ToString();
@@ -68,8 +81,17 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void frmGeneralUsuario_Load(object sender, EventArgs e)
         {
-            btnBuscar.Focus();
             CargarComboBox();
+            if (esParaElegir)
+            {
+                btnEliminar.Visible = false;
+                btnSeleccionar.Focus();
+            }
+            else
+            {
+                btnSeleccionar.Visible = false;
+                btnBuscar.Focus();
+            }
         }
 
         private void CargarComboBox()
@@ -130,6 +152,19 @@ namespace TESTWF2020.GUILayer.ABM
         {
             usuarioService.Delete(nombreUsuarioSeleccionado);
             MessageBox.Show("Usuario eliminado correctamente");
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (dgvGeneralUsuario.SelectedRows.Count == 1)
+            {
+                NombreUsuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value.ToString();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error. Debe seleccionar un Usuario.");
+            }
         }
     }
 }
