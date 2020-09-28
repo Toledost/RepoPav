@@ -16,11 +16,19 @@ namespace TESTWF2020.GUILayer
     public partial class frmConsultarClientes : Form
     {
         ClienteService clienteService = new ClienteService();
-        
+        private bool esParaElegir;
+        public int dniClienteSeleccionado { get; set; }
+
         public frmConsultarClientes()
         {
             InitializeComponent();
             clienteService = new ClienteService();
+        }
+        public frmConsultarClientes(bool esParaElegir)
+        {
+            InitializeComponent();
+            clienteService = new ClienteService();
+            this.esParaElegir = esParaElegir;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -124,6 +132,20 @@ namespace TESTWF2020.GUILayer
             else
             {
                 MessageBox.Show("No seleccionó ningún Cliente");
+            }
+        }
+
+        private void btnElegirCliente_Click(object sender, EventArgs e)
+        {
+            this.dniClienteSeleccionado = (int)dgvCliente.CurrentRow.Cells["DNI"].Value;
+            this.Close();
+        }
+
+        private void frmConsultarClientes_Load(object sender, EventArgs e)
+        {
+            if (!esParaElegir)
+            {
+                this.btnElegirCliente.Visible = false;
             }
         }
     }

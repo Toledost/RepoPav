@@ -45,6 +45,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnElegirCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,11 +195,22 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnElegirCliente
+            // 
+            this.btnElegirCliente.Location = new System.Drawing.Point(476, 394);
+            this.btnElegirCliente.Name = "btnElegirCliente";
+            this.btnElegirCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnElegirCliente.TabIndex = 12;
+            this.btnElegirCliente.Text = "Elegir";
+            this.btnElegirCliente.UseVisualStyleBackColor = true;
+            this.btnElegirCliente.Click += new System.EventHandler(this.btnElegirCliente_Click);
+            // 
             // frmConsultarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnElegirCliente);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
@@ -213,6 +225,7 @@
             this.Controls.Add(this.lblDni);
             this.Name = "frmConsultarClientes";
             this.Text = "frmConsultarClientes";
+            this.Load += new System.EventHandler(this.frmConsultarClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -238,5 +251,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnElegirCliente;
     }
 }
