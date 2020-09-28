@@ -114,13 +114,18 @@
     <Compile Include="GUILayer\ABM\frmABMCUsuario.Designer.cs">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmABMCVenta.Designer.cs">
+      <DependentUpon>frmABMCVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\ABM\frmGeneralUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\ABM\frmGeneralUsuario.Designer.cs">
       <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </Compile>
-
     <Compile Include="GUILayer\ABM\frmABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,7 +137,7 @@
     </Compile>
     <Compile Include="GUILayer\ABM\frmConsultarClientes.Designer.cs">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,7 +149,6 @@
     </Compile>
     <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.Designer.cs">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
-
     </Compile>
     <Compile Include="GUILayer\frmEmpleados.cs">
       <SubType>Form</SubType>
@@ -211,16 +215,18 @@
     <EmbeddedResource Include="GUILayer\ABM\frmABMCInmueble.resx">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmABMCVenta.resx">
+      <DependentUpon>frmABMCVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="GUILayer\ABM\frmABMCliente.resx">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmConsultarClientes.resx">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.resx">
       <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
