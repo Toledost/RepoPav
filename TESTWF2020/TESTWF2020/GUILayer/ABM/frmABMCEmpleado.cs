@@ -52,6 +52,7 @@ namespace TESTWF2020.GUILayer.ABM
             else
             {
                 this.btnGrabar.Enabled = false;
+                this.btnElegirUsuario.Enabled = false;
                 HabilitarCampos(false);
                 Empleado empleadoSeleccionado = empleadoService.GetByLegajo(legajo);
                 CargarTextBox(empleadoSeleccionado);
@@ -105,19 +106,11 @@ namespace TESTWF2020.GUILayer.ABM
             }
             else
             {
-                if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text)))
-                {
-                    MessageBox.Show("Falta completar algún campo.");
-                    return;
-                }
-
                 try
                 {
                     empleadoService.Update(empleado, legajo);
                     MessageBox.Show("Empleado editado con exito.");
-                    HabilitarCampos(false);
-                    this.btnEditar.Enabled = true;
-                    this.btnGrabar.Enabled = false;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -130,6 +123,7 @@ namespace TESTWF2020.GUILayer.ABM
         {
             HabilitarCampos(true);
             this.btnGrabar.Enabled = true;
+            this.btnElegirUsuario.Enabled = true;
         }
 
         private void HabilitarCampos(bool x)
@@ -138,6 +132,13 @@ namespace TESTWF2020.GUILayer.ABM
             this.txtNombre.Enabled = x;
             this.txtApellido.Enabled = x;
             this.txtUsuario.Enabled = x;
+        }
+
+        private void btnElegirUsuario_Click(object sender, EventArgs e)
+        {
+            frmGeneralUsuario frm = new frmGeneralUsuario(true);
+            frm.ShowDialog();
+            this.txtUsuario.Text = frm.NombreUsuarioSeleccionado;
         }
     }
 }

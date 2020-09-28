@@ -112,6 +112,7 @@ namespace TESTWF2020.GUILayer
                 var legajoSeleccionado = (int)this.dgvEmpleados.CurrentRow.Cells["legajo"].Value;
                 frmABMCEmpleado frmABMCEmpleado = new frmABMCEmpleado(false, legajoSeleccionado);
                 frmABMCEmpleado.ShowDialog();
+                CargarGrilla();
             }
             else
             {
