@@ -44,16 +44,19 @@ namespace TESTWF2020.GUILayer.ABM
         {
             IList<Usuario> listaUsuarios = new List<Usuario>();
 
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) &&
-                cboPerfilGeneral.SelectedIndex ==-1)
-            {
-                listaUsuarios =  usuarioService.GetAll();
-            }
-            else
-            {
-                var dicc = CrearDiccionario();
-                listaUsuarios = usuarioService.GetByFilters(dicc);
-            }
+            //if (string.IsNullOrWhiteSpace(txtNombre.Text) &&
+            //    cboPerfilGeneral.SelectedIndex ==-1)
+            //{
+            //    //listaUsuarios =  usuarioService.GetAll();
+            //}
+            //else
+            //{
+            //    var dicc = CrearDiccionario();
+            //    listaUsuarios = usuarioService.GetByFilters(dicc,chkLibre.Checked);
+            //}
+
+            var dicc = CrearDiccionario();
+            listaUsuarios = usuarioService.GetByFilters(dicc, chkLibre.Checked);
             CargarGrilla(listaUsuarios);
         }
 
