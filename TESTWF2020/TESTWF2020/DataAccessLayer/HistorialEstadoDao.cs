@@ -91,7 +91,7 @@ namespace TESTWF2020.DataAccessLayer
                     Id = (int)dataRow["idEstadoInmueble"],
                     Nombre = dataRow["nombreEstado"].ToString()
                 },
-                FechaFin = dataRow["fechaFin"] != DBNull.Value ? (DateTime)dataRow["fechaFin"] : new DateTime(),
+                FechaFin = dataRow["fechaFin"] != DBNull.Value ? (DateTime)dataRow["fechaFin"] : (DateTime?)null,
                 FechaInicio = (DateTime)dataRow["fechaInicio"],
             };
             return historialEstado;

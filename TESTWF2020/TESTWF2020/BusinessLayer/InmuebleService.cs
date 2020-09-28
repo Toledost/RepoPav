@@ -21,9 +21,9 @@ namespace TESTWF2020.BusinessLayer
             return inmuebleDao.GetByFilters(parametros);
         }
 
-        internal void Create(Inmueble inmueble)
+        internal void Create(Inmueble inmueble, EstadoInmueble estado)
         {
-            inmuebleDao.Create(inmueble);
+            inmuebleDao.Create(inmueble, estado);
         }
 
         internal void Delete(int id)
@@ -38,9 +38,9 @@ namespace TESTWF2020.BusinessLayer
             return inmuebleDao.GetById(idInmueble);
         }
 
-        internal void Update(Inmueble inmueble, bool v)
+        internal void Update(Inmueble inmueble, bool esEstadoNuevo, EstadoInmueble estado)
         {
-            inmuebleDao.Update(inmueble, v);
+            inmuebleDao.Update(inmueble, esEstadoNuevo, estado);
         }
     }
 }

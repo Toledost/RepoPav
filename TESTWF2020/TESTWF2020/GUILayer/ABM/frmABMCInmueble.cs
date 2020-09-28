@@ -17,7 +17,7 @@ namespace TESTWF2020.GUILayer.ABM
     {
         #region private y constructor
 
-        private bool esNuevo;
+        private bool seleccionoNuevo;
         private int idInmueble;
         private InmuebleService inmuebleService;
         private HistorialEstadoService historialService;
@@ -33,20 +33,20 @@ namespace TESTWF2020.GUILayer.ABM
             this.tipoInmuebleService = new TipoInmuebleService();
         }
 
-        public frmABMCInmueble(bool esNuevo)
+        public frmABMCInmueble(bool seleccionoNuevo)
         {
             InitializeComponent();
-            this.esNuevo = esNuevo;
+            this.seleccionoNuevo = seleccionoNuevo;
             this.inmuebleService = new InmuebleService();
             this.historialService = new HistorialEstadoService();
             this.estadoInmuebleService = new EstadoInmuebleService();
             this.tipoInmuebleService = new TipoInmuebleService();
         }
 
-        public frmABMCInmueble(bool esNuevo, int idInmueble)
+        public frmABMCInmueble(bool seleccionoNuevo, int idInmueble)
         {
             InitializeComponent();
-            this.esNuevo = esNuevo;
+            this.seleccionoNuevo = seleccionoNuevo;
             this.idInmueble = idInmueble;
             this.inmuebleService = new InmuebleService();
             this.historialService = new HistorialEstadoService();
@@ -57,32 +57,29 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void frmABMCInmueble_Load(object sender, EventArgs e)
         {
-            if (esNuevo)
+            CargarComboEstado();
+            CargarComboTipoInmueble();
+
+            if (seleccionoNuevo)
             {
                 this.btnEditar.Enabled = false;
                 this.dataGridView1.Visible = false;
                 this.lblId.Visible = false;
                 this.txtID.Visible = false;
-                CargarComboEstado();
-                CargarComboTipoInmueble();
             }
             else
             {
-                CargarComboEstado();
-                CargarComboTipoInmueble();
-
                 this.btnGrabar.Enabled = false;
                 Inmueble inmuebleSeleccionado = inmuebleService.GetById(idInmueble);
                 CargarTextBox(inmuebleSeleccionado);
 
                 IList<HistorialEstado> listaHistorialInmueble = historialService.GetHistorialEstadoByInmuebleID(inmuebleSeleccionado.Id);
 
-                var estadoActual = listaHistorialInmueble.Where(x => x.FechaFin == DateTime.MinValue).FirstOrDefault();
-
-                estadoActual.FechaFin = null;
-
+                var estadoActual = listaHistorialInmueble.Where(x => x.FechaFin == null).FirstOrDefault();
                 this.cboEstado.SelectedValue = estadoActual.Estado.Id;
+
                 this.cboTipoInmueble.SelectedValue = inmuebleSeleccionado.TipoInmueble.Id;
+
                 CargarGrilla(listaHistorialInmueble);
 
                 DeshabilitarCampos();
@@ -167,7 +164,47 @@ namespace TESTWF2020.GUILayer.ABM
                 return;
             }
 
-            Inmueble inmueble = new Inmueble
+            Inmueble inmueble = CapturarDatosInmueble();
+            EstadoInmueble estado = CapturarDatosEstado();
+
+            if (seleccionoNuevo)
+            {
+                inmuebleService.Create(inmueble, estado);
+                MessageBox.Show("Creado");
+            }
+            else
+            {
+                // Añadimos el Id del form al inmueble
+                inmueble.Id = Convert.ToInt32(this.txtID.Text);
+
+                // Buscamos todo su historial de estado
+                IList<HistorialEstado> listaHistorialInmueble = historialService.GetHistorialEstadoByInmuebleID(inmueble.Id);
+
+                // Obtenemos el último estado (sin fechaFin)
+                var estadoActual = listaHistorialInmueble.Where(x => x.FechaFin == null).FirstOrDefault();
+
+                // Verificamos si seleccionó un nuevo estado
+                var esEstadoNuevo = estadoActual.Estado.Id != estado.Id;
+
+                // Hacemos el update del inmueble y si corresponde el del Historial de Estado
+                inmuebleService.Update(inmueble, esEstadoNuevo, estado);
+
+                MessageBox.Show("Editado");
+            }
+            this.Close();
+        }
+
+        private EstadoInmueble CapturarDatosEstado()
+        {
+            return new EstadoInmueble
+            {
+                Id = Convert.ToInt32(this.cboEstado.SelectedValue)
+            };
+        }
+
+        private Inmueble CapturarDatosInmueble()
+        {
+            return new Inmueble
             {
                 Calle = this.txtCalle.Text,
                 CalleNumero = Convert.ToInt32(this.txtNro.Text),
@@ -182,50 +219,6 @@ namespace TESTWF2020.GUILayer.ABM
                     Id = Convert.ToInt32(this.cboTipoInmueble.SelectedValue)
                 }
             };
-
-            if (esNuevo)
-            {
-                inmuebleService.Create(inmueble);
-                var Ids = inmuebleService.GetByFilters(new Dictionary<string, object>()).Select(x => x.Id);
-                inmueble.Id = Ids.Max();
-                HistorialEstado historialEstado = new HistorialEstado
-                {
-                    FechaInicio = DateTime.Now,
-                    Inmueble = inmueble,
-                    Estado = new EstadoInmueble
-                    {
-                        Id = Convert.ToInt32(this.cboEstado.SelectedValue)
-                    }
-                };
-                historialService.Create(historialEstado);
-                MessageBox.Show("Creado");
-            }
-            else
-            {
-                inmueble.Id = Convert.ToInt32(this.txtID.Text);
-                IList<HistorialEstado> listaHistorialInmueble = historialService.GetHistorialEstadoByInmuebleID(inmueble.Id);
-
-                var estadoActual = listaHistorialInmueble.Where(x => x.FechaFin == DateTime.MinValue).FirstOrDefault();
-
-                if (estadoActual.Estado.Id != Convert.ToInt32(this.cboEstado.SelectedValue))
-                {
-                    inmuebleService.Update(inmueble, true);
-                    HistorialEstado historialEstado = new HistorialEstado
-                    {
-                        FechaInicio = DateTime.Now,
-                        Inmueble = inmueble,
-                        Estado = new EstadoInmueble
-                        {
-                            Id = Convert.ToInt32(this.cboEstado.SelectedValue)
-                        }
-                    };
-                    historialService.Create(historialEstado);
-                }
-                inmuebleService.Update(inmueble, false);
-
-                MessageBox.Show("Editado");
-            }
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

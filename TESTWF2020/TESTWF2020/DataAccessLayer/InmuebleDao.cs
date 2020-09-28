@@ -79,9 +79,9 @@ namespace TESTWF2020.DataAccessLayer
             return resultado;
         }
 
-        public void Create(Inmueble inmueble)
+        public void Create(Inmueble inmueble, EstadoInmueble estado)
         {
-            string consultaSql = "INSERT INTO Inmueble " +
+            string consultaSqlInmueble = "INSERT INTO Inmueble " +
                 "([calle]" +
                 ",[calleNro]" +
                 ",[m2]" +
@@ -102,43 +102,50 @@ namespace TESTWF2020.DataAccessLayer
                 ",@montoAlquiler" +
                 ",@montoVenta) ";
 
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("calle", inmueble.Calle);
-            parametros.Add("idTipoInmueble", inmueble.TipoInmueble.Id);
-            parametros.Add("calleNro", inmueble.CalleNumero);
-            parametros.Add("m2", inmueble.MetrosCuadrados);
-            parametros.Add("cantBaños", inmueble.Baños);
-            parametros.Add("cantHabitaciones", inmueble.Habitaciones);
-            parametros.Add("descripcion", inmueble.Descripcion);
-            parametros.Add("montoAlquiler", inmueble.MontoAlquiler);
-            parametros.Add("montoVenta", inmueble.MontoVenta);
+            Dictionary<string, object> parametrosInmueble = CargarParametros(inmueble);
 
             DataManager dm = new DataManager();
-            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+            dm.Open();
+            dm.BeginTransaction();
+
+            try
+            {
+                var resultado = dm.EjecutarSQLConParametros(consultaSqlInmueble, parametrosInmueble);
+
+                var newIdInmueble = dm.ConsultaSQLScalar(" SELECT @@IDENTITY");
+
+
+                string consultaSqlHistorialEstado = "INSERT INTO HistorialEstado " +
+                    "(idInmueble, " +
+                    "idEstadoInmueble, " +
+                    "fechaInicio) " +
+                    "VALUES (@idInmueble, " +
+                    "@idEstadoInmueble, " +
+                    "GETDATE()) ";
+
+
+                var parametrosHistorial = new Dictionary<string, object>();
+
+                parametrosHistorial.Add("idInmueble", newIdInmueble);
+                parametrosHistorial.Add("idEstadoInmueble", estado.Id);
+
+                dm.EjecutarSQLConParametros(consultaSqlHistorialEstado, parametrosHistorial);
+
+                dm.Commit();
+            }
+            catch (Exception ex)
+            {
+                dm.Rollback();
+            }
+            finally
+            {
+                dm.Close();
+            }
+            
         }
 
-        public void Update(Inmueble inmueble, bool cambioEstado)
+        private Dictionary<string, object> CargarParametros(Inmueble inmueble)
         {
-            string consultaSql = "UPDATE Inmueble " +
-                "SET " +
-                "[calle] = @calle" +
-                ",[calleNro] = @calleNro" +
-                ",[m2] = @m2" +
-                ",[cantBaños] = @cantBaños" +
-                ",[cantHabitaciones] = @cantHabitaciones" +
-                ",[idTipoInmueble] = @idTipoInmueble" +
-                ",[descripcion] = @descripcion" +
-                ",[montoAlquiler] = @montoAlquiler" +
-                ",[montoVenta] = @montoVenta " +
-                "WHERE idInmueble = @id ";
-
-            if (cambioEstado)
-            {
-                consultaSql += " UPDATE HistorialEstado SET fechaFin = GetUTCDATE() " +
-                    "WHERE idInmueble = @id ";
-            }
-
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("calle", inmueble.Calle);
@@ -152,8 +159,75 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("montoVenta", inmueble.MontoVenta);
             parametros.Add("id", inmueble.Id);
 
+            return parametros;
+        }
+
+        public void Update(Inmueble inmueble, bool esEstadoNuevo, EstadoInmueble estado)
+        {
+            string consultaSqlInmueble = "UPDATE Inmueble " +
+                "SET " +
+                "[calle] = @calle" +
+                ",[calleNro] = @calleNro" +
+                ",[m2] = @m2" +
+                ",[cantBaños] = @cantBaños" +
+                ",[cantHabitaciones] = @cantHabitaciones" +
+                ",[idTipoInmueble] = @idTipoInmueble" +
+                ",[descripcion] = @descripcion" +
+                ",[montoAlquiler] = @montoAlquiler" +
+                ",[montoVenta] = @montoVenta " +
+                "WHERE idInmueble = @id ";
+
+            var parametrosInmueble = CargarParametros(inmueble);
+
             DataManager dm = new DataManager();
-            var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
+            dm.Open();
+            dm.BeginTransaction();
+
+            try
+            {
+                dm.EjecutarSQLConParametros(consultaSqlInmueble, parametrosInmueble);
+
+                if (esEstadoNuevo)
+                {
+                    // Ponemos fechaFin al último estado del historial (es el que no tiene fechaFin)
+                    var consultaSqlHistorialFin = "UPDATE HistorialEstado " +
+                        "SET fechaFin = GetDATE() " +
+                        "WHERE idInmueble = @idInmueble " +
+                        "AND fechaFin IS NULL ";
+
+                    Dictionary<string, object> parametrosHistorialFin = new Dictionary<string, object>();
+                    parametrosHistorialFin.Add("idInmueble", inmueble.Id);
+
+                    dm.EjecutarSQLConParametros(consultaSqlHistorialFin, parametrosHistorialFin);
+
+
+                    // Creamos un nuevo historial con el estado pasado por parametro para ese inmueble
+                    string consultaSqlHistorialNuevo = "INSERT INTO HistorialEstado " +
+                        "(idInmueble, " +
+                        "idEstadoInmueble, " +
+                        "fechaInicio) " +
+                        "VALUES (@idInmueble, " +
+                        "@idEstadoInmueble, " +
+                        "GETDATE()) ";
+
+                    var parametrosHistorialNuevo = new Dictionary<string, object>();
+
+                    parametrosHistorialNuevo.Add("idInmueble", inmueble.Id);
+                    parametrosHistorialNuevo.Add("idEstadoInmueble", estado.Id);
+
+                    dm.EjecutarSQLConParametros(consultaSqlHistorialNuevo, parametrosHistorialNuevo);
+                }
+
+                dm.Commit();
+            }
+            catch (Exception ex)
+            {
+                dm.Rollback();
+            }
+            finally
+            {
+                dm.Close();
+            }
 
         }
 
