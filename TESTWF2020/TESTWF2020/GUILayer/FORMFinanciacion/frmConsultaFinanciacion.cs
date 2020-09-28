@@ -14,6 +14,7 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
 {
     public partial class frmConsultaFinanciacion : Form
     {
+        public int financiacionElegida { get; set; }
         private FinanciacionService financiacionService;
         public frmConsultaFinanciacion()
         {
@@ -126,6 +127,13 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
             {
                 textbox.Clear();
             }
+        }
+
+        private void btnElegir_Click(object sender, EventArgs e)
+        {
+            this.financiacionElegida = (int)dgvFinanciacion.CurrentRow.Cells["Id"].Value;
+            
+            this.Close();
         }
     }
 }

@@ -62,6 +62,7 @@ namespace TESTWF2020.GUILayer.ABM
             //this.Hide();
             frmInmuebles.ShowDialog();
             this.txtIDInmueble.Text = frmInmuebles.idInmuebleSeleccionado.ToString();
+            // TODO: falta hacer busqueda del objeto para que devuelva el nombre del inmueble 
         }
 
         private void btnElegirCliente_Click(object sender, EventArgs e)

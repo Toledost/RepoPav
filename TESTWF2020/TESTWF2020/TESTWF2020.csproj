@@ -59,6 +59,7 @@
     <Compile Include="BusinessLayer\TipoInmuebleService.cs" />
     <Compile Include="BusinessLayer\TipoTransaccionService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
+    <Compile Include="BusinessLayer\VentaService.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="BusinessLayer\ViaDeConsultaService.cs" />
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="DataAccessLayer\VentaDao.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Entities\TipoInmueble.cs" />
     <Compile Include="Entities\TipoTransaccion.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Entities\Venta.cs" />
     <Compile Include="Entities\ViaDeConsulta.cs" />
     <Compile Include="GUILayer\ABM\frmABMCConsultas.cs">
       <SubType>Form</SubType>

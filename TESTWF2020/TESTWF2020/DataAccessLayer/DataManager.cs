@@ -49,6 +49,12 @@ namespace TESTWF2020.DataAccessLayer
             if (dbTransaction != null)
                 dbTransaction.Rollback();
         }
+
+        internal void EjecutarSQLConParametros2(string consultaSQL, Dictionary<object, string> parametros)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Open()
         {
             if (dbConnection.State != ConnectionState.Open)

@@ -103,5 +103,13 @@ namespace TESTWF2020
             frmABMCViaDeConsulta.ShowDialog();
             this.Show();
         }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMCVenta frmABMCVenta = new frmABMCVenta();
+            this.Hide();
+            frmABMCVenta.ShowDialog();
+            this.Show();
+        }
     }
 }

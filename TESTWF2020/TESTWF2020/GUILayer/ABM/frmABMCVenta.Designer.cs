@@ -45,6 +45,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtMontoCuota = new System.Windows.Forms.TextBox();
+            this.lblMontoCuota = new System.Windows.Forms.Label();
             this.txtFinanciacion = new System.Windows.Forms.TextBox();
             this.lblFinanciacion = new System.Windows.Forms.Label();
             this.btnSeleccionarFinanciacion = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.lblCantCuota = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.txtMontoCuota = new System.Windows.Forms.TextBox();
-            this.lblMontoCuota = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,6 +77,7 @@
             this.btnSeleccionarInmueble.TabIndex = 1;
             this.btnSeleccionarInmueble.Text = "Seleccionar Inmueble";
             this.btnSeleccionarInmueble.UseVisualStyleBackColor = true;
+            this.btnSeleccionarInmueble.Click += new System.EventHandler(this.btnSeleccionarInmueble_Click);
             // 
             // txtDireccionInmueble
             // 
@@ -100,6 +101,7 @@
             this.btnSeleccionarCliente.TabIndex = 4;
             this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
             this.btnSeleccionarCliente.UseVisualStyleBackColor = true;
+            this.btnSeleccionarCliente.Click += new System.EventHandler(this.btnSeleccionarCliente_Click);
             // 
             // lblDniCliente
             // 
@@ -226,6 +228,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Monto y Financiacion";
             // 
+            // txtMontoCuota
+            // 
+            this.txtMontoCuota.Location = new System.Drawing.Point(346, 131);
+            this.txtMontoCuota.Name = "txtMontoCuota";
+            this.txtMontoCuota.Size = new System.Drawing.Size(113, 20);
+            this.txtMontoCuota.TabIndex = 16;
+            // 
+            // lblMontoCuota
+            // 
+            this.lblMontoCuota.AutoSize = true;
+            this.lblMontoCuota.Location = new System.Drawing.Point(266, 135);
+            this.lblMontoCuota.Name = "lblMontoCuota";
+            this.lblMontoCuota.Size = new System.Drawing.Size(74, 13);
+            this.lblMontoCuota.TabIndex = 15;
+            this.lblMontoCuota.Text = "Monto Cuota :";
+            // 
             // txtFinanciacion
             // 
             this.txtFinanciacion.Location = new System.Drawing.Point(346, 91);
@@ -250,6 +268,7 @@
             this.btnSeleccionarFinanciacion.TabIndex = 6;
             this.btnSeleccionarFinanciacion.Text = "Seleccionar Financiacion";
             this.btnSeleccionarFinanciacion.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFinanciacion.Click += new System.EventHandler(this.btnSeleccionarFinanciacion_Click);
             // 
             // txtCantCuota
             // 
@@ -275,6 +294,7 @@
             this.btnGrabar.TabIndex = 17;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnSalir
             // 
@@ -285,22 +305,6 @@
             this.btnSalir.TabIndex = 19;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // txtMontoCuota
-            // 
-            this.txtMontoCuota.Location = new System.Drawing.Point(346, 131);
-            this.txtMontoCuota.Name = "txtMontoCuota";
-            this.txtMontoCuota.Size = new System.Drawing.Size(113, 20);
-            this.txtMontoCuota.TabIndex = 16;
-            // 
-            // lblMontoCuota
-            // 
-            this.lblMontoCuota.AutoSize = true;
-            this.lblMontoCuota.Location = new System.Drawing.Point(266, 135);
-            this.lblMontoCuota.Name = "lblMontoCuota";
-            this.lblMontoCuota.Size = new System.Drawing.Size(74, 13);
-            this.lblMontoCuota.TabIndex = 15;
-            this.lblMontoCuota.Text = "Monto Cuota :";
             // 
             // frmABMCVenta
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TESTWF2020.Entities
 {
-    class Empleado
+    public class Empleado
     {
         public int Legajo { get; set; }
         
