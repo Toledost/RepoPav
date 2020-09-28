@@ -87,7 +87,6 @@ namespace TESTWF2020.GUILayer.ABM
             CargarComboBox();
             if (esParaElegir)
             {
-                btnEliminar.Visible = false;
                 btnSeleccionar.Focus();
             }
             else
