@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvFinanciacion = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PorcAumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantCuotas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnDetalle = new System.Windows.Forms.Button();
@@ -40,10 +44,6 @@
             this.txtCantidadCuotas = new System.Windows.Forms.TextBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.btnElegir = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PorcAumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantCuotas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanciacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,38 @@
             this.dgvFinanciacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFinanciacion.Size = new System.Drawing.Size(562, 192);
             this.dgvFinanciacion.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 8;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 150;
+            // 
+            // PorcAumento
+            // 
+            this.PorcAumento.HeaderText = "Porcentaje Aumento";
+            this.PorcAumento.MinimumWidth = 8;
+            this.PorcAumento.Name = "PorcAumento";
+            this.PorcAumento.ReadOnly = true;
+            this.PorcAumento.Width = 150;
+            // 
+            // CantCuotas
+            // 
+            this.CantCuotas.HeaderText = "Cantidad de Cuotas";
+            this.CantCuotas.MinimumWidth = 8;
+            this.CantCuotas.Name = "CantCuotas";
+            this.CantCuotas.ReadOnly = true;
+            this.CantCuotas.Width = 150;
             // 
             // btnConsultar
             // 
@@ -156,7 +188,7 @@
             this.btnLimpiarFiltros.Location = new System.Drawing.Point(451, 58);
             this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(50, 19);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(58, 30);
             this.btnLimpiarFiltros.TabIndex = 12;
             this.btnLimpiarFiltros.Text = "Limpiar";
             this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
@@ -171,38 +203,6 @@
             this.btnElegir.Text = "Elegir";
             this.btnElegir.UseVisualStyleBackColor = true;
             this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
-            // 
-            // PorcAumento
-            // 
-            this.PorcAumento.HeaderText = "Porcentaje Aumento";
-            this.PorcAumento.MinimumWidth = 8;
-            this.PorcAumento.Name = "PorcAumento";
-            this.PorcAumento.ReadOnly = true;
-            this.PorcAumento.Width = 150;
-            // 
-            // CantCuotas
-            // 
-            this.CantCuotas.HeaderText = "Cantidad de Cuotas";
-            this.CantCuotas.MinimumWidth = 8;
-            this.CantCuotas.Name = "CantCuotas";
-            this.CantCuotas.ReadOnly = true;
-            this.CantCuotas.Width = 150;
             // 
             // frmConsultaFinanciacion
             // 
@@ -223,6 +223,7 @@
             this.Controls.Add(this.dgvFinanciacion);
             this.Name = "frmConsultaFinanciacion";
             this.Text = "frmConsultaFinanciacion";
+            this.Load += new System.EventHandler(this.frmConsultaFinanciacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanciacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

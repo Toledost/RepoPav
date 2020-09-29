@@ -161,6 +161,7 @@
             // 
             this.txtMontoTotal.Location = new System.Drawing.Point(99, 26);
             this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.ReadOnly = true;
             this.txtMontoTotal.Size = new System.Drawing.Size(113, 20);
             this.txtMontoTotal.TabIndex = 11;
             // 
@@ -173,6 +174,7 @@
             this.chkFinanciada.TabIndex = 12;
             this.chkFinanciada.Text = "Es financiada ";
             this.chkFinanciada.UseVisualStyleBackColor = true;
+            this.chkFinanciada.CheckedChanged += new System.EventHandler(this.chkFinanciada_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -234,6 +236,7 @@
             // 
             this.txtMontoCuota.Location = new System.Drawing.Point(346, 131);
             this.txtMontoCuota.Name = "txtMontoCuota";
+            this.txtMontoCuota.ReadOnly = true;
             this.txtMontoCuota.Size = new System.Drawing.Size(113, 20);
             this.txtMontoCuota.TabIndex = 16;
             // 
@@ -277,6 +280,7 @@
             // 
             this.txtCantCuota.Location = new System.Drawing.Point(131, 131);
             this.txtCantCuota.Name = "txtCantCuota";
+            this.txtCantCuota.ReadOnly = true;
             this.txtCantCuota.Size = new System.Drawing.Size(113, 20);
             this.txtCantCuota.TabIndex = 14;
             // 
@@ -326,6 +330,7 @@
             this.Name = "frmABMCVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Venta";
+            this.Load += new System.EventHandler(this.frmABMCVenta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
