@@ -83,6 +83,7 @@
             // 
             this.txtDireccionInmueble.Location = new System.Drawing.Point(347, 21);
             this.txtDireccionInmueble.Name = "txtDireccionInmueble";
+            this.txtDireccionInmueble.ReadOnly = true;
             this.txtDireccionInmueble.Size = new System.Drawing.Size(196, 20);
             this.txtDireccionInmueble.TabIndex = 2;
             // 
@@ -90,6 +91,7 @@
             // 
             this.txtDniCliente.Location = new System.Drawing.Point(345, 23);
             this.txtDniCliente.Name = "txtDniCliente";
+            this.txtDniCliente.ReadOnly = true;
             this.txtDniCliente.Size = new System.Drawing.Size(196, 20);
             this.txtDniCliente.TabIndex = 5;
             // 
@@ -248,6 +250,7 @@
             // 
             this.txtFinanciacion.Location = new System.Drawing.Point(346, 91);
             this.txtFinanciacion.Name = "txtFinanciacion";
+            this.txtFinanciacion.ReadOnly = true;
             this.txtFinanciacion.Size = new System.Drawing.Size(196, 20);
             this.txtFinanciacion.TabIndex = 7;
             // 

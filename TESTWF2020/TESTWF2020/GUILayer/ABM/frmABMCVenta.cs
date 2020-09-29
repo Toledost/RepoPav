@@ -41,6 +41,14 @@ namespace TESTWF2020.GUILayer.ABM
             frmConsultaFinanciacion frmConsultaFinanciacion = new frmConsultaFinanciacion();
             frmConsultaFinanciacion.ShowDialog();
             this.txtFinanciacion.Text = frmConsultaFinanciacion.financiacionElegida.ToString();
+            //this.txtMontoCuota.Text = 
+            //this.txtMontoTotal.Text = 
+            //this.txtFinanciacion.Text = frmConsultaFinanciacion.financiacionElegida.Nombre.ToString();
+            //this.txtCantCuota.Text = frmConsultaFinanciacion.financiacionElegida.CantidadCuotas.ToString();
+
+            //Financiacion financiacion = new Financiacion();
+            //this.txtCantCuota.Text = financiacion.CantidadCuotas.ToString();
+
             // TODO: agregar busqueda del objeto ...
         }
 
@@ -50,7 +58,10 @@ namespace TESTWF2020.GUILayer.ABM
                 string.IsNullOrWhiteSpace(txtDniCliente.Text) || 
                 txtDniCliente.Text == "0" ||
                 string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
-                txtDireccionInmueble.Text == "0")
+                txtDireccionInmueble.Text == "0" ||
+                string.IsNullOrWhiteSpace(txtCantCuota.Text) ||
+                string.IsNullOrWhiteSpace(txtMontoCuota.Text) ||
+                string.IsNullOrWhiteSpace(txtMontoTotal.Text))
             {
                 MessageBox.Show("Falta completar algun campo");
                 return;
@@ -74,7 +85,8 @@ namespace TESTWF2020.GUILayer.ABM
             };
 
             ventaService.Grabar(venta);
-            
+            MessageBox.Show("Se registro la venta");
+
         }
     }
 }

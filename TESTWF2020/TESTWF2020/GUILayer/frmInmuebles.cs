@@ -176,7 +176,11 @@ namespace TESTWF2020.GUILayer
             {
                 this.idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
                 this.Close();
-
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono ningun inmueble");
+                btnConsultar_Click(sender, e);
             }
         }
     }

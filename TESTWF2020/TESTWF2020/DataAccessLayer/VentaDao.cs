@@ -12,10 +12,10 @@ namespace TESTWF2020.DataAccessLayer
         internal void Grabar(Venta venta)
         {
             string consultaSQL = "INSERT INTO Venta " +
-                                " ([idVenta] , " +
+                                //" ([idVenta] , " +
                                 //"[vendedor], " +
                                 //"[legajoVendedor], " +
-                                "[idInmueble], " +
+                                "([idInmueble], " +
                                 "[fechaVenta], " +
                                 "[fechaEntrega], " +
                                 "[dniCliente], " +
@@ -24,10 +24,10 @@ namespace TESTWF2020.DataAccessLayer
                                 "[esFinanciada]) " +
                                 //"[financiacion]) " +
                                 "VALUES " +
-                                "(@idVenta, " +
+                                //"(@idVenta, " +
                                 //"@vendedor, " +
                                 //"@legajoVendedor, " +
-                                "@idInmueble, " +
+                                "(@idInmueble, " +
                                 "@fechaVenta, " +
                                 "@fechaEntrega, " +
                                 "@dniCliente, " +
