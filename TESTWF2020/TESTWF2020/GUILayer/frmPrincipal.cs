@@ -106,7 +106,7 @@ namespace TESTWF2020
 
         private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmABMCVenta frmABMCVenta = new frmABMCVenta();
+            frmABMCVenta frmABMCVenta = new frmABMCVenta(usuarioLogueado);
             this.Hide();
             frmABMCVenta.ShowDialog();
             this.Show();

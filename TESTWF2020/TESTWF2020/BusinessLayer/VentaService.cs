@@ -15,9 +15,9 @@ namespace TESTWF2020.BusinessLayer
         {
             ventaDao = new VentaDao();
         }
-        internal void Grabar(Venta venta)
+        internal bool Grabar(Venta venta)
         {
-            ventaDao.Grabar(venta);
+            return ventaDao.Grabar(venta);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace TESTWF2020.Entities
     public class Venta
     {
         public int IdVenta { get; set; }
-        public Empleado Vendedor { get; set; }
+        public Usuario UsuarioVendedor { get; set; }
         public Inmueble Inmueble { get; set; }
         public DateTime FechaVenta { get; set; }
         public DateTime FechaEntrega { get; set; }

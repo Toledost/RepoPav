@@ -9,12 +9,11 @@ namespace TESTWF2020.DataAccessLayer
 {
     class VentaDao
     {
-        internal void Grabar(Venta venta)
+        internal bool Grabar(Venta venta)
         {
             string consultaSQLVenta = "INSERT INTO Venta " +
-                                //"[vendedor], " +
-                                //"[legajoVendedor], " +
-                                "([idInmueble], " +
+                                "([legajoVendedor], " +
+                                "[idInmueble], " +
                                 "[fechaVenta], " +
                                 "[fechaEntrega], " +
                                 "[dniCliente], " +
@@ -23,9 +22,9 @@ namespace TESTWF2020.DataAccessLayer
                                 "[esFinanciada]) " +
                                 //"[financiacion]) " +
                                 "VALUES " +
-                                //"@vendedor, " +
-                                //"@legajoVendedor, " +
-                                "(@idInmueble, " +
+                                "((SELECT legajo " +
+                                "FROM Empleado e INNER JOIN Usuario u ON e.usuario = u.nombre WHERE u.nombre = @usuarioVendedor), " +
+                                "@idInmueble, " +
                                 "@fechaVenta, " +
                                 "@fechaEntrega, " +
                                 "@dniCliente, " +
@@ -44,16 +43,19 @@ namespace TESTWF2020.DataAccessLayer
             {
                 dm.EjecutarSQLConParametros(consultaSQLVenta, parametrosVenta);
 
-                string consutlaSQLConsulta = "UPDATE Consulta " +
+                string consultaSQLConsulta = "UPDATE Consulta " +
                                              "SET " +
-                                             "idEstadoConsulta = 4 " +
-                                             "WHERE dniCliente = @dniCliente AND idInmueble = @idInmueble AND idEstadoConsulta != 1";
+                                             "idEstadoConsulta = 4, " +
+                                             "fechaCierre = GETDATE(), " +
+                                             "usuarioUltimaModificacion = @usuarioVendedor " +
+                                             "WHERE dniCliente = @dniCliente AND idInmueble = @idInmueble";
 
                 var parametrosConsulta = new Dictionary<string, object>();
                 parametrosConsulta.Add("dniCliente", venta.Cliente.Dni);
                 parametrosConsulta.Add("idInmueble", venta.Inmueble.Id);
+                parametrosConsulta.Add("usuarioVendedor", venta.UsuarioVendedor.Nombre);
 
-                dm.EjecutarSQLConParametros(consutlaSQLConsulta, parametrosConsulta);
+                dm.EjecutarSQLConParametros(consultaSQLConsulta, parametrosConsulta);
 
                 var consultaSqlHistorialFin = "UPDATE HistorialEstado " +
                                                "SET fechaFin = GetDATE() " +
@@ -81,10 +83,14 @@ namespace TESTWF2020.DataAccessLayer
                 parametrosHistorialNuevo.Add("idEstadoInmueble", 3);                //TODO: cambiar nro 3
 
                 dm.EjecutarSQLConParametros(consultaSqlHistorialNuevo, parametrosHistorialNuevo);
+
+                dm.Commit();
+                return true;
             }
             catch
             {
                 dm.Rollback();
+                return false;
             }
             finally
             {
@@ -102,7 +108,7 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("fechaEntrega", venta.FechaEntrega);
             //parametros.Add("financiacion", venta.Financiacion);
             parametros.Add("idInmueble", venta.Inmueble.Id);
-            //parametros.Add("legajoVendedor", venta.Vendedor.Legajo);
+            parametros.Add("usuarioVendedor", venta.UsuarioVendedor.Nombre);
             parametros.Add("dniCliente", venta.Cliente.Dni);
             parametros.Add("esFinanciada", venta.EsFinanciada);
             parametros.Add("montoTotal", venta.MontoTotal); 

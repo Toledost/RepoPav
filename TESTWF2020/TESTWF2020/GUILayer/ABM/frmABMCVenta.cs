@@ -17,11 +17,13 @@ namespace TESTWF2020.GUILayer.ABM
     {
         private VentaService ventaService;
         private Inmueble inmuebleSeleccionado;
+        private Usuario usuarioLogueado;
 
-        public frmABMCVenta()
+        public frmABMCVenta(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ventaService = new VentaService();
+            this.usuarioLogueado = usuarioLogueado;
         }
 
         private void btnSeleccionarInmueble_Click(object sender, EventArgs e)
@@ -81,12 +83,21 @@ namespace TESTWF2020.GUILayer.ABM
                     Id = inmuebleSeleccionado.Id,
                 },
                 //MontoCuota = Convert.ToInt32(txtMontoCuota.Text),
-                MontoTotal = Convert.ToInt32(txtMontoTotal.Text)
+                MontoTotal = Convert.ToInt32(txtMontoTotal.Text),
+                UsuarioVendedor = usuarioLogueado
             };
 
-            ventaService.Grabar(venta);
+            var resultado = ventaService.Grabar(venta);
+            if (resultado)
+            {
+                MessageBox.Show("Se registro la venta");
 
-            MessageBox.Show("Se registro la venta");
+            }
+            else
+            {
+                MessageBox.Show("No se hizo");
+            }
+
         }
         
         private void frmABMCVenta_Load(object sender, EventArgs e)
@@ -112,6 +123,21 @@ namespace TESTWF2020.GUILayer.ABM
         private float CalcularMontoCuota(int monto, int cantCuotas)
         {
             return monto / cantCuotas;
+        }
+
+        private void btnSeleccionarConsulta_Click(object sender, EventArgs e)
+        {
+            frmABMCConsultas frmABMCConsultas = new frmABMCConsultas(true);
+            frmABMCConsultas.ShowDialog();
+            if (frmABMCConsultas.consultaSeleccionada != null)
+            {
+                this.inmuebleSeleccionado = frmABMCConsultas.consultaSeleccionada.Inmueble;
+
+                this.txtDniCliente.Text = frmABMCConsultas.consultaSeleccionada.Cliente.Dni.ToString();
+                this.txtDireccionInmueble.Text = inmuebleSeleccionado.Calle + " " + inmuebleSeleccionado.CalleNumero;
+                this.txtMontoTotal.Text = inmuebleSeleccionado.MontoVenta.ToString();
+            }
+            
         }
     }
 }

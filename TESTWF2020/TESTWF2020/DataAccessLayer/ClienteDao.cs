@@ -192,7 +192,7 @@ namespace TESTWF2020.DataAccessLayer
                 Nombre = row["nombre"].ToString(),
                 Apellido = row["apellido"].ToString(),
                 Mail = row["mail"].ToString(),
-                Telefono = (int)row["telefono"]
+                Telefono = (long)row["telefono"]
 
             };
             return cliente;
