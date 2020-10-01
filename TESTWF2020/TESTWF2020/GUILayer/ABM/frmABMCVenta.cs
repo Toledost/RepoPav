@@ -26,28 +26,11 @@ namespace TESTWF2020.GUILayer.ABM
             this.usuarioLogueado = usuarioLogueado;
         }
 
-        private void btnSeleccionarInmueble_Click(object sender, EventArgs e)
-        {
-            frmInmuebles frmInmuebles = new frmInmuebles(true);
-            frmInmuebles.ShowDialog();
-
-            inmuebleSeleccionado = frmInmuebles.InmuebleSeleccionado;
-            this.txtDireccionInmueble.Text = inmuebleSeleccionado.Calle + " " + inmuebleSeleccionado.CalleNumero.ToString();
-            this.txtMontoTotal.Text = inmuebleSeleccionado.MontoVenta.ToString();
-        }
-
-        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
-        {
-            frmConsultarClientes frmConsultarClientes = new frmConsultarClientes(true);
-            frmConsultarClientes.ShowDialog();
-            this.txtDniCliente .Text = frmConsultarClientes.dniClienteSeleccionado.ToString();
-        }
-
         private void btnSeleccionarFinanciacion_Click(object sender, EventArgs e)
         {
             frmConsultaFinanciacion frmConsultaFinanciacion = new frmConsultaFinanciacion(true);
             frmConsultaFinanciacion.ShowDialog();
-            
+
             this.txtFinanciacion.Text = frmConsultaFinanciacion.financiacionElegida.ToString();
             this.txtCantCuota.Text = frmConsultaFinanciacion.cantCuotasSeleccionada.ToString();
             //this.txtMontoCuota.Text = CalcularMontoCuota(montoTotal, frmConsultaFinanciacion.cantCuotasSeleccionada).ToString();
@@ -56,18 +39,18 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(txtFinanciacion.Text) ||
-            //    string.IsNullOrWhiteSpace(txtDniCliente.Text) ||
-            //    txtDniCliente.Text == "0" ||
-            //    string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
-            //    txtDireccionInmueble.Text == "0" ||
-            //    string.IsNullOrWhiteSpace(txtCantCuota.Text) ||
-            //    string.IsNullOrWhiteSpace(txtMontoCuota.Text) ||
-            //    string.IsNullOrWhiteSpace(txtMontoTotal.Text))
-            //{
-            //    MessageBox.Show("Falta completar algun campo");
-            //    return;
-            //}
+            if  (string.IsNullOrWhiteSpace(txtDniCliente.Text) ||
+                txtDniCliente.Text == "0" ||
+                string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
+                txtDireccionInmueble.Text == "0" ||
+                string.IsNullOrWhiteSpace(txtMontoTotal.Text))
+                //string.IsNullOrWhiteSpace(txtFinanciacion.Text) ||
+                //string.IsNullOrWhiteSpace(txtCantCuota.Text) ||
+                //string.IsNullOrWhiteSpace(txtMontoCuota.Text) ||
+            {
+                MessageBox.Show("Falta completar algun campo");
+                return;
+            }
 
             Venta venta = new Venta
             {
@@ -90,44 +73,35 @@ namespace TESTWF2020.GUILayer.ABM
             var resultado = ventaService.Grabar(venta);
             if (resultado)
             {
-                MessageBox.Show("Se registro la venta");
+                MessageBox.Show("Se registro la venta con exito");
+                this.Close();
 
             }
             else
             {
-                MessageBox.Show("No se hizo");
+                MessageBox.Show("No se registro la venta");
             }
 
         }
-        
+
         private void frmABMCVenta_Load(object sender, EventArgs e)
         {
-            this.btnSeleccionarFinanciacion.Enabled = false;
+            habilitarCampos(false);
         }
 
-        private void chkFinanciada_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.chkFinanciada.Checked)
-            {
-                this.btnSeleccionarFinanciacion.Enabled = true;
-            }
-            else
-            {
-                this.btnSeleccionarFinanciacion.Enabled = false;
-                this.txtCantCuota.Clear();
-                this.txtFinanciacion.Clear();
-                this.txtMontoCuota.Clear();
-            }
-        }
+        
 
-        private float CalcularMontoCuota(int monto, int cantCuotas)
+        private void habilitarCampos(bool valor)
         {
-            return monto / cantCuotas;
+            this.btnSeleccionarFinanciacion.Enabled = valor;
+            this.txtFinanciacion.Enabled = valor;
+            this.txtCantCuota.Enabled = valor;
+            this.txtMontoCuota.Enabled = valor;
         }
 
         private void btnSeleccionarConsulta_Click(object sender, EventArgs e)
         {
-            frmABMCConsultas frmABMCConsultas = new frmABMCConsultas(true);
+            frmABMCConsultas frmABMCConsultas = new frmABMCConsultas(true,usuarioLogueado);
             frmABMCConsultas.ShowDialog();
             if (frmABMCConsultas.consultaSeleccionada != null)
             {
@@ -137,7 +111,6 @@ namespace TESTWF2020.GUILayer.ABM
                 this.txtDireccionInmueble.Text = inmuebleSeleccionado.Calle + " " + inmuebleSeleccionado.CalleNumero;
                 this.txtMontoTotal.Text = inmuebleSeleccionado.MontoVenta.ToString();
             }
-            
         }
     }
 }

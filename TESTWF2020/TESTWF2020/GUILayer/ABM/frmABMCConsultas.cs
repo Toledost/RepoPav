@@ -48,7 +48,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.usuarioLogueado = usuarioLogueado;
         }
 
-        public frmABMCConsultas(bool esParaElegir)
+        public frmABMCConsultas(bool esParaElegir, Usuario usuarioLogueado)
         {
             InitializeComponent();
             this.consulta = new Consulta();
@@ -58,6 +58,7 @@ namespace TESTWF2020.GUILayer.ABM
             this.medioDeConocimientoService = new MedioDeConocimientoService();
             this.tipoTransaccionService = new TipoTransaccionService();
             this.esParaElegir = esParaElegir;
+            this.usuarioLogueado = usuarioLogueado;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -185,7 +186,7 @@ namespace TESTWF2020.GUILayer.ABM
                 if (dr == DialogResult.Yes)
                 {
                     var idConsultaSeleccionada = (int)this.dgvConsultas.CurrentRow.Cells["Id"].Value;
-                    consultaService.Delete(idConsultaSeleccionada);
+                    consultaService.Delete(idConsultaSeleccionada, usuarioLogueado);
                     MessageBox.Show("Consulta eliminado", "Eliminar Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnConsultar_Click(sender, e);
                 }

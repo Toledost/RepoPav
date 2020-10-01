@@ -22,9 +22,9 @@ namespace TESTWF2020.BusinessLayer
             return  consultaDao.GetAll();
         }
 
-        internal void Delete(int idConsultaSeleccionada)
+        internal void Delete(int idConsultaSeleccionada, Usuario usuarioLogueado)
         {
-            consultaDao.Delete(idConsultaSeleccionada);
+            consultaDao.Delete(idConsultaSeleccionada, usuarioLogueado);
         }
 
         public IList<Consulta> GetByFilters(Dictionary<string, object> diccParametros)
@@ -32,14 +32,14 @@ namespace TESTWF2020.BusinessLayer
             return consultaDao.GetByFilters(diccParametros);
         }
 
-        public void Create(Consulta consulta)
+        public void Create(Consulta consulta, Usuario usuarioLogueado)
         {
-            consultaDao.Create(consulta);
+            consultaDao.Create(consulta, usuarioLogueado);
         }
 
-        public void Update(Consulta consulta)
+        public void Update(Consulta consulta, Usuario usuarioLogueado)
         {
-            consultaDao.Update(consulta);
+            consultaDao.Update(consulta, usuarioLogueado);
         }
 
         public Consulta GetById(int idConsultaSeleccionada)
