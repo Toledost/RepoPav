@@ -16,8 +16,9 @@ namespace TESTWF2020.DataAccessLayer
             dbConnection = new SqlConnection();
             // var dataBaseName = ConfigurationManager.AppSettings["dataBaseName"];
             // var string_conexion = ConfigurationManager.ConnectionStrings[dataBaseName].ConnectionString;
-            dbConnection.ConnectionString = @"Data Source=186.13.121.219;Initial Catalog=BDInmobiliariaCasaFeliz;Persist Security Info=True;User ID=usertest;Password=pepito";
+            //dbConnection.ConnectionString = @"Data Source=186.13.121.219;Initial Catalog=BDInmobiliariaCasaFeliz;Persist Security Info=True;User ID=usertest;Password=pepito";
             //dbConnection.ConnectionString = @"Data Source=DESKTOP-60MCHVF;Initial Catalog=BDInmobiliariaCasaFeliz;Integrated Security=True";
+            dbConnection.ConnectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=BDInmobiliariaCasaFeliz;Integrated Security=True";
 
         }
 
@@ -49,6 +50,12 @@ namespace TESTWF2020.DataAccessLayer
             if (dbTransaction != null)
                 dbTransaction.Rollback();
         }
+
+        internal void EjecutarSQLConParametros2(string consultaSQL, Dictionary<object, string> parametros)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Open()
         {
             if (dbConnection.State != ConnectionState.Open)

@@ -21,6 +21,8 @@ namespace TESTWF2020.GUILayer.ABM
         private MedioDeConocimientoService medioDeConocimientoService;
         private TipoTransaccionService tipoTransaccionService;
         private Usuario usuarioLogueado;
+        private bool esParaElegir;
+        public Consulta consultaSeleccionada { get; private set; }
 
         public frmABMCConsultas()
         {
@@ -46,6 +48,19 @@ namespace TESTWF2020.GUILayer.ABM
             this.usuarioLogueado = usuarioLogueado;
         }
 
+        public frmABMCConsultas(bool esParaElegir, Usuario usuarioLogueado)
+        {
+            InitializeComponent();
+            this.consulta = new Consulta();
+            this.consultaService = new ConsultaService();
+            this.estadoConsultaService = new EstadoConsultaService();
+            this.viaDeConsultaService = new ViaDeConsultaService();
+            this.medioDeConocimientoService = new MedioDeConocimientoService();
+            this.tipoTransaccionService = new TipoTransaccionService();
+            this.esParaElegir = esParaElegir;
+            this.usuarioLogueado = usuarioLogueado;
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,6 +69,12 @@ namespace TESTWF2020.GUILayer.ABM
         private void frmABMCConsultas_Load(object sender, EventArgs e)
         {
             CargarCombos();
+            this.btnElegir.Visible = false;
+
+            if (esParaElegir)
+            {
+                this.btnElegir.Visible = true;
+            }
         }
 
         private void CargarCombos()
@@ -165,7 +186,7 @@ namespace TESTWF2020.GUILayer.ABM
                 if (dr == DialogResult.Yes)
                 {
                     var idConsultaSeleccionada = (int)this.dgvConsultas.CurrentRow.Cells["Id"].Value;
-                    consultaService.Delete(idConsultaSeleccionada);
+                    consultaService.Delete(idConsultaSeleccionada, usuarioLogueado);
                     MessageBox.Show("Consulta eliminado", "Eliminar Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnConsultar_Click(sender, e);
                 }
@@ -211,5 +232,13 @@ namespace TESTWF2020.GUILayer.ABM
             btnConsultar_Click(sender, e);
         }
 
+        private void btnElegir_Click(object sender, EventArgs e)
+        {
+            if (dgvConsultas.SelectedRows.Count == 1)
+            {
+                this.consultaSeleccionada = consultaService.GetById((int)this.dgvConsultas.CurrentRow.Cells["Id"].Value);
+                this.Close();
+            }
+        }
     }
 }

@@ -79,7 +79,6 @@ namespace TESTWF2020.GUILayer
             return dicc;
 
         } 
-
        
         private void CargarGrilla(IList<Cliente> listaClientes)
         {
@@ -137,8 +136,16 @@ namespace TESTWF2020.GUILayer
 
         private void btnElegirCliente_Click(object sender, EventArgs e)
         {
-            this.dniClienteSeleccionado = (int)dgvCliente.CurrentRow.Cells["DNI"].Value;
-            this.Close();
+            if (dgvCliente.SelectedRows.Count == 1)
+            {
+                this.dniClienteSeleccionado = (int)dgvCliente.CurrentRow.Cells["DNI"].Value;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono ningun cliente");
+                btnBuscar_Click(sender, e);
+            }
         }
 
         private void frmConsultarClientes_Load(object sender, EventArgs e)

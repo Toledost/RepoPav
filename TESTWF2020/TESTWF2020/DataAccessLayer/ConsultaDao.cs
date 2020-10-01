@@ -25,6 +25,8 @@ namespace TESTWF2020.DataAccessLayer
                 "i.idInmueble, " +
                 "i.calle, " +
                 "i.calleNro, " +
+                "i.montoVenta, " +
+                "i.montoAlquiler, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombreCliente, " +
                 "cl.apellido as apellidoCliente, " +
@@ -73,6 +75,8 @@ namespace TESTWF2020.DataAccessLayer
                 "i.idInmueble, " +
                 "i.calle, " +
                 "i.calleNro, " +
+                "i.montoVenta, " +
+                "i.montoAlquiler, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombreCliente, " +
                 "cl.apellido as apellidoCliente, " +
@@ -115,6 +119,8 @@ namespace TESTWF2020.DataAccessLayer
                 "i.idInmueble, " +
                 "i.calle, " +
                 "i.calleNro, " +
+                "i.montoVenta, " +
+                "i.montoAlquiler, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombreCliente, " +
                 "cl.apellido as apellidoCliente, " +
@@ -182,19 +188,20 @@ namespace TESTWF2020.DataAccessLayer
             return consultaSql;
         }
 
-        public void Delete(int id)
+        public void Delete(int id, Usuario usuarioLogueado)
         {
             var parametros = new Dictionary<string, object>();
 
-            string consultaSql = "UPDATE Consulta SET borrado = 1 WHERE idConsulta = @id " ;
+            string consultaSql = "UPDATE Consulta SET borrado = 1, usuarioUltimaModificacion = @usuario WHERE idConsulta = @id " ;
 
             parametros.Add("id", id);
+            parametros.Add("usuario", usuarioLogueado.Nombre);
 
             DataManager dm = new DataManager();
             var resultado = dm.EjecutarSQLConParametros2(consultaSql, parametros);
         }
 
-        public void Create(Consulta consulta)
+        public void Create(Consulta consulta, Usuario usuarioLogueado)
         {
             string ConsultaSql = "INSERT INTO Consulta " +
                 "(fechaCreada, " +
@@ -219,18 +226,18 @@ namespace TESTWF2020.DataAccessLayer
                 (consulta.FechaCierre != null ? ", @fechaCierre" : "") +
                 ")";
 
-            var parametros = CrearDiccionario(consulta);
+            var parametros = CrearDiccionario(consulta, usuarioLogueado);
 
             DataManager dm = new DataManager();
             dm.EjecutarSQLConParametros2(ConsultaSql, parametros);
         }
 
-        private Dictionary<string, object> CrearDiccionario(Consulta consulta)
+        private Dictionary<string, object> CrearDiccionario(Consulta consulta, Usuario usuarioLogueado)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>();
 
             parametros.Add("idConsulta", consulta.Id);
-            parametros.Add("usuarioUltimaModificacion", consulta.UsuarioUltimaModificacion.Nombre);
+            parametros.Add("usuarioUltimaModificacion", usuarioLogueado.Nombre);
             parametros.Add("idTipoTransaccion", consulta.TipoTransaccion.Id);
             parametros.Add("idInmueble", consulta.Inmueble.Id);
             parametros.Add("dniCliente", consulta.Cliente.Dni);
@@ -243,7 +250,7 @@ namespace TESTWF2020.DataAccessLayer
             return parametros;
         }
 
-        public void Update(Consulta consulta)
+        public void Update(Consulta consulta, Usuario usuarioLogueado)
         {
             string consultaSql = "UPDATE Consulta SET " +
                 "usuarioUltimaModificacion = @usuarioUltimaModificacion, " +
@@ -256,7 +263,7 @@ namespace TESTWF2020.DataAccessLayer
                 (consulta.FechaCierre != null ? ", fechaCierre = @fechaCierre " : "") +
                 " WHERE idConsulta = @idConsulta ";
 
-            var parametros = CrearDiccionario(consulta);
+            var parametros = CrearDiccionario(consulta, usuarioLogueado);
 
             DataManager dm = new DataManager();
 
@@ -289,8 +296,8 @@ namespace TESTWF2020.DataAccessLayer
                     //Baños = (int)row["cantBaños"],
                     //Habitaciones = (int)row["cantHabitaciones"],
                     //Descripcion = row["descripcion"].ToString(),
-                    //MontoAlquiler = (int)row["montoalquiler"],
-                    //MontoVenta = (int)row["montoventa"],
+                    MontoAlquiler = (int)row["montoAlquiler"],
+                    MontoVenta = (int)row["montoVenta"],
                     //TipoInmueble = new TipoInmueble()
                     //{
                     //    Id = (int)row["idTipoInmueble"],

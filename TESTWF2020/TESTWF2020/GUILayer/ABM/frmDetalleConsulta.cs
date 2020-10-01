@@ -61,7 +61,8 @@ namespace TESTWF2020.GUILayer.ABM
             frmInmuebles frmInmuebles = new frmInmuebles(true);
             //this.Hide();
             frmInmuebles.ShowDialog();
-            this.txtIDInmueble.Text = frmInmuebles.idInmuebleSeleccionado.ToString();
+            this.txtIDInmueble.Text = frmInmuebles.InmuebleSeleccionado.Id.ToString();
+            // TODO: falta hacer busqueda del objeto para que devuelva el nombre del inmueble 
         }
 
         private void btnElegirCliente_Click(object sender, EventArgs e)
@@ -186,12 +187,12 @@ namespace TESTWF2020.GUILayer.ABM
             if (idConsultaSeleccionada > 0)
             {
                 consulta.Id = Convert.ToInt32(txtIDConsulta.Text);
-                consultaService.Update(consulta);
+                consultaService.Update(consulta, usuarioLogueado);
                 this.Close();
             }
             else
             {
-                consultaService.Create(consulta);
+                consultaService.Create(consulta, usuarioLogueado);
                 this.Close();
             }
         }

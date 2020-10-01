@@ -50,11 +50,16 @@ namespace TESTWF2020.GUILayer.ABM
                 DeshabilitarCampos();
 
             }
+            else
+            {
+                this.btnEditar.Enabled = false;
+            }
                        
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            this.btnEditar.Enabled = false;
             this.btnGrabar.Enabled = true;
             HabilitarCampos();
         }
@@ -64,7 +69,7 @@ namespace TESTWF2020.GUILayer.ABM
             foreach (var textBox in Controls.OfType<TextBox>())
             {
                 textBox.ReadOnly = false;
-            }            
+            }
         }
 
         private void DeshabilitarCampos()
@@ -99,7 +104,7 @@ namespace TESTWF2020.GUILayer.ABM
                 Nombre = this.txtNombre.Text,
                 Apellido = this.txtApellido.Text,
                 Mail = this.txtMail.Text,
-                Telefono = Convert.ToInt32(this.txtTelefono.Text)
+                Telefono = Convert.ToInt64(this.txtTelefono.Text)
             };
 
 

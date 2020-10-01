@@ -23,7 +23,7 @@ namespace TESTWF2020.GUILayer
         private InmuebleService inmuebleService;
         private TipoInmuebleService tipoInmuebleService;
         private bool esParaElegir;
-        public int idInmuebleSeleccionado { get; set; }
+        public Inmueble InmuebleSeleccionado { get; private set; }
 
         /// <summary>
         /// Constructor
@@ -174,9 +174,13 @@ namespace TESTWF2020.GUILayer
         {
             if (dgvInmuebles.SelectedRows.Count == 1)
             {
-                this.idInmuebleSeleccionado = (int)this.dgvInmuebles.CurrentRow.Cells["Id"].Value;
+                InmuebleSeleccionado = inmuebleService.GetById((int)dgvInmuebles.CurrentRow.Cells["Id"].Value);
                 this.Close();
-
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono ningun inmueble");
+                btnConsultar_Click(sender, e);
             }
         }
     }

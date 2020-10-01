@@ -15,10 +15,22 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
     public partial class frmConsultaFinanciacion : Form
     {
         private FinanciacionService financiacionService;
+        private bool esParaElegir;
+        public int cantCuotasSeleccionada { get; set; }
+        public string financiacionElegida { get; set; }
+
         public frmConsultaFinanciacion()
         {
             InitializeComponent();
             financiacionService = new FinanciacionService();
+            //financiacion = new Financiacion();
+        }
+
+        public frmConsultaFinanciacion(bool esParaElegir)
+        {
+            InitializeComponent();
+            financiacionService = new FinanciacionService();
+            this.esParaElegir = esParaElegir;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -76,7 +88,6 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
         {
             frmDetalleFinanciacion frmDetalleFinanciacion = new frmDetalleFinanciacion();
             frmDetalleFinanciacion.ShowDialog();
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -125,6 +136,29 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
             foreach(TextBox textbox in Controls.OfType<TextBox>())
             {
                 textbox.Clear();
+            }
+        }
+
+        private void btnElegir_Click(object sender, EventArgs e)
+        {
+            if (dgvFinanciacion.SelectedRows.Count == 1)
+            {
+                this.financiacionElegida = dgvFinanciacion.CurrentRow.Cells["Nombre"].Value.ToString();
+                this.cantCuotasSeleccionada = (int)dgvFinanciacion.CurrentRow.Cells["CantCuotas"].Value;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono ninguna financiacion");
+                btnConsultar_Click(sender, e);
+            }
+        }
+
+        private void frmConsultaFinanciacion_Load(object sender, EventArgs e)
+        {
+            if (!esParaElegir)
+            {
+                this.btnElegir.Visible = false; 
             }
         }
     }
