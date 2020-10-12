@@ -36,11 +36,12 @@ namespace TESTWF2020.DataAccessLayer
 
             DataManager dm = new DataManager();
 
-            dm.Open();
-            dm.BeginTransaction();
+            
 
             try
             {
+                dm.Open();
+                dm.BeginTransaction();
                 dm.EjecutarSQLConParametros(consultaSQLVenta, parametrosVenta);
 
                 string consultaSQLConsulta = "UPDATE Consulta " +

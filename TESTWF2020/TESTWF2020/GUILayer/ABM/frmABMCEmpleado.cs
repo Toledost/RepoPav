@@ -109,7 +109,7 @@ namespace TESTWF2020.GUILayer.ABM
                 try
                 {
                     empleadoService.Update(empleado, legajo);
-                    MessageBox.Show("Empleado editado con exito.");
+                    MessageBox.Show("Empleado editado con éxito.");
                     this.Close();
                 }
                 catch (Exception ex)

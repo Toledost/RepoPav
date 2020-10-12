@@ -136,7 +136,7 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
             this.Name = "frmABMCMedioDeConocimiento";
-            this.Text = "frmABMCMedioDeConocimiento";
+            this.Text = "Medio de conocimiento";
             this.Load += new System.EventHandler(this.frmABMCMedioDeConocimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioConocimiento)).EndInit();
             this.ResumeLayout(false);

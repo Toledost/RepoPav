@@ -224,7 +224,7 @@
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.lblDni);
             this.Name = "frmConsultarClientes";
-            this.Text = "frmConsultarClientes";
+            this.Text = "Consulta Clientes";
             this.Load += new System.EventHandler(this.frmConsultarClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);

@@ -53,13 +53,12 @@
             this.dgvGeneralUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
             this.Perfil});
-            this.dgvGeneralUsuario.Location = new System.Drawing.Point(32, 214);
-            this.dgvGeneralUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvGeneralUsuario.Location = new System.Drawing.Point(21, 139);
             this.dgvGeneralUsuario.Name = "dgvGeneralUsuario";
             this.dgvGeneralUsuario.ReadOnly = true;
             this.dgvGeneralUsuario.RowHeadersWidth = 62;
             this.dgvGeneralUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGeneralUsuario.Size = new System.Drawing.Size(760, 325);
+            this.dgvGeneralUsuario.Size = new System.Drawing.Size(507, 211);
             this.dgvGeneralUsuario.TabIndex = 0;
             // 
             // nombre
@@ -81,46 +80,41 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(27, 71);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(18, 46);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(65, 20);
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre";
             // 
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Location = new System.Drawing.Point(27, 140);
-            this.lblPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPerfil.Location = new System.Drawing.Point(18, 91);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(44, 20);
+            this.lblPerfil.Size = new System.Drawing.Size(30, 13);
             this.lblPerfil.TabIndex = 3;
             this.lblPerfil.Text = "Perfil";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(102, 66);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNombre.Location = new System.Drawing.Point(68, 43);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(484, 26);
+            this.txtNombre.Size = new System.Drawing.Size(324, 20);
             this.txtNombre.TabIndex = 5;
             // 
             // cboPerfilGeneral
             // 
             this.cboPerfilGeneral.FormattingEnabled = true;
-            this.cboPerfilGeneral.Location = new System.Drawing.Point(102, 135);
-            this.cboPerfilGeneral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboPerfilGeneral.Location = new System.Drawing.Point(68, 88);
             this.cboPerfilGeneral.Name = "cboPerfilGeneral";
-            this.cboPerfilGeneral.Size = new System.Drawing.Size(484, 28);
+            this.cboPerfilGeneral.Size = new System.Drawing.Size(324, 21);
             this.cboPerfilGeneral.TabIndex = 6;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(644, 66);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBuscar.Location = new System.Drawing.Point(429, 43);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(148, 102);
+            this.btnBuscar.Size = new System.Drawing.Size(99, 66);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -128,10 +122,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(680, 591);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalir.Location = new System.Drawing.Point(453, 384);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(112, 35);
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -139,10 +132,9 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(153, 591);
-            this.btnDetalle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDetalle.Location = new System.Drawing.Point(102, 384);
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(112, 35);
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 10;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
@@ -150,10 +142,9 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(32, 591);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNuevo.Location = new System.Drawing.Point(21, 384);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(112, 35);
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 11;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -161,10 +152,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(274, 591);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminar.Location = new System.Drawing.Point(183, 384);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(112, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -173,20 +163,18 @@
             // chkLibre
             // 
             this.chkLibre.AutoSize = true;
-            this.chkLibre.Location = new System.Drawing.Point(644, 180);
-            this.chkLibre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkLibre.Location = new System.Drawing.Point(429, 117);
             this.chkLibre.Name = "chkLibre";
-            this.chkLibre.Size = new System.Drawing.Size(70, 24);
+            this.chkLibre.Size = new System.Drawing.Size(49, 17);
             this.chkLibre.TabIndex = 13;
             this.chkLibre.Text = "Libre";
             this.chkLibre.UseVisualStyleBackColor = true;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(489, 591);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSeleccionar.Location = new System.Drawing.Point(326, 384);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(112, 35);
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionar.TabIndex = 13;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -194,9 +182,9 @@
             // 
             // frmGeneralUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 668);
+            this.ClientSize = new System.Drawing.Size(556, 434);
             this.Controls.Add(this.chkLibre);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnEliminar);
@@ -209,9 +197,8 @@
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.dgvGeneralUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmGeneralUsuario";
-            this.Text = "frmGeneralUsuario";
+            this.Text = "General Usuario";
             this.Load += new System.EventHandler(this.frmGeneralUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneralUsuario)).EndInit();
             this.ResumeLayout(false);

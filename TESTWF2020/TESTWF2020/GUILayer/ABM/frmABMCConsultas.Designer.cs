@@ -94,7 +94,7 @@
             this.viaConsulta,
             this.estadoConsulta});
             this.dgvConsultas.Location = new System.Drawing.Point(11, 329);
-            this.dgvConsultas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvConsultas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvConsultas.MultiSelect = false;
             this.dgvConsultas.Name = "dgvConsultas";
             this.dgvConsultas.ReadOnly = true;
@@ -461,7 +461,7 @@
             // btnElegir
             // 
             this.btnElegir.Location = new System.Drawing.Point(833, 517);
-            this.btnElegir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnElegir.Margin = new System.Windows.Forms.Padding(2);
             this.btnElegir.Name = "btnElegir";
             this.btnElegir.Size = new System.Drawing.Size(65, 23);
             this.btnElegir.TabIndex = 79;
@@ -507,7 +507,7 @@
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnNuevo);
             this.Name = "frmABMCConsultas";
-            this.Text = "frmABMCConsultas";
+            this.Text = "Consultas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmABMCConsultas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).EndInit();
