@@ -62,11 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BDInmobiliariaCasaFelizDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDInmobiliariaCasaFelizDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
@@ -174,12 +169,6 @@
     <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.Designer.cs">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\FORMReportes\frmReporteInmueble.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\FORMReportes\frmReporteInmueble.Designer.cs">
-      <DependentUpon>frmReporteInmueble.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUILayer\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,10 +237,6 @@
     <EmbeddedResource Include="GUILayer\ABM\frmABMCVenta.resx">
       <DependentUpon>frmABMCVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\FORMReportes\frmReporteInmueble.resx">
-      <DependentUpon>frmReporteInmueble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\FORMReportes\ReporteInmueble.rdlc" />
     <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,17 +292,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="BDInmobiliariaCasaFelizDataSet1.xsc">
-      <DependentUpon>BDInmobiliariaCasaFelizDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BDInmobiliariaCasaFelizDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BDInmobiliariaCasaFelizDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BDInmobiliariaCasaFelizDataSet1.xss">
-      <DependentUpon>BDInmobiliariaCasaFelizDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
