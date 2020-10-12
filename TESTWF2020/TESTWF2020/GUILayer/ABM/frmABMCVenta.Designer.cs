@@ -151,6 +151,7 @@
             this.chkFinanciada.TabIndex = 12;
             this.chkFinanciada.Text = "Es financiada ";
             this.chkFinanciada.UseVisualStyleBackColor = true;
+            this.chkFinanciada.CheckedChanged += new System.EventHandler(this.chkFinanciada_CheckedChanged);
             // 
             // gboFechas
             // 

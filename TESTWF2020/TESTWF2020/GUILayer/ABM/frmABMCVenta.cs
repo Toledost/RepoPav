@@ -18,12 +18,14 @@ namespace TESTWF2020.GUILayer.ABM
         private VentaService ventaService;
         private Inmueble inmuebleSeleccionado;
         private Usuario usuarioLogueado;
+        private Financiacion financiacionSeleccionada;
 
         public frmABMCVenta(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ventaService = new VentaService();
             this.usuarioLogueado = usuarioLogueado;
+            
         }
 
         private void btnSeleccionarFinanciacion_Click(object sender, EventArgs e)
@@ -31,28 +33,45 @@ namespace TESTWF2020.GUILayer.ABM
             frmConsultaFinanciacion frmConsultaFinanciacion = new frmConsultaFinanciacion(true);
             frmConsultaFinanciacion.ShowDialog();
 
-            this.txtFinanciacion.Text = frmConsultaFinanciacion.financiacionElegida.ToString();
-            this.txtCantCuota.Text = frmConsultaFinanciacion.cantCuotasSeleccionada.ToString();
-            //this.txtMontoCuota.Text = CalcularMontoCuota(montoTotal, frmConsultaFinanciacion.cantCuotasSeleccionada).ToString();
-            //TODO: revisar que se actualice cuando se elige primero la financ
+            this.financiacionSeleccionada = frmConsultaFinanciacion.FinanciacionElegida;
+            if (financiacionSeleccionada != null)
+            {
+                this.txtFinanciacion.Text = financiacionSeleccionada.Nombre.ToString();
+                this.txtCantCuota.Text = financiacionSeleccionada.CantidadCuotas.ToString();
+                this.txtMontoCuota.Text = CalcularMontoCuota(inmuebleSeleccionado.MontoVenta,
+                    financiacionSeleccionada.CantidadCuotas,
+                    financiacionSeleccionada.PorcentajeAumento).ToString();
+                //TODO: revisar que se actualice cuando se elige primero la financ
+               
+            }
+        }
+
+        private float CalcularMontoCuota(int montoTotal, int cantCuotasSeleccionada, int porcentajeAumento)
+        {
+            var resultado = ((montoTotal /cantCuotasSeleccionada) * (1+(porcentajeAumento/100)));
+            return resultado;
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if  (string.IsNullOrWhiteSpace(txtDniCliente.Text) ||
-                txtDniCliente.Text == "0")
-            {
-                MessageBox.Show("Falta completar en DNI del cliente");
-            }
             if (string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
                 txtDireccionInmueble.Text == "0")
             {
                 MessageBox.Show("Falta completar la direccion del inmueble");
+                return;
+            }
+            if  (string.IsNullOrWhiteSpace(txtDniCliente.Text) ||
+                txtDniCliente.Text == "0")
+            {
+                MessageBox.Show("Falta completar en DNI del cliente");
+                return;
             }
             if (string.IsNullOrWhiteSpace(txtMontoTotal.Text))
             {
                 MessageBox.Show("Falta completar el monto total del inmueble");
+                return;
             }
+            
                 //string.IsNullOrWhiteSpace(txtFinanciacion.Text) ||
                 //string.IsNullOrWhiteSpace(txtCantCuota.Text) ||
                 //string.IsNullOrWhiteSpace(txtMontoCuota.Text) ||
@@ -64,16 +83,20 @@ namespace TESTWF2020.GUILayer.ABM
                 {
                     Dni = Convert.ToInt32(txtDniCliente.Text)
                 },
-                EsFinanciada = false, // TODO: cambiar al valor que tenga 
+                EsFinanciada = this.chkFinanciada.Checked, // TODO: cambiar al valor que tenga 
                 FechaEntrega = Convert.ToDateTime(dtpFechaEntrega.Value),
                 FechaVenta = Convert.ToDateTime(dtpFechaVenta.Value),
                 Inmueble = new Inmueble
                 {
                     Id = inmuebleSeleccionado.Id,
                 },
-                //MontoCuota = Convert.ToInt32(txtMontoCuota.Text),
+                MontoCuota = Convert.ToInt32(txtMontoCuota.Text),
                 MontoTotal = Convert.ToInt32(txtMontoTotal.Text),
-                UsuarioVendedor = usuarioLogueado
+                UsuarioVendedor = usuarioLogueado,
+                Financiacion = new Financiacion 
+                {
+                    IdFinanciacion = Convert.ToInt32(financiacionSeleccionada.IdFinanciacion)
+                }
             };
 
             var resultado = ventaService.Grabar(venta);
@@ -81,18 +104,17 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 MessageBox.Show("Se registro la venta con éxito");
                 this.Close();
-
             }
             else
             {
                 MessageBox.Show("No se registro la venta");
             }
-
         }
 
         private void frmABMCVenta_Load(object sender, EventArgs e)
         {
             habilitarCampos(false);
+
         }
 
         private void habilitarCampos(bool valor)
@@ -116,5 +138,26 @@ namespace TESTWF2020.GUILayer.ABM
                 this.txtMontoTotal.Text = inmuebleSeleccionado.MontoVenta.ToString();
             }
         }
+
+        private void chkFinanciada_CheckedChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMontoTotal.Text) && chkFinanciada.Checked)
+            {
+                MessageBox.Show("Falta seleccionar una consulta");
+                habilitarCampos(false);
+                this.chkFinanciada.Checked = false;
+            }
+            if (!chkFinanciada.Checked)
+            {
+                habilitarCampos(false);
+            }
+            else
+            {
+                habilitarCampos(true);
+            }
+            
+        }
+
+
     }
 }

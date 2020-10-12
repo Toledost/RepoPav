@@ -19,19 +19,21 @@ namespace TESTWF2020.DataAccessLayer
                                 "[dniCliente], " +
                                 "[montoTotal], " +
                                 "[montoCuota], " +
-                                "[esFinanciada]) " +
-                                //"[financiacion]) " +
+                                "[esFinanciada], " +
+                                "[financiacion]) " +
                                 "VALUES " +
                                 "((SELECT legajo " +
-                                "FROM Empleado e INNER JOIN Usuario u ON e.usuario = u.nombre WHERE u.nombre = @usuarioVendedor), " +
+                                "FROM Empleado e " +
+                                "INNER JOIN Usuario u ON e.usuario = u.nombre " +
+                                "WHERE u.nombre = @usuarioVendedor), " +
                                 "@idInmueble, " +
                                 "@fechaVenta, " +
                                 "@fechaEntrega, " +
                                 "@dniCliente, " +
                                 "@montoTotal, " +
                                 "@montoCuota, " +
-                                "@esFinanciada) ";
-                                //"@financiacion) ";
+                                "@esFinanciada, " +
+                                "@financiacion) ";
             var parametrosVenta = CrearDiccionario(venta);
 
             DataManager dm = new DataManager();
@@ -107,7 +109,7 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("idVenta", venta.IdVenta );
             parametros.Add("fechaVenta", venta.FechaVenta);
             parametros.Add("fechaEntrega", venta.FechaEntrega);
-            //parametros.Add("financiacion", venta.Financiacion);
+            parametros.Add("financiacion", venta.Financiacion.IdFinanciacion);
             parametros.Add("idInmueble", venta.Inmueble.Id);
             parametros.Add("usuarioVendedor", venta.UsuarioVendedor.Nombre);
             parametros.Add("dniCliente", venta.Cliente.Dni);

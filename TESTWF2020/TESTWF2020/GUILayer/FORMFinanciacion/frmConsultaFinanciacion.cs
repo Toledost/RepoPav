@@ -16,14 +16,13 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
     {
         private FinanciacionService financiacionService;
         private bool esParaElegir;
-        public int cantCuotasSeleccionada { get; set; }
-        public string financiacionElegida { get; set; }
+        
+        public Financiacion FinanciacionElegida { get; set; }
 
         public frmConsultaFinanciacion()
         {
             InitializeComponent();
             financiacionService = new FinanciacionService();
-            //financiacion = new Financiacion();
         }
 
         public frmConsultaFinanciacion(bool esParaElegir)
@@ -143,8 +142,8 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
         {
             if (dgvFinanciacion.SelectedRows.Count == 1)
             {
-                this.financiacionElegida = dgvFinanciacion.CurrentRow.Cells["Nombre"].Value.ToString();
-                this.cantCuotasSeleccionada = (int)dgvFinanciacion.CurrentRow.Cells["CantCuotas"].Value;
+                var idFinanciacionElegida = (int)dgvFinanciacion.CurrentRow.Cells["Id"].Value;
+                this.FinanciacionElegida = financiacionService.GetById(idFinanciacionElegida);
                 this.Close();
             }
             else
