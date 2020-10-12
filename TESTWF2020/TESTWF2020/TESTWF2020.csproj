@@ -207,8 +207,19 @@
     <Compile Include="GUILayer\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="InmuebleEstado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InmuebleEstado.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\frmReportes\frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +287,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reportes\ReporteInmueble.rdlc" />
+    <None Include="InmuebleEstado.xsc">
+      <DependentUpon>InmuebleEstado.xsd</DependentUpon>
+    </None>
+    <None Include="InmuebleEstado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InmuebleEstado.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InmuebleEstado.xss">
+      <DependentUpon>InmuebleEstado.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
