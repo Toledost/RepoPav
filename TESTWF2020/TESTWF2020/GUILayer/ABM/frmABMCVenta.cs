@@ -40,17 +40,23 @@ namespace TESTWF2020.GUILayer.ABM
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             if  (string.IsNullOrWhiteSpace(txtDniCliente.Text) ||
-                txtDniCliente.Text == "0" ||
-                string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
-                txtDireccionInmueble.Text == "0" ||
-                string.IsNullOrWhiteSpace(txtMontoTotal.Text))
+                txtDniCliente.Text == "0")
+            {
+                MessageBox.Show("Falta completar en DNI del cliente");
+            }
+            if (string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
+                txtDireccionInmueble.Text == "0")
+            {
+                MessageBox.Show("Falta completar la direccion del inmueble");
+            }
+            if (string.IsNullOrWhiteSpace(txtMontoTotal.Text))
+            {
+                MessageBox.Show("Falta completar el monto total del inmueble");
+            }
                 //string.IsNullOrWhiteSpace(txtFinanciacion.Text) ||
                 //string.IsNullOrWhiteSpace(txtCantCuota.Text) ||
                 //string.IsNullOrWhiteSpace(txtMontoCuota.Text) ||
-            {
-                MessageBox.Show("Falta completar algun campo");
-                return;
-            }
+            
 
             Venta venta = new Venta
             {
@@ -73,7 +79,7 @@ namespace TESTWF2020.GUILayer.ABM
             var resultado = ventaService.Grabar(venta);
             if (resultado)
             {
-                MessageBox.Show("Se registro la venta con exito");
+                MessageBox.Show("Se registro la venta con éxito");
                 this.Close();
 
             }
@@ -88,8 +94,6 @@ namespace TESTWF2020.GUILayer.ABM
         {
             habilitarCampos(false);
         }
-
-        
 
         private void habilitarCampos(bool valor)
         {

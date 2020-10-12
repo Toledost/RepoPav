@@ -136,7 +136,7 @@
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.dgvViaDeConsultas);
             this.Name = "frmABMCViaDeConsulta";
-            this.Text = "frmABMCViaDeConsulta";
+            this.Text = "Via de consulta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvViaDeConsultas)).EndInit();
             this.ResumeLayout(false);
 

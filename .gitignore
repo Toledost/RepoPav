@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/TESTWF2020/TESTWF2020/GUILayer/Reportes
+/TESTWF2020/TESTWF2020/GUILayer/FORMReportes
