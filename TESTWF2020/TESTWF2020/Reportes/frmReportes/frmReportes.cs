@@ -24,5 +24,13 @@ namespace TESTWF2020.Reportes.frmReportes
 
             this.reportViewer1.RefreshReport();
         }
+
+        private void frmReportes_Load_1(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'inmuebleEstado1.RelacionInmuebleEstado' Puede moverla o quitarla según sea necesario.
+            this.relacionInmuebleEstadoTableAdapter1.Fill(this.inmuebleEstado1.RelacionInmuebleEstado);
+
+            this.reportViewer2.RefreshReport();
+        }
     }
 }
