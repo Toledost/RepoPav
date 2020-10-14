@@ -15,7 +15,7 @@ namespace TESTWF2020.Entities
         public DateTime FechaEntrega { get; set; }
         public Cliente Cliente { get; set; }
         public int MontoTotal { get; set; }
-        public int MontoCuota { get; set; }
+        public float MontoCuota { get; set; }
         public bool EsFinanciada { get; set; }
         public Financiacion Financiacion { get; set; }
     }

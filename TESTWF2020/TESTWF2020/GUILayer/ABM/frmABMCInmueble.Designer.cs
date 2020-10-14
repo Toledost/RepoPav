@@ -224,7 +224,7 @@
             this.fechaInicio,
             this.fechaFin});
             this.dataGridView1.Location = new System.Drawing.Point(60, 254);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
@@ -265,7 +265,7 @@
             // 
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Location = new System.Drawing.Point(175, 219);
-            this.cboEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(100, 21);
             this.cboEstado.TabIndex = 21;
@@ -273,7 +273,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(101, 405);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(57, 23);
             this.btnEditar.TabIndex = 22;
@@ -284,7 +284,7 @@
             // btnGrabar
             // 
             this.btnGrabar.Location = new System.Drawing.Point(185, 405);
-            this.btnGrabar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGrabar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(54, 23);
             this.btnGrabar.TabIndex = 23;
@@ -295,7 +295,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(273, 405);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(57, 23);
             this.btnCancelar.TabIndex = 24;
@@ -307,7 +307,7 @@
             // 
             this.cboTipoInmueble.FormattingEnabled = true;
             this.cboTipoInmueble.Location = new System.Drawing.Point(175, 65);
-            this.cboTipoInmueble.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.cboTipoInmueble.Name = "cboTipoInmueble";
             this.cboTipoInmueble.Size = new System.Drawing.Size(100, 21);
             this.cboTipoInmueble.TabIndex = 25;
@@ -344,7 +344,7 @@
             this.Controls.Add(this.lblCalle);
             this.Controls.Add(this.lblTipo);
             this.Name = "frmABMCInmueble";
-            this.Text = "Inmueble";
+            this.Text = "Inmueble - Detalle";
             this.Load += new System.EventHandler(this.frmABMCInmueble_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

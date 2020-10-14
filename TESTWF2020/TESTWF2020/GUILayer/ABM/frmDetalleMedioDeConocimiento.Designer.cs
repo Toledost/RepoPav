@@ -112,7 +112,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
             this.Name = "frmDetalleMedioDeConocimiento";
-            this.Text = "Detalle medio de conocimiento";
+            this.Text = "Medio de Conocimiento - Detalle";
             this.Load += new System.EventHandler(this.frmDetalleMedioDeConocimiento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

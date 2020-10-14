@@ -19,8 +19,8 @@ namespace TESTWF2020.DataAccessLayer
                                 "[dniCliente], " +
                                 "[montoTotal], " +
                                 "[montoCuota], " +
-                                "[esFinanciada], " +
-                                "[financiacion]) " +
+                                "[esFinanciada]" +
+                                (venta.EsFinanciada ? ", [financiacion]) " : ") ") +
                                 "VALUES " +
                                 "((SELECT legajo " +
                                 "FROM Empleado e " +
@@ -32,8 +32,8 @@ namespace TESTWF2020.DataAccessLayer
                                 "@dniCliente, " +
                                 "@montoTotal, " +
                                 "@montoCuota, " +
-                                "@esFinanciada, " +
-                                "@financiacion) ";
+                                "@esFinanciada" +
+                                (venta.EsFinanciada ? ", @financiacion) " : ")");
             var parametrosVenta = CrearDiccionario(venta);
 
             DataManager dm = new DataManager();
@@ -45,6 +45,7 @@ namespace TESTWF2020.DataAccessLayer
                 dm.Open();
                 dm.BeginTransaction();
                 dm.EjecutarSQLConParametros(consultaSQLVenta, parametrosVenta);
+                var newIdVenta = dm.ConsultaSQLScalar(" SELECT @@IDENTITY");
 
                 string consultaSQLConsulta = "UPDATE Consulta " +
                                              "SET " +
@@ -83,9 +84,33 @@ namespace TESTWF2020.DataAccessLayer
                 var parametrosHistorialNuevo = new Dictionary<string, object>();
 
                 parametrosHistorialNuevo.Add("idInmueble", venta.Inmueble.Id);
-                parametrosHistorialNuevo.Add("idEstadoInmueble", 3);                //TODO: cambiar nro 3
+                parametrosHistorialNuevo.Add("idEstadoInmueble", venta.EsFinanciada ? 4 : 3);
 
                 dm.EjecutarSQLConParametros(consultaSqlHistorialNuevo, parametrosHistorialNuevo);
+
+                if (venta.EsFinanciada)
+                {
+                    string consultaSqlCuotas = "DECLARE @numeroCuota int = 1 " +
+                        "WHILE @cuotas > 0 " +
+                        "BEGIN " +
+                        "INSERT INTO Cuota " +
+                        "(nroCuota, " +
+                        "idVenta, " +
+                        "fechaVencimiento) " +
+                        "VALUES " +
+                        "(@numeroCuota, " +
+                        "@idVenta, " +
+                        "DATEADD(month, @numeroCuota, GETDATE())) " +
+                        "SET @cuotas = @cuotas - 1 " +
+                        "SET @numeroCuota = @numeroCuota + 1 " +
+                        "END";
+
+                    var parametrosCuota = new Dictionary<string, object>();
+                    parametrosCuota.Add("cuotas", venta.Financiacion.CantidadCuotas);
+                    parametrosCuota.Add("idVenta", newIdVenta);
+
+                    dm.EjecutarSQLConParametros(consultaSqlCuotas, parametrosCuota);
+                }
 
                 dm.Commit();
                 return true;
@@ -109,13 +134,15 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("idVenta", venta.IdVenta );
             parametros.Add("fechaVenta", venta.FechaVenta);
             parametros.Add("fechaEntrega", venta.FechaEntrega);
-            parametros.Add("financiacion", venta.Financiacion.IdFinanciacion);
             parametros.Add("idInmueble", venta.Inmueble.Id);
             parametros.Add("usuarioVendedor", venta.UsuarioVendedor.Nombre);
             parametros.Add("dniCliente", venta.Cliente.Dni);
             parametros.Add("esFinanciada", venta.EsFinanciada);
             parametros.Add("montoTotal", venta.MontoTotal); 
             parametros.Add("montoCuota", venta.MontoCuota);
+
+            if(venta.EsFinanciada)
+                parametros.Add("financiacion", venta.Financiacion.IdFinanciacion);
 
             return parametros;
         }

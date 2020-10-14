@@ -32,7 +32,7 @@ namespace TESTWF2020
 
             if (UsuarioLogueado != null)
             {
-                MessageBox.Show($"Logueado con éxito: {UsuarioLogueado.Nombre}");
+                MessageBox.Show($"Logueado: {UsuarioLogueado.Nombre}");
                 this.Close();
             }
             else

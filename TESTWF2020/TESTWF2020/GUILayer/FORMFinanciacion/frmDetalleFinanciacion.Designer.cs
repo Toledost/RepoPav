@@ -53,9 +53,9 @@
             this.lblPorcAumento.AutoSize = true;
             this.lblPorcAumento.Location = new System.Drawing.Point(231, 134);
             this.lblPorcAumento.Name = "lblPorcAumento";
-            this.lblPorcAumento.Size = new System.Drawing.Size(81, 13);
+            this.lblPorcAumento.Size = new System.Drawing.Size(103, 13);
             this.lblPorcAumento.TabIndex = 1;
-            this.lblPorcAumento.Text = "lblPorcAumento";
+            this.lblPorcAumento.Text = "Porcentaje Aumento";
             // 
             // txtNombre
             // 
@@ -132,7 +132,7 @@
             this.Controls.Add(this.lblPorcAumento);
             this.Controls.Add(this.lblNombre);
             this.Name = "frmDetalleFinanciacion";
-            this.Text = "frmDetalleFinanciacion";
+            this.Text = "Financiación - Detalle";
             this.Load += new System.EventHandler(this.frmDetalleFinanciacion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
