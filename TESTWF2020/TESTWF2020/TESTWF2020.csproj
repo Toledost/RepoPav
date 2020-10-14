@@ -64,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDInmobiliariaCasaFelizDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
@@ -232,11 +237,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\frmReportes\frmReportes.cs">
+    <Compile Include="Reportes\frmReportes\frmReporteInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\frmReportes\frmReportes.Designer.cs">
-      <DependentUpon>frmReportes.cs</DependentUpon>
+    <Compile Include="Reportes\frmReportes\frmReporteInmueble.Designer.cs">
+      <DependentUpon>frmReporteInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteVenta.Designer.cs">
+      <DependentUpon>frmReporteVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
@@ -306,10 +317,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\frmReportes\frmReportes.resx">
-      <DependentUpon>frmReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteInmueble.resx">
+      <DependentUpon>frmReporteInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Reportes\ReporteInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteVenta.resx">
+      <DependentUpon>frmReporteVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reportes\rptInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptVenta.rdlc" />
+    <None Include="BDInmobiliariaCasaFelizDataSet.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSet.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </None>
     <None Include="InmuebleEstado.xsc">
       <DependentUpon>InmuebleEstado.xsd</DependentUpon>
     </None>

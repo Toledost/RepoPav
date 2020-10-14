@@ -5,6 +5,7 @@ using TESTWF2020.Entities;
 using TESTWF2020.GUILayer;
 using TESTWF2020.GUILayer.ABM;
 using TESTWF2020.GUILayer.FORMFinanciacion;
+using TESTWF2020.Reportes.frmReportes;
 
 namespace TESTWF2020
 {
@@ -109,6 +110,20 @@ namespace TESTWF2020
             frmABMCVenta frmABMCVenta = new frmABMCVenta(usuarioLogueado);
             this.Hide();
             frmABMCVenta.ShowDialog();
+            this.Show();
+        }
+
+        private void reporteDeInmuebleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteInmueble frmReporteInmueble = new frmReporteInmueble();
+            frmReporteInmueble.ShowDialog();
+            this.Show();
+        }
+
+        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteVenta frmReporteVenta = new frmReporteVenta();
+            frmReporteVenta.ShowDialog();
             this.Show();
         }
     }

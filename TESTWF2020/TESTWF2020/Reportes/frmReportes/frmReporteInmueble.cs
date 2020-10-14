@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
-    public partial class frmReportes : Form
+    public partial class frmReporteInmueble : Form
     {
-        public frmReportes()
+        public frmReporteInmueble()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace TESTWF2020.Reportes.frmReportes
             // TODO: esta línea de código carga datos en la tabla 'inmuebleEstado1.RelacionInmuebleEstado' Puede moverla o quitarla según sea necesario.
             this.relacionInmuebleEstadoTableAdapter1.Fill(this.inmuebleEstado1.RelacionInmuebleEstado);
 
-            this.reportViewer2.RefreshReport();
+            this.rptvInmueble.RefreshReport();
         }
     }
 }
