@@ -6,27 +6,27 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.21884cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.21884cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.21884cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.10854cm</Width>
+              <Width>3.82738cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.21884cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.21884cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.57354cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -40,6 +40,7 @@
                               <Value>Calle</Value>
                               <Style>
                                 <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -75,6 +76,7 @@
                               <Value>Numero</Value>
                               <Style>
                                 <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -110,6 +112,7 @@
                               <Value>Nombre</Value>
                               <Style>
                                 <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -145,6 +148,7 @@
                               <Value>Fecha inicio</Value>
                               <Style>
                                 <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -180,6 +184,7 @@
                               <Value>Fecha fin</Value>
                               <Style>
                                 <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -215,6 +220,7 @@
                               <Value>Dias</Value>
                               <Style>
                                 <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -241,7 +247,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.57354cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -448,10 +454,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet2</DataSetName>
-        <Top>1.82245cm</Top>
-        <Left>3.03954cm</Left>
-        <Height>1.2cm</Height>
-        <Width>15.60854cm</Width>
+        <Top>0.28222cm</Top>
+        <Left>0.61459cm</Left>
+        <Height>1.14708cm</Height>
+        <Width>19.92159cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -459,13 +465,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.09225in</Height>
+    <Height>17.86457mm</Height>
     <Style />
   </Body>
-  <Width>8.32602in</Width>
+  <Width>210.1703mm</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>2.50182cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -476,13 +482,24 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>REPORTES DE INMUEBLES</Value>
+                  <Value>REPORTES DE INMUEBL</Value>
                   <Style>
                     <FontSize>15pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>ES</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>15pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -507,10 +524,42 @@
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
+              <Color>Plum</Color>
               <Style>Solid</Style>
+              <Width>3pt</Width>
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.61078cm</Top>
+          <Left>14.97224cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.51625cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -518,12 +567,53 @@
         </Border>
       </Style>
     </PageHeader>
+    <PageFooter>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber &amp; " de " &amp; Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.92668cm</Top>
+          <Left>15.97766cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

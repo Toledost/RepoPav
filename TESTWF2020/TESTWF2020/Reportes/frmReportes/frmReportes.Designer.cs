@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.inmuebleEstado1 = new TESTWF2020.InmuebleEstado();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.inmuebleEstado1 = new TESTWF2020.InmuebleEstado();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.relacionInmuebleEstadoTableAdapter1 = new TESTWF2020.InmuebleEstadoTableAdapters.RelacionInmuebleEstadoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "RelacionInmuebleEstado";
+            this.bindingSource1.DataSource = this.inmuebleEstado1;
+            // 
+            // inmuebleEstado1
+            // 
+            this.inmuebleEstado1.DataSetName = "InmuebleEstado";
+            this.inmuebleEstado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer2
             // 
@@ -48,18 +58,8 @@
             this.reportViewer2.Location = new System.Drawing.Point(0, 0);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(790, 361);
+            this.reportViewer2.Size = new System.Drawing.Size(804, 461);
             this.reportViewer2.TabIndex = 0;
-            // 
-            // inmuebleEstado1
-            // 
-            this.inmuebleEstado1.DataSetName = "InmuebleEstado";
-            this.inmuebleEstado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "RelacionInmuebleEstado";
-            this.bindingSource1.DataSource = this.inmuebleEstado1;
             // 
             // relacionInmuebleEstadoTableAdapter1
             // 
@@ -67,12 +67,12 @@
             // 
             // frmReportes
             // 
-            this.ClientSize = new System.Drawing.Size(790, 361);
+            this.ClientSize = new System.Drawing.Size(804, 461);
             this.Controls.Add(this.reportViewer2);
             this.Name = "frmReportes";
             this.Load += new System.EventHandler(this.frmReportes_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).EndInit();
             this.ResumeLayout(false);
 
         }
