@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\CuotaService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="BusinessLayer\ViaDeConsultaService.cs" />
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
+    <Compile Include="DataAccessLayer\CuotaDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="DataAccessLayer\VentaDao.cs" />
+    <Compile Include="Entities\Cuota.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
@@ -109,6 +112,12 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\Venta.cs" />
     <Compile Include="Entities\ViaDeConsulta.cs" />
+    <Compile Include="GUILayer\ABM\frmCuotasDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmCuotasDetalle.Designer.cs">
+      <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\ABM\frmABMCConsultas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +165,12 @@
     </Compile>
     <Compile Include="GUILayer\ABM\frmConsultarClientes.Designer.cs">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmVentaGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\frmVentaGeneral.Designer.cs">
+      <DependentUpon>frmVentaGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.cs">
       <SubType>Form</SubType>
@@ -225,6 +240,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUILayer\ABM\frmCuotasDetalle.resx">
+      <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABM\frmABMCVenta.resx">
       <DependentUpon>frmABMCVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\frmVentaGeneral.resx">
+      <DependentUpon>frmVentaGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>

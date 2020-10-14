@@ -19,5 +19,15 @@ namespace TESTWF2020.BusinessLayer
         {
             return ventaDao.Grabar(venta);
         }
+
+        internal IList<Venta> GetAll()
+        {
+            return ventaDao.GetAll();
+        }
+
+        internal IList<Venta> GetByDni(string dni)
+        {
+            return ventaDao.GetByDni(dni);
+        }
     }
 }
