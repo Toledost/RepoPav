@@ -250,7 +250,7 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
               <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        HistorialEstado.fechaInicio, HistorialEstado.idEstadoInmueble, HistorialEstado.fechaFin, EstadoInmueble.nombre, Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, DATEDIFF(day, HistorialEstado.fechaInicio, 
+                    <CommandText>SELECT        Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, HistorialEstado.fechaInicio, HistorialEstado.fechaFin, HistorialEstado.idEstadoInmueble, EstadoInmueble.nombre AS Estado, DATEDIFF(day, HistorialEstado.fechaInicio, 
                          HistorialEstado.fechaFin) AS Dias
 FROM            EstadoInmueble INNER JOIN
                          HistorialEstado ON EstadoInmueble.idEstadoInmueble = HistorialEstado.idEstadoInmueble INNER JOIN
@@ -264,11 +264,11 @@ FROM            EstadoInmueble INNER JOIN
               <Mapping SourceColumn="fechaInicio" DataSetColumn="fechaInicio" />
               <Mapping SourceColumn="idEstadoInmueble" DataSetColumn="idEstadoInmueble" />
               <Mapping SourceColumn="fechaFin" DataSetColumn="fechaFin" />
-              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="idInmueble" DataSetColumn="idInmueble" />
               <Mapping SourceColumn="calle" DataSetColumn="calle" />
               <Mapping SourceColumn="calleNro" DataSetColumn="calleNro" />
               <Mapping SourceColumn="Dias" DataSetColumn="Dias" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -280,7 +280,7 @@ FROM            EstadoInmueble INNER JOIN
   <xs:element name="InmuebleEstado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="InmuebleEstado" msprop:Generator_UserDSName="InmuebleEstado">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EstadoInmueble" msprop:Generator_TableClassName="EstadoInmuebleDataTable" msprop:Generator_TableVarName="tableEstadoInmueble" msprop:Generator_RowChangedName="EstadoInmuebleRowChanged" msprop:Generator_TablePropName="EstadoInmueble" msprop:Generator_RowDeletingName="EstadoInmuebleRowDeleting" msprop:Generator_RowChangingName="EstadoInmuebleRowChanging" msprop:Generator_RowEvHandlerName="EstadoInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadoInmuebleRowDeleted" msprop:Generator_RowClassName="EstadoInmuebleRow" msprop:Generator_UserTableName="EstadoInmueble" msprop:Generator_RowEvArgName="EstadoInmuebleRowChangeEvent">
+        <xs:element name="EstadoInmueble" msprop:Generator_TableClassName="EstadoInmuebleDataTable" msprop:Generator_TableVarName="tableEstadoInmueble" msprop:Generator_TablePropName="EstadoInmueble" msprop:Generator_RowDeletingName="EstadoInmuebleRowDeleting" msprop:Generator_RowChangingName="EstadoInmuebleRowChanging" msprop:Generator_RowEvHandlerName="EstadoInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadoInmuebleRowDeleted" msprop:Generator_UserTableName="EstadoInmueble" msprop:Generator_RowChangedName="EstadoInmuebleRowChanged" msprop:Generator_RowEvArgName="EstadoInmuebleRowChangeEvent" msprop:Generator_RowClassName="EstadoInmuebleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idEstadoInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidEstadoInmueble" msprop:Generator_ColumnPropNameInRow="idEstadoInmueble" msprop:Generator_ColumnPropNameInTable="idEstadoInmuebleColumn" msprop:Generator_UserColumnName="idEstadoInmueble" type="xs:int" />
@@ -302,7 +302,7 @@ FROM            EstadoInmueble INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HistorialEstado" msprop:Generator_TableClassName="HistorialEstadoDataTable" msprop:Generator_TableVarName="tableHistorialEstado" msprop:Generator_RowChangedName="HistorialEstadoRowChanged" msprop:Generator_TablePropName="HistorialEstado" msprop:Generator_RowDeletingName="HistorialEstadoRowDeleting" msprop:Generator_RowChangingName="HistorialEstadoRowChanging" msprop:Generator_RowEvHandlerName="HistorialEstadoRowChangeEventHandler" msprop:Generator_RowDeletedName="HistorialEstadoRowDeleted" msprop:Generator_RowClassName="HistorialEstadoRow" msprop:Generator_UserTableName="HistorialEstado" msprop:Generator_RowEvArgName="HistorialEstadoRowChangeEvent">
+        <xs:element name="HistorialEstado" msprop:Generator_TableClassName="HistorialEstadoDataTable" msprop:Generator_TableVarName="tableHistorialEstado" msprop:Generator_TablePropName="HistorialEstado" msprop:Generator_RowDeletingName="HistorialEstadoRowDeleting" msprop:Generator_RowChangingName="HistorialEstadoRowChanging" msprop:Generator_RowEvHandlerName="HistorialEstadoRowChangeEventHandler" msprop:Generator_RowDeletedName="HistorialEstadoRowDeleted" msprop:Generator_UserTableName="HistorialEstado" msprop:Generator_RowChangedName="HistorialEstadoRowChanged" msprop:Generator_RowEvArgName="HistorialEstadoRowChangeEvent" msprop:Generator_RowClassName="HistorialEstadoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idInmueble" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
@@ -313,7 +313,7 @@ FROM            EstadoInmueble INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Inmueble" msprop:Generator_TableClassName="InmuebleDataTable" msprop:Generator_TableVarName="tableInmueble" msprop:Generator_RowChangedName="InmuebleRowChanged" msprop:Generator_TablePropName="Inmueble" msprop:Generator_RowDeletingName="InmuebleRowDeleting" msprop:Generator_RowChangingName="InmuebleRowChanging" msprop:Generator_RowEvHandlerName="InmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="InmuebleRowDeleted" msprop:Generator_RowClassName="InmuebleRow" msprop:Generator_UserTableName="Inmueble" msprop:Generator_RowEvArgName="InmuebleRowChangeEvent">
+        <xs:element name="Inmueble" msprop:Generator_TableClassName="InmuebleDataTable" msprop:Generator_TableVarName="tableInmueble" msprop:Generator_TablePropName="Inmueble" msprop:Generator_RowDeletingName="InmuebleRowDeleting" msprop:Generator_RowChangingName="InmuebleRowChanging" msprop:Generator_RowEvHandlerName="InmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="InmuebleRowDeleted" msprop:Generator_UserTableName="Inmueble" msprop:Generator_RowChangedName="InmuebleRowChanged" msprop:Generator_RowEvArgName="InmuebleRowChangeEvent" msprop:Generator_RowClassName="InmuebleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
@@ -342,19 +342,12 @@ FROM            EstadoInmueble INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RelacionInmuebleEstado" msprop:Generator_TableClassName="RelacionInmuebleEstadoDataTable" msprop:Generator_TableVarName="tableRelacionInmuebleEstado" msprop:Generator_TablePropName="RelacionInmuebleEstado" msprop:Generator_RowDeletingName="RelacionInmuebleEstadoRowDeleting" msprop:Generator_RowChangingName="RelacionInmuebleEstadoRowChanging" msprop:Generator_RowEvHandlerName="RelacionInmuebleEstadoRowChangeEventHandler" msprop:Generator_RowDeletedName="RelacionInmuebleEstadoRowDeleted" msprop:Generator_UserTableName="RelacionInmuebleEstado" msprop:Generator_RowChangedName="RelacionInmuebleEstadoRowChanged" msprop:Generator_RowEvArgName="RelacionInmuebleEstadoRowChangeEvent" msprop:Generator_RowClassName="RelacionInmuebleEstadoRow">
+        <xs:element name="RelacionInmuebleEstado" msprop:Generator_TableClassName="RelacionInmuebleEstadoDataTable" msprop:Generator_TableVarName="tableRelacionInmuebleEstado" msprop:Generator_RowChangedName="RelacionInmuebleEstadoRowChanged" msprop:Generator_TablePropName="RelacionInmuebleEstado" msprop:Generator_RowDeletingName="RelacionInmuebleEstadoRowDeleting" msprop:Generator_RowChangingName="RelacionInmuebleEstadoRowChanging" msprop:Generator_RowEvHandlerName="RelacionInmuebleEstadoRowChangeEventHandler" msprop:Generator_RowDeletedName="RelacionInmuebleEstadoRowDeleted" msprop:Generator_RowClassName="RelacionInmuebleEstadoRow" msprop:Generator_UserTableName="RelacionInmuebleEstado" msprop:Generator_RowEvArgName="RelacionInmuebleEstadoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="fechaInicio" msprop:Generator_ColumnVarNameInTable="columnfechaInicio" msprop:Generator_ColumnPropNameInRow="fechaInicio" msprop:Generator_ColumnPropNameInTable="fechaInicioColumn" msprop:Generator_UserColumnName="fechaInicio" type="xs:dateTime" />
               <xs:element name="idEstadoInmueble" msprop:Generator_ColumnVarNameInTable="columnidEstadoInmueble" msprop:Generator_ColumnPropNameInRow="idEstadoInmueble" msprop:Generator_ColumnPropNameInTable="idEstadoInmuebleColumn" msprop:Generator_UserColumnName="idEstadoInmueble" type="xs:int" />
               <xs:element name="fechaFin" msprop:Generator_ColumnVarNameInTable="columnfechaFin" msprop:Generator_ColumnPropNameInRow="fechaFin" msprop:Generator_ColumnPropNameInTable="fechaFinColumn" msprop:Generator_UserColumnName="fechaFin" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="idInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
               <xs:element name="calle" msprop:Generator_ColumnVarNameInTable="columncalle" msprop:Generator_ColumnPropNameInRow="calle" msprop:Generator_ColumnPropNameInTable="calleColumn" msprop:Generator_UserColumnName="calle" minOccurs="0">
                 <xs:simpleType>
@@ -365,6 +358,13 @@ FROM            EstadoInmueble INNER JOIN
               </xs:element>
               <xs:element name="calleNro" msprop:Generator_ColumnVarNameInTable="columncalleNro" msprop:Generator_ColumnPropNameInRow="calleNro" msprop:Generator_ColumnPropNameInTable="calleNroColumn" msprop:Generator_UserColumnName="calleNro" type="xs:int" minOccurs="0" />
               <xs:element name="Dias" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:int" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -387,9 +387,9 @@ FROM            EstadoInmueble INNER JOIN
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="historial_FK_Estado" msdata:parent="EstadoInmueble" msdata:child="HistorialEstado" msdata:parentkey="idEstadoInmueble" msdata:childkey="idEstadoInmueble" msprop:Generator_UserChildTable="HistorialEstado" msprop:Generator_ChildPropName="GetHistorialEstadoRows" msprop:Generator_UserRelationName="historial_FK_Estado" msprop:Generator_RelationVarName="relationhistorial_FK_Estado" msprop:Generator_UserParentTable="EstadoInmueble" msprop:Generator_ParentPropName="EstadoInmuebleRow" />
-      <msdata:Relationship name="historial_FK_Inmuebles" msdata:parent="Inmueble" msdata:child="HistorialEstado" msdata:parentkey="idInmueble" msdata:childkey="idInmueble" msprop:Generator_UserChildTable="HistorialEstado" msprop:Generator_ChildPropName="GetHistorialEstadoRows" msprop:Generator_UserRelationName="historial_FK_Inmuebles" msprop:Generator_ParentPropName="InmuebleRow" msprop:Generator_RelationVarName="relationhistorial_FK_Inmuebles" msprop:Generator_UserParentTable="Inmueble" />
-      <msdata:Relationship name="historial_FK_Estado1" msdata:parent="RelacionInmuebleEstado" msdata:child="HistorialEstado" msdata:parentkey="idEstadoInmueble" msdata:childkey="idEstadoInmueble" msprop:Generator_UserChildTable="HistorialEstado" msprop:Generator_ChildPropName="GetHistorialEstadoRows" msprop:Generator_UserRelationName="historial_FK_Estado1" msprop:Generator_RelationVarName="relationhistorial_FK_Estado1" msprop:Generator_UserParentTable="RelacionInmuebleEstado" msprop:Generator_ParentPropName="RelacionInmuebleEstadoRow" />
+      <msdata:Relationship name="historial_FK_Estado" msdata:parent="EstadoInmueble" msdata:child="HistorialEstado" msdata:parentkey="idEstadoInmueble" msdata:childkey="idEstadoInmueble" msprop:Generator_UserChildTable="HistorialEstado" msprop:Generator_ChildPropName="GetHistorialEstadoRows" msprop:Generator_UserRelationName="historial_FK_Estado" msprop:Generator_ParentPropName="EstadoInmuebleRow" msprop:Generator_RelationVarName="relationhistorial_FK_Estado" msprop:Generator_UserParentTable="EstadoInmueble" />
+      <msdata:Relationship name="historial_FK_Inmuebles" msdata:parent="Inmueble" msdata:child="HistorialEstado" msdata:parentkey="idInmueble" msdata:childkey="idInmueble" msprop:Generator_UserChildTable="HistorialEstado" msprop:Generator_ChildPropName="GetHistorialEstadoRows" msprop:Generator_UserRelationName="historial_FK_Inmuebles" msprop:Generator_RelationVarName="relationhistorial_FK_Inmuebles" msprop:Generator_UserParentTable="Inmueble" msprop:Generator_ParentPropName="InmuebleRow" />
+      <msdata:Relationship name="historial_FK_Estado1" msdata:parent="RelacionInmuebleEstado" msdata:child="HistorialEstado" msdata:parentkey="idEstadoInmueble" msdata:childkey="idEstadoInmueble" msprop:Generator_UserChildTable="HistorialEstado" msprop:Generator_ChildPropName="GetHistorialEstadoRows" msprop:Generator_UserRelationName="historial_FK_Estado1" msprop:Generator_ParentPropName="RelacionInmuebleEstadoRow" msprop:Generator_RelationVarName="relationhistorial_FK_Estado1" msprop:Generator_UserParentTable="RelacionInmuebleEstado" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

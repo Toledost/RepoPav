@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TESTWF2020.BusinessLayer;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReporteInmueble : Form
     {
+        private ReporteService reporteService;
+        
+        
         public frmReporteInmueble()
         {
             InitializeComponent();
+            reporteService = new ReporteService();
+           
         }
 
         private void frmReportes_Load(object sender, EventArgs e)
@@ -32,5 +38,59 @@ namespace TESTWF2020.Reportes.frmReportes
 
             this.rptvInmueble.RefreshReport();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string inmueble = "";
+            //if (dtpFechaDesde.Value != dtpFechaHasta.Value)
+            //{
+            //    if (dtpFechaDesde.Value > dtpFechaHasta.Value)
+            //    {
+            //        MessageBox.Show("Fechas erroneas!!!");
+            //        return;
+            //    }
+            //}
+            
+            if (!string.IsNullOrEmpty(txtIdInmueble.Text))
+            {
+                inmueble = txtIdInmueble.Text;
+            }
+
+            var diccParametros = CrearDiccionario();
+            DataTable tabla = reporteService.GetByFilters(diccParametros);
+            
+            
+            if (tabla.Rows.Count==0)
+            {
+                MessageBox.Show("No existe inmueble con esas condiciones");
+                dtpFechaDesde.Value = DateTime.Today;
+                dtpFechaHasta.Value = DateTime.Today;
+                txtIdInmueble.Text = default;
+            }
+            else
+            {
+                this.bindingSource2.DataSource = tabla;
+                this.rptvInmueble.RefreshReport();
+            }
+            
+        }
+
+        private Dictionary<string, object> CrearDiccionario()
+        {
+            var dict = new Dictionary<string, object>();
+
+            if (!string.IsNullOrWhiteSpace(this.txtIdInmueble.Text))
+            {
+                dict.Add("idInmueble", txtIdInmueble.Text);
+            }
+
+            if (!(dtpFechaDesde.Value == dtpFechaHasta.Value))
+            {
+                dict.Add("fechaDesde", dtpFechaDesde.Value.ToString("yyyyMMdd"));
+                dict.Add("fechaHasta", dtpFechaHasta.Value.ToString("yyyyMMdd"));
+            }
+
+            return dict;
+        } 
     }
 }

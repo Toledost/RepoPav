@@ -1448,8 +1448,6 @@ namespace TESTWF2020 {
             
             private global::System.Data.DataColumn columnfechaFin;
             
-            private global::System.Data.DataColumn columnnombre;
-            
             private global::System.Data.DataColumn columnidInmueble;
             
             private global::System.Data.DataColumn columncalle;
@@ -1457,6 +1455,8 @@ namespace TESTWF2020 {
             private global::System.Data.DataColumn columncalleNro;
             
             private global::System.Data.DataColumn columnDias;
+            
+            private global::System.Data.DataColumn columnEstado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1517,14 +1517,6 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nombreColumn {
-                get {
-                    return this.columnnombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn idInmuebleColumn {
                 get {
                     return this.columnidInmueble;
@@ -1552,6 +1544,14 @@ namespace TESTWF2020 {
             public global::System.Data.DataColumn DiasColumn {
                 get {
                     return this.columnDias;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EstadoColumn {
+                get {
+                    return this.columnEstado;
                 }
             }
             
@@ -1592,17 +1592,17 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RelacionInmuebleEstadoRow AddRelacionInmuebleEstadoRow(System.DateTime fechaInicio, int idEstadoInmueble, System.DateTime fechaFin, string nombre, string calle, int calleNro, int Dias) {
+            public RelacionInmuebleEstadoRow AddRelacionInmuebleEstadoRow(System.DateTime fechaInicio, int idEstadoInmueble, System.DateTime fechaFin, string calle, int calleNro, int Dias, string Estado) {
                 RelacionInmuebleEstadoRow rowRelacionInmuebleEstadoRow = ((RelacionInmuebleEstadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         fechaInicio,
                         idEstadoInmueble,
                         fechaFin,
-                        nombre,
                         null,
                         calle,
                         calleNro,
-                        Dias};
+                        Dias,
+                        Estado};
                 rowRelacionInmuebleEstadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRelacionInmuebleEstadoRow);
                 return rowRelacionInmuebleEstadoRow;
@@ -1628,11 +1628,11 @@ namespace TESTWF2020 {
                 this.columnfechaInicio = base.Columns["fechaInicio"];
                 this.columnidEstadoInmueble = base.Columns["idEstadoInmueble"];
                 this.columnfechaFin = base.Columns["fechaFin"];
-                this.columnnombre = base.Columns["nombre"];
                 this.columnidInmueble = base.Columns["idInmueble"];
                 this.columncalle = base.Columns["calle"];
                 this.columncalleNro = base.Columns["calleNro"];
                 this.columnDias = base.Columns["Dias"];
+                this.columnEstado = base.Columns["Estado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1644,8 +1644,6 @@ namespace TESTWF2020 {
                 base.Columns.Add(this.columnidEstadoInmueble);
                 this.columnfechaFin = new global::System.Data.DataColumn("fechaFin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaFin);
-                this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombre);
                 this.columnidInmueble = new global::System.Data.DataColumn("idInmueble", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidInmueble);
                 this.columncalle = new global::System.Data.DataColumn("calle", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1654,10 +1652,10 @@ namespace TESTWF2020 {
                 base.Columns.Add(this.columncalleNro);
                 this.columnDias = new global::System.Data.DataColumn("Dias", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDias);
+                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado);
                 this.columnfechaInicio.AllowDBNull = false;
                 this.columnidEstadoInmueble.AllowDBNull = false;
-                this.columnnombre.AllowDBNull = false;
-                this.columnnombre.MaxLength = 30;
                 this.columnidInmueble.AutoIncrement = true;
                 this.columnidInmueble.AutoIncrementSeed = -1;
                 this.columnidInmueble.AutoIncrementStep = -1;
@@ -1665,6 +1663,8 @@ namespace TESTWF2020 {
                 this.columnidInmueble.ReadOnly = true;
                 this.columncalle.MaxLength = 50;
                 this.columnDias.ReadOnly = true;
+                this.columnEstado.AllowDBNull = false;
+                this.columnEstado.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2387,17 +2387,6 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string nombre {
-                get {
-                    return ((string)(this[this.tableRelacionInmuebleEstado.nombreColumn]));
-                }
-                set {
-                    this[this.tableRelacionInmuebleEstado.nombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int idInmueble {
                 get {
                     return ((int)(this[this.tableRelacionInmuebleEstado.idInmuebleColumn]));
@@ -2453,6 +2442,17 @@ namespace TESTWF2020 {
                 }
                 set {
                     this[this.tableRelacionInmuebleEstado.DiasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Estado {
+                get {
+                    return ((string)(this[this.tableRelacionInmuebleEstado.EstadoColumn]));
+                }
+                set {
+                    this[this.tableRelacionInmuebleEstado.EstadoColumn] = value;
                 }
             }
             
@@ -4200,11 +4200,11 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             tableMapping.ColumnMappings.Add("fechaInicio", "fechaInicio");
             tableMapping.ColumnMappings.Add("idEstadoInmueble", "idEstadoInmueble");
             tableMapping.ColumnMappings.Add("fechaFin", "fechaFin");
-            tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("idInmueble", "idInmueble");
             tableMapping.ColumnMappings.Add("calle", "calle");
             tableMapping.ColumnMappings.Add("calleNro", "calleNro");
             tableMapping.ColumnMappings.Add("Dias", "Dias");
+            tableMapping.ColumnMappings.Add("Estado", "Estado");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4221,7 +4221,7 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        HistorialEstado.fechaInicio, HistorialEstado.idEstadoInmueble, HistorialEstado.fechaFin, EstadoInmueble.nombre, Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, DATEDIFF(day, HistorialEstado.fechaInicio, 
+            this._commandCollection[0].CommandText = @"SELECT        Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, HistorialEstado.fechaInicio, HistorialEstado.fechaFin, HistorialEstado.idEstadoInmueble, EstadoInmueble.nombre AS Estado, DATEDIFF(day, HistorialEstado.fechaInicio, 
                          HistorialEstado.fechaFin) AS Dias
 FROM            EstadoInmueble INNER JOIN
                          HistorialEstado ON EstadoInmueble.idEstadoInmueble = HistorialEstado.idEstadoInmueble INNER JOIN
