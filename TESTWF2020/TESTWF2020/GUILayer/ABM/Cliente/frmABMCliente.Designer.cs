@@ -94,6 +94,7 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 20);
             this.txtDni.TabIndex = 5;
+            this.txtDni.Tag = "DNI";
             // 
             // txtNombre
             // 
@@ -101,6 +102,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.Tag = "Nombre";
             // 
             // txtApellido
             // 
@@ -108,6 +110,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 7;
+            this.txtApellido.Tag = "Apellido";
             // 
             // txtMail
             // 
@@ -115,6 +118,7 @@
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(100, 20);
             this.txtMail.TabIndex = 8;
+            this.txtMail.Tag = "Mail";
             // 
             // txtTelefono
             // 
@@ -122,6 +126,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(100, 20);
             this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.Tag = "Telefono";
             // 
             // btnGrabar
             // 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -148,72 +149,61 @@ namespace TESTWF2020.GUILayer.ABM
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
-        {
-            Validar();
+        {          
 
-            Consulta consulta = new Consulta
+            if (Validador.ValidarComboBox(cboEstadoConsulta,cboIDMedioConocimiento,cboIDTipoTrans,cboViaConsulta) && 
+                Validador.ValidarTextBox(txtIDConsulta,txtDNICliente))
             {
-                Inmueble = new Inmueble
+                Consulta consulta = new Consulta
                 {
-                    Id = Convert.ToInt32(txtIDInmueble.Text)
-                },
-                Cliente = new Cliente
+                    Inmueble = new Inmueble
+                    {
+                        Id = Convert.ToInt32(txtIDInmueble.Text)
+                    },
+                    Cliente = new Cliente
+                    {
+                        Dni = Convert.ToInt32(txtDNICliente.Text)
+                    },
+                    EstadoConsulta = new EstadoConsulta
+                    {
+                        Id = Convert.ToInt32(cboEstadoConsulta.SelectedValue)
+                    },
+                    MedioConocimiento = new MedioDeConocimiento
+                    {
+                        Id = Convert.ToInt32(cboIDMedioConocimiento.SelectedValue)
+                    },
+                    TipoTransaccion = new TipoTransaccion
+                    {
+                        Id = Convert.ToInt32(cboIDTipoTrans.SelectedValue)
+                    },
+                    UsuarioUltimaModificacion = usuarioLogueado,
+                    ViaDeConsulta = new ViaDeConsulta
+                    {
+                        Id = Convert.ToInt32(cboViaConsulta.SelectedValue)
+                    }
+                };
+
+                consulta.FechaCierre = cboEstadoConsulta.Text != "Abierta" ? DateTime.Now : (DateTime?)null;
+
+
+                if (idConsultaSeleccionada > 0)
                 {
-                    Dni = Convert.ToInt32(txtDNICliente.Text)
-                },
-                EstadoConsulta = new EstadoConsulta
-                {
-                    Id = Convert.ToInt32(cboEstadoConsulta.SelectedValue)
-                },
-                MedioConocimiento = new MedioDeConocimiento
-                {
-                    Id = Convert.ToInt32(cboIDMedioConocimiento.SelectedValue)
-                },
-                TipoTransaccion = new TipoTransaccion
-                {
-                    Id = Convert.ToInt32(cboIDTipoTrans.SelectedValue)
-                },
-                UsuarioUltimaModificacion = usuarioLogueado,
-                ViaDeConsulta = new ViaDeConsulta
-                {
-                    Id = Convert.ToInt32(cboViaConsulta.SelectedValue)
+                    consulta.Id = Convert.ToInt32(txtIDConsulta.Text);
+                    consultaService.Update(consulta, usuarioLogueado);
+                    this.Close();
                 }
-            };
-
-            consulta.FechaCierre = cboEstadoConsulta.Text != "Abierta" ? DateTime.Now : (DateTime?)null;
-
-
-            if (idConsultaSeleccionada > 0)
-            {
-                consulta.Id = Convert.ToInt32(txtIDConsulta.Text);
-                consultaService.Update(consulta, usuarioLogueado);
-                this.Close();
+                else
+                {
+                    consultaService.Create(consulta, usuarioLogueado);
+                    this.Close();
+                }
             }
             else
             {
-                consultaService.Create(consulta, usuarioLogueado);
-                this.Close();
+                return;
             }
-        }
 
-        private void Validar()
-        {
-            if (string.IsNullOrEmpty(txtIDInmueble.Text) || txtIDInmueble.Text == "0")
-            {
-                MessageBox.Show("Falta elegir un inmueble");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDNICliente.Text) || txtDNICliente.Text == "0")
-            {
-                MessageBox.Show("Falta elegir un cliente");
-                return;
-            }
-            if (Controls.OfType<ComboBox>().Any(x => x.SelectedIndex == -1))
-            {
-                //MessageBox.Show("combobox");
-                MessageBox.Show("Falta completar algun campo");
-                return;
-            }
+           
         }
     }
 }
