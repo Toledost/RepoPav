@@ -371,7 +371,7 @@
             this.Controls.Add(this.lblM2);
             this.Controls.Add(this.lblCalle);
             this.Name = "frmInmuebles";
-            this.Text = "frmInmuebles";
+            this.Text = "Inmuebles";
             this.Load += new System.EventHandler(this.frmInmuebles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).EndInit();
             this.ResumeLayout(false);

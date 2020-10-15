@@ -254,7 +254,7 @@
             this.Controls.Add(this.lblTipoTrans);
             this.Controls.Add(this.lblID);
             this.Name = "frmDetalleConsulta";
-            this.Text = "Detalle consulta";
+            this.Text = "Consulta - Detalle";
             this.Load += new System.EventHandler(this.frmDetalleConsulta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

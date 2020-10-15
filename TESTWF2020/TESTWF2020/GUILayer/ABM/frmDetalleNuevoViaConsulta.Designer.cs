@@ -133,7 +133,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblViaDeConsulta);
             this.Name = "frmDetalleNuevoViaConsulta";
-            this.Text = "Detalle Via de consulta";
+            this.Text = "Via de Consulta - Detalle";
             this.Load += new System.EventHandler(this.frmDetalleNuevoViaConsulta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

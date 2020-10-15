@@ -207,7 +207,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmABMCEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Empleado";
+            this.Text = "Empleado - Detalle";
             this.Load += new System.EventHandler(this.frmABMCEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

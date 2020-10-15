@@ -55,7 +55,7 @@ namespace TESTWF2020.GUILayer
                 if (dr == DialogResult.Yes)
                 {
                     empleadoService.Delete(legajoSeleccionado);
-                    MessageBox.Show("Empleado eliminado con éxito.");
+                    MessageBox.Show("Empleado eliminado");
                     CargarGrilla();
                 }
             }

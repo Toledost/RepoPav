@@ -222,7 +222,7 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dgvFinanciacion);
             this.Name = "frmConsultaFinanciacion";
-            this.Text = "frmConsultaFinanciacion";
+            this.Text = "Financiación";
             this.Load += new System.EventHandler(this.frmConsultaFinanciacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanciacion)).EndInit();
             this.ResumeLayout(false);

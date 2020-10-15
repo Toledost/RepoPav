@@ -133,7 +133,7 @@
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtNombre);
             this.Name = "frmABMCUsuario";
-            this.Text = "Usuario";
+            this.Text = "Usuario - Detalle";
             this.Load += new System.EventHandler(this.frmABMCUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

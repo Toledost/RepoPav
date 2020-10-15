@@ -172,7 +172,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblDni);
             this.Name = "frmABMCliente";
-            this.Text = "Cliente";
+            this.Text = "Cliente - Detalle";
             this.Load += new System.EventHandler(this.frmABMCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

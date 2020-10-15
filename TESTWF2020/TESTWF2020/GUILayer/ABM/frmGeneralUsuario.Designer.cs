@@ -198,7 +198,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.dgvGeneralUsuario);
             this.Name = "frmGeneralUsuario";
-            this.Text = "General Usuario";
+            this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmGeneralUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGeneralUsuario)).EndInit();
             this.ResumeLayout(false);
