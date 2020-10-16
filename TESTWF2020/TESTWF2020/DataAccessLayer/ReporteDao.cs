@@ -9,7 +9,7 @@ namespace TESTWF2020.DataAccessLayer
 {
     class ReporteDao
     {
-        internal DataTable GetByFilters(Dictionary<string, object> diccParametros)
+        internal DataTable GetByFiltersRptInmueble(Dictionary<string, object> diccParametros)
         {
             string consultaSQL = "SELECT HistorialEstado.fechaInicio, " +
                 "HistorialEstado.idEstadoInmueble, " +
@@ -30,6 +30,29 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetByFiltersRptVenta(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT Venta.idVenta, " +
+                "Inmueble.calle AS calleInmueble, " +
+                "Inmueble.calleNro, " +
+                "Cliente.nombre AS nombreCliente, " +
+                "Cliente.apellido AS apellidoCliente, " +
+                "Venta.legajoVendedor, " +
+                "Venta.fechaVenta, " +
+                "Venta.fechaEntrega, " +
+                "Venta.montoCuota, " +
+                "Venta.montoTotal " +
+                "FROM Inmueble " +
+                "INNER JOIN Venta ON Inmueble.idInmueble = Venta.idInmueble " +
+                "INNER JOIN Cliente ON Venta.dniCliente = Cliente.dni";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosVenta(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
         private string AgregarParametros(Dictionary<string, object> diccParametros, string consultaSQL)
         {
             if (diccParametros.ContainsKey("idInmueble"))
@@ -37,6 +60,22 @@ namespace TESTWF2020.DataAccessLayer
 
             if (diccParametros.ContainsKey("fechaDesde"))
                 consultaSQL += " AND (HistorialEstado.fechaInicio BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            return consultaSQL;
+        }
+        private string AgregarParametrosVenta(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("nombreInmueble"))
+                consultaSQL += " AND (Inmueble.calle LIKE '%' + @nombreInmueble + '%') ";
+
+            if (diccParametros.ContainsKey("fechaVentaDesde"))
+                consultaSQL += " AND (Venta.fechaVenta BETWEEN @fechaVentaDesde AND @fechaVentaHasta) ";
+
+            if (diccParametros.ContainsKey("nombreComprador"))
+                consultaSQL += " AND (Cliente.nombre LIKE '%' + @nombreComprador + '%') ";
+
+            if (diccParametros.ContainsKey("apellidoComprador"))
+                consultaSQL += " AND (Cliente.apellido LIKE '%' + @apellidoComprador + '%') ";
 
             return consultaSQL;
         }

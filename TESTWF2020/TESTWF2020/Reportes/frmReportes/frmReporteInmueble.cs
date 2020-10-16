@@ -57,7 +57,7 @@ namespace TESTWF2020.Reportes.frmReportes
             }
 
             var diccParametros = CrearDiccionario();
-            DataTable tabla = reporteService.GetByFilters(diccParametros);
+            DataTable tabla = reporteService.GetByFiltersRptInmueble(diccParametros);
             
             
             if (tabla.Rows.Count==0)

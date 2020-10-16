@@ -17,9 +17,14 @@ namespace TESTWF2020.BusinessLayer
             reporteDao = new ReporteDao();
         }
 
-        internal DataTable GetByFilters(Dictionary<string, object> diccParametros)
+        internal DataTable GetByFiltersRptInmueble(Dictionary<string, object> diccParametros)
         {
-            return reporteDao.GetByFilters(diccParametros);
+            return reporteDao.GetByFiltersRptInmueble(diccParametros);
+        }
+
+        internal DataTable GetByFiltersRptVenta(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptVenta(diccParametros);
         }
     }
 }
