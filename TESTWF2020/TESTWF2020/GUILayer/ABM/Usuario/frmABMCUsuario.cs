@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -46,57 +47,53 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(this.txtNombre.Text) 
-                || string.IsNullOrWhiteSpace(this.txtContraseña.Text)
-                || this.cboPerfil.SelectedIndex == -1)
-            {
-                MessageBox.Show("Falta completar algún campo");
-                return;
-            }
-            
-            Usuario user = new Usuario
-            {
-                Contraseña = txtContraseña.Text,
-                Nombre = txtNombre.Text,
-                Perfil = new Perfil
-                {
-                    IdPerfil = Convert.ToInt32(this.cboPerfil.SelectedValue)
-                }
-            };
+            if (Validador.ValidarTextBox(txtNombre,txtContraseña) && 
+                Validador.ValidarComboBox(cboPerfil))
 
-            if (esNuevo)
             {
-
-                var usuario = usuarioService.GetUsuario(user.Nombre, true);
-                if (usuario == null)
+                Usuario user = new Usuario
                 {
-                    usuarioService.Insert(user);
-                    MessageBox.Show("Usuario creado", "Crear usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Contraseña = txtContraseña.Text,
+                    Nombre = txtNombre.Text,
+                    Perfil = new Perfil
+                    {
+                        IdPerfil = Convert.ToInt32(this.cboPerfil.SelectedValue)
+                    }
+                };
+
+                if (esNuevo)
+                {
+
+                    var usuario = usuarioService.GetUsuario(user.Nombre, true);
+                    if (usuario == null)
+                    {
+                        usuarioService.Insert(user);
+                        MessageBox.Show("Usuario creado", "Crear usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        DialogResult dr = MessageBox.Show("Este usuario fue eliminado anteriormente ¿Desea restablecerlo?",
+                            "Recuperar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (dr == DialogResult.Yes)
+                        {
+                            usuarioService.Recuperar(txtNombre.Text);
+                            MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                        }
+                    }
+                    this.Close();
+
+                    //usuarioService.Insert(user);
+                    //MessageBox.Show("Se creo correctamente el usuario");
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Este usuario fue eliminado anteriormente ¿Desea restablecerlo?",
-                        "Recuperar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (dr == DialogResult.Yes)
-                    {
-                        usuarioService.Recuperar(txtNombre.Text);
-                        MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
+                    usuarioService.Update(user, nombreUsuarioSeleccionado);
+                    //usuarioService.UpDate(user, true);
+                    MessageBox.Show("Se edito correctamente");
+                    this.Close();
                 }
-                this.Close();
-
-                //usuarioService.Insert(user);
-                //MessageBox.Show("Se creo correctamente el usuario");
-            }
-            else
-            {
-                usuarioService.Update(user, nombreUsuarioSeleccionado);
-                //usuarioService.UpDate(user, true);
-                MessageBox.Show("Se edito correctamente");
-                this.Close();
-            }
-            
+            }           
         }
 
         private void frmABMCUsuario_Load(object sender, EventArgs e)
@@ -142,7 +139,10 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

@@ -63,6 +63,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.Tag = "Nombre";
             // 
             // txtPorcAumento
             // 
@@ -70,6 +71,7 @@
             this.txtPorcAumento.Name = "txtPorcAumento";
             this.txtPorcAumento.Size = new System.Drawing.Size(100, 20);
             this.txtPorcAumento.TabIndex = 4;
+            this.txtPorcAumento.Tag = "Porcentaje Aumento";
             // 
             // btnEditar
             // 
@@ -107,6 +109,7 @@
             this.txtCantCuotas.Name = "txtCantCuotas";
             this.txtCantCuotas.Size = new System.Drawing.Size(100, 20);
             this.txtCantCuotas.TabIndex = 9;
+            this.txtCantCuotas.Tag = "Candtidad de cuotas";
             // 
             // lblCantCuotas
             // 

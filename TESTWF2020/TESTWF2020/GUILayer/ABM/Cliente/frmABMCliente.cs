@@ -35,7 +35,10 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void frmABMCliente_Load(object sender, EventArgs e)

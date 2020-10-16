@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -64,8 +65,7 @@ namespace TESTWF2020.GUILayer.ABM
             {
                 this.btnEditar.Enabled = false;
                 this.dataGridView1.Visible = false;
-                this.lblId.Visible = false;
-                this.txtID.Visible = false;
+                this.txtID.Enabled = false;
             }
             else
             {
@@ -157,41 +157,42 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text))
-                || Controls.OfType<ComboBox>().Any(x => x.SelectedIndex < 0))
+            if (Validador.ValidarTextBox(txtCalle,txtNro,txtMetrosCuadrados,txtBaños,
+                txtHabitaciones,txtMontoAlq,txtMontoVta,txtDescripcion) && 
+                Validador.ValidarComboBox(cboEstado,cboTipoInmueble))
+
             {
-                MessageBox.Show("Falta completar algún campo");
-                return;
+                Inmueble inmueble = CapturarDatosInmueble();
+                EstadoInmueble estado = CapturarDatosEstado();
+
+                if (seleccionoNuevo)
+                {
+                    inmuebleService.Create(inmueble, estado);
+                    MessageBox.Show("Creado");
+                }
+                else
+                {
+                    // Añadimos el Id del form al inmueble
+                    inmueble.Id = Convert.ToInt32(this.txtID.Text);
+
+                    // Buscamos todo su historial de estado
+                    IList<HistorialEstado> listaHistorialInmueble = historialService.GetHistorialEstadoByInmuebleID(inmueble.Id);
+
+                    // Obtenemos el último estado (sin fechaFin)
+                    var estadoActual = listaHistorialInmueble.Where(x => x.FechaFin == null).FirstOrDefault();
+
+                    // Verificamos si seleccionó un nuevo estado
+                    var esEstadoNuevo = estadoActual.Estado.Id != estado.Id;
+
+                    // Hacemos el update del inmueble y si corresponde el del Historial de Estado
+                    inmuebleService.Update(inmueble, esEstadoNuevo, estado);
+
+                    MessageBox.Show("Editado");
+                }
+                this.Close();
             }
 
-            Inmueble inmueble = CapturarDatosInmueble();
-            EstadoInmueble estado = CapturarDatosEstado();
-
-            if (seleccionoNuevo)
-            {
-                inmuebleService.Create(inmueble, estado);
-                MessageBox.Show("Creado");
-            }
-            else
-            {
-                // Añadimos el Id del form al inmueble
-                inmueble.Id = Convert.ToInt32(this.txtID.Text);
-
-                // Buscamos todo su historial de estado
-                IList<HistorialEstado> listaHistorialInmueble = historialService.GetHistorialEstadoByInmuebleID(inmueble.Id);
-
-                // Obtenemos el último estado (sin fechaFin)
-                var estadoActual = listaHistorialInmueble.Where(x => x.FechaFin == null).FirstOrDefault();
-
-                // Verificamos si seleccionó un nuevo estado
-                var esEstadoNuevo = estadoActual.Estado.Id != estado.Id;
-
-                // Hacemos el update del inmueble y si corresponde el del Historial de Estado
-                inmuebleService.Update(inmueble, esEstadoNuevo, estado);
-
-                MessageBox.Show("Editado");
-            }
-            this.Close();
+            
         }
 
         private EstadoInmueble CapturarDatosEstado()
@@ -223,12 +224,16 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.btnGrabar.Enabled = true;
+            this.txtID.Enabled = false;
             HabilitarCampos();
         }
     }

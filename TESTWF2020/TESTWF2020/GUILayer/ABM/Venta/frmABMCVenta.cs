@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 using TESTWF2020.GUILayer.FORMFinanciacion;
 
 namespace TESTWF2020.GUILayer.ABM
@@ -55,68 +56,60 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDireccionInmueble.Text) ||
-                txtDireccionInmueble.Text == "0")
+            if (Validador.ValidarTextBox(txtDireccionInmueble,txtDniCliente,txtMontoTotal))
             {
-                MessageBox.Show("Falta completar la direccion del inmueble");
-                return;
-            }
-            if  (string.IsNullOrWhiteSpace(txtDniCliente.Text) ||
-                txtDniCliente.Text == "0")
-            {
-                MessageBox.Show("Falta completar en DNI del cliente");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtMontoTotal.Text))
-            {
-                MessageBox.Show("Falta completar el monto total del inmueble");
-                return;
-            }
-
-            //string.IsNullOrWhiteSpace(txtFinanciacion.Text) ||
-            //string.IsNullOrWhiteSpace(txtCantCuota.Text) ||
-            //string.IsNullOrWhiteSpace(txtMontoCuota.Text) ||
 
 
-            Venta venta = new Venta
-            {
-                Cliente = new Cliente
+                Venta venta = new Venta
                 {
-                    Dni = Convert.ToInt32(txtDniCliente.Text)
-                },
-                EsFinanciada = this.chkFinanciada.Checked,
-                FechaEntrega = Convert.ToDateTime(dtpFechaEntrega.Value),
-                FechaVenta = Convert.ToDateTime(dtpFechaVenta.Value),
-                Inmueble = new Inmueble
+                    Cliente = new Cliente
+                    {
+                        Dni = Convert.ToInt32(txtDniCliente.Text)
+                    },
+                    EsFinanciada = this.chkFinanciada.Checked,
+                    FechaEntrega = Convert.ToDateTime(dtpFechaEntrega.Value),
+                    FechaVenta = Convert.ToDateTime(dtpFechaVenta.Value),
+                    Inmueble = new Inmueble
+                    {
+                        Id = inmuebleSeleccionado.Id,
+                    },
+                    UsuarioVendedor = usuarioLogueado,
+                    MontoTotal = Convert.ToInt32(txtMontoTotal.Text)
+                };
+
+                if (this.chkFinanciada.Checked)
                 {
-                    Id = inmuebleSeleccionado.Id,
-                },
-                UsuarioVendedor = usuarioLogueado,
-                MontoTotal = Convert.ToInt32(txtMontoTotal.Text)
-            };
+                    if (Validador.ValidarTextBox(txtFinanciacion, txtMontoCuota, txtCantCuota))
+                    {
+                        venta.MontoCuota = float.Parse(txtMontoCuota.Text);
+                        venta.Financiacion = financiacionSeleccionada;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
 
-            if (this.chkFinanciada.Checked)
-            {
-                venta.MontoCuota = float.Parse(txtMontoCuota.Text);
-                venta.Financiacion = financiacionSeleccionada;
+                var resultado = ventaService.Grabar(venta);
+                if (resultado)
+                {
+                    MessageBox.Show("Se registro la venta");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se registro la venta");
+                }
+
             }
 
-            var resultado = ventaService.Grabar(venta);
-            if (resultado)
-            {
-                MessageBox.Show("Se registro la venta");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("No se registro la venta");
-            }
+
+            
         }
 
         private void frmABMCVenta_Load(object sender, EventArgs e)
         {
             habilitarCampos(false);
-
         }
 
         private void habilitarCampos(bool valor)
@@ -160,6 +153,12 @@ namespace TESTWF2020.GUILayer.ABM
             
         }
 
-
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
+        }
     }
 }

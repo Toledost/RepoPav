@@ -78,11 +78,12 @@ namespace TESTWF2020.GUILayer.ABM
 
             if (idConsultaSeleccionada > 0)
             {
-                CargarDatos();
+                CargarDatos();                
                 ConfigurarControles(false);
             }
             else
             {
+                this.txtIDConsulta.Enabled = false;
                 ConfigurarControles(true);
             }
             
@@ -136,23 +137,28 @@ namespace TESTWF2020.GUILayer.ABM
             this.btnEditar.Enabled = !habilitados;
             this.btnGrabar.Enabled = habilitados;
             this.btnElegir.Enabled = habilitados;
+            this.btnElegirCliente.Enabled = habilitados;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             ConfigurarControles(true);
+            this.txtIDConsulta.Enabled = false;
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {          
 
             if (Validador.ValidarComboBox(cboEstadoConsulta,cboIDMedioConocimiento,cboIDTipoTrans,cboViaConsulta) && 
-                Validador.ValidarTextBox(txtIDConsulta,txtDNICliente))
+                Validador.ValidarTextBox(txtIDInmueble,txtDNICliente))
             {
                 Consulta consulta = new Consulta
                 {

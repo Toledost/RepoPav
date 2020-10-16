@@ -73,6 +73,7 @@
             this.txtDireccionInmueble.ReadOnly = true;
             this.txtDireccionInmueble.Size = new System.Drawing.Size(196, 20);
             this.txtDireccionInmueble.TabIndex = 2;
+            this.txtDireccionInmueble.Tag = "Direccion Inmueble";
             // 
             // txtDniCliente
             // 
@@ -81,6 +82,7 @@
             this.txtDniCliente.ReadOnly = true;
             this.txtDniCliente.Size = new System.Drawing.Size(196, 20);
             this.txtDniCliente.TabIndex = 5;
+            this.txtDniCliente.Tag = "DNI Cliente";
             // 
             // lblDniCliente
             // 
@@ -141,6 +143,7 @@
             this.txtMontoTotal.ReadOnly = true;
             this.txtMontoTotal.Size = new System.Drawing.Size(113, 20);
             this.txtMontoTotal.TabIndex = 11;
+            this.txtMontoTotal.Tag = "Monto Total";
             // 
             // chkFinanciada
             // 
@@ -192,6 +195,7 @@
             this.txtMontoCuota.ReadOnly = true;
             this.txtMontoCuota.Size = new System.Drawing.Size(113, 20);
             this.txtMontoCuota.TabIndex = 16;
+            this.txtMontoCuota.Tag = "Monto Cuota";
             // 
             // lblMontoCuota
             // 
@@ -209,6 +213,7 @@
             this.txtFinanciacion.ReadOnly = true;
             this.txtFinanciacion.Size = new System.Drawing.Size(196, 20);
             this.txtFinanciacion.TabIndex = 7;
+            this.txtFinanciacion.Tag = "Nombre Financiacion";
             // 
             // lblFinanciacion
             // 
@@ -236,6 +241,7 @@
             this.txtCantCuota.ReadOnly = true;
             this.txtCantCuota.Size = new System.Drawing.Size(113, 20);
             this.txtCantCuota.TabIndex = 14;
+            this.txtCantCuota.Tag = "Cantidad de Cuotas";
             // 
             // lblCantCuota
             // 
@@ -265,6 +271,7 @@
             this.btnSalir.TabIndex = 19;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnSeleccionarConsulta
             // 

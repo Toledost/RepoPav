@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -69,54 +70,58 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text)))
+            if (Validador.ValidarTextBox(txtLegajo, txtNombre, txtApellido, txtUsuario))
             {
-                MessageBox.Show("Falta completar algún campo.");
-                return;
-            }
+                Empleado empleado = new Empleado
+                {
+                    Legajo = Convert.ToInt32(this.txtLegajo.Text),
+                    Nombre = this.txtNombre.Text,
+                    Apellido = this.txtApellido.Text,
+                    Usuario = new Usuario
+                    {
+                        Nombre = this.txtUsuario.Text
+                    }
+                };
 
-            Empleado empleado = new Empleado
-            {
-                Legajo = Convert.ToInt32(this.txtLegajo.Text),
-                Nombre = this.txtNombre.Text,
-                Apellido = this.txtApellido.Text,
-                Usuario = new Usuario
+                if (esNuevo)
                 {
-                    Nombre = this.txtUsuario.Text
+                    try
+                    {
+                        empleadoService.Create(empleado);
+                        MessageBox.Show("Empleado Creado.");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("El usuario ingresado es incorrecto. Error del tipo: " + ex.GetType().ToString());
+                    }
                 }
-            };
+                else
+                {
+                    try
+                    {
+                        empleadoService.Update(empleado, legajo);
+                        MessageBox.Show("Empleado editado");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("El usuario ingresado es incorrecto. Error del tipo: " + ex.GetType().ToString());
+                    }
+                }
 
-            if (esNuevo)
-            {
-                try
-                {
-                    empleadoService.Create(empleado);
-                    MessageBox.Show("Empleado Creado.");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("El usuario ingresado es incorrecto. Error del tipo: " + ex.GetType().ToString());
-                }
             }
-            else
-            {
-                try
-                {
-                    empleadoService.Update(empleado, legajo);
-                    MessageBox.Show("Empleado editado");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("El usuario ingresado es incorrecto. Error del tipo: " + ex.GetType().ToString());
-                }
-            }
+            
+
+           
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

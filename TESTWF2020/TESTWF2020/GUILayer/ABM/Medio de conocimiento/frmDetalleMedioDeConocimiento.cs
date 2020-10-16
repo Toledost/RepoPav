@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -32,8 +33,7 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("¿Seguro que desea salir sin grabar cambios?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if (dr == DialogResult.Yes)
+            if (Validador.ValidarSalir())
             {
                 this.Close();
             }
@@ -86,34 +86,31 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text)))
-
+            if (Validador.ValidarTextBox(txtNombre,txtDescripcion))
             {
-                MessageBox.Show("Falta completar algún campo");
-                return;
-            }
-
-            MedioDeConocimiento medio = new MedioDeConocimiento()
-            {
-                Id = (int)idMedioSeleccionado,
-                Nombre = this.txtNombre.Text,
-                Descripcion = this.txtDescripcion.Text
-            };
+                MedioDeConocimiento medio = new MedioDeConocimiento()
+                {
+                    Id = (int)idMedioSeleccionado,
+                    Nombre = this.txtNombre.Text,
+                    Descripcion = this.txtDescripcion.Text
+                };
 
 
-            if (idMedioSeleccionado == 0)
-            {
-                medioDeConocimientoService.Create(medio);
-                MessageBox.Show("Medio creado", "Crear Medio", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                if (idMedioSeleccionado == 0)
+                {
+                    medioDeConocimientoService.Create(medio);
+                    MessageBox.Show("Medio creado", "Crear Medio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-            else
-            {
-                medioDeConocimientoService.Update(medio);
-                MessageBox.Show("Medio actualizado", "Actualizar Medio", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                else
+                {
+                    medioDeConocimientoService.Update(medio);
+                    MessageBox.Show("Medio actualizado", "Actualizar Medio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-            this.Close();
+                this.Close();
+
+            }            
         }
     }
 }

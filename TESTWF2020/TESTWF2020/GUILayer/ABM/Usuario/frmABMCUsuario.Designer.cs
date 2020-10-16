@@ -45,6 +45,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.Tag = "Nombre";
             // 
             // txtContraseña
             // 
@@ -52,6 +53,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(100, 20);
             this.txtContraseña.TabIndex = 1;
+            this.txtContraseña.Tag = "Contraseña";
             // 
             // cboPerfil
             // 
@@ -60,6 +62,7 @@
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(121, 21);
             this.cboPerfil.TabIndex = 2;
+            this.cboPerfil.Tag = "Perfil";
             // 
             // lblContraseña
             // 

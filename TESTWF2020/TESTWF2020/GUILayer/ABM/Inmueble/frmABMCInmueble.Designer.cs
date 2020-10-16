@@ -164,6 +164,7 @@
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(100, 20);
             this.txtCalle.TabIndex = 12;
+            this.txtCalle.Tag = "Calle";
             // 
             // txtNro
             // 
@@ -171,6 +172,7 @@
             this.txtNro.Name = "txtNro";
             this.txtNro.Size = new System.Drawing.Size(100, 20);
             this.txtNro.TabIndex = 13;
+            this.txtNro.Tag = "Numero";
             // 
             // txtMetrosCuadrados
             // 
@@ -178,6 +180,7 @@
             this.txtMetrosCuadrados.Name = "txtMetrosCuadrados";
             this.txtMetrosCuadrados.Size = new System.Drawing.Size(100, 20);
             this.txtMetrosCuadrados.TabIndex = 14;
+            this.txtMetrosCuadrados.Tag = "Metros Cuadrados";
             // 
             // txtBaños
             // 
@@ -185,6 +188,7 @@
             this.txtBaños.Name = "txtBaños";
             this.txtBaños.Size = new System.Drawing.Size(100, 20);
             this.txtBaños.TabIndex = 15;
+            this.txtBaños.Tag = "Baños";
             // 
             // txtHabitaciones
             // 
@@ -192,6 +196,7 @@
             this.txtHabitaciones.Name = "txtHabitaciones";
             this.txtHabitaciones.Size = new System.Drawing.Size(100, 20);
             this.txtHabitaciones.TabIndex = 16;
+            this.txtHabitaciones.Tag = "Habitaciones";
             // 
             // txtMontoAlq
             // 
@@ -199,6 +204,7 @@
             this.txtMontoAlq.Name = "txtMontoAlq";
             this.txtMontoAlq.Size = new System.Drawing.Size(100, 20);
             this.txtMontoAlq.TabIndex = 17;
+            this.txtMontoAlq.Tag = "Monto Alquiler";
             // 
             // txtMontoVta
             // 
@@ -206,6 +212,7 @@
             this.txtMontoVta.Name = "txtMontoVta";
             this.txtMontoVta.Size = new System.Drawing.Size(100, 20);
             this.txtMontoVta.TabIndex = 18;
+            this.txtMontoVta.Tag = "Monto Venta";
             // 
             // txtDescripcion
             // 
@@ -215,6 +222,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 60);
             this.txtDescripcion.TabIndex = 19;
+            this.txtDescripcion.Tag = "Descripcion";
             // 
             // dataGridView1
             // 
@@ -269,6 +277,7 @@
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(100, 21);
             this.cboEstado.TabIndex = 21;
+            this.cboEstado.Tag = "Estado Actual";
             // 
             // btnEditar
             // 
@@ -311,6 +320,7 @@
             this.cboTipoInmueble.Name = "cboTipoInmueble";
             this.cboTipoInmueble.Size = new System.Drawing.Size(100, 21);
             this.cboTipoInmueble.TabIndex = 25;
+            this.cboTipoInmueble.Tag = "Tipo";
             // 
             // frmABMCInmueble
             // 

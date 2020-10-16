@@ -15,7 +15,7 @@ namespace TESTWF2020.Utilities
             {
                 if (string.IsNullOrEmpty(txt.Text) || txt.Text == "0")
                 {
-                    MessageBox.Show($"Falta completar {txt.Tag}");
+                    MessageBox.Show($"Falta completar {txt.Tag}", "Completar campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -28,11 +28,22 @@ namespace TESTWF2020.Utilities
             {
                 if (combo.SelectedIndex == -1)
                 {
-                    MessageBox.Show($"Falta completar {combo.Tag}");
+                    MessageBox.Show($"Falta completar {combo.Tag}", "Completar campos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
             return true;
+        }
+
+        public static bool ValidarSalir()
+        {
+            DialogResult dr = MessageBox.Show("¿Seguro que desea salir sin grabar cambios?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

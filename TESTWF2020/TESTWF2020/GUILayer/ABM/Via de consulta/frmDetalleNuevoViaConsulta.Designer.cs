@@ -45,6 +45,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 11;
+            this.txtNombre.Tag = "Nombre";
             // 
             // txtDescripcion
             // 
@@ -53,6 +54,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(159, 70);
             this.txtDescripcion.TabIndex = 10;
+            this.txtDescripcion.Tag = "Descripcion";
             // 
             // txtIdViaDeConsulta
             // 
