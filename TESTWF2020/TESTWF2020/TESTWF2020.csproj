@@ -309,6 +309,34 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Imagenes\CASAFELIZ.png" />
+    <None Include="Resources\LOGO.png" />
+    <None Include="Resources\TEXTO.png" />
+    <None Include="Resources\TEXTO1.png" />
+    <None Include="Resources\TEXTO2.png" />
+    <None Include="Resources\TEXTO3.png" />
+    <None Include="Resources\botonentrar.png" />
+    <None Include="Resources\salir.png" />
+    <None Include="Resources\fondo.jpg" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\fondo2.jpg" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\business+costume+male+man+office+user+icon-1320196264882354682.png" />
+    <None Include="Resources\icons8-salida-96.png" />
+    <None Include="Resources\icons8-cerrar-ventana-96.png" />
+    <None Include="Resources\icons8-repositorio-96.png" />
+    <None Include="Resources\fgfg.png" />
+    <None Include="Resources\icons8-vender-propiedad-96.png" />
+    <None Include="Resources\icons8-gráfico-combinado-96.png" />
+    <None Include="Resources\icons8-tarjeta-de-fidelidad-96.png" />
+    <None Include="Resources\user2.png" />
+    <None Include="Resources\icons8-mano-amiga-96.png" />
+    <None Include="Resources\icons8-administrador-del-hombre-48.png" />
+    <None Include="Resources\icons8-tarjeta-de-fidelidad-961.png" />
+    <None Include="Resources\icons8-vender-propiedad-961.png" />
+    <None Include="Resources\icons8-ciudad-96.png" />
+    <None Include="Resources\icons8-mano-amiga-961.png" />
+    <None Include="Resources\icons8-gráfico-combinado-48.png" />
+    <None Include="Resources\icons8-repositorio-961.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
