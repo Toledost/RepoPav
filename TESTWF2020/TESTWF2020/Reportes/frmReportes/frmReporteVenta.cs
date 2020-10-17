@@ -31,7 +31,8 @@ namespace TESTWF2020.Reportes.frmReportes
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string idInmueble,clienteNombre,clienteApellido = "";
-            if (dtpFechaDesde.Value != dtpFechaHasta.Value)
+            var fecha = DateTime.Compare(dtpFechaDesde.Value.Date, dtpFechaHasta.Value.Date);
+            if (fecha!=0)
             {
                 if (dtpFechaDesde.Value > dtpFechaHasta.Value)
                 {
@@ -87,7 +88,7 @@ namespace TESTWF2020.Reportes.frmReportes
                 dict.Add("apellidoComprador", txtApellidoComprador.Text);
             }
 
-            if (!(dtpFechaDesde.Value == dtpFechaHasta.Value))
+            if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
                 dict.Add("fechaVentaDesde", dtpFechaDesde.Value.ToString("yyyyMMdd"));
                 dict.Add("fechaVentaHasta", dtpFechaHasta.Value.ToString("yyyyMMdd"));

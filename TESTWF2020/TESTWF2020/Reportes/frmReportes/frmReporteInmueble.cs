@@ -42,15 +42,16 @@ namespace TESTWF2020.Reportes.frmReportes
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string inmueble = "";
-            //if (dtpFechaDesde.Value != dtpFechaHasta.Value)
-            //{
-            //    if (dtpFechaDesde.Value > dtpFechaHasta.Value)
-            //    {
-            //        MessageBox.Show("Fechas erroneas!!!");
-            //        return;
-            //    }
-            //}
-            
+            var fecha = DateTime.Compare(dtpFechaDesde.Value.Date, dtpFechaHasta.Value.Date);
+            if (fecha != 0)
+            {
+                if (dtpFechaDesde.Value > dtpFechaHasta.Value)
+                {
+                    MessageBox.Show("Fechas erroneas!!!");
+                    return;
+                }
+            }
+
             if (!string.IsNullOrEmpty(txtIdInmueble.Text))
             {
                 inmueble = txtIdInmueble.Text;
@@ -84,7 +85,7 @@ namespace TESTWF2020.Reportes.frmReportes
                 dict.Add("idInmueble", txtIdInmueble.Text);
             }
 
-            if (!(dtpFechaDesde.Value == dtpFechaHasta.Value))
+            if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
                 dict.Add("fechaDesde", dtpFechaDesde.Value.ToString("yyyyMMdd"));
                 dict.Add("fechaHasta", dtpFechaHasta.Value.ToString("yyyyMMdd"));
