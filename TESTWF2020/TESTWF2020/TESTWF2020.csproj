@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetCuotas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
@@ -325,6 +330,7 @@
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteVenta.resx">
       <DependentUpon>frmReporteVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reportes\rptCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptInmueble.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptVenta.rdlc" />
     <None Include="BDInmobiliariaCasaFelizDataSet.xsc">
@@ -337,6 +343,17 @@
     </None>
     <None Include="BDInmobiliariaCasaFelizDataSet.xss">
       <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuotas.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuotas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetCuotas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuotas.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
     </None>
     <None Include="InmuebleEstado.xsc">
       <DependentUpon>InmuebleEstado.xsd</DependentUpon>
