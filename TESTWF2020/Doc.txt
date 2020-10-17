@@ -1,0 +1,6 @@
+	Para poder desarrollar un Software de Gestión para una inmobiliaria, los 4 integrantes del equipo trabajamos en un mismo repositorio alojado en GitHub. 
+	Partiendo de una rama "master" y una rama "dev", para cada funcionalidad que debíamos agregar, como ser una nueva pantalla de ABMC de alguna entidad, creábamos una nueva rama con el nombre de dicha funcionalidad. Una vez completado, se hacía un Pull Request a "dev", para que se una todo el código en un mismo lugar.
+	Cada integrante del equipo desarrolló en promedio dos ABMC y en conjunto se trabajó con las transacciones del sistema. Luego otro integrante realizaba el testeo manual de lo que se realizaba.
+	Para los datos se utilizó una base de datos relacional Microsoft SQL Server, que se accede de manera remota alojada en la PC de uno de los integrantes, teniendo además el resto una copia local en su máquina, por cualquier inconveniente o no encontrarse disponible el acceso remoto.
+	Para la interfaz se utilizó el motor de WinForm de Visual Studio, separando cada entidad (y a su vez su consulta general y ABM) en su propio Form.
+	Se utilizó como patrón de arquitectura el desarrollo en capas (Layered), para lograr una correcta separación de conceptos en cuanto al papel de las clases, distribuyendo cada una en la capa correspondiente.

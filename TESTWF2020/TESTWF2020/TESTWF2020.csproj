@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +75,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BusinessLayer\CuotaService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="BusinessLayer\ViaDeConsultaService.cs" />
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
+    <Compile Include="DataAccessLayer\CuotaDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
@@ -107,6 +110,7 @@
     <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="DataAccessLayer\VentaDao.cs" />
+    <Compile Include="Entities\Cuota.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
@@ -123,106 +127,118 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\Venta.cs" />
     <Compile Include="Entities\ViaDeConsulta.cs" />
-    <Compile Include="GUILayer\ABM\frmABMCConsultas.cs">
+    <Compile Include="GUILayer\ABM\Cuota\frmCuotasDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCConsultas.Designer.cs">
+    <Compile Include="GUILayer\ABM\Cuota\frmCuotasDetalle.Designer.cs">
+      <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Consulta\frmABMCConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Consulta\frmABMCConsultas.Designer.cs">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCEmpleado.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmABMCEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCEmpleado.Designer.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmABMCEmpleado.Designer.cs">
       <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCInmueble.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmABMCInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCUsuario.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmABMCUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCUsuario.Designer.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmABMCUsuario.Designer.cs">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCVenta.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmABMCVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCVenta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmABMCVenta.Designer.cs">
       <DependentUpon>frmABMCVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmGeneralUsuario.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmGeneralUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmGeneralUsuario.Designer.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmGeneralUsuario.Designer.cs">
       <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCliente.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCliente.Designer.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmABMCliente.Designer.cs">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmConsultarClientes.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmConsultarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmConsultarClientes.Designer.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmConsultarClientes.Designer.cs">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmVentaGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.Designer.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmVentaGeneral.Designer.cs">
+      <DependentUpon>frmVentaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Financiacion\frmConsultaFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Financiacion\frmConsultaFinanciacion.Designer.cs">
       <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.cs">
+    <Compile Include="GUILayer\ABM\Financiacion\frmDetalleFinanciacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.Designer.cs">
+    <Compile Include="GUILayer\ABM\Financiacion\frmDetalleFinanciacion.Designer.cs">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmEmpleados.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmEmpleados.Designer.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmABMCMedioDeConocimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.Designer.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmABMCMedioDeConocimiento.Designer.cs">
       <DependentUpon>frmABMCMedioDeConocimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleConsulta.cs">
+    <Compile Include="GUILayer\ABM\Consulta\frmDetalleConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleConsulta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Consulta\frmDetalleConsulta.Designer.cs">
       <DependentUpon>frmDetalleConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmDetalleMedioDeConocimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.Designer.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmDetalleMedioDeConocimiento.Designer.cs">
       <DependentUpon>frmDetalleMedioDeConocimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmABMCViaDeConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmABMCViaDeConsulta.Designer.cs">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmDetalleNuevoViaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmDetalleNuevoViaConsulta.Designer.cs">
       <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmInmuebles.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmInmuebles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmInmuebles.Designer.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmInmuebles.Designer.cs">
       <DependentUpon>frmInmuebles.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmPrincipal.cs">
@@ -258,54 +274,62 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
+    <Compile Include="Utilities\Validador.cs" />
+    <EmbeddedResource Include="GUILayer\ABM\Cuota\frmCuotasDetalle.resx">
+      <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\Consulta\frmABMCConsultas.resx">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCEmpleado.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Empleado\frmABMCEmpleado.resx">
       <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCInmueble.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Inmueble\frmABMCInmueble.resx">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCVenta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Venta\frmABMCVenta.resx">
       <DependentUpon>frmABMCVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Venta\frmVentaGeneral.resx">
+      <DependentUpon>frmVentaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\Empleado\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCliente.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Cliente\frmABMCliente.resx">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmConsultarClientes.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Cliente\frmConsultarClientes.resx">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Financiacion\frmConsultaFinanciacion.resx">
       <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Financiacion\frmDetalleFinanciacion.resx">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCUsuario.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Usuario\frmABMCUsuario.resx">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmGeneralUsuario.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Usuario\frmGeneralUsuario.resx">
       <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCViaDeConsulta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Via de consulta\frmABMCViaDeConsulta.resx">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmDetalleConsulta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Consulta\frmDetalleConsulta.resx">
       <DependentUpon>frmDetalleConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Via de consulta\frmDetalleNuevoViaConsulta.resx">
       <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCMedioDeConocimiento.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Medio de conocimiento\frmABMCMedioDeConocimiento.resx">
       <DependentUpon>frmABMCMedioDeConocimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Medio de conocimiento\frmDetalleMedioDeConocimiento.resx">
       <DependentUpon>frmDetalleMedioDeConocimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Inmueble\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
