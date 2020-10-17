@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -34,7 +35,10 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void frmABMCliente_Load(object sender, EventArgs e)
@@ -89,54 +93,55 @@ namespace TESTWF2020.GUILayer.ABM
             this.txtTelefono.Text = clienteSeleccionado.Telefono.ToString();
         }
 
+
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text))
-                || Controls.OfType<ComboBox>().Any(x => x.SelectedIndex < 0))
-            {
-                MessageBox.Show("Falta completar algún campo");
-                return;
-            }
 
-            Cliente cliente = new Cliente()
+            if (Validador.ValidarTextBox(txtDni, txtNombre, txtApellido, txtMail, txtTelefono))
             {
-                Dni = Convert.ToInt32(this.txtDni.Text),
-                Nombre = this.txtNombre.Text,
-                Apellido = this.txtApellido.Text,
-                Mail = this.txtMail.Text,
-                Telefono = Convert.ToInt64(this.txtTelefono.Text)
-            };
-
-
-            if (dniClienteSeleccionado == 0)
-            {
-                                
-                var res = clienteService.GetByDni(cliente.Dni, true);
-                if (res == null)
+                Cliente cliente = new Cliente()
                 {
-                    clienteService.Create(cliente);
-                    MessageBox.Show("Cliente creado", "Crear cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Dni = Convert.ToInt32(this.txtDni.Text),
+                    Nombre = this.txtNombre.Text,
+                    Apellido = this.txtApellido.Text,
+                    Mail = this.txtMail.Text,
+                    Telefono = Convert.ToInt64(this.txtTelefono.Text)
+                };
+
+
+                if (dniClienteSeleccionado == 0)
+                {
+
+                    var res = clienteService.GetByDni(cliente.Dni, true);
+                    if (res == null)
+                    {
+                        clienteService.Create(cliente);
+                        MessageBox.Show("Cliente creado", "Crear cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        DialogResult dr = MessageBox.Show("Este cliente fue eliminado anteriormente ¿Desea restablecerlo?", "Recuperar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (dr == DialogResult.Yes)
+                        {
+                            clienteService.Recuperar(res);
+                            MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
                 }
+
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Este cliente fue eliminado anteriormente ¿Desea restablecerlo?", "Recuperar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (dr == DialogResult.Yes)
-                    {
-                        clienteService.Recuperar(res);
-                        MessageBox.Show("Cliente restablecido", "Recuperar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }                   
-                }                
-                
-               
-            }
+                    clienteService.Update(cliente);
+                    MessageBox.Show("Cliente actualizado", "Actualizar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
+                this.Close();
+            }
             else
             {
-                clienteService.Update(cliente);
-                MessageBox.Show("Cliente actualizado", "Actualizar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-
-            this.Close();
+            
         }
     }
 }

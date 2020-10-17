@@ -109,23 +109,19 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-            try
+
+            if(dgvFinanciacion.SelectedRows.Count == 1)
             {
-                if(dgvFinanciacion.CurrentRow.Cells["IdFinanciacion"].Value != null)
-                {
-                    int idFinanciacionElegida = (int)dgvFinanciacion.CurrentRow.Cells["IdFinanciacion"].Value;
+                int idFinanciacionElegida = (int)dgvFinanciacion.CurrentRow.Cells["Id"].Value;
 
-                    if (idFinanciacionElegida > -1)
-                    {
-                        frmDetalleFinanciacion frmDetalleFinanciacion = new frmDetalleFinanciacion(idFinanciacionElegida);
-                        frmDetalleFinanciacion.ShowDialog();
-                    }
-                }
-
+                frmDetalleFinanciacion frmDetalleFinanciacion = new frmDetalleFinanciacion(idFinanciacionElegida);
+                this.Hide();
+                frmDetalleFinanciacion.ShowDialog();
+                
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("No seleccionó ninguna Financiación");
             }
 
         }

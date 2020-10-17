@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.ABM
 {
@@ -39,15 +40,15 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void frmDetalleNuevoViaConsulta_Load(object sender, EventArgs e)
         {
+            
             if (esNuevo)
             {
                 this.btnEditar.Enabled = false;
                 this.txtIdViaDeConsulta.Enabled = false;
-                
             }
             else
             {
-                this.btnGrabar.Enabled = false;
+                this.btnGrabar.Enabled = false;                
                 ViaDeConsulta viaDeConsulta = viaDeConsultaService.GetById(idViaConsulta);
                 CargarTextBox(viaDeConsulta);
                 DeshabilitarCampos();
@@ -72,7 +73,10 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -97,37 +101,33 @@ namespace TESTWF2020.GUILayer.ABM
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
-        {
-            //if (Controls.OfType<TextBox>().Any(x => x.Visible && string.IsNullOrWhiteSpace(x.Text))
-            //    || Controls.OfType<ComboBox>().Any(x => x.SelectedIndex < 0))
-            if(string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+        {          
+            if(Validador.ValidarTextBox(txtNombre,txtDescripcion))
             {
-                MessageBox.Show("Falta completar algún campo");
-                return;
+                ViaDeConsulta viaDeConsulta = new ViaDeConsulta
+                {
+                    //Id = Convert.ToInt32(this.txtIdViaDeConsulta.Text),
+                    Nombre = this.txtNombre.Text,
+                    Descripcion = this.txtDescripcion.Text
+                };
+
+                if (esNuevo)
+                {
+
+                    viaDeConsultaService.Create(viaDeConsulta);
+                    MessageBox.Show("Via de consulta Creada");
+                    this.Close();
+
+                }
+                else
+                {
+                    viaDeConsultaService.UpDate(viaDeConsulta);
+                    MessageBox.Show("Via de consulta Editada");
+                    this.Close();
+
+                }
             }
 
-            ViaDeConsulta viaDeConsulta = new ViaDeConsulta
-            {
-                //Id = Convert.ToInt32(this.txtIdViaDeConsulta.Text),
-                Nombre = this.txtNombre.Text,
-                Descripcion = this.txtDescripcion.Text
-            };
-
-            if (esNuevo)
-            {
-                
-                viaDeConsultaService.Create(viaDeConsulta);
-                MessageBox.Show("Creado");
-                this.Close();
-                
-            }
-            else
-            {
-                viaDeConsultaService.UpDate(viaDeConsulta);
-                MessageBox.Show("Editado");
-                this.Close();
-                
-            }
         }
     }
 }

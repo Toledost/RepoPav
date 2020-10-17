@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Entities;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.GUILayer.FORMFinanciacion
 {
@@ -32,7 +33,10 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validador.ValidarSalir())
+            {
+                this.Close();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -69,30 +73,29 @@ namespace TESTWF2020.GUILayer.FORMFinanciacion
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Controls.OfType<TextBox>().Any(x => string.IsNullOrWhiteSpace(x.Text)))
+            if (Validador.ValidarTextBox(txtNombre,txtPorcAumento, txtCantCuotas))
             {
-                MessageBox.Show("Falta completar campos");
+                Financiacion newFinanciacion = new Financiacion
+                {
+                    Nombre = txtNombre.Text,
+                    PorcentajeAumento = Convert.ToInt32(txtPorcAumento.Text),
+                    CantidadCuotas = Convert.ToInt32(txtCantCuotas.Text)
+                };
+
+                if (idFinanciacionElegida == 0)
+                {
+                    var resultado = financiacionService.Create(newFinanciacion);
+                    MessageBox.Show("Creado");
+                }
+                else
+                {
+                    newFinanciacion.IdFinanciacion = idFinanciacionElegida;
+                    var res = financiacionService.Update(newFinanciacion);
+                    MessageBox.Show("Editado");
+                }
+                this.Close();
             }
 
-            Financiacion newFinanciacion = new Financiacion
-            {
-                Nombre = txtNombre.Text,
-                PorcentajeAumento = Convert.ToInt32(txtPorcAumento.Text),
-                CantidadCuotas = Convert.ToInt32(txtCantCuotas.Text)
-            };
-
-            if (idFinanciacionElegida == 0)
-            {
-                var resultado = financiacionService.Create(newFinanciacion);
-                MessageBox.Show("Creado");
-            }
-            else
-            {
-                newFinanciacion.IdFinanciacion = idFinanciacionElegida;
-                var res = financiacionService.Update(newFinanciacion);
-                MessageBox.Show("Editado");
-            }
-            this.Close();
         }
     }
 }

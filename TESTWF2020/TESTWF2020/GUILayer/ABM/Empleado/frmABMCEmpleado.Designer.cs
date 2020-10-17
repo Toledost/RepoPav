@@ -63,6 +63,7 @@
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(171, 20);
             this.txtLegajo.TabIndex = 1;
+            this.txtLegajo.Tag = "Legajo";
             // 
             // txtApellido
             // 
@@ -71,6 +72,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(171, 20);
             this.txtApellido.TabIndex = 2;
+            this.txtApellido.Tag = "Apellido";
             // 
             // txtNombre
             // 
@@ -79,6 +81,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(171, 20);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.Tag = "Nombre";
             // 
             // txtUsuario
             // 
@@ -88,6 +91,7 @@
             this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(171, 20);
             this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.Tag = "Usuario";
             // 
             // lblLegajo
             // 

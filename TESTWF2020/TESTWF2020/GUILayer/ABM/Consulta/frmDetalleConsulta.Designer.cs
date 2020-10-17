@@ -52,35 +52,43 @@
             // 
             // cboEstadoConsulta
             // 
+            this.cboEstadoConsulta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoConsulta.FormattingEnabled = true;
             this.cboEstadoConsulta.Location = new System.Drawing.Point(515, 138);
             this.cboEstadoConsulta.Name = "cboEstadoConsulta";
             this.cboEstadoConsulta.Size = new System.Drawing.Size(121, 21);
             this.cboEstadoConsulta.TabIndex = 102;
+            this.cboEstadoConsulta.Tag = "Estado de Consulta";
             // 
             // cboViaConsulta
             // 
+            this.cboViaConsulta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboViaConsulta.FormattingEnabled = true;
             this.cboViaConsulta.Location = new System.Drawing.Point(515, 91);
             this.cboViaConsulta.Name = "cboViaConsulta";
             this.cboViaConsulta.Size = new System.Drawing.Size(121, 21);
             this.cboViaConsulta.TabIndex = 101;
+            this.cboViaConsulta.Tag = "Via de Consulta";
             // 
             // cboIDMedioConocimiento
             // 
+            this.cboIDMedioConocimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIDMedioConocimiento.FormattingEnabled = true;
             this.cboIDMedioConocimiento.Location = new System.Drawing.Point(515, 41);
             this.cboIDMedioConocimiento.Name = "cboIDMedioConocimiento";
             this.cboIDMedioConocimiento.Size = new System.Drawing.Size(121, 21);
             this.cboIDMedioConocimiento.TabIndex = 100;
+            this.cboIDMedioConocimiento.Tag = "Medio de Conocimiento";
             // 
             // cboIDTipoTrans
             // 
+            this.cboIDTipoTrans.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIDTipoTrans.FormattingEnabled = true;
             this.cboIDTipoTrans.Location = new System.Drawing.Point(217, 91);
             this.cboIDTipoTrans.Name = "cboIDTipoTrans";
             this.cboIDTipoTrans.Size = new System.Drawing.Size(121, 21);
             this.cboIDTipoTrans.TabIndex = 99;
+            this.cboIDTipoTrans.Tag = "Tipo Transaccion";
             // 
             // txtDNICliente
             // 
@@ -89,6 +97,7 @@
             this.txtDNICliente.ReadOnly = true;
             this.txtDNICliente.Size = new System.Drawing.Size(58, 20);
             this.txtDNICliente.TabIndex = 95;
+            this.txtDNICliente.Tag = "Dni Cliente";
             // 
             // txtIDInmueble
             // 
@@ -97,6 +106,7 @@
             this.txtIDInmueble.ReadOnly = true;
             this.txtIDInmueble.Size = new System.Drawing.Size(58, 20);
             this.txtIDInmueble.TabIndex = 94;
+            this.txtIDInmueble.Tag = "Inmueble";
             // 
             // txtIDConsulta
             // 
