@@ -273,7 +273,6 @@
       <DependentUpon>frmReporteVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
     <Compile Include="Utilities\Validador.cs" />
     <EmbeddedResource Include="GUILayer\ABM\Cuota\frmCuotasDetalle.resx">
       <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
