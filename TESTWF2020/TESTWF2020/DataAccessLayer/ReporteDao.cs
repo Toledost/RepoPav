@@ -30,6 +30,19 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetVentasPorMes()
+        {
+            string consultaSql = "SELECT count(idVenta) AS VentasRealizadas, " +
+                "MONTH(fechaVenta) AS Mes " +
+                "FROM Venta " +
+                "GROUP BY month(fechaVenta)";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetByFiltersRptVenta(Dictionary<string, object> diccParametros)
         {
             string consultaSQL = "SELECT Venta.idVenta, " +

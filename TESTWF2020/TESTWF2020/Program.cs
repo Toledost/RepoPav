@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TESTWF2020.Reportes.frmEstadisticas;
 using TESTWF2020.Reportes.frmReportes;
 
 namespace TESTWF2020
@@ -17,7 +18,7 @@ namespace TESTWF2020
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmReporteVenta());
         }
     }
 }

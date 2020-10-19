@@ -42,8 +42,8 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInmuebleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.reporteDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -166,6 +166,13 @@
             this.reporteDeInmuebleToolStripMenuItem.Text = "Reporte de inmueble";
             this.reporteDeInmuebleToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInmuebleToolStripMenuItem_Click);
             // 
+            // reporteDeVentasToolStripMenuItem
+            // 
+            this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
+            this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.reporteDeVentasToolStripMenuItem.Text = "Reporte de ventas";
+            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TESTWF2020.Properties.Resources.CASAFELIZ;
@@ -175,13 +182,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // reporteDeVentasToolStripMenuItem
-            // 
-            this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
-            this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.reporteDeVentasToolStripMenuItem.Text = "Reporte de ventas";
-            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 

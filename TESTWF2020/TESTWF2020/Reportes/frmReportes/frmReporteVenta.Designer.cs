@@ -172,6 +172,7 @@
             this.btnGrafico.TabIndex = 12;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // tablaVentaBindingSource
             // 

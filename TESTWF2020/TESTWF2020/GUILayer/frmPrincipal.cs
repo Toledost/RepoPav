@@ -126,5 +126,7 @@ namespace TESTWF2020
             frmReporteVenta.ShowDialog();
             this.Show();
         }
+
+        
     }
 }
