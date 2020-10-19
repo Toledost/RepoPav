@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmCuotaEstadistica";
-            this.Text = "frmCuotaEstadistica";
+            this.Text = "Estadisticas de cuotas";
             this.Load += new System.EventHandler(this.frmCuotaEstadistica_Load);
             this.ResumeLayout(false);
 
