@@ -30,6 +30,54 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetByFiltersRptConsultaInmueble(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT " +
+                "Inmueble.idInmueble, " +
+                "Inmueble.calle, " +
+                "Inmueble.calleNro, " +
+                "MedioConocimiento.nombre AS MedioConocimiento, " +
+                "Consulta.idConsulta, " +
+                "Consulta.fechaCreada, " +
+                "Cliente.nombre AS NombreCliente, " +
+                "Cliente.apellido, " +
+                "EstadoConsulta.nombre AS EstadoConsulta " +
+                "FROM Cliente " +
+                "INNER JOIN Consulta ON Cliente.dni = Consulta.dniCliente " +
+                "INNER JOIN Inmueble ON Consulta.idInmueble = Inmueble.idInmueble " +
+                "INNER JOIN MedioConocimiento ON Consulta.idMedioConocimiento = MedioConocimiento.idMedioConocimiento " +
+                "INNER JOIN EstadoConsulta ON Consulta.idEstadoConsulta = EstadoConsulta.idEstadoConsulta ";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosConsultaInmueble(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
+        private string AgregarParametrosConsultaInmueble(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("calleInmueble"))
+                consultaSQL += " AND (Inmueble.calle LIKE '%' + @calleInmueble + '%') ";
+
+            if (diccParametros.ContainsKey("fechaConsultaDesde"))
+                consultaSQL += " AND (Consulta.fechaCreada BETWEEN @fechaConsultaDesde AND @fechaConsultaHasta) ";
+
+            if (diccParametros.ContainsKey("nombreCliente"))
+                consultaSQL += " AND (Cliente.nombre LIKE '%' + @nombreCliente + '%') ";
+
+            if (diccParametros.ContainsKey("apellidoCliente"))
+                consultaSQL += " AND (Cliente.apellido LIKE '%' + @apellidoCliente + '%') ";
+
+            if (diccParametros.ContainsKey("medioConocimiento"))
+                consultaSQL += " AND (MedioConocimiento.idMedioConocimiento = @medioConocimiento ) ";
+
+            if (diccParametros.ContainsKey("estadoConsulta"))
+                consultaSQL += " AND (EstadoConsulta.idEstadoConsulta = @estadoConsulta) ";
+
+            return consultaSQL;
+        }
+
         internal DataTable GetByFiltersRptVenta(Dictionary<string, object> diccParametros)
         {
             string consultaSQL = "SELECT Venta.idVenta, " +
