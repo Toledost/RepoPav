@@ -353,6 +353,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticasCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteCuota.resx">
       <DependentUpon>frmReporteCuota.cs</DependentUpon>
     </EmbeddedResource>
