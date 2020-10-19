@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TESTWF2020.GUILayer.ABM;
 using TESTWF2020.Reportes.frmReportes;
 
 namespace TESTWF2020
