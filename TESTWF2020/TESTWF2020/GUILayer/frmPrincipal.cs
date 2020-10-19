@@ -126,7 +126,7 @@ namespace TESTWF2020
             frmReporteVenta.ShowDialog();
             this.Show();
         }
-
+        
         private void cuotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteCuota frmReporteCuota = new frmReporteCuota();

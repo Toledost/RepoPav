@@ -30,6 +30,39 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetDiasPorEstado()
+        {
+            string consultaSql = "SELECT Inmueble.idInmueble,  " +
+                "EstadoInmueble.nombre AS Estado, " +
+                "DATEDIFF(day, HistorialEstado.fechaInicio,HistorialEstado.fechaFin) AS Dias " +
+                "FROM EstadoInmueble " +
+                "INNER JOIN HistorialEstado ON EstadoInmueble.idEstadoInmueble = HistorialEstado.idEstadoInmueble " +
+                "INNER JOIN Inmueble ON HistorialEstado.idInmueble = Inmueble.idInmueble " +
+                "GROUP BY Inmueble.idInmueble, " +
+                "HistorialEstado.fechaInicio, " +
+                "HistorialEstado.fechaFin, " +
+                "HistorialEstado.idEstadoInmueble, " +
+                "EstadoInmueble.nombre";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
+        internal DataTable GetVentasPorMes()
+        {
+            string consultaSql = "SELECT count(idVenta) AS VentasRealizadas, " +
+                "MONTH(fechaVenta) AS Mes " +
+                "FROM Venta " +
+                "GROUP BY month(fechaVenta)";
+            
+          var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+      
         internal DataTable GetCuotasByDireccion()
         {
             string consultaSql = "select " +
@@ -69,6 +102,7 @@ namespace TESTWF2020.DataAccessLayer
 
             return busqueda;
         }
+      
         internal DataTable GetByFiltersRptCuota(Dictionary<string, object> diccParametros)
         {
             string consultaSQL = "SELECT Cuota.nroCuota, " +

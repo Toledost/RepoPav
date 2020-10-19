@@ -44,7 +44,7 @@ FROM            Inmueble INNER JOIN
   <xs:element name="BDInmobiliariaCasaFelizDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSet" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tablaVenta" msprop:Generator_TableClassName="tablaVentaDataTable" msprop:Generator_TableVarName="tabletablaVenta" msprop:Generator_TablePropName="tablaVenta" msprop:Generator_RowDeletingName="tablaVentaRowDeleting" msprop:Generator_RowChangingName="tablaVentaRowChanging" msprop:Generator_RowEvHandlerName="tablaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaVentaRowDeleted" msprop:Generator_UserTableName="tablaVenta" msprop:Generator_RowChangedName="tablaVentaRowChanged" msprop:Generator_RowEvArgName="tablaVentaRowChangeEvent" msprop:Generator_RowClassName="tablaVentaRow">
+        <xs:element name="tablaVenta" msprop:Generator_TableClassName="tablaVentaDataTable" msprop:Generator_TableVarName="tabletablaVenta" msprop:Generator_RowChangedName="tablaVentaRowChanged" msprop:Generator_TablePropName="tablaVenta" msprop:Generator_RowDeletingName="tablaVentaRowDeleting" msprop:Generator_RowChangingName="tablaVentaRowChanging" msprop:Generator_RowEvHandlerName="tablaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaVentaRowDeleted" msprop:Generator_RowClassName="tablaVentaRow" msprop:Generator_UserTableName="tablaVenta" msprop:Generator_RowEvArgName="tablaVentaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idVenta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidVenta" msprop:Generator_ColumnPropNameInRow="idVenta" msprop:Generator_ColumnPropNameInTable="idVentaColumn" msprop:Generator_UserColumnName="idVenta" type="xs:int" />
@@ -75,6 +75,14 @@ FROM            Inmueble INNER JOIN
               <xs:element name="fechaEntrega" msprop:Generator_ColumnVarNameInTable="columnfechaEntrega" msprop:Generator_ColumnPropNameInRow="fechaEntrega" msprop:Generator_ColumnPropNameInTable="fechaEntregaColumn" msprop:Generator_UserColumnName="fechaEntrega" type="xs:dateTime" minOccurs="0" />
               <xs:element name="montoCuota" msprop:Generator_ColumnVarNameInTable="columnmontoCuota" msprop:Generator_ColumnPropNameInRow="montoCuota" msprop:Generator_ColumnPropNameInTable="montoCuotaColumn" msprop:Generator_UserColumnName="montoCuota" type="xs:double" minOccurs="0" />
               <xs:element name="montoTotal" msprop:Generator_ColumnVarNameInTable="columnmontoTotal" msprop:Generator_ColumnPropNameInRow="montoTotal" msprop:Generator_ColumnPropNameInTable="montoTotalColumn" msprop:Generator_UserColumnName="montoTotal" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaVenta" msprop:Generator_TableClassName="EstadisticaVentaDataTable" msprop:Generator_TableVarName="tableEstadisticaVenta" msprop:Generator_TablePropName="EstadisticaVenta" msprop:Generator_RowDeletingName="EstadisticaVentaRowDeleting" msprop:Generator_RowChangingName="EstadisticaVentaRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaVentaRowDeleted" msprop:Generator_UserTableName="EstadisticaVenta" msprop:Generator_RowChangedName="EstadisticaVentaRowChanged" msprop:Generator_RowEvArgName="EstadisticaVentaRowChangeEvent" msprop:Generator_RowClassName="EstadisticaVentaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:string" minOccurs="0" />
+              <xs:element name="VentasRealizadas" msprop:Generator_ColumnVarNameInTable="columnVentasRealizadas" msprop:Generator_ColumnPropNameInRow="VentasRealizadas" msprop:Generator_ColumnPropNameInTable="VentasRealizadasColumn" msprop:Generator_UserColumnName="VentasRealizadas" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDInmobiliariaCasaFelizDataSet.cs">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BDInmobiliariaCasaFelizDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +266,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.Designer.cs">
+      <DependentUpon>frmEstadisticaInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVenta.Designer.cs">
+      <DependentUpon>frmEstadisticaVenta.cs</DependentUpon>
     <Compile Include="Reportes\frmEstadisticas\frmCuotaEstadistica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +376,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.resx">
+      <DependentUpon>frmEstadisticaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaVenta.resx">
+      <DependentUpon>frmEstadisticaVenta.cs</DependentUpon>
     <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticasCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\frmEstadisticas\frmCuotaEstadistica.resx">
       <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
