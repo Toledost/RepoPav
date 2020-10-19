@@ -110,6 +110,9 @@
     <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="DataAccessLayer\VentaDao.cs" />
+    <Compile Include="DataSet1ConsultaInmueble.cs">
+      <DependentUpon>DataSet1ConsultaInmueble.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1ConsultaInmueble.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -265,6 +268,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.Designer.cs">
+      <DependentUpon>frmEstadisticaConsultaInmueble.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportes\frmReporteConsultaInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +367,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaConsultaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.resx">
+      <DependentUpon>frmEstadisticaConsultaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteConsultaInmueble.resx">
       <DependentUpon>frmReporteConsultaInmueble.cs</DependentUpon>
     </EmbeddedResource>

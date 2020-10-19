@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
+using TESTWF2020.Reportes.frmEstadisticas;
 using TESTWF2020.Utilities;
 
 namespace TESTWF2020.Reportes.frmReportes
@@ -104,6 +105,14 @@ namespace TESTWF2020.Reportes.frmReportes
             txtApellidoCliente.Text = default;
             cboEstadoConsulta.SelectedIndex = -1;
             cboMedioConocimento.SelectedIndex = -1;
+        }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            frmEstadisticaConsultaInmueble frmEstadisticaConsultaInmueble = new frmEstadisticaConsultaInmueble();
+            frmEstadisticaConsultaInmueble.ShowDialog();
+            this.Show();
+
         }
     }
 }

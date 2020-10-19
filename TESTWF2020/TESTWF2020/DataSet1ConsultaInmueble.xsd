@@ -45,7 +45,7 @@ FROM            Cliente INNER JOIN
   <xs:element name="DataSet1ConsultaInmueble" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1ConsultaInmueble" msprop:Generator_UserDSName="DataSet1ConsultaInmueble">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ConsultaInmueble" msprop:Generator_TableClassName="ConsultaInmuebleDataTable" msprop:Generator_TableVarName="tableConsultaInmueble" msprop:Generator_TablePropName="ConsultaInmueble" msprop:Generator_RowDeletingName="ConsultaInmuebleRowDeleting" msprop:Generator_RowChangingName="ConsultaInmuebleRowChanging" msprop:Generator_RowEvHandlerName="ConsultaInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaInmuebleRowDeleted" msprop:Generator_UserTableName="ConsultaInmueble" msprop:Generator_RowChangedName="ConsultaInmuebleRowChanged" msprop:Generator_RowEvArgName="ConsultaInmuebleRowChangeEvent" msprop:Generator_RowClassName="ConsultaInmuebleRow">
+        <xs:element name="ConsultaInmueble" msprop:Generator_TableClassName="ConsultaInmuebleDataTable" msprop:Generator_TableVarName="tableConsultaInmueble" msprop:Generator_RowChangedName="ConsultaInmuebleRowChanged" msprop:Generator_TablePropName="ConsultaInmueble" msprop:Generator_RowDeletingName="ConsultaInmuebleRowDeleting" msprop:Generator_RowChangingName="ConsultaInmuebleRowChanging" msprop:Generator_RowEvHandlerName="ConsultaInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaInmuebleRowDeleted" msprop:Generator_RowClassName="ConsultaInmuebleRow" msprop:Generator_UserTableName="ConsultaInmueble" msprop:Generator_RowEvArgName="ConsultaInmuebleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
@@ -87,6 +87,14 @@ FROM            Cliente INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConsultaxInmuebleEstadistica" msprop:Generator_TableClassName="ConsultaxInmuebleEstadisticaDataTable" msprop:Generator_TableVarName="tableConsultaxInmuebleEstadistica" msprop:Generator_TablePropName="ConsultaxInmuebleEstadistica" msprop:Generator_RowDeletingName="ConsultaxInmuebleEstadisticaRowDeleting" msprop:Generator_RowChangingName="ConsultaxInmuebleEstadisticaRowChanging" msprop:Generator_RowEvHandlerName="ConsultaxInmuebleEstadisticaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaxInmuebleEstadisticaRowDeleted" msprop:Generator_UserTableName="ConsultaxInmuebleEstadistica" msprop:Generator_RowChangedName="ConsultaxInmuebleEstadisticaRowChanged" msprop:Generator_RowEvArgName="ConsultaxInmuebleEstadisticaRowChangeEvent" msprop:Generator_RowClassName="ConsultaxInmuebleEstadisticaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="inmueble" msprop:Generator_ColumnVarNameInTable="columninmueble" msprop:Generator_ColumnPropNameInRow="inmueble" msprop:Generator_ColumnPropNameInTable="inmuebleColumn" msprop:Generator_UserColumnName="inmueble" type="xs:string" minOccurs="0" />
+              <xs:element name="cantConsultas" msprop:Generator_ColumnVarNameInTable="columncantConsultas" msprop:Generator_ColumnPropNameInRow="cantConsultas" msprop:Generator_ColumnPropNameInTable="cantConsultasColumn" msprop:Generator_UserColumnName="cantConsultas" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

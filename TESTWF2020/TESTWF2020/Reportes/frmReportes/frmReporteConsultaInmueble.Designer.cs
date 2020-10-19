@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rptvConsultaInmueble = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblCalle = new System.Windows.Forms.Label();
@@ -46,24 +46,25 @@
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblNombreCliente = new System.Windows.Forms.Label();
             this.cboMedioConocimento = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.btnGrafico = new System.Windows.Forms.Button();
             this.consultaInmuebleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1ConsultaInmueble = new TESTWF2020.DataSet1ConsultaInmueble();
             this.consultaInmuebleTableAdapter = new TESTWF2020.DataSet1ConsultaInmuebleTableAdapters.ConsultaInmuebleTableAdapter();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.consultaInmuebleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1ConsultaInmueble)).BeginInit();
             this.SuspendLayout();
             // 
             // rptvConsultaInmueble
             // 
-            reportDataSource5.Name = "ConsultaInmueble";
-            reportDataSource5.Value = this.consultaInmuebleBindingSource;
-            this.rptvConsultaInmueble.LocalReport.DataSources.Add(reportDataSource5);
+            reportDataSource1.Name = "ConsultaInmueble";
+            reportDataSource1.Value = this.consultaInmuebleBindingSource;
+            this.rptvConsultaInmueble.LocalReport.DataSources.Add(reportDataSource1);
             this.rptvConsultaInmueble.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptConsultaInmueble.rdlc";
             this.rptvConsultaInmueble.Location = new System.Drawing.Point(12, 214);
             this.rptvConsultaInmueble.Name = "rptvConsultaInmueble";
             this.rptvConsultaInmueble.ServerReport.BearerToken = null;
-            this.rptvConsultaInmueble.Size = new System.Drawing.Size(785, 246);
+            this.rptvConsultaInmueble.Size = new System.Drawing.Size(707, 255);
             this.rptvConsultaInmueble.TabIndex = 0;
             // 
             // btnBuscar
@@ -201,6 +202,26 @@
             this.cboMedioConocimento.TabIndex = 16;
             this.cboMedioConocimento.Tag = "medioConocimiento";
             // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(722, 126);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
+            this.btnLimpiarFiltros.TabIndex = 17;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
+            // btnGrafico
+            // 
+            this.btnGrafico.Location = new System.Drawing.Point(627, 171);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafico.TabIndex = 18;
+            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
+            // 
             // consultaInmuebleBindingSource
             // 
             this.consultaInmuebleBindingSource.DataMember = "ConsultaInmueble";
@@ -215,21 +236,12 @@
             // 
             this.consultaInmuebleTableAdapter.ClearBeforeFill = true;
             // 
-            // btnLimpiarFiltros
-            // 
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(722, 126);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
-            this.btnLimpiarFiltros.TabIndex = 17;
-            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
-            // 
             // frmReporteConsultaInmueble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 571);
+            this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.cboMedioConocimento);
             this.Controls.Add(this.txtNombreCliente);
@@ -279,5 +291,6 @@
         private System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.ComboBox cboMedioConocimento;
         private System.Windows.Forms.Button btnLimpiarFiltros;
+        private System.Windows.Forms.Button btnGrafico;
     }
 }

@@ -31,5 +31,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return reporteDao.GetByFiltersRptConsultaInmueble(diccParametros);
         }
+
+        internal DataTable GetConsultaInmuebleEstadistica()
+        {
+            return reporteDao.GetConsultaInmuebleEstadistica();
+        }
     }
 }

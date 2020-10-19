@@ -30,6 +30,19 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetConsultaInmuebleEstadistica()
+        {
+            string consultaSql = "SELECT COUNT(c.idConsulta), i.idInmueble " +
+                "FROM Consulta c " +
+                "JOIN Inmueble i ON i.idInmueble = c.idInmueble " +
+                "GROUP BY i.idInmueble ";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetByFiltersRptConsultaInmueble(Dictionary<string, object> diccParametros)
         {
             string consultaSQL = "SELECT " +
