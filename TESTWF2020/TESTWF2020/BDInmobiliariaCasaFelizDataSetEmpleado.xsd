@@ -39,7 +39,7 @@ FROM            Empleado INNER JOIN
   <xs:element name="BDInmobiliariaCasaFelizDataSetEmpleado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSetEmpleado" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSetEmpleado">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tablaEmpleado" msprop:Generator_TableClassName="tablaEmpleadoDataTable" msprop:Generator_TableVarName="tabletablaEmpleado" msprop:Generator_TablePropName="tablaEmpleado" msprop:Generator_RowDeletingName="tablaEmpleadoRowDeleting" msprop:Generator_RowChangingName="tablaEmpleadoRowChanging" msprop:Generator_RowEvHandlerName="tablaEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaEmpleadoRowDeleted" msprop:Generator_UserTableName="tablaEmpleado" msprop:Generator_RowChangedName="tablaEmpleadoRowChanged" msprop:Generator_RowEvArgName="tablaEmpleadoRowChangeEvent" msprop:Generator_RowClassName="tablaEmpleadoRow">
+        <xs:element name="tablaEmpleado" msprop:Generator_TableClassName="tablaEmpleadoDataTable" msprop:Generator_TableVarName="tabletablaEmpleado" msprop:Generator_RowChangedName="tablaEmpleadoRowChanged" msprop:Generator_TablePropName="tablaEmpleado" msprop:Generator_RowDeletingName="tablaEmpleadoRowDeleting" msprop:Generator_RowChangingName="tablaEmpleadoRowChanging" msprop:Generator_RowEvHandlerName="tablaEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaEmpleadoRowDeleted" msprop:Generator_RowClassName="tablaEmpleadoRow" msprop:Generator_UserTableName="tablaEmpleado" msprop:Generator_RowEvArgName="tablaEmpleadoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="legajo" msprop:Generator_ColumnVarNameInTable="columnlegajo" msprop:Generator_ColumnPropNameInRow="legajo" msprop:Generator_ColumnPropNameInTable="legajoColumn" msprop:Generator_UserColumnName="legajo" type="xs:int" />
@@ -72,6 +72,14 @@ FROM            Empleado INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaEmpleado" msprop:Generator_TableClassName="EstadisticaEmpleadoDataTable" msprop:Generator_TableVarName="tableEstadisticaEmpleado" msprop:Generator_TablePropName="EstadisticaEmpleado" msprop:Generator_RowDeletingName="EstadisticaEmpleadoRowDeleting" msprop:Generator_RowChangingName="EstadisticaEmpleadoRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaEmpleadoRowDeleted" msprop:Generator_UserTableName="EstadisticaEmpleado" msprop:Generator_RowChangedName="EstadisticaEmpleadoRowChanged" msprop:Generator_RowEvArgName="EstadisticaEmpleadoRowChangeEvent" msprop:Generator_RowClassName="EstadisticaEmpleadoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="empleado" msprop:Generator_ColumnVarNameInTable="columnempleado" msprop:Generator_ColumnPropNameInRow="empleado" msprop:Generator_ColumnPropNameInTable="empleadoColumn" msprop:Generator_UserColumnName="empleado" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaAlta" msprop:Generator_ColumnVarNameInTable="columnfechaAlta" msprop:Generator_ColumnPropNameInRow="fechaAlta" msprop:Generator_ColumnPropNameInTable="fechaAltaColumn" msprop:Generator_UserColumnName="fechaAlta" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
+using TESTWF2020.Reportes.frmEstadisticas;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
@@ -27,10 +28,7 @@ namespace TESTWF2020.Reportes.frmReportes
             this.rptvEmpleados.RefreshReport();
         }
 
-        private void rptvEmpleados_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -87,6 +85,12 @@ namespace TESTWF2020.Reportes.frmReportes
             }
 
             return dict;
+        }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            frmEstadisiticaEmpleado frmEstadisiticaEmpleado = new frmEstadisiticaEmpleado();
+            frmEstadisiticaEmpleado.ShowDialog();
         }
     }
 }

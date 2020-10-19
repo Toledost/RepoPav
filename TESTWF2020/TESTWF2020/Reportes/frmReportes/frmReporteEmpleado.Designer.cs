@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.tablaEmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDInmobiliariaCasaFelizDataSetEmpleado = new TESTWF2020.BDInmobiliariaCasaFelizDataSetEmpleado();
             this.rptvEmpleados = new Microsoft.Reporting.WinForms.ReportViewer();
             this.bdInmobiliariaCasaFelizDataSet1 = new TESTWF2020.BDInmobiliariaCasaFelizDataSet();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -43,15 +45,23 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.tablaEmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDInmobiliariaCasaFelizDataSetEmpleado = new TESTWF2020.BDInmobiliariaCasaFelizDataSetEmpleado();
             this.tablaEmpleadoTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetEmpleadoTableAdapters.tablaEmpleadoTableAdapter();
             this.txtApellidoEmpleado = new System.Windows.Forms.TextBox();
             this.lblApellidoEmpleado = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tablaEmpleadoBindingSource
+            // 
+            this.tablaEmpleadoBindingSource.DataMember = "tablaEmpleado";
+            this.tablaEmpleadoBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetEmpleado;
+            // 
+            // bDInmobiliariaCasaFelizDataSetEmpleado
+            // 
+            this.bDInmobiliariaCasaFelizDataSetEmpleado.DataSetName = "BDInmobiliariaCasaFelizDataSetEmpleado";
+            this.bDInmobiliariaCasaFelizDataSetEmpleado.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rptvEmpleados
             // 
@@ -64,7 +74,7 @@
             this.rptvEmpleados.ServerReport.BearerToken = null;
             this.rptvEmpleados.Size = new System.Drawing.Size(788, 279);
             this.rptvEmpleados.TabIndex = 1;
-            this.rptvEmpleados.Load += new System.EventHandler(this.rptvEmpleados_Load);
+            
             // 
             // bdInmobiliariaCasaFelizDataSet1
             // 
@@ -89,6 +99,7 @@
             this.btnGrafico.TabIndex = 3;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // lblFechaDesde
             // 
@@ -167,16 +178,6 @@
             this.lblUsuario.TabIndex = 15;
             this.lblUsuario.Text = "Usuario";
             // 
-            // tablaEmpleadoBindingSource
-            // 
-            this.tablaEmpleadoBindingSource.DataMember = "tablaEmpleado";
-            this.tablaEmpleadoBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetEmpleado;
-            // 
-            // bDInmobiliariaCasaFelizDataSetEmpleado
-            // 
-            this.bDInmobiliariaCasaFelizDataSetEmpleado.DataSetName = "BDInmobiliariaCasaFelizDataSetEmpleado";
-            this.bDInmobiliariaCasaFelizDataSetEmpleado.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tablaEmpleadoTableAdapter
             // 
             this.tablaEmpleadoTableAdapter.ClearBeforeFill = true;
@@ -219,9 +220,9 @@
             this.Name = "frmReporteEmpleado";
             this.Text = "frmReporteEmpleado";
             this.Load += new System.EventHandler(this.frmReporteEmpleado_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

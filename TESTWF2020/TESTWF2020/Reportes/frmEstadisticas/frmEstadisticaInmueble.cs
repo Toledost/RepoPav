@@ -34,7 +34,7 @@ namespace TESTWF2020.Reportes.frmEstadisticas
 
             ReportDataSource ds = new ReportDataSource("DataSetInmueble", tabla);
 
-            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1 .LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(ds);
             reportViewer1.LocalReport.Refresh();
         }

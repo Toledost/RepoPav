@@ -30,6 +30,21 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetEmpleadosPorAñoMes()
+        {
+            string consultaSql = "SELECT Usuario.nombre AS Usuario, " +
+                "Usuario.fechaAlta " +
+                "FROM Empleado " +
+                "INNER JOIN Usuario ON Empleado.usuario = Usuario.nombre " +
+                "INNER JOIN Perfil ON Usuario.idPerfil = Perfil.idPerfil " +
+                "GROUP BY Usuario.nombre,Usuario.fechaAlta ";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetDiasPorEstado()
         {
             string consultaSql = "SELECT Inmueble.idInmueble,  " +
@@ -180,7 +195,6 @@ namespace TESTWF2020.DataAccessLayer
 
             return consultaSQL;
         }
-
 
         private string AgregarParametros(Dictionary<string, object> diccParametros, string consultaSQL)
         {
