@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BDInmobiliariaCasaFelizDataSetEmpleado" targetNamespace="http://tempuri.org/BDInmobiliariaCasaFelizDataSetEmpleado.xsd" xmlns:mstns="http://tempuri.org/BDInmobiliariaCasaFelizDataSetEmpleado.xsd" xmlns="http://tempuri.org/BDInmobiliariaCasaFelizDataSetEmpleado.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDInmobiliariaCasaFelizConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDInmobiliariaCasaFelizConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TESTWF2020.Properties.Settings.GlobalReference.Default.BDInmobiliariaCasaFelizConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tablaEmpleadoTableAdapter" GeneratorDataComponentClassName="tablaEmpleadoTableAdapter" Name="tablaEmpleado" UserDataComponentName="tablaEmpleadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Empleado.legajo, Empleado.nombre, Empleado.apellido, Usuario.nombre AS Usuario, Usuario.fechaAlta, Perfil.nombre AS Perfil
+FROM            Empleado INNER JOIN
+                         Usuario ON Empleado.usuario = Usuario.nombre INNER JOIN
+                         Perfil ON Usuario.idPerfil = Perfil.idPerfil</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="legajo" DataSetColumn="legajo" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="Usuario" DataSetColumn="Usuario" />
+              <Mapping SourceColumn="fechaAlta" DataSetColumn="fechaAlta" />
+              <Mapping SourceColumn="Perfil" DataSetColumn="Perfil" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BDInmobiliariaCasaFelizDataSetEmpleado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSetEmpleado" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSetEmpleado">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tablaEmpleado" msprop:Generator_TableClassName="tablaEmpleadoDataTable" msprop:Generator_TableVarName="tabletablaEmpleado" msprop:Generator_TablePropName="tablaEmpleado" msprop:Generator_RowDeletingName="tablaEmpleadoRowDeleting" msprop:Generator_RowChangingName="tablaEmpleadoRowChanging" msprop:Generator_RowEvHandlerName="tablaEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaEmpleadoRowDeleted" msprop:Generator_UserTableName="tablaEmpleado" msprop:Generator_RowChangedName="tablaEmpleadoRowChanged" msprop:Generator_RowEvArgName="tablaEmpleadoRowChangeEvent" msprop:Generator_RowClassName="tablaEmpleadoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="legajo" msprop:Generator_ColumnVarNameInTable="columnlegajo" msprop:Generator_ColumnPropNameInRow="legajo" msprop:Generator_ColumnPropNameInTable="legajoColumn" msprop:Generator_UserColumnName="legajo" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaAlta" msprop:Generator_ColumnVarNameInTable="columnfechaAlta" msprop:Generator_ColumnPropNameInRow="fechaAlta" msprop:Generator_ColumnPropNameInTable="fechaAltaColumn" msprop:Generator_UserColumnName="fechaAlta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Perfil" msprop:Generator_ColumnVarNameInTable="columnPerfil" msprop:Generator_ColumnPropNameInRow="Perfil" msprop:Generator_ColumnPropNameInTable="PerfilColumn" msprop:Generator_UserColumnName="Perfil">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

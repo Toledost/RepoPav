@@ -21,14 +21,18 @@
           <DataField>Mes</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="VentasRealizadas">
-          <DataField>VentasRealizadas</DataField>
+        <Field Name="VentasFinanciadas">
+          <DataField>VentasFinanciadas</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VentasContado">
+          <DataField>VentasContado</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>BDInmobiliariaCasaFelizDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\TERCER AÑO\PAV1\REPO2\TESTWF2020\TESTWF2020\BDInmobiliariaCasaFelizDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\repos\RepoPav\TESTWF2020\TESTWF2020\BDInmobiliariaCasaFelizDataSet.xsd</rd:SchemaPath>
         <rd:TableName>EstadisticaVenta</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -61,22 +65,56 @@
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>Ventas Realizadas</Label>
+                  <Label>Ventas Financiadas</Label>
+                </ChartMember>
+                <ChartMember>
+                  <Label>Ventas Contado</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="VentasRealizadas">
+                <ChartSeries Name="VentasFinanciadas">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!VentasRealizadas.Value)</Y>
+                        <Y>=Sum(Fields!VentasFinanciadas.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
-                        <Visible>true</Visible>
+                      </ChartDataLabel>
+                      <Style />
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+                <ChartSeries Name="VentasContado">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Sum(Fields!VentasContado.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>

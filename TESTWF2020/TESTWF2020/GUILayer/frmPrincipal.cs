@@ -138,5 +138,11 @@ namespace TESTWF2020
             frmVentaGeneral frmVentaGeneral = new frmVentaGeneral();
             frmVentaGeneral.ShowDialog();
         }
+
+        private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReporteEmpleado frmReporteEmpleado = new frmReporteEmpleado();
+            frmReporteEmpleado.ShowDialog();
+        }
     }
 }

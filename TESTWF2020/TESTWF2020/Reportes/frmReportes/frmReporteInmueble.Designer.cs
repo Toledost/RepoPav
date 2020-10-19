@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.inmuebleEstado1 = new TESTWF2020.InmuebleEstado();
             this.rptvInmueble = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnGrafico = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -39,14 +41,22 @@
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.lblInmueble = new System.Windows.Forms.Label();
             this.txtIdInmueble = new System.Windows.Forms.TextBox();
-            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.inmuebleEstado1 = new TESTWF2020.InmuebleEstado();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.relacionInmuebleEstadoTableAdapter1 = new TESTWF2020.InmuebleEstadoTableAdapters.RelacionInmuebleEstadoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bindingSource2
+            // 
+            this.bindingSource2.DataMember = "RelacionInmuebleEstado";
+            this.bindingSource2.DataSource = this.inmuebleEstado1;
+            // 
+            // inmuebleEstado1
+            // 
+            this.inmuebleEstado1.DataSetName = "InmuebleEstado";
+            this.inmuebleEstado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rptvInmueble
             // 
@@ -131,16 +141,6 @@
             this.txtIdInmueble.Name = "txtIdInmueble";
             this.txtIdInmueble.Size = new System.Drawing.Size(100, 20);
             this.txtIdInmueble.TabIndex = 8;
-            // 
-            // bindingSource2
-            // 
-            this.bindingSource2.DataMember = "RelacionInmuebleEstado";
-            this.bindingSource2.DataSource = this.inmuebleEstado1;
-            // 
-            // inmuebleEstado1
-            // 
-            this.inmuebleEstado1.DataSetName = "InmuebleEstado";
-            this.inmuebleEstado1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingSource1
             // 

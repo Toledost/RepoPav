@@ -52,12 +52,14 @@ namespace TESTWF2020.DataAccessLayer
 
         internal DataTable GetVentasPorMes()
         {
-            string consultaSql = "SELECT count(idVenta) AS VentasRealizadas, " +
-                "MONTH(fechaVenta) AS Mes " +
+            string consultaSql = "SELECT " +
+                "COUNT(financiacion) AS VentasFinanciadas, " +
+                "(COUNT(idVenta) - COUNT(financiacion) ) AS VentasContado, " +
+                "DATENAME( MONTH, DATEADD(MONTH, MONTH(fechaVenta), -1)) AS Mes " +
                 "FROM Venta " +
-                "GROUP BY month(fechaVenta)";
+                "GROUP BY MONTH(fechaVenta)";
             
-          var dm = new DataManager();
+            var dm = new DataManager();
             var busqueda = dm.ConsultaSQL2(consultaSql);
 
             return busqueda;
