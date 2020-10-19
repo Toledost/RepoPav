@@ -50,6 +50,42 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetByFiltersRptEmpleado(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT Empleado.legajo, " +
+                "Empleado.nombre, " +
+                "Empleado.apellido, " +
+                "Usuario.nombre AS Usuario, " +
+                "Usuario.fechaAlta, " +
+                "Perfil.nombre AS Perfil " +
+                "FROM Empleado " +
+                "INNER JOIN Usuario ON Empleado.usuario = Usuario.nombre " +
+                "INNER JOIN Perfil ON Usuario.idPerfil = Perfil.idPerfil";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosEmpleado(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
+        private string AgregarParametrosEmpleado(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("nombreEmpleado"))
+                consultaSQL += " AND (Empleado.nombre LIKE '%' + @nombreEmpleado + '%') ";
+
+            if (diccParametros.ContainsKey("apellidoEmpleado"))
+                consultaSQL += " AND (Empleado.apellido LIKE '%' + @apellidoEmpleado + '%') ";
+
+            if (diccParametros.ContainsKey("usuario"))
+                consultaSQL += " AND (Usuario.nombre LIKE '%' + @usuario + '%') ";
+
+            if (diccParametros.ContainsKey("fechaDesde"))
+                consultaSQL += " AND (Usuario.fechaAlta BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            return consultaSQL;
+        }
+
         internal DataTable GetVentasPorMes()
         {
             string consultaSql = "SELECT " +

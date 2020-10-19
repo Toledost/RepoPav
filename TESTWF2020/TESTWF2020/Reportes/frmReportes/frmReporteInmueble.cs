@@ -34,7 +34,7 @@ namespace TESTWF2020.Reportes.frmReportes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string inmueble = "";
+            
             var fecha = DateTime.Compare(dtpFechaDesde.Value.Date, dtpFechaHasta.Value.Date);
             if (fecha != 0)
             {
@@ -43,11 +43,6 @@ namespace TESTWF2020.Reportes.frmReportes
                     MessageBox.Show("Fechas erroneas!!!");
                     return;
                 }
-            }
-
-            if (!string.IsNullOrEmpty(txtIdInmueble.Text))
-            {
-                inmueble = txtIdInmueble.Text;
             }
 
             var diccParametros = CrearDiccionario();

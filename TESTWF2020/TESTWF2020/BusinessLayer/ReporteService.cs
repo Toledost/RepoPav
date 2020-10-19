@@ -46,5 +46,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return reporteDao.GetCuotasByDireccion();
         }
+
+        internal DataTable GetByFiltersRptEmpleado(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptEmpleado(diccParametros);
+        }
     }
 }
