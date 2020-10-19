@@ -337,6 +337,7 @@
     <None Include="Resources\icons8-mano-amiga-961.png" />
     <None Include="Resources\icons8-gráfico-combinado-48.png" />
     <None Include="Resources\icons8-repositorio-961.png" />
+    <None Include="Resources\icons8-cerrar-ventana-961.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -143,6 +143,16 @@ namespace TESTWF2020.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana_961 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cerrar-ventana-961", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_ciudad_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-ciudad-96", resourceCulture);
