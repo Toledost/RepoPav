@@ -56,6 +56,23 @@ namespace TESTWF2020.DataAccessLayer
                 "MONTH(fechaVenta) AS Mes " +
                 "FROM Venta " +
                 "GROUP BY month(fechaVenta)";
+            
+          var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+      
+        internal DataTable GetCuotasByDireccion()
+        {
+            string consultaSql = "select " +
+                "concat (i.calle, ' ', i.calleNro) as DireccionInmueble, " +
+                "count(fechaPago) as CuotasPagadas, " +
+                "(count(*) - COUNT(fechaPago)) as CuotasPendientes " +
+                "from Cuota c " +
+                "join Venta v on c.idVenta = v.idVenta " +
+                "join Inmueble i on v.idInmueble = i.idInmueble " +
+                "group by i.idInmueble, i.calle, i.calleNro";
 
             var dm = new DataManager();
             var busqueda = dm.ConsultaSQL2(consultaSql);
@@ -85,6 +102,47 @@ namespace TESTWF2020.DataAccessLayer
 
             return busqueda;
         }
+      
+        internal DataTable GetByFiltersRptCuota(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT Cuota.nroCuota, " +
+                "Cuota.fechaVencimiento, " +
+                "Cuota.fechaPago, " +
+                "Venta.idInmueble, " +
+                "Venta.dniCliente, " +
+                "Venta.montoCuota, " +
+                "Cliente.nombre, " +
+                "Cliente.apellido, " +
+                "Inmueble.calle " +
+                "FROM Cliente " +
+                "INNER JOIN Venta ON Cliente.dni = Venta.dniCliente " +
+                "INNER JOIN Cuota ON Venta.idVenta = Cuota.idVenta " +
+                "INNER JOIN Inmueble ON Venta.idInmueble = Inmueble.idInmueble";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosCuotas(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
+        private string AgregarParametrosCuotas(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("calleInmueble"))
+                consultaSQL += " AND (Inmueble.calle LIKE '%' + @calleInmueble + '%') ";
+
+            if (diccParametros.ContainsKey("nombreCliente"))
+                consultaSQL += " AND (Cliente.nombre LIKE '%' + @nombreCliente + '%') ";
+
+            if (diccParametros.ContainsKey("apellidoCliente"))
+                consultaSQL += " AND (Cliente.apellido LIKE '%' + @apellidoCliente + '%') ";
+
+            if (diccParametros.ContainsKey("fechaDesde"))
+                consultaSQL += " AND (Cuota.fechaVencimiento BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            return consultaSQL;
+        }
+
 
         private string AgregarParametros(Dictionary<string, object> diccParametros, string consultaSQL)
         {
