@@ -30,6 +30,20 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetVentasPorVendedor()
+        {
+            string consultaSql = "SELECT Empleado.nombre + ' ' + Empleado.apellido AS nombreEmpleado, " +
+                                "COUNT(Venta.idVenta) AS ventas " +
+                                "FROM Empleado " +
+                                "INNER JOIN Venta ON Empleado.legajo = Venta.legajoVendedor " +
+                                "GROUP BY Empleado.legajo, Empleado.nombre, Empleado.apellido ";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetEmpleadosPorAñoMes()
         {
             string consultaSql = "SELECT Usuario.nombre AS Usuario, " +
@@ -43,6 +57,39 @@ namespace TESTWF2020.DataAccessLayer
             var busqueda = dm.ConsultaSQL2(consultaSql);
 
             return busqueda;
+        }
+
+        internal DataTable GetByFiltersRptVendedor(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT Empleado.legajo, Empleado.nombre + ' ' + Empleado.apellido AS Empleado, " +
+                                 "Venta.fechaVenta, Venta.montoTotal, Venta.esFinanciada, " +
+                                 "Inmueble.calle + ' ' + CAST(Inmueble.calleNro AS VARCHAR) AS DireccionInmueble " +
+                                 "FROM Empleado " +
+                                 "INNER JOIN Venta ON Empleado.legajo = Venta.legajoVendedor " +
+                                 "INNER JOIN Inmueble ON Venta.idInmueble = Inmueble.idInmueble ";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosVendedor(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
+        private string AgregarParametrosVendedor(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("nombreVendedor"))
+                consultaSQL += " AND ((Empleado.nombre LIKE '%' + @nombreVendedor + '%') OR (Empleado.apellido LIKE '%' + @nombreVendedor + '%')) ";
+
+            if (diccParametros.ContainsKey("calleInmueble"))
+                consultaSQL += " AND (Inmueble.calle LIKE '%' + @calleInmueble + '%') ";
+
+            if (diccParametros.ContainsKey("nroCalleInmueble"))
+                consultaSQL += " AND (Inmueble.calleNro LIKE '%' + @nroCalleInmueble + '%') ";
+
+            if (diccParametros.ContainsKey("fechaDesde"))
+                consultaSQL += " AND (Venta.fechaVenta BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            return consultaSQL;
         }
 
         internal DataTable GetDiasPorEstado()
