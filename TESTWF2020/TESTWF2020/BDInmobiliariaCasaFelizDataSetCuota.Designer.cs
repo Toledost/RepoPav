@@ -2307,9 +2307,11 @@ namespace TESTWF2020 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class GraficoCuotaDataTable : global::System.Data.TypedTableBase<GraficoCuotaRow> {
             
-            private global::System.Data.DataColumn columnmontoTotal;
+            private global::System.Data.DataColumn columnCuotasPagadas;
             
-            private global::System.Data.DataColumn columnmontoCuota;
+            private global::System.Data.DataColumn columnCuotasPendientes;
+            
+            private global::System.Data.DataColumn columnDireccion;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2346,17 +2348,25 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn montoTotalColumn {
+            public global::System.Data.DataColumn CuotasPagadasColumn {
                 get {
-                    return this.columnmontoTotal;
+                    return this.columnCuotasPagadas;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn montoCuotaColumn {
+            public global::System.Data.DataColumn CuotasPendientesColumn {
                 get {
-                    return this.columnmontoCuota;
+                    return this.columnCuotasPendientes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DireccionColumn {
+                get {
+                    return this.columnDireccion;
                 }
             }
             
@@ -2397,14 +2407,22 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public GraficoCuotaRow AddGraficoCuotaRow(int montoTotal, double montoCuota) {
+            public GraficoCuotaRow AddGraficoCuotaRow(int CuotasPagadas, int CuotasPendientes) {
                 GraficoCuotaRow rowGraficoCuotaRow = ((GraficoCuotaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        montoTotal,
-                        montoCuota};
+                        CuotasPagadas,
+                        CuotasPendientes,
+                        null};
                 rowGraficoCuotaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGraficoCuotaRow);
                 return rowGraficoCuotaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public GraficoCuotaRow FindByDireccion(int Direccion) {
+                return ((GraficoCuotaRow)(this.Rows.Find(new object[] {
+                            Direccion})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2424,17 +2442,30 @@ namespace TESTWF2020 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnmontoTotal = base.Columns["montoTotal"];
-                this.columnmontoCuota = base.Columns["montoCuota"];
+                this.columnCuotasPagadas = base.Columns["CuotasPagadas"];
+                this.columnCuotasPendientes = base.Columns["CuotasPendientes"];
+                this.columnDireccion = base.Columns["Direccion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnmontoTotal = new global::System.Data.DataColumn("montoTotal", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmontoTotal);
-                this.columnmontoCuota = new global::System.Data.DataColumn("montoCuota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmontoCuota);
+                this.columnCuotasPagadas = new global::System.Data.DataColumn("CuotasPagadas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuotasPagadas);
+                this.columnCuotasPendientes = new global::System.Data.DataColumn("CuotasPendientes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuotasPendientes);
+                this.columnDireccion = new global::System.Data.DataColumn("Direccion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDireccion);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnDireccion}, true));
+                this.columnCuotasPagadas.ReadOnly = true;
+                this.columnCuotasPendientes.ReadOnly = true;
+                this.columnDireccion.AutoIncrement = true;
+                this.columnDireccion.AutoIncrementSeed = -1;
+                this.columnDireccion.AutoIncrementStep = -1;
+                this.columnDireccion.AllowDBNull = false;
+                this.columnDireccion.ReadOnly = true;
+                this.columnDireccion.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3752,58 +3783,69 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int montoTotal {
+            public int CuotasPagadas {
                 get {
                     try {
-                        return ((int)(this[this.tableGraficoCuota.montoTotalColumn]));
+                        return ((int)(this[this.tableGraficoCuota.CuotasPagadasColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoTotal\' de la tabla \'GraficoCuota\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuotasPagadas\' de la tabla \'GraficoCuota\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGraficoCuota.montoTotalColumn] = value;
+                    this[this.tableGraficoCuota.CuotasPagadasColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double montoCuota {
+            public int CuotasPendientes {
                 get {
                     try {
-                        return ((double)(this[this.tableGraficoCuota.montoCuotaColumn]));
+                        return ((int)(this[this.tableGraficoCuota.CuotasPendientesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoCuota\' de la tabla \'GraficoCuota\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CuotasPendientes\' de la tabla \'GraficoCuota\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGraficoCuota.montoCuotaColumn] = value;
+                    this[this.tableGraficoCuota.CuotasPendientesColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsmontoTotalNull() {
-                return this.IsNull(this.tableGraficoCuota.montoTotalColumn);
+            public int Direccion {
+                get {
+                    return ((int)(this[this.tableGraficoCuota.DireccionColumn]));
+                }
+                set {
+                    this[this.tableGraficoCuota.DireccionColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetmontoTotalNull() {
-                this[this.tableGraficoCuota.montoTotalColumn] = global::System.Convert.DBNull;
+            public bool IsCuotasPagadasNull() {
+                return this.IsNull(this.tableGraficoCuota.CuotasPagadasColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsmontoCuotaNull() {
-                return this.IsNull(this.tableGraficoCuota.montoCuotaColumn);
+            public void SetCuotasPagadasNull() {
+                this[this.tableGraficoCuota.CuotasPagadasColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetmontoCuotaNull() {
-                this[this.tableGraficoCuota.montoCuotaColumn] = global::System.Convert.DBNull;
+            public bool IsCuotasPendientesNull() {
+                return this.IsNull(this.tableGraficoCuota.CuotasPendientesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCuotasPendientesNull() {
+                this[this.tableGraficoCuota.CuotasPendientesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6409,16 +6451,10 @@ FROM            Cliente INNER JOIN
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "GraficoCuota";
-            tableMapping.ColumnMappings.Add("montoTotal", "montoTotal");
-            tableMapping.ColumnMappings.Add("montoCuota", "montoCuota");
+            tableMapping.ColumnMappings.Add("CuotasPagadas", "CuotasPagadas");
+            tableMapping.ColumnMappings.Add("CuotasPendientes", "CuotasPendientes");
+            tableMapping.ColumnMappings.Add("Direccion", "Direccion");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Venta] ([montoTotal], [montoCuota]) VALUES (@montoTotal, @montoCuota" +
-                ")";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@montoTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@montoCuota", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoCuota", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6434,7 +6470,11 @@ FROM            Cliente INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        montoTotal, montoCuota\r\nFROM            Venta";
+            this._commandCollection[0].CommandText = @"SELECT        i.idInmueble AS Direccion, COUNT(c.fechaPago) AS CuotasPagadas, COUNT(*) - COUNT(c.fechaPago) AS CuotasPendientes
+FROM            Cuota AS c INNER JOIN
+                         Venta AS v ON c.idVenta = v.idVenta INNER JOIN
+                         Inmueble AS i ON v.idInmueble = i.idInmueble
+GROUP BY i.idInmueble, i.calle, i.calleNro";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6461,68 +6501,6 @@ FROM            Cliente INNER JOIN
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BDInmobiliariaCasaFelizDataSetCuota.GraficoCuotaDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BDInmobiliariaCasaFelizDataSetCuota dataSet) {
-            return this.Adapter.Update(dataSet, "GraficoCuota");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> montoTotal, global::System.Nullable<double> montoCuota) {
-            if ((montoTotal.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(montoTotal.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((montoCuota.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((double)(montoCuota.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
     }
     
     /// <summary>
@@ -6544,8 +6522,6 @@ FROM            Cliente INNER JOIN
         private InmuebleTableAdapter _inmuebleTableAdapter;
         
         private VentaTableAdapter _ventaTableAdapter;
-        
-        private GraficoCuotaTableAdapter _graficoCuotaTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6620,20 +6596,6 @@ FROM            Cliente INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public GraficoCuotaTableAdapter GraficoCuotaTableAdapter {
-            get {
-                return this._graficoCuotaTableAdapter;
-            }
-            set {
-                this._graficoCuotaTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -6667,10 +6629,6 @@ FROM            Cliente INNER JOIN
                             && (this._ventaTableAdapter.Connection != null))) {
                     return this._ventaTableAdapter.Connection;
                 }
-                if (((this._graficoCuotaTableAdapter != null) 
-                            && (this._graficoCuotaTableAdapter.Connection != null))) {
-                    return this._graficoCuotaTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -6694,9 +6652,6 @@ FROM            Cliente INNER JOIN
                     count = (count + 1);
                 }
                 if ((this._ventaTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._graficoCuotaTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -6746,15 +6701,6 @@ FROM            Cliente INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._graficoCuotaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.GraficoCuota.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._graficoCuotaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -6797,14 +6743,6 @@ FROM            Cliente INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._graficoCuotaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.GraficoCuota.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._graficoCuotaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -6815,14 +6753,6 @@ FROM            Cliente INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(BDInmobiliariaCasaFelizDataSetCuota dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._graficoCuotaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.GraficoCuota.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._graficoCuotaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._cuotaTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Cuota.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6914,11 +6844,6 @@ FROM            Cliente INNER JOIN
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
-            if (((this._graficoCuotaTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._graficoCuotaTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
-                        "sma cadena de conexión.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda" +
@@ -6985,15 +6910,6 @@ FROM            Cliente INNER JOIN
                     if (this._ventaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._ventaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._ventaTableAdapter.Adapter);
-                    }
-                }
-                if ((this._graficoCuotaTableAdapter != null)) {
-                    revertConnections.Add(this._graficoCuotaTableAdapter, this._graficoCuotaTableAdapter.Connection);
-                    this._graficoCuotaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._graficoCuotaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._graficoCuotaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._graficoCuotaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._graficoCuotaTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -7069,10 +6985,6 @@ FROM            Cliente INNER JOIN
                 if ((this._ventaTableAdapter != null)) {
                     this._ventaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._ventaTableAdapter]));
                     this._ventaTableAdapter.Transaction = null;
-                }
-                if ((this._graficoCuotaTableAdapter != null)) {
-                    this._graficoCuotaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._graficoCuotaTableAdapter]));
-                    this._graficoCuotaTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

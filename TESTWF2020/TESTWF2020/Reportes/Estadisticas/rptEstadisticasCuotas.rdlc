@@ -69,13 +69,17 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="montoTotal">
-          <DataField>montoTotal</DataField>
+        <Field Name="CuotasPagadas">
+          <DataField>CuotasPagadas</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="montoCuota">
-          <DataField>montoCuota</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+        <Field Name="CuotasPendientes">
+          <DataField>CuotasPendientes</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Direccion">
+          <DataField>Direccion</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -96,29 +100,37 @@
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label />
+                  <Group Name="Chart4_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Direccion.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Direccion.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!Direccion.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>monto Cuota</Label>
+                  <Label>Cuotas Pendientes</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="montoCuota">
+                <ChartSeries Name="CuotasPendientes">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!montoCuota.Value)</Y>
+                        <Y>=Sum(Fields!CuotasPendientes.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
-                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -127,7 +139,6 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Shape</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
