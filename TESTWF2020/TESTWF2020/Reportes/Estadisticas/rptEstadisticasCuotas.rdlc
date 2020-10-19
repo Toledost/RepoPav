@@ -11,64 +11,16 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSetEstadisticasCuotas">
+    <DataSet Name="EstadisticoCuotaDataSet">
       <Query>
         <DataSourceName>BDInmobiliariaCasaFelizDataSetCuota</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="nroCuota">
-          <DataField>nroCuota</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="fechaVencimiento">
-          <DataField>fechaVencimiento</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="fechaPago">
-          <DataField>fechaPago</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="idInmueble">
-          <DataField>idInmueble</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="dniCliente">
-          <DataField>dniCliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="montoCuota">
-          <DataField>montoCuota</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="nombre">
-          <DataField>nombre</DataField>
+        <Field Name="DireccionInmueble">
+          <DataField>DireccionInmueble</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="apellido">
-          <DataField>apellido</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="calle">
-          <DataField>calle</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>BDInmobiliariaCasaFelizDataSetCuota</rd:DataSetName>
-        <rd:SchemaPath>D:\TERCER AÑO\PAV1\REPO2\TESTWF2020\TESTWF2020\BDInmobiliariaCasaFelizDataSetCuota.xsd</rd:SchemaPath>
-        <rd:TableName>TablaCuota</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>TablaCuotaTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSetGraficoCuota">
-      <Query>
-        <DataSourceName>BDInmobiliariaCasaFelizDataSetCuota</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
         <Field Name="CuotasPagadas">
           <DataField>CuotasPagadas</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -77,18 +29,14 @@
           <DataField>CuotasPendientes</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Direccion">
-          <DataField>Direccion</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>BDInmobiliariaCasaFelizDataSetCuota</rd:DataSetName>
-        <rd:SchemaPath>D:\TERCER AÑO\PAV1\REPO2\TESTWF2020\TESTWF2020\BDInmobiliariaCasaFelizDataSetCuota.xsd</rd:SchemaPath>
-        <rd:TableName>GraficoCuota</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>GraficoCuotaTableAdapter</rd:TableAdapterName>
+        <rd:SchemaPath>C:\repos\RepoPav\TESTWF2020\TESTWF2020\BDInmobiliariaCasaFelizDataSetCuota.xsd</rd:SchemaPath>
+        <rd:TableName>EstadisticaCuota</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -96,26 +44,29 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Chart Name="Chart4">
+          <Chart Name="Chart1">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart4_CategoryGroup">
+                  <Group Name="Chart1_CategoryGroup1">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Direccion.Value</GroupExpression>
+                      <GroupExpression>=Fields!DireccionInmueble.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Direccion.Value</Value>
+                      <Value>=Fields!DireccionInmueble.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Direccion.Value</Label>
+                  <Label>=Fields!DireccionInmueble.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
+                <ChartMember>
+                  <Label>Cuotas Pagadas</Label>
+                </ChartMember>
                 <ChartMember>
                   <Label>Cuotas Pendientes</Label>
                 </ChartMember>
@@ -123,14 +74,16 @@
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="CuotasPendientes">
+                <ChartSeries Name="CuotasPagadas">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!CuotasPendientes.Value)</Y>
+                        <Y>=Sum(Fields!CuotasPagadas.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -139,6 +92,43 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
+                  <Subtype>Stacked</Subtype>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+                <ChartSeries Name="CuotasPendientes">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Sum(Fields!CuotasPendientes.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
+                      </ChartDataLabel>
+                      <Style />
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Subtype>Stacked</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -440,11 +430,11 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSetGraficoCuota</DataSetName>
-            <Top>1.29328cm</Top>
-            <Left>3.14537cm</Left>
-            <Height>5cm</Height>
-            <Width>7.5cm</Width>
+            <DataSetName>EstadisticoCuotaDataSet</DataSetName>
+            <Top>1.45203cm</Top>
+            <Left>0.63183cm</Left>
+            <Height>6.40228cm</Height>
+            <Width>15.87817cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -455,7 +445,7 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>2.90475in</Height>
+        <Height>3.09225in</Height>
         <Style />
       </Body>
       <Width>6.5in</Width>

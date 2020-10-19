@@ -30,6 +30,23 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetCuotasByDireccion()
+        {
+            string consultaSql = "select " +
+                "concat (i.calle, ' ', i.calleNro) as DireccionInmueble, " +
+                "count(fechaPago) as CuotasPagadas, " +
+                "(count(*) - COUNT(fechaPago)) as CuotasPendientes " +
+                "from Cuota c " +
+                "join Venta v on c.idVenta = v.idVenta " +
+                "join Inmueble i on v.idInmueble = i.idInmueble " +
+                "group by i.idInmueble, i.calle, i.calleNro";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetByFiltersRptVenta(Dictionary<string, object> diccParametros)
         {
             string consultaSQL = "SELECT Venta.idVenta, " +

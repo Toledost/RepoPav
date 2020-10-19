@@ -31,10 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tablaCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDInmobiliariaCasaFelizDataSetCuota = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuota();
             this.rptvCuotas = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.tablaCuotaTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuotaTableAdapters.TablaCuotaTableAdapter();
             this.bdInmobiliariaCasaFelizDataSet1 = new TESTWF2020.BDInmobiliariaCasaFelizDataSet();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGrafico = new System.Windows.Forms.Button();
@@ -49,26 +46,19 @@
             this.txtCalleInmueble = new System.Windows.Forms.TextBox();
             this.lblCalleInmueble = new System.Windows.Forms.Label();
             this.lblFechaVencimiento = new System.Windows.Forms.Label();
+            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDInmobiliariaCasaFelizDataSetCuota = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuota();
+            this.tablaCuotaTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuotaTableAdapters.TablaCuotaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tablaCuotaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuota)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tablaCuotaBindingSource
             // 
             this.tablaCuotaBindingSource.DataMember = "TablaCuota";
             this.tablaCuotaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource;
-            // 
-            // bDInmobiliariaCasaFelizDataSetCuotaBindingSource
-            // 
-            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetCuota;
-            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.Position = 0;
-            // 
-            // bDInmobiliariaCasaFelizDataSetCuota
-            // 
-            this.bDInmobiliariaCasaFelizDataSetCuota.DataSetName = "BDInmobiliariaCasaFelizDataSetCuota";
-            this.bDInmobiliariaCasaFelizDataSetCuota.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rptvCuotas
             // 
@@ -81,10 +71,6 @@
             this.rptvCuotas.ServerReport.BearerToken = null;
             this.rptvCuotas.Size = new System.Drawing.Size(801, 292);
             this.rptvCuotas.TabIndex = 0;
-            // 
-            // tablaCuotaTableAdapter
-            // 
-            this.tablaCuotaTableAdapter.ClearBeforeFill = true;
             // 
             // bdInmobiliariaCasaFelizDataSet1
             // 
@@ -109,6 +95,7 @@
             this.btnGrafico.TabIndex = 3;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // lblFechaDesde
             // 
@@ -203,6 +190,20 @@
             this.lblFechaVencimiento.TabIndex = 17;
             this.lblFechaVencimiento.Text = "Fecha Vencimiento";
             // 
+            // bDInmobiliariaCasaFelizDataSetCuotaBindingSource
+            // 
+            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetCuota;
+            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.Position = 0;
+            // 
+            // bDInmobiliariaCasaFelizDataSetCuota
+            // 
+            this.bDInmobiliariaCasaFelizDataSetCuota.DataSetName = "BDInmobiliariaCasaFelizDataSetCuota";
+            this.bDInmobiliariaCasaFelizDataSetCuota.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tablaCuotaTableAdapter
+            // 
+            this.tablaCuotaTableAdapter.ClearBeforeFill = true;
+            // 
             // frmReporteCuota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,9 +227,9 @@
             this.Text = "frmReporteCuota";
             this.Load += new System.EventHandler(this.frmReporteCuota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaCuotaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuota)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

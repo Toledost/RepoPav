@@ -367,28 +367,6 @@ FROM            Cliente INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraficoCuotaTableAdapter" GeneratorDataComponentClassName="GraficoCuotaTableAdapter" Name="GraficoCuota" UserDataComponentName="GraficoCuotaTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectName="BDInmobiliariaCasaFeliz.dbo.Inmueble" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        i.idInmueble AS Direccion, COUNT(c.fechaPago) AS CuotasPagadas, COUNT(*) - COUNT(c.fechaPago) AS CuotasPendientes
-FROM            Cuota AS c INNER JOIN
-                         Venta AS v ON c.idVenta = v.idVenta INNER JOIN
-                         Inmueble AS i ON v.idInmueble = i.idInmueble
-GROUP BY i.idInmueble, i.calle, i.calleNro</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="CuotasPagadas" DataSetColumn="CuotasPagadas" />
-              <Mapping SourceColumn="CuotasPendientes" DataSetColumn="CuotasPendientes" />
-              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -518,12 +496,12 @@ GROUP BY i.idInmueble, i.calle, i.calleNro</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GraficoCuota" msprop:Generator_TableClassName="GraficoCuotaDataTable" msprop:Generator_TableVarName="tableGraficoCuota" msprop:Generator_RowChangedName="GraficoCuotaRowChanged" msprop:Generator_TablePropName="GraficoCuota" msprop:Generator_RowDeletingName="GraficoCuotaRowDeleting" msprop:Generator_RowChangingName="GraficoCuotaRowChanging" msprop:Generator_RowEvHandlerName="GraficoCuotaRowChangeEventHandler" msprop:Generator_RowDeletedName="GraficoCuotaRowDeleted" msprop:Generator_RowClassName="GraficoCuotaRow" msprop:Generator_UserTableName="GraficoCuota" msprop:Generator_RowEvArgName="GraficoCuotaRowChangeEvent">
+        <xs:element name="EstadisticaCuota" msprop:Generator_TableClassName="EstadisticaCuotaDataTable" msprop:Generator_TableVarName="tableEstadisticaCuota" msprop:Generator_RowChangedName="EstadisticaCuotaRowChanged" msprop:Generator_TablePropName="EstadisticaCuota" msprop:Generator_RowDeletingName="EstadisticaCuotaRowDeleting" msprop:Generator_RowChangingName="EstadisticaCuotaRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCuotaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCuotaRowDeleted" msprop:Generator_RowClassName="EstadisticaCuotaRow" msprop:Generator_UserTableName="EstadisticaCuota" msprop:Generator_RowEvArgName="EstadisticaCuotaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CuotasPagadas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCuotasPagadas" msprop:Generator_ColumnPropNameInRow="CuotasPagadas" msprop:Generator_ColumnPropNameInTable="CuotasPagadasColumn" msprop:Generator_UserColumnName="CuotasPagadas" type="xs:int" minOccurs="0" />
-              <xs:element name="CuotasPendientes" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCuotasPendientes" msprop:Generator_ColumnPropNameInRow="CuotasPendientes" msprop:Generator_ColumnPropNameInTable="CuotasPendientesColumn" msprop:Generator_UserColumnName="CuotasPendientes" type="xs:int" minOccurs="0" />
-              <xs:element name="Direccion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" type="xs:int" />
+              <xs:element name="DireccionInmueble" msprop:Generator_ColumnVarNameInTable="columnDireccionInmueble" msprop:Generator_ColumnPropNameInRow="DireccionInmueble" msprop:Generator_ColumnPropNameInTable="DireccionInmuebleColumn" msprop:Generator_UserColumnName="DireccionInmueble" type="xs:string" minOccurs="0" />
+              <xs:element name="CuotasPagadas" msprop:Generator_ColumnVarNameInTable="columnCuotasPagadas" msprop:Generator_ColumnPropNameInRow="CuotasPagadas" msprop:Generator_ColumnPropNameInTable="CuotasPagadasColumn" msprop:Generator_UserColumnName="CuotasPagadas" type="xs:int" minOccurs="0" />
+              <xs:element name="CuotasPendientes" msprop:Generator_ColumnVarNameInTable="columnCuotasPendientes" msprop:Generator_ColumnPropNameInRow="CuotasPendientes" msprop:Generator_ColumnPropNameInTable="CuotasPendientesColumn" msprop:Generator_UserColumnName="CuotasPendientes" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -540,10 +518,6 @@ GROUP BY i.idInmueble, i.calle, i.calleNro</CommandText>
     <xs:unique name="Venta_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Venta" />
       <xs:field xpath="mstns:idVenta" />
-    </xs:unique>
-    <xs:unique name="GraficoCuota_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:GraficoCuota" />
-      <xs:field xpath="mstns:Direccion" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

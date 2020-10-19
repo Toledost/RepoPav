@@ -18,7 +18,7 @@ namespace TESTWF2020
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmVentaGeneral());
+            Application.Run(new frmPrincipal());
         }
     }
 }
