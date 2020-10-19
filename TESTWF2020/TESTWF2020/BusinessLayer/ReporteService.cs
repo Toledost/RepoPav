@@ -31,5 +31,10 @@ namespace TESTWF2020.BusinessLayer
         {
             return reporteDao.GetVentasPorMes();
         }
+
+        internal DataTable GetDiasPorEstado()
+        {
+            return reporteDao.GetDiasPorEstado();
+        }
     }
 }

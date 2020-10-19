@@ -18,7 +18,7 @@ namespace TESTWF2020
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmReporteVenta());
+            Application.Run(new frmReporteInmueble());
         }
     }
 }
