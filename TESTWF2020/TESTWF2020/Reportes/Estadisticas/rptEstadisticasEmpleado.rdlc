@@ -71,19 +71,21 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!fechaAlta.Value)</Y>
+                        <Y>=First(Fields!fechaAlta.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
+                        <Type>Circle</Type>
+                        <Size>10pt</Size>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Line</Type>
+                  <Type>Scatter</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -123,7 +125,7 @@
                       </Style>
                     </ChartAxisTitle>
                     <ChartMajorGridLines>
-                      <Enabled>False</Enabled>
+                      <Enabled>True</Enabled>
                       <Style>
                         <Border>
                           <Color>Gainsboro</Color>
@@ -155,6 +157,7 @@
                       <Length>0.5</Length>
                     </ChartMinorTickMarks>
                     <CrossAt>NaN</CrossAt>
+                    <Scalar>true</Scalar>
                     <Minimum>NaN</Minimum>
                     <Maximum>NaN</Maximum>
                     <ChartAxisScaleBreak>
@@ -211,6 +214,7 @@
                     </ChartMinorTickMarks>
                     <CrossAt>NaN</CrossAt>
                     <Location>Opposite</Location>
+                    <Scalar>true</Scalar>
                     <Minimum>NaN</Minimum>
                     <Maximum>NaN</Maximum>
                     <ChartAxisScaleBreak>
@@ -236,6 +240,7 @@
                       </Style>
                     </ChartAxisTitle>
                     <ChartMajorGridLines>
+                      <Enabled>True</Enabled>
                       <Style>
                         <Border>
                           <Color>Gainsboro</Color>
