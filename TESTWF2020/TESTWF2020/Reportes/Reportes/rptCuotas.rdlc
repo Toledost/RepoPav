@@ -405,7 +405,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaVencimiento.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaVencimiento.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -435,7 +435,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaPago.Value</Value>
+                              <Value>=IIF(IsNothing(Fields!fechaPago.Value),Fields!fechaPago.Value,FormatDateTime(Fields!fechaPago.Value, DateFormat.ShortDate))</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -454,6 +454,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

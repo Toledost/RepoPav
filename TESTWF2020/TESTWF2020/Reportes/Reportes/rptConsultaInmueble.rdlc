@@ -186,7 +186,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaCreada.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaCreada.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -291,7 +291,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSetConsultaInmueble</DataSetName>
         <Height>1.2cm</Height>
-        <Width>19.33979cm</Width>
+        <Width>19.3398cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

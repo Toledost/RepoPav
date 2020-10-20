@@ -417,7 +417,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaInicio.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaInicio.Value, DateFormat.ShortDate)</Value>
                               <Style>
                                 <Format>d</Format>
                               </Style>
@@ -449,7 +449,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaFin.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaFin.Value, DateFormat.ShortDate)</Value>
                               <Style>
                                 <Format>d</Format>
                               </Style>
@@ -470,6 +470,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

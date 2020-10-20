@@ -156,7 +156,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaVenta.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaVenta.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -216,7 +216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!esFinanciada.Value</Value>
+                              <Value>=IIF(Fields!esFinanciada.Value=True,"Si","No")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -235,6 +235,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

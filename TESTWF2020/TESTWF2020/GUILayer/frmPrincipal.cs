@@ -18,21 +18,21 @@ namespace TESTWF2020
         public frmPrincipal()
         {
             InitializeComponent();
-            login = new frmLogin();
+            //login = new frmLogin();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            login.ShowDialog();
-            if (login.UsuarioLogueado == null)
-            {
-                this.Close();
-                return;
-            }
-            usuarioLogueado = login.UsuarioLogueado;
-            this.Show();
-            this.Text = string.Concat(tituloOriginal, " - Usuario: ", usuarioLogueado.Nombre);
+            //this.Hide();
+            //login.ShowDialog();
+            //if (login.UsuarioLogueado == null)
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            //usuarioLogueado = login.UsuarioLogueado;
+            //this.Show();
+            //this.Text = string.Concat(tituloOriginal, " - Usuario: ", usuarioLogueado.Nombre);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

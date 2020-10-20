@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Venta.idVenta, Inmueble.calle AS calleInmueble, Inmueble.calleNro, Cliente.nombre AS nombreCliente, Cliente.apellido AS apellidoCliente, Venta.legajoVendedor, Venta.fechaVenta, Venta.fechaEntrega, Venta.montoCuota, 
+                    <CommandText>SELECT        Inmueble.calle AS calleInmueble, Inmueble.calleNro, Cliente.nombre AS nombreCliente, Cliente.apellido AS apellidoCliente, Venta.legajoVendedor, Venta.fechaVenta, Venta.fechaEntrega, Venta.montoCuota, 
                          Venta.montoTotal
 FROM            Inmueble INNER JOIN
                          Venta ON Inmueble.idInmueble = Venta.idInmueble INNER JOIN
@@ -23,7 +23,6 @@ FROM            Inmueble INNER JOIN
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="idVenta" DataSetColumn="idVenta" />
               <Mapping SourceColumn="calleInmueble" DataSetColumn="calleInmueble" />
               <Mapping SourceColumn="calleNro" DataSetColumn="calleNro" />
               <Mapping SourceColumn="nombreCliente" DataSetColumn="nombreCliente" />
@@ -44,10 +43,9 @@ FROM            Inmueble INNER JOIN
   <xs:element name="BDInmobiliariaCasaFelizDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSet" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tablaVenta" msprop:Generator_TableClassName="tablaVentaDataTable" msprop:Generator_TableVarName="tabletablaVenta" msprop:Generator_TablePropName="tablaVenta" msprop:Generator_RowDeletingName="tablaVentaRowDeleting" msprop:Generator_RowChangingName="tablaVentaRowChanging" msprop:Generator_RowEvHandlerName="tablaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaVentaRowDeleted" msprop:Generator_UserTableName="tablaVenta" msprop:Generator_RowChangedName="tablaVentaRowChanged" msprop:Generator_RowEvArgName="tablaVentaRowChangeEvent" msprop:Generator_RowClassName="tablaVentaRow">
+        <xs:element name="tablaVenta" msprop:Generator_TableClassName="tablaVentaDataTable" msprop:Generator_TableVarName="tabletablaVenta" msprop:Generator_RowChangedName="tablaVentaRowChanged" msprop:Generator_TablePropName="tablaVenta" msprop:Generator_RowDeletingName="tablaVentaRowDeleting" msprop:Generator_RowChangingName="tablaVentaRowChanging" msprop:Generator_RowEvHandlerName="tablaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tablaVentaRowDeleted" msprop:Generator_RowClassName="tablaVentaRow" msprop:Generator_UserTableName="tablaVenta" msprop:Generator_RowEvArgName="tablaVentaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="idVenta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidVenta" msprop:Generator_ColumnPropNameInRow="idVenta" msprop:Generator_ColumnPropNameInTable="idVentaColumn" msprop:Generator_UserColumnName="idVenta" type="xs:int" />
               <xs:element name="calleInmueble" msprop:Generator_ColumnVarNameInTable="columncalleInmueble" msprop:Generator_ColumnPropNameInRow="calleInmueble" msprop:Generator_ColumnPropNameInTable="calleInmuebleColumn" msprop:Generator_UserColumnName="calleInmueble" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -78,7 +76,7 @@ FROM            Inmueble INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstadisticaVenta" msprop:Generator_TableClassName="EstadisticaVentaDataTable" msprop:Generator_TableVarName="tableEstadisticaVenta" msprop:Generator_RowChangedName="EstadisticaVentaRowChanged" msprop:Generator_TablePropName="EstadisticaVenta" msprop:Generator_RowDeletingName="EstadisticaVentaRowDeleting" msprop:Generator_RowChangingName="EstadisticaVentaRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaVentaRowDeleted" msprop:Generator_RowClassName="EstadisticaVentaRow" msprop:Generator_UserTableName="EstadisticaVenta" msprop:Generator_RowEvArgName="EstadisticaVentaRowChangeEvent">
+        <xs:element name="EstadisticaVenta" msprop:Generator_TableClassName="EstadisticaVentaDataTable" msprop:Generator_TableVarName="tableEstadisticaVenta" msprop:Generator_TablePropName="EstadisticaVenta" msprop:Generator_RowDeletingName="EstadisticaVentaRowDeleting" msprop:Generator_RowChangingName="EstadisticaVentaRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaVentaRowDeleted" msprop:Generator_UserTableName="EstadisticaVenta" msprop:Generator_RowChangedName="EstadisticaVentaRowChanged" msprop:Generator_RowEvArgName="EstadisticaVentaRowChangeEvent" msprop:Generator_RowClassName="EstadisticaVentaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:string" minOccurs="0" />
@@ -89,9 +87,5 @@ FROM            Inmueble INNER JOIN
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:tablaVenta" />
-      <xs:field xpath="mstns:idVenta" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

@@ -325,7 +325,7 @@ namespace TESTWF2020.DataAccessLayer
 
         internal DataTable GetByFiltersRptVenta(Dictionary<string, object> diccParametros)
         {
-            string consultaSQL = "SELECT Venta.idVenta, " +
+            string consultaSQL = "SELECT " +
                 "Inmueble.calle AS calleInmueble, " +
                 "Inmueble.calleNro, " +
                 "Cliente.nombre AS nombreCliente, " +

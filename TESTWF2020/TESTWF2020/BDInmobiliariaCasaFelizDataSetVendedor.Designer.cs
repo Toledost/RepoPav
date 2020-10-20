@@ -460,13 +460,6 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTableVendedorRow FindBylegajo(int legajo) {
-                return ((DataTableVendedorRow)(this.Rows.Find(new object[] {
-                            legajo})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 DataTableVendedorDataTable cln = ((DataTableVendedorDataTable)(base.Clone()));
                 cln.InitVars();
@@ -505,10 +498,7 @@ namespace TESTWF2020 {
                 base.Columns.Add(this.columnesFinanciada);
                 this.columnDireccionInmueble = new global::System.Data.DataColumn("DireccionInmueble", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDireccionInmueble);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnlegajo}, true));
                 this.columnlegajo.AllowDBNull = false;
-                this.columnlegajo.Unique = true;
                 this.columnEmpleado.ReadOnly = true;
                 this.columnEmpleado.MaxLength = 61;
                 this.columnDireccionInmueble.ReadOnly = true;

@@ -39,7 +39,7 @@ FROM     Empleado INNER JOIN
   <xs:element name="BDInmobiliariaCasaFelizDataSetVendedor" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSetVendedor" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSetVendedor">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTableVendedor" msprop:Generator_TableClassName="DataTableVendedorDataTable" msprop:Generator_TableVarName="tableDataTableVendedor" msprop:Generator_RowChangedName="DataTableVendedorRowChanged" msprop:Generator_TablePropName="DataTableVendedor" msprop:Generator_RowDeletingName="DataTableVendedorRowDeleting" msprop:Generator_RowChangingName="DataTableVendedorRowChanging" msprop:Generator_RowEvHandlerName="DataTableVendedorRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableVendedorRowDeleted" msprop:Generator_RowClassName="DataTableVendedorRow" msprop:Generator_UserTableName="DataTableVendedor" msprop:Generator_RowEvArgName="DataTableVendedorRowChangeEvent">
+        <xs:element name="DataTableVendedor" msprop:Generator_TableClassName="DataTableVendedorDataTable" msprop:Generator_TableVarName="tableDataTableVendedor" msprop:Generator_TablePropName="DataTableVendedor" msprop:Generator_RowDeletingName="DataTableVendedorRowDeleting" msprop:Generator_RowChangingName="DataTableVendedorRowChanging" msprop:Generator_RowEvHandlerName="DataTableVendedorRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableVendedorRowDeleted" msprop:Generator_UserTableName="DataTableVendedor" msprop:Generator_RowChangedName="DataTableVendedorRowChanged" msprop:Generator_RowEvArgName="DataTableVendedorRowChangeEvent" msprop:Generator_RowClassName="DataTableVendedorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="legajo" msprop:Generator_ColumnVarNameInTable="columnlegajo" msprop:Generator_ColumnPropNameInRow="legajo" msprop:Generator_ColumnPropNameInTable="legajoColumn" msprop:Generator_UserColumnName="legajo" type="xs:int" />
@@ -63,7 +63,7 @@ FROM     Empleado INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTableEstadisticaVendedor" msprop:Generator_TableClassName="DataTableEstadisticaVendedorDataTable" msprop:Generator_TableVarName="tableDataTableEstadisticaVendedor" msprop:Generator_TablePropName="DataTableEstadisticaVendedor" msprop:Generator_RowDeletingName="DataTableEstadisticaVendedorRowDeleting" msprop:Generator_RowChangingName="DataTableEstadisticaVendedorRowChanging" msprop:Generator_RowEvHandlerName="DataTableEstadisticaVendedorRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableEstadisticaVendedorRowDeleted" msprop:Generator_UserTableName="DataTableEstadisticaVendedor" msprop:Generator_RowChangedName="DataTableEstadisticaVendedorRowChanged" msprop:Generator_RowEvArgName="DataTableEstadisticaVendedorRowChangeEvent" msprop:Generator_RowClassName="DataTableEstadisticaVendedorRow">
+        <xs:element name="DataTableEstadisticaVendedor" msprop:Generator_TableClassName="DataTableEstadisticaVendedorDataTable" msprop:Generator_TableVarName="tableDataTableEstadisticaVendedor" msprop:Generator_RowChangedName="DataTableEstadisticaVendedorRowChanged" msprop:Generator_TablePropName="DataTableEstadisticaVendedor" msprop:Generator_RowDeletingName="DataTableEstadisticaVendedorRowDeleting" msprop:Generator_RowChangingName="DataTableEstadisticaVendedorRowChanging" msprop:Generator_RowEvHandlerName="DataTableEstadisticaVendedorRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableEstadisticaVendedorRowDeleted" msprop:Generator_RowClassName="DataTableEstadisticaVendedorRow" msprop:Generator_UserTableName="DataTableEstadisticaVendedor" msprop:Generator_RowEvArgName="DataTableEstadisticaVendedorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ventas" msprop:Generator_ColumnVarNameInTable="columnventas" msprop:Generator_ColumnPropNameInRow="ventas" msprop:Generator_ColumnPropNameInTable="ventasColumn" msprop:Generator_UserColumnName="ventas" type="xs:int" minOccurs="0" />
@@ -73,9 +73,5 @@ FROM     Empleado INNER JOIN
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:DataTableVendedor" />
-      <xs:field xpath="mstns:legajo" />
-    </xs:unique>
   </xs:element>
 </xs:schema>
