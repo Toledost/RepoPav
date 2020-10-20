@@ -155,5 +155,12 @@ namespace TESTWF2020.GUILayer
                 this.btnElegirCliente.Visible = false;
             }
         }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            this.txtApellido.Text = "";
+            this.txtDni.Text = "";
+            this.txtNombre.Text = "";
+        }
     }
 }

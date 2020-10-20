@@ -116,5 +116,10 @@ namespace TESTWF2020.GUILayer.ABM
                 this.txtMontoTotal.Text = inmuebleSeleccionado.MontoVenta.ToString();
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

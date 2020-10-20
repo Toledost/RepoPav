@@ -43,45 +43,45 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(154, 32);
+            this.txtNombre.Location = new System.Drawing.Point(175, 62);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(202, 22);
+            this.txtNombre.Size = new System.Drawing.Size(248, 30);
             this.txtNombre.TabIndex = 0;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(154, 83);
+            this.txtContraseña.Location = new System.Drawing.Point(175, 132);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(202, 22);
+            this.txtContraseña.Size = new System.Drawing.Size(248, 30);
             this.txtContraseña.TabIndex = 1;
             // 
             // cboPerfil
             // 
             this.cboPerfil.FormattingEnabled = true;
-            this.cboPerfil.Location = new System.Drawing.Point(154, 142);
+            this.cboPerfil.Location = new System.Drawing.Point(175, 195);
             this.cboPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.cboPerfil.Name = "cboPerfil";
-            this.cboPerfil.Size = new System.Drawing.Size(202, 24);
+            this.cboPerfil.Size = new System.Drawing.Size(248, 33);
             this.cboPerfil.TabIndex = 2;
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(18, 81);
+            this.lblContraseña.Location = new System.Drawing.Point(25, 137);
             this.lblContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(128, 24);
+            this.lblContraseña.Size = new System.Drawing.Size(122, 24);
             this.lblContraseña.TabIndex = 4;
-            this.lblContraseña.Text = "Contraseña: ";
+            this.lblContraseña.Text = "Contraseña:";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(49, 30);
+            this.lblNombre.Location = new System.Drawing.Point(50, 67);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(97, 24);
@@ -92,57 +92,59 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(77, 140);
+            this.lblPerfil.Location = new System.Drawing.Point(84, 204);
             this.lblPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(69, 24);
+            this.lblPerfil.Size = new System.Drawing.Size(63, 24);
             this.lblPerfil.TabIndex = 6;
-            this.lblPerfil.Text = "Perfil: ";
+            this.lblPerfil.Text = "Perfil:";
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(131, 246);
+            this.btnGrabar.Image = global::TESTWF2020.Properties.Resources.icons8_guardar_48;
+            this.btnGrabar.Location = new System.Drawing.Point(119, 304);
             this.btnGrabar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(98, 42);
+            this.btnGrabar.Size = new System.Drawing.Size(98, 67);
             this.btnGrabar.TabIndex = 7;
-            this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(321, 246);
+            this.btnSalir.Image = global::TESTWF2020.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnSalir.Location = new System.Drawing.Point(417, 304);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 42);
+            this.btnSalir.Size = new System.Drawing.Size(100, 67);
             this.btnSalir.TabIndex = 9;
-            this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(13, 246);
+            this.btnEditar.Image = global::TESTWF2020.Properties.Resources.icons8_editar_48;
+            this.btnEditar.Location = new System.Drawing.Point(13, 304);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(98, 42);
+            this.btnEditar.Size = new System.Drawing.Size(98, 67);
             this.btnEditar.TabIndex = 10;
-            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox1.Controls.Add(this.lblPerfil);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.lblContraseña);
             this.groupBox1.Controls.Add(this.cboPerfil);
             this.groupBox1.Controls.Add(this.txtContraseña);
             this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(14, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(407, 196);
+            this.groupBox1.Size = new System.Drawing.Size(503, 272);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Usuario";
@@ -151,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 316);
+            this.ClientSize = new System.Drawing.Size(532, 384);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalir);

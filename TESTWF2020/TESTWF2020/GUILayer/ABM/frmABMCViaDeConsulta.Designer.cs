@@ -50,13 +50,13 @@
             this.id,
             this.nombre,
             this.descripcion});
-            this.dgvViaDeConsultas.Location = new System.Drawing.Point(13, 98);
+            this.dgvViaDeConsultas.Location = new System.Drawing.Point(13, 112);
             this.dgvViaDeConsultas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvViaDeConsultas.Name = "dgvViaDeConsultas";
             this.dgvViaDeConsultas.ReadOnly = true;
             this.dgvViaDeConsultas.RowHeadersWidth = 51;
             this.dgvViaDeConsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvViaDeConsultas.Size = new System.Drawing.Size(576, 356);
+            this.dgvViaDeConsultas.Size = new System.Drawing.Size(671, 368);
             this.dgvViaDeConsultas.TabIndex = 6;
             // 
             // id
@@ -85,74 +85,79 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(121, 471);
+            this.btnDetalle.Image = global::TESTWF2020.Properties.Resources.icons8_ver_archivo_40;
+            this.btnDetalle.Location = new System.Drawing.Point(117, 502);
             this.btnDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(100, 40);
+            this.btnDetalle.Size = new System.Drawing.Size(88, 56);
             this.btnDetalle.TabIndex = 7;
-            this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(489, 43);
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::TESTWF2020.Properties.Resources.icons8_fácil_de_encontrar_40;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(483, 30);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 33);
+            this.btnBuscar.Size = new System.Drawing.Size(201, 52);
             this.btnBuscar.TabIndex = 8;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Consultar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(229, 471);
+            this.btnEliminar.Image = global::TESTWF2020.Properties.Resources.icons8_eliminar_48;
+            this.btnEliminar.Location = new System.Drawing.Point(224, 502);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 40);
+            this.btnEliminar.Size = new System.Drawing.Size(93, 56);
             this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(490, 471);
+            this.btnSalir.Image = global::TESTWF2020.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnSalir.Location = new System.Drawing.Point(599, 502);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 40);
+            this.btnSalir.Size = new System.Drawing.Size(85, 56);
             this.btnSalir.TabIndex = 10;
-            this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(13, 471);
+            this.btnNuevo.Image = global::TESTWF2020.Properties.Resources.icons8_añadir_48;
+            this.btnNuevo.Location = new System.Drawing.Point(13, 502);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(100, 40);
+            this.btnNuevo.Size = new System.Drawing.Size(87, 56);
             this.btnNuevo.TabIndex = 11;
-            this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 46);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 24);
+            this.label1.Size = new System.Drawing.Size(317, 29);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Buscar Vias de Consulta:\r\n";
+            this.label1.Text = "Buscar Víaas de Consulta:\r\n";
             // 
             // frmABMCViaDeConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 524);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(703, 571);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
