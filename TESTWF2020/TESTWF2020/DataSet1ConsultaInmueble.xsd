@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1ConsultaInmueble" targetNamespace="http://tempuri.org/DataSet1ConsultaInmueble.xsd" xmlns:mstns="http://tempuri.org/DataSet1ConsultaInmueble.xsd" xmlns="http://tempuri.org/DataSet1ConsultaInmueble.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDInmobiliariaCasaFelizConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDInmobiliariaCasaFelizConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TESTWF2020.Properties.Settings.GlobalReference.Default.BDInmobiliariaCasaFelizConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultaInmuebleTableAdapter" GeneratorDataComponentClassName="ConsultaInmuebleTableAdapter" Name="ConsultaInmueble" UserDataComponentName="ConsultaInmuebleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, MedioConocimiento.nombre AS MedioConocimiento, Consulta.idConsulta, Consulta.fechaCreada, Cliente.nombre AS NombreCliente, Cliente.apellido, 
+                         EstadoConsulta.nombre AS EstadoConsulta
+FROM            Cliente INNER JOIN
+                         Consulta ON Cliente.dni = Consulta.dniCliente INNER JOIN
+                         Inmueble ON Consulta.idInmueble = Inmueble.idInmueble INNER JOIN
+                         MedioConocimiento ON Consulta.idMedioConocimiento = MedioConocimiento.idMedioConocimiento INNER JOIN
+                         EstadoConsulta ON Consulta.idEstadoConsulta = EstadoConsulta.idEstadoConsulta</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idInmueble" DataSetColumn="idInmueble" />
+              <Mapping SourceColumn="calle" DataSetColumn="calle" />
+              <Mapping SourceColumn="calleNro" DataSetColumn="calleNro" />
+              <Mapping SourceColumn="MedioConocimiento" DataSetColumn="MedioConocimiento" />
+              <Mapping SourceColumn="idConsulta" DataSetColumn="idConsulta" />
+              <Mapping SourceColumn="fechaCreada" DataSetColumn="fechaCreada" />
+              <Mapping SourceColumn="NombreCliente" DataSetColumn="NombreCliente" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="EstadoConsulta" DataSetColumn="EstadoConsulta" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1ConsultaInmueble" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1ConsultaInmueble" msprop:Generator_UserDSName="DataSet1ConsultaInmueble">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ConsultaInmueble" msprop:Generator_TableClassName="ConsultaInmuebleDataTable" msprop:Generator_TableVarName="tableConsultaInmueble" msprop:Generator_RowChangedName="ConsultaInmuebleRowChanged" msprop:Generator_TablePropName="ConsultaInmueble" msprop:Generator_RowDeletingName="ConsultaInmuebleRowDeleting" msprop:Generator_RowChangingName="ConsultaInmuebleRowChanging" msprop:Generator_RowEvHandlerName="ConsultaInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaInmuebleRowDeleted" msprop:Generator_RowClassName="ConsultaInmuebleRow" msprop:Generator_UserTableName="ConsultaInmueble" msprop:Generator_RowEvArgName="ConsultaInmuebleRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
+              <xs:element name="calle" msprop:Generator_ColumnVarNameInTable="columncalle" msprop:Generator_ColumnPropNameInRow="calle" msprop:Generator_ColumnPropNameInTable="calleColumn" msprop:Generator_UserColumnName="calle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="calleNro" msprop:Generator_ColumnVarNameInTable="columncalleNro" msprop:Generator_ColumnPropNameInRow="calleNro" msprop:Generator_ColumnPropNameInTable="calleNroColumn" msprop:Generator_UserColumnName="calleNro" type="xs:int" minOccurs="0" />
+              <xs:element name="MedioConocimiento" msprop:Generator_ColumnVarNameInTable="columnMedioConocimiento" msprop:Generator_ColumnPropNameInRow="MedioConocimiento" msprop:Generator_ColumnPropNameInTable="MedioConocimientoColumn" msprop:Generator_UserColumnName="MedioConocimiento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idConsulta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidConsulta" msprop:Generator_ColumnPropNameInRow="idConsulta" msprop:Generator_ColumnPropNameInTable="idConsultaColumn" msprop:Generator_UserColumnName="idConsulta" type="xs:int" />
+              <xs:element name="fechaCreada" msprop:Generator_ColumnVarNameInTable="columnfechaCreada" msprop:Generator_ColumnPropNameInRow="fechaCreada" msprop:Generator_ColumnPropNameInTable="fechaCreadaColumn" msprop:Generator_UserColumnName="fechaCreada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NombreCliente" msprop:Generator_ColumnVarNameInTable="columnNombreCliente" msprop:Generator_ColumnPropNameInRow="NombreCliente" msprop:Generator_ColumnPropNameInTable="NombreClienteColumn" msprop:Generator_UserColumnName="NombreCliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EstadoConsulta" msprop:Generator_ColumnVarNameInTable="columnEstadoConsulta" msprop:Generator_ColumnPropNameInRow="EstadoConsulta" msprop:Generator_ColumnPropNameInTable="EstadoConsultaColumn" msprop:Generator_UserColumnName="EstadoConsulta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConsultaxInmuebleEstadistica" msprop:Generator_TableClassName="ConsultaxInmuebleEstadisticaDataTable" msprop:Generator_TableVarName="tableConsultaxInmuebleEstadistica" msprop:Generator_TablePropName="ConsultaxInmuebleEstadistica" msprop:Generator_RowDeletingName="ConsultaxInmuebleEstadisticaRowDeleting" msprop:Generator_RowChangingName="ConsultaxInmuebleEstadisticaRowChanging" msprop:Generator_RowEvHandlerName="ConsultaxInmuebleEstadisticaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaxInmuebleEstadisticaRowDeleted" msprop:Generator_UserTableName="ConsultaxInmuebleEstadistica" msprop:Generator_RowChangedName="ConsultaxInmuebleEstadisticaRowChanged" msprop:Generator_RowEvArgName="ConsultaxInmuebleEstadisticaRowChangeEvent" msprop:Generator_RowClassName="ConsultaxInmuebleEstadisticaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="inmueble" msprop:Generator_ColumnVarNameInTable="columninmueble" msprop:Generator_ColumnPropNameInRow="inmueble" msprop:Generator_ColumnPropNameInTable="inmuebleColumn" msprop:Generator_UserColumnName="inmueble" type="xs:string" minOccurs="0" />
+              <xs:element name="cantConsultas" msprop:Generator_ColumnVarNameInTable="columncantConsultas" msprop:Generator_ColumnPropNameInRow="cantConsultas" msprop:Generator_ColumnPropNameInTable="cantConsultasColumn" msprop:Generator_UserColumnName="cantConsultas" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

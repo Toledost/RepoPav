@@ -27,6 +27,16 @@ namespace TESTWF2020.BusinessLayer
             return reporteDao.GetByFiltersRptVenta(diccParametros);
         }
 
+        internal DataTable GetByFiltersRptConsultaInmueble(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptConsultaInmueble(diccParametros);
+        }
+
+        internal DataTable GetConsultaInmuebleEstadistica()
+        {
+            return reporteDao.GetConsultaInmuebleEstadistica();
+        }
+      
         internal DataTable GetVentasPorMes()
         {
             return reporteDao.GetVentasPorMes();
