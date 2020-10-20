@@ -168,5 +168,12 @@ namespace TESTWF2020.GUILayer.ABM
                 MessageBox.Show("Error. Debe seleccionar un Usuario.");
             }
         }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            this.txtNombre.Text = "";
+            this.cboPerfilGeneral.SelectedIndex = -1;
+            this.chkLibre.Checked = false;
+        }
     }
 }

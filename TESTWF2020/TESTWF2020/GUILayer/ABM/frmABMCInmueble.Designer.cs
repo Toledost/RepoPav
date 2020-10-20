@@ -175,7 +175,7 @@
             // txtID
             // 
             this.txtID.Location = new System.Drawing.Point(199, 27);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(156, 22);
@@ -184,7 +184,7 @@
             // txtCalle
             // 
             this.txtCalle.Location = new System.Drawing.Point(199, 100);
-            this.txtCalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCalle.Margin = new System.Windows.Forms.Padding(4);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(156, 22);
             this.txtCalle.TabIndex = 12;
@@ -192,7 +192,7 @@
             // txtNro
             // 
             this.txtNro.Location = new System.Drawing.Point(199, 141);
-            this.txtNro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNro.Margin = new System.Windows.Forms.Padding(4);
             this.txtNro.Name = "txtNro";
             this.txtNro.Size = new System.Drawing.Size(156, 22);
             this.txtNro.TabIndex = 13;
@@ -200,7 +200,7 @@
             // txtMetrosCuadrados
             // 
             this.txtMetrosCuadrados.Location = new System.Drawing.Point(199, 182);
-            this.txtMetrosCuadrados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMetrosCuadrados.Margin = new System.Windows.Forms.Padding(4);
             this.txtMetrosCuadrados.Name = "txtMetrosCuadrados";
             this.txtMetrosCuadrados.Size = new System.Drawing.Size(156, 22);
             this.txtMetrosCuadrados.TabIndex = 14;
@@ -208,7 +208,7 @@
             // txtBaños
             // 
             this.txtBaños.Location = new System.Drawing.Point(549, 27);
-            this.txtBaños.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBaños.Margin = new System.Windows.Forms.Padding(4);
             this.txtBaños.Name = "txtBaños";
             this.txtBaños.Size = new System.Drawing.Size(157, 22);
             this.txtBaños.TabIndex = 15;
@@ -216,7 +216,7 @@
             // txtHabitaciones
             // 
             this.txtHabitaciones.Location = new System.Drawing.Point(549, 63);
-            this.txtHabitaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHabitaciones.Margin = new System.Windows.Forms.Padding(4);
             this.txtHabitaciones.Name = "txtHabitaciones";
             this.txtHabitaciones.Size = new System.Drawing.Size(155, 22);
             this.txtHabitaciones.TabIndex = 16;
@@ -224,7 +224,7 @@
             // txtMontoAlq
             // 
             this.txtMontoAlq.Location = new System.Drawing.Point(549, 100);
-            this.txtMontoAlq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMontoAlq.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontoAlq.Name = "txtMontoAlq";
             this.txtMontoAlq.Size = new System.Drawing.Size(155, 22);
             this.txtMontoAlq.TabIndex = 17;
@@ -232,7 +232,7 @@
             // txtMontoVta
             // 
             this.txtMontoVta.Location = new System.Drawing.Point(549, 141);
-            this.txtMontoVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMontoVta.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontoVta.Name = "txtMontoVta";
             this.txtMontoVta.Size = new System.Drawing.Size(155, 22);
             this.txtMontoVta.TabIndex = 18;
@@ -240,7 +240,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(549, 180);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -386,8 +386,9 @@
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmABMCInmueble";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inmueble";
             this.Load += new System.EventHandler(this.frmABMCInmueble_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

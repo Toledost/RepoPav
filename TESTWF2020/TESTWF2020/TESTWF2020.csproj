@@ -338,6 +338,16 @@
     <None Include="Resources\icons8-gráfico-combinado-48.png" />
     <None Include="Resources\icons8-repositorio-961.png" />
     <None Include="Resources\icons8-cerrar-ventana-961.png" />
+    <None Include="Resources\icons8-añadir-48.png" />
+    <None Include="Resources\icons8-ver-archivo-40.png" />
+    <None Include="Resources\icons8-eliminar-48.png" />
+    <None Include="Resources\icons8-natural-user-interface-2-48.png" />
+    <None Include="Resources\icons8-cerrar-ventana-48.png" />
+    <None Include="Resources\icons8-borrar-48.png" />
+    <None Include="Resources\icons8-fácil-de-encontrar-40.png" />
+    <None Include="Resources\icons8-editar-48.png" />
+    <None Include="Resources\icons8-guardar-como-144.png" />
+    <None Include="Resources\icons8-guardar-48.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

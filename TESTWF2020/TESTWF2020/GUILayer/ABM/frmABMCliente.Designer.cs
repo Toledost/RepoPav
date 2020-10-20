@@ -103,7 +103,7 @@
             // txtDni
             // 
             this.txtDni.Location = new System.Drawing.Point(168, 50);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDni.Margin = new System.Windows.Forms.Padding(4);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(237, 22);
             this.txtDni.TabIndex = 5;
@@ -111,7 +111,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(168, 89);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(237, 22);
             this.txtNombre.TabIndex = 6;
@@ -119,7 +119,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(168, 128);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(237, 22);
             this.txtApellido.TabIndex = 7;
@@ -127,7 +127,7 @@
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(168, 169);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(237, 22);
             this.txtMail.TabIndex = 8;
@@ -135,7 +135,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(168, 209);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(237, 22);
             this.txtTelefono.TabIndex = 9;
@@ -143,7 +143,7 @@
             // btnGrabar
             // 
             this.btnGrabar.Location = new System.Drawing.Point(147, 344);
-            this.btnGrabar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGrabar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(95, 35);
             this.btnGrabar.TabIndex = 10;
@@ -154,7 +154,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(391, 344);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(95, 35);
             this.btnSalir.TabIndex = 12;
@@ -165,7 +165,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(35, 344);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(95, 35);
             this.btnEditar.TabIndex = 13;
@@ -201,8 +201,9 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmABMCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmABMCliente_Load);
             this.groupBox1.ResumeLayout(false);

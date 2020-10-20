@@ -55,71 +55,71 @@
             // cboEstadoConsulta
             // 
             this.cboEstadoConsulta.FormattingEnabled = true;
-            this.cboEstadoConsulta.Location = new System.Drawing.Point(640, 123);
-            this.cboEstadoConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboEstadoConsulta.Location = new System.Drawing.Point(689, 140);
+            this.cboEstadoConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.cboEstadoConsulta.Name = "cboEstadoConsulta";
-            this.cboEstadoConsulta.Size = new System.Drawing.Size(167, 24);
+            this.cboEstadoConsulta.Size = new System.Drawing.Size(167, 33);
             this.cboEstadoConsulta.TabIndex = 102;
             // 
             // cboViaConsulta
             // 
             this.cboViaConsulta.FormattingEnabled = true;
-            this.cboViaConsulta.Location = new System.Drawing.Point(640, 76);
-            this.cboViaConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboViaConsulta.Location = new System.Drawing.Point(689, 93);
+            this.cboViaConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.cboViaConsulta.Name = "cboViaConsulta";
-            this.cboViaConsulta.Size = new System.Drawing.Size(167, 24);
+            this.cboViaConsulta.Size = new System.Drawing.Size(167, 33);
             this.cboViaConsulta.TabIndex = 101;
             // 
             // cboIDMedioConocimiento
             // 
             this.cboIDMedioConocimiento.FormattingEnabled = true;
-            this.cboIDMedioConocimiento.Location = new System.Drawing.Point(640, 32);
-            this.cboIDMedioConocimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboIDMedioConocimiento.Location = new System.Drawing.Point(689, 49);
+            this.cboIDMedioConocimiento.Margin = new System.Windows.Forms.Padding(4);
             this.cboIDMedioConocimiento.Name = "cboIDMedioConocimiento";
-            this.cboIDMedioConocimiento.Size = new System.Drawing.Size(167, 24);
+            this.cboIDMedioConocimiento.Size = new System.Drawing.Size(167, 33);
             this.cboIDMedioConocimiento.TabIndex = 100;
             // 
             // cboIDTipoTrans
             // 
             this.cboIDTipoTrans.FormattingEnabled = true;
-            this.cboIDTipoTrans.Location = new System.Drawing.Point(188, 76);
-            this.cboIDTipoTrans.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboIDTipoTrans.Location = new System.Drawing.Point(203, 93);
+            this.cboIDTipoTrans.Margin = new System.Windows.Forms.Padding(4);
             this.cboIDTipoTrans.Name = "cboIDTipoTrans";
-            this.cboIDTipoTrans.Size = new System.Drawing.Size(167, 24);
+            this.cboIDTipoTrans.Size = new System.Drawing.Size(167, 33);
             this.cboIDTipoTrans.TabIndex = 99;
             // 
             // txtDNICliente
             // 
-            this.txtDNICliente.Location = new System.Drawing.Point(272, 180);
-            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDNICliente.Location = new System.Drawing.Point(287, 197);
+            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtDNICliente.Name = "txtDNICliente";
             this.txtDNICliente.ReadOnly = true;
-            this.txtDNICliente.Size = new System.Drawing.Size(83, 22);
+            this.txtDNICliente.Size = new System.Drawing.Size(83, 30);
             this.txtDNICliente.TabIndex = 95;
             // 
             // txtIDInmueble
             // 
-            this.txtIDInmueble.Location = new System.Drawing.Point(272, 123);
-            this.txtIDInmueble.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIDInmueble.Location = new System.Drawing.Point(287, 140);
+            this.txtIDInmueble.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDInmueble.Name = "txtIDInmueble";
             this.txtIDInmueble.ReadOnly = true;
-            this.txtIDInmueble.Size = new System.Drawing.Size(83, 22);
+            this.txtIDInmueble.Size = new System.Drawing.Size(83, 30);
             this.txtIDInmueble.TabIndex = 94;
             // 
             // txtIDConsulta
             // 
-            this.txtIDConsulta.Location = new System.Drawing.Point(188, 32);
-            this.txtIDConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIDConsulta.Location = new System.Drawing.Point(203, 49);
+            this.txtIDConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDConsulta.Name = "txtIDConsulta";
             this.txtIDConsulta.ReadOnly = true;
-            this.txtIDConsulta.Size = new System.Drawing.Size(167, 22);
+            this.txtIDConsulta.Size = new System.Drawing.Size(167, 30);
             this.txtIDConsulta.TabIndex = 92;
             // 
             // lblViaConsulta
             // 
             this.lblViaConsulta.AutoSize = true;
             this.lblViaConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblViaConsulta.Location = new System.Drawing.Point(472, 76);
+            this.lblViaConsulta.Location = new System.Drawing.Point(521, 93);
             this.lblViaConsulta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblViaConsulta.Name = "lblViaConsulta";
             this.lblViaConsulta.Size = new System.Drawing.Size(160, 24);
@@ -130,7 +130,7 @@
             // 
             this.lblEstadoConsulta.AutoSize = true;
             this.lblEstadoConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoConsulta.Location = new System.Drawing.Point(438, 121);
+            this.lblEstadoConsulta.Location = new System.Drawing.Point(487, 138);
             this.lblEstadoConsulta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEstadoConsulta.Name = "lblEstadoConsulta";
             this.lblEstadoConsulta.Size = new System.Drawing.Size(194, 24);
@@ -141,7 +141,7 @@
             // 
             this.lblMedioConocomiento.AutoSize = true;
             this.lblMedioConocomiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedioConocomiento.Location = new System.Drawing.Point(396, 30);
+            this.lblMedioConocomiento.Location = new System.Drawing.Point(445, 47);
             this.lblMedioConocomiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMedioConocomiento.Name = "lblMedioConocomiento";
             this.lblMedioConocomiento.Size = new System.Drawing.Size(236, 24);
@@ -152,7 +152,7 @@
             // 
             this.lblDNICliente.AutoSize = true;
             this.lblDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNICliente.Location = new System.Drawing.Point(59, 180);
+            this.lblDNICliente.Location = new System.Drawing.Point(74, 197);
             this.lblDNICliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDNICliente.Name = "lblDNICliente";
             this.lblDNICliente.Size = new System.Drawing.Size(121, 24);
@@ -163,7 +163,7 @@
             // 
             this.lblIDInuemble.AutoSize = true;
             this.lblIDInuemble.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDInuemble.Location = new System.Drawing.Point(82, 121);
+            this.lblIDInuemble.Location = new System.Drawing.Point(97, 138);
             this.lblIDInuemble.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIDInuemble.Name = "lblIDInuemble";
             this.lblIDInuemble.Size = new System.Drawing.Size(103, 24);
@@ -174,7 +174,7 @@
             // 
             this.lblTipoTrans.AutoSize = true;
             this.lblTipoTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoTrans.Location = new System.Drawing.Point(6, 74);
+            this.lblTipoTrans.Location = new System.Drawing.Point(21, 91);
             this.lblTipoTrans.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoTrans.Name = "lblTipoTrans";
             this.lblTipoTrans.Size = new System.Drawing.Size(179, 24);
@@ -195,7 +195,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 30);
+            this.label1.Location = new System.Drawing.Point(160, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 24);
@@ -204,41 +204,41 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(737, 292);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Image = global::TESTWF2020.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnSalir.Location = new System.Drawing.Point(781, 305);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 47);
+            this.btnSalir.Size = new System.Drawing.Size(114, 58);
             this.btnSalir.TabIndex = 106;
-            this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(6, 292);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Image = global::TESTWF2020.Properties.Resources.icons8_editar_48;
+            this.btnEditar.Location = new System.Drawing.Point(15, 305);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(100, 47);
+            this.btnEditar.Size = new System.Drawing.Size(101, 58);
             this.btnEditar.TabIndex = 107;
-            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(123, 292);
-            this.btnGrabar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGrabar.Image = global::TESTWF2020.Properties.Resources.icons8_guardar_48;
+            this.btnGrabar.Location = new System.Drawing.Point(139, 305);
+            this.btnGrabar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(100, 47);
+            this.btnGrabar.Size = new System.Drawing.Size(100, 58);
             this.btnGrabar.TabIndex = 108;
-            this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnElegir
             // 
-            this.btnElegir.Location = new System.Drawing.Point(188, 115);
-            this.btnElegir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnElegir.Location = new System.Drawing.Point(203, 132);
+            this.btnElegir.Margin = new System.Windows.Forms.Padding(4);
             this.btnElegir.Name = "btnElegir";
             this.btnElegir.Size = new System.Drawing.Size(76, 38);
             this.btnElegir.TabIndex = 109;
@@ -248,8 +248,8 @@
             // 
             // btnElegirCliente
             // 
-            this.btnElegirCliente.Location = new System.Drawing.Point(188, 173);
-            this.btnElegirCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnElegirCliente.Location = new System.Drawing.Point(203, 190);
+            this.btnElegirCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnElegirCliente.Name = "btnElegirCliente";
             this.btnElegirCliente.Size = new System.Drawing.Size(76, 37);
             this.btnElegirCliente.TabIndex = 110;
@@ -259,6 +259,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox1.Controls.Add(this.btnElegirCliente);
             this.groupBox1.Controls.Add(this.btnElegir);
             this.groupBox1.Controls.Add(this.label1);
@@ -275,9 +276,10 @@
             this.groupBox1.Controls.Add(this.lblDNICliente);
             this.groupBox1.Controls.Add(this.lblIDInuemble);
             this.groupBox1.Controls.Add(this.lblTipoTrans);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(832, 250);
+            this.groupBox1.Size = new System.Drawing.Size(890, 260);
             this.groupBox1.TabIndex = 111;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Detalle de Consulta";
@@ -286,15 +288,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 371);
+            this.ClientSize = new System.Drawing.Size(908, 392);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblID);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDetalleConsulta";
-            this.Text = "Detalle consulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Detalle Consulta";
             this.Load += new System.EventHandler(this.frmDetalleConsulta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

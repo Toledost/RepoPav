@@ -51,7 +51,7 @@
             this.nombre,
             this.descripcion});
             this.dgvViaDeConsultas.Location = new System.Drawing.Point(13, 98);
-            this.dgvViaDeConsultas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvViaDeConsultas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvViaDeConsultas.Name = "dgvViaDeConsultas";
             this.dgvViaDeConsultas.ReadOnly = true;
             this.dgvViaDeConsultas.RowHeadersWidth = 51;
@@ -86,7 +86,7 @@
             // btnDetalle
             // 
             this.btnDetalle.Location = new System.Drawing.Point(121, 471);
-            this.btnDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(100, 40);
             this.btnDetalle.TabIndex = 7;
@@ -97,7 +97,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(489, 43);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 33);
             this.btnBuscar.TabIndex = 8;
@@ -108,7 +108,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(229, 471);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 40);
             this.btnEliminar.TabIndex = 9;
@@ -119,7 +119,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(490, 471);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(100, 40);
             this.btnSalir.TabIndex = 10;
@@ -130,7 +130,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(13, 471);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 40);
             this.btnNuevo.TabIndex = 11;
@@ -160,8 +160,9 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.dgvViaDeConsultas);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmABMCViaDeConsulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vias de Consulta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvViaDeConsultas)).EndInit();
             this.ResumeLayout(false);

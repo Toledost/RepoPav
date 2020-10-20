@@ -44,7 +44,9 @@
             this.txtCantidadCuotas = new System.Windows.Forms.TextBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.btnElegir = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanciacion)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvFinanciacion
@@ -57,12 +59,13 @@
             this.Nombre,
             this.PorcAumento,
             this.CantCuotas});
-            this.dgvFinanciacion.Location = new System.Drawing.Point(108, 178);
+            this.dgvFinanciacion.Location = new System.Drawing.Point(13, 230);
+            this.dgvFinanciacion.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFinanciacion.Name = "dgvFinanciacion";
             this.dgvFinanciacion.ReadOnly = true;
             this.dgvFinanciacion.RowHeadersWidth = 62;
             this.dgvFinanciacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFinanciacion.Size = new System.Drawing.Size(562, 192);
+            this.dgvFinanciacion.Size = new System.Drawing.Size(1344, 435);
             this.dgvFinanciacion.TabIndex = 0;
             // 
             // Id
@@ -99,134 +102,161 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(321, 120);
+            this.btnConsultar.Image = global::TESTWF2020.Properties.Resources.icons8_fácil_de_encontrar_40;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultar.Location = new System.Drawing.Point(1035, 104);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(290, 56);
             this.btnConsultar.TabIndex = 1;
             this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(140, 376);
+            this.btnNuevo.Image = global::TESTWF2020.Properties.Resources.icons8_añadir_48;
+            this.btnNuevo.Location = new System.Drawing.Point(13, 686);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.Size = new System.Drawing.Size(100, 59);
             this.btnNuevo.TabIndex = 2;
-            this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(232, 376);
+            this.btnDetalle.Image = global::TESTWF2020.Properties.Resources.icons8_ver_archivo_40;
+            this.btnDetalle.Location = new System.Drawing.Point(135, 686);
+            this.btnDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.Size = new System.Drawing.Size(100, 59);
             this.btnDetalle.TabIndex = 3;
-            this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(321, 376);
+            this.btnEliminar.Image = global::TESTWF2020.Properties.Resources.icons8_eliminar_48;
+            this.btnEliminar.Location = new System.Drawing.Point(259, 686);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(100, 59);
             this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(571, 376);
+            this.btnCancelar.Image = global::TESTWF2020.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnCancelar.Location = new System.Drawing.Point(1257, 686);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 59);
             this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblAumentoMaximo
             // 
             this.lblAumentoMaximo.AutoSize = true;
-            this.lblAumentoMaximo.Location = new System.Drawing.Point(219, 40);
-            this.lblAumentoMaximo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAumentoMaximo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAumentoMaximo.Location = new System.Drawing.Point(128, 53);
             this.lblAumentoMaximo.Name = "lblAumentoMaximo";
-            this.lblAumentoMaximo.Size = new System.Drawing.Size(88, 13);
+            this.lblAumentoMaximo.Size = new System.Drawing.Size(179, 24);
             this.lblAumentoMaximo.TabIndex = 6;
-            this.lblAumentoMaximo.Text = "Aumento Maximo";
+            this.lblAumentoMaximo.Text = "Aumento Maximo:";
             // 
             // lblCantidadCuotas
             // 
             this.lblCantidadCuotas.AutoSize = true;
-            this.lblCantidadCuotas.Location = new System.Drawing.Point(167, 75);
-            this.lblCantidadCuotas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCantidadCuotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadCuotas.Location = new System.Drawing.Point(26, 122);
             this.lblCantidadCuotas.Name = "lblCantidadCuotas";
-            this.lblCantidadCuotas.Size = new System.Drawing.Size(139, 13);
+            this.lblCantidadCuotas.Size = new System.Drawing.Size(281, 24);
             this.lblCantidadCuotas.TabIndex = 7;
-            this.lblCantidadCuotas.Text = "Cantidad de cuotas minimas";
+            this.lblCantidadCuotas.Text = "Cantidad de Cuotas Minimas:";
             // 
             // txtAumentoMaximo
             // 
-            this.txtAumentoMaximo.Location = new System.Drawing.Point(321, 38);
-            this.txtAumentoMaximo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAumentoMaximo.Location = new System.Drawing.Point(333, 48);
+            this.txtAumentoMaximo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAumentoMaximo.Name = "txtAumentoMaximo";
-            this.txtAumentoMaximo.Size = new System.Drawing.Size(76, 20);
+            this.txtAumentoMaximo.Size = new System.Drawing.Size(289, 30);
             this.txtAumentoMaximo.TabIndex = 10;
             // 
             // txtCantidadCuotas
             // 
-            this.txtCantidadCuotas.Location = new System.Drawing.Point(321, 75);
-            this.txtCantidadCuotas.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCantidadCuotas.Location = new System.Drawing.Point(333, 117);
+            this.txtCantidadCuotas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCantidadCuotas.Name = "txtCantidadCuotas";
-            this.txtCantidadCuotas.Size = new System.Drawing.Size(76, 20);
+            this.txtCantidadCuotas.Size = new System.Drawing.Size(289, 30);
             this.txtCantidadCuotas.TabIndex = 11;
             // 
             // btnLimpiarFiltros
             // 
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(451, 58);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiarFiltros.Image = global::TESTWF2020.Properties.Resources.icons8_borrar_48;
+            this.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(1035, 28);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(58, 30);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(290, 56);
             this.btnLimpiarFiltros.TabIndex = 12;
-            this.btnLimpiarFiltros.Text = "Limpiar";
+            this.btnLimpiarFiltros.Text = "Limpiar Campos";
+            this.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // btnElegir
             // 
-            this.btnElegir.Location = new System.Drawing.Point(451, 376);
+            this.btnElegir.Image = global::TESTWF2020.Properties.Resources.icons8_natural_user_interface_2_48;
+            this.btnElegir.Location = new System.Drawing.Point(840, 686);
+            this.btnElegir.Margin = new System.Windows.Forms.Padding(4);
             this.btnElegir.Name = "btnElegir";
-            this.btnElegir.Size = new System.Drawing.Size(75, 23);
+            this.btnElegir.Size = new System.Drawing.Size(100, 59);
             this.btnElegir.TabIndex = 13;
-            this.btnElegir.Text = "Elegir";
             this.btnElegir.UseVisualStyleBackColor = true;
             this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.groupBox1.Controls.Add(this.btnLimpiarFiltros);
+            this.groupBox1.Controls.Add(this.txtCantidadCuotas);
+            this.groupBox1.Controls.Add(this.txtAumentoMaximo);
+            this.groupBox1.Controls.Add(this.lblCantidadCuotas);
+            this.groupBox1.Controls.Add(this.lblAumentoMaximo);
+            this.groupBox1.Controls.Add(this.btnConsultar);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(13, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1344, 173);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos Financiacion";
+            // 
             // frmConsultaFinanciacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnElegir);
-            this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.txtCantidadCuotas);
-            this.Controls.Add(this.txtAumentoMaximo);
-            this.Controls.Add(this.lblCantidadCuotas);
-            this.Controls.Add(this.lblAumentoMaximo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dgvFinanciacion);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmConsultaFinanciacion";
-            this.Text = "frmConsultaFinanciacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta Financiacion";
             this.Load += new System.EventHandler(this.frmConsultaFinanciacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanciacion)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -248,5 +278,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn PorcAumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantCuotas;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

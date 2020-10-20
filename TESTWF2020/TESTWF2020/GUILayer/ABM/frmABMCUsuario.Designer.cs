@@ -44,7 +44,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(154, 32);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(202, 22);
             this.txtNombre.TabIndex = 0;
@@ -52,7 +52,7 @@
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(154, 83);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(202, 22);
             this.txtContraseña.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.cboPerfil.FormattingEnabled = true;
             this.cboPerfil.Location = new System.Drawing.Point(154, 142);
-            this.cboPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(202, 24);
             this.cboPerfil.TabIndex = 2;
@@ -102,7 +102,7 @@
             // btnGrabar
             // 
             this.btnGrabar.Location = new System.Drawing.Point(131, 246);
-            this.btnGrabar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGrabar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(98, 42);
             this.btnGrabar.TabIndex = 7;
@@ -113,7 +113,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(321, 246);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(100, 42);
             this.btnSalir.TabIndex = 9;
@@ -124,7 +124,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(13, 246);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 42);
             this.btnEditar.TabIndex = 10;
@@ -156,8 +156,9 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmABMCUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmABMCUsuario_Load);
             this.groupBox1.ResumeLayout(false);

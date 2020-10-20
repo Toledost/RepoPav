@@ -133,6 +133,36 @@ namespace TESTWF2020.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_añadir_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-añadir-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_borrar_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-borrar-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cerrar-ventana-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cerrar_ventana_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-cerrar-ventana-96", resourceCulture);
@@ -163,6 +193,36 @@ namespace TESTWF2020.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_editar_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-editar-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_eliminar_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eliminar-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_fácil_de_encontrar_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-fácil-de-encontrar-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_gráfico_combinado_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-gráfico-combinado-48", resourceCulture);
@@ -183,6 +243,26 @@ namespace TESTWF2020.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_guardar_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-guardar-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_guardar_como_144 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-guardar-como-144", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_mano_amiga_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-mano-amiga-96", resourceCulture);
@@ -196,6 +276,16 @@ namespace TESTWF2020.Properties {
         internal static System.Drawing.Bitmap icons8_mano_amiga_961 {
             get {
                 object obj = ResourceManager.GetObject("icons8-mano-amiga-961", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_natural_user_interface_2_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-natural-user-interface-2-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +356,16 @@ namespace TESTWF2020.Properties {
         internal static System.Drawing.Bitmap icons8_vender_propiedad_961 {
             get {
                 object obj = ResourceManager.GetObject("icons8-vender-propiedad-961", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ver_archivo_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ver-archivo-40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

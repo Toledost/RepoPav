@@ -161,6 +161,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmABMCMedioDeConocimiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medio de conocimiento";
             this.Load += new System.EventHandler(this.frmABMCMedioDeConocimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioConocimiento)).EndInit();
