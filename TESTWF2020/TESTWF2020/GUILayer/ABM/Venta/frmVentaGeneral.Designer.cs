@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvVenta = new System.Windows.Forms.DataGridView();
-            this.btnCuotas = new System.Windows.Forms.Button();
-            this.btnElegirCliente = new System.Windows.Forms.Button();
-            this.txtDNICliente = new System.Windows.Forms.TextBox();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrarComprador = new System.Windows.Forms.Button();
             this.idVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +39,12 @@
             this.usuarioVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCuotas = new System.Windows.Forms.Button();
+            this.btnElegirCliente = new System.Windows.Forms.Button();
+            this.txtDNICliente = new System.Windows.Forms.TextBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBorrarComprador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,67 @@
             this.dgvVenta.Size = new System.Drawing.Size(767, 150);
             this.dgvVenta.TabIndex = 0;
             this.dgvVenta.SelectionChanged += new System.EventHandler(this.dgvVenta_SelectionChanged);
+            // 
+            // idVenta
+            // 
+            this.idVenta.HeaderText = "Id";
+            this.idVenta.Name = "idVenta";
+            this.idVenta.ReadOnly = true;
+            this.idVenta.Width = 20;
+            // 
+            // montoCuota
+            // 
+            this.montoCuota.HeaderText = "Monto Cuota";
+            this.montoCuota.Name = "montoCuota";
+            this.montoCuota.ReadOnly = true;
+            // 
+            // idInmueble
+            // 
+            this.idInmueble.HeaderText = "Inmueble";
+            this.idInmueble.Name = "idInmueble";
+            this.idInmueble.ReadOnly = true;
+            // 
+            // dniComprador
+            // 
+            this.dniComprador.HeaderText = "DNI Comprador";
+            this.dniComprador.Name = "dniComprador";
+            this.dniComprador.ReadOnly = true;
+            // 
+            // nombreComprador
+            // 
+            this.nombreComprador.HeaderText = "Nombre Comprador";
+            this.nombreComprador.Name = "nombreComprador";
+            this.nombreComprador.ReadOnly = true;
+            // 
+            // esFinanciada
+            // 
+            this.esFinanciada.HeaderText = "Financiada";
+            this.esFinanciada.Name = "esFinanciada";
+            this.esFinanciada.ReadOnly = true;
+            // 
+            // vendedor
+            // 
+            this.vendedor.HeaderText = "Vendedor";
+            this.vendedor.Name = "vendedor";
+            this.vendedor.ReadOnly = true;
+            // 
+            // usuarioVendedor
+            // 
+            this.usuarioVendedor.HeaderText = "Usuario Vendedor";
+            this.usuarioVendedor.Name = "usuarioVendedor";
+            this.usuarioVendedor.ReadOnly = true;
+            // 
+            // fechaVenta
+            // 
+            this.fechaVenta.HeaderText = "Fecha de Venta";
+            this.fechaVenta.Name = "fechaVenta";
+            this.fechaVenta.ReadOnly = true;
+            // 
+            // fechaEntrega
+            // 
+            this.fechaEntrega.HeaderText = "Fecha de Entrega";
+            this.fechaEntrega.Name = "fechaEntrega";
+            this.fechaEntrega.ReadOnly = true;
             // 
             // btnCuotas
             // 
@@ -131,57 +192,6 @@
             this.btnBorrarComprador.UseVisualStyleBackColor = true;
             this.btnBorrarComprador.Click += new System.EventHandler(this.btnBorrarComprador_Click);
             // 
-            // idVenta
-            // 
-            this.idVenta.HeaderText = "Id";
-            this.idVenta.Name = "idVenta";
-            this.idVenta.Width = 20;
-            // 
-            // montoCuota
-            // 
-            this.montoCuota.HeaderText = "Monto Cuota";
-            this.montoCuota.Name = "montoCuota";
-            // 
-            // idInmueble
-            // 
-            this.idInmueble.HeaderText = "Inmueble";
-            this.idInmueble.Name = "idInmueble";
-            // 
-            // dniComprador
-            // 
-            this.dniComprador.HeaderText = "DNI Comprador";
-            this.dniComprador.Name = "dniComprador";
-            // 
-            // nombreComprador
-            // 
-            this.nombreComprador.HeaderText = "Nombre Comprador";
-            this.nombreComprador.Name = "nombreComprador";
-            // 
-            // esFinanciada
-            // 
-            this.esFinanciada.HeaderText = "Financiada";
-            this.esFinanciada.Name = "esFinanciada";
-            // 
-            // vendedor
-            // 
-            this.vendedor.HeaderText = "Vendedor";
-            this.vendedor.Name = "vendedor";
-            // 
-            // usuarioVendedor
-            // 
-            this.usuarioVendedor.HeaderText = "Usuario Vendedor";
-            this.usuarioVendedor.Name = "usuarioVendedor";
-            // 
-            // fechaVenta
-            // 
-            this.fechaVenta.HeaderText = "Fecha de Venta";
-            this.fechaVenta.Name = "fechaVenta";
-            // 
-            // fechaEntrega
-            // 
-            this.fechaEntrega.HeaderText = "Fecha de Entrega";
-            this.fechaEntrega.Name = "fechaEntrega";
-            // 
             // frmVentaGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,7 +205,7 @@
             this.Controls.Add(this.btnCuotas);
             this.Controls.Add(this.dgvVenta);
             this.Name = "frmVentaGeneral";
-            this.Text = "frmVentaGeneral";
+            this.Text = "Venta General";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

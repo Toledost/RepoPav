@@ -282,7 +282,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaVenta.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaVenta.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -301,6 +301,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -391,7 +392,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
