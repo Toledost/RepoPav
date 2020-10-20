@@ -32,8 +32,8 @@ namespace TESTWF2020.DataAccessLayer
 
         internal DataTable GetVentasPorFinanciacion()
         {
-            string consultaSql = "SELECT Financiacion.nombre, " +
-                                "COUNT(Venta.idVenta) " +
+            string consultaSql = "SELECT Financiacion.nombre AS nombreFinanciacion, " +
+                                "COUNT(Venta.idVenta) AS cantVentas " +
                                 "FROM Financiacion " +
                                 "INNER JOIN Venta ON Financiacion.idFinanciacion = Venta.financiacion " +
                                 "GROUP BY Financiacion.nombre ";

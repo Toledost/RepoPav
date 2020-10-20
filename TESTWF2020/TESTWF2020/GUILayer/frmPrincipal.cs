@@ -144,5 +144,11 @@ namespace TESTWF2020
             frmReporteEmpleado frmReporteEmpleado = new frmReporteEmpleado();
             frmReporteEmpleado.ShowDialog();
         }
+
+        private void ventaFinanciadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteFinanaciacion frmReporteFinanaciacion = new frmReporteFinanaciacion();
+            frmReporteFinanaciacion.ShowDialog();
+        }
     }
 }
