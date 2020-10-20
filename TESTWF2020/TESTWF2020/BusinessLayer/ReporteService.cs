@@ -47,6 +47,11 @@ namespace TESTWF2020.BusinessLayer
             return reporteDao.GetDiasPorEstado();
         }
 
+        internal DataTable GetVentasPorFinanciacion()
+        {
+            return reporteDao.GetVentasPorFinanciacion();
+        }
+
         internal DataTable GetVentasPorVendedor()
         {
             return reporteDao.GetVentasPorVendedor();
@@ -70,6 +75,11 @@ namespace TESTWF2020.BusinessLayer
         internal DataTable GetByFiltersRptEmpleado(Dictionary<string, object> diccParametros)
         {
             return reporteDao.GetByFiltersRptEmpleado(diccParametros);
+        }
+
+        internal DataTable GetByFiltersRptFinanciacion(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptFinanciacion(diccParametros);
         }
 
         internal DataTable GetByFiltersRptVendedor(Dictionary<string, object> diccParametros)
