@@ -9,15 +9,13 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultaInmuebleTableAdapter" GeneratorDataComponentClassName="ConsultaInmuebleTableAdapter" Name="ConsultaInmueble" UserDataComponentName="ConsultaInmuebleTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, MedioConocimiento.nombre AS MedioConocimiento, Consulta.idConsulta, Consulta.fechaCreada, Cliente.nombre AS NombreCliente, Cliente.apellido, 
-                         EstadoConsulta.nombre AS EstadoConsulta
+                    <CommandText>SELECT        Inmueble.calle + ' ' + CAST(Inmueble.calleNro AS VARCHAR) AS Direccion, Consulta.fechaCreada, Cliente.nombre + ' ' + Cliente.apellido AS NombreCliente, EstadoConsulta.nombre AS EstadoConsulta
 FROM            Cliente INNER JOIN
                          Consulta ON Cliente.dni = Consulta.dniCliente INNER JOIN
                          Inmueble ON Consulta.idInmueble = Inmueble.idInmueble INNER JOIN
-                         MedioConocimiento ON Consulta.idMedioConocimiento = MedioConocimiento.idMedioConocimiento INNER JOIN
                          EstadoConsulta ON Consulta.idEstadoConsulta = EstadoConsulta.idEstadoConsulta</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -25,15 +23,31 @@ FROM            Cliente INNER JOIN
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="idInmueble" DataSetColumn="idInmueble" />
-              <Mapping SourceColumn="calle" DataSetColumn="calle" />
-              <Mapping SourceColumn="calleNro" DataSetColumn="calleNro" />
-              <Mapping SourceColumn="MedioConocimiento" DataSetColumn="MedioConocimiento" />
-              <Mapping SourceColumn="idConsulta" DataSetColumn="idConsulta" />
               <Mapping SourceColumn="fechaCreada" DataSetColumn="fechaCreada" />
               <Mapping SourceColumn="NombreCliente" DataSetColumn="NombreCliente" />
-              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
               <Mapping SourceColumn="EstadoConsulta" DataSetColumn="EstadoConsulta" />
+              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultaMedioConocimientoTableAdapter" GeneratorDataComponentClassName="ConsultaMedioConocimientoTableAdapter" Name="ConsultaMedioConocimiento" UserDataComponentName="ConsultaMedioConocimientoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MedioConocimiento.nombre, Consulta.fechaCreada, Inmueble.calle + ' ' + CAST(Inmueble.calleNro AS VARCHAR) AS direccion
+FROM            Consulta INNER JOIN
+                         MedioConocimiento ON Consulta.idMedioConocimiento = MedioConocimiento.idMedioConocimiento INNER JOIN
+                         Inmueble ON Consulta.idInmueble = Inmueble.idInmueble</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="fechaCreada" DataSetColumn="fechaCreada" />
+              <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -45,35 +59,11 @@ FROM            Cliente INNER JOIN
   <xs:element name="DataSet1ConsultaInmueble" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1ConsultaInmueble" msprop:Generator_UserDSName="DataSet1ConsultaInmueble">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ConsultaInmueble" msprop:Generator_TableClassName="ConsultaInmuebleDataTable" msprop:Generator_TableVarName="tableConsultaInmueble" msprop:Generator_RowChangedName="ConsultaInmuebleRowChanged" msprop:Generator_TablePropName="ConsultaInmueble" msprop:Generator_RowDeletingName="ConsultaInmuebleRowDeleting" msprop:Generator_RowChangingName="ConsultaInmuebleRowChanging" msprop:Generator_RowEvHandlerName="ConsultaInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaInmuebleRowDeleted" msprop:Generator_RowClassName="ConsultaInmuebleRow" msprop:Generator_UserTableName="ConsultaInmueble" msprop:Generator_RowEvArgName="ConsultaInmuebleRowChangeEvent">
+        <xs:element name="ConsultaInmueble" msprop:Generator_TableClassName="ConsultaInmuebleDataTable" msprop:Generator_TableVarName="tableConsultaInmueble" msprop:Generator_TablePropName="ConsultaInmueble" msprop:Generator_RowDeletingName="ConsultaInmuebleRowDeleting" msprop:Generator_RowChangingName="ConsultaInmuebleRowChanging" msprop:Generator_RowEvHandlerName="ConsultaInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaInmuebleRowDeleted" msprop:Generator_UserTableName="ConsultaInmueble" msprop:Generator_RowChangedName="ConsultaInmuebleRowChanged" msprop:Generator_RowEvArgName="ConsultaInmuebleRowChangeEvent" msprop:Generator_RowClassName="ConsultaInmuebleRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="idInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
-              <xs:element name="calle" msprop:Generator_ColumnVarNameInTable="columncalle" msprop:Generator_ColumnPropNameInRow="calle" msprop:Generator_ColumnPropNameInTable="calleColumn" msprop:Generator_UserColumnName="calle" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="calleNro" msprop:Generator_ColumnVarNameInTable="columncalleNro" msprop:Generator_ColumnPropNameInRow="calleNro" msprop:Generator_ColumnPropNameInTable="calleNroColumn" msprop:Generator_UserColumnName="calleNro" type="xs:int" minOccurs="0" />
-              <xs:element name="MedioConocimiento" msprop:Generator_ColumnVarNameInTable="columnMedioConocimiento" msprop:Generator_ColumnPropNameInRow="MedioConocimiento" msprop:Generator_ColumnPropNameInTable="MedioConocimientoColumn" msprop:Generator_UserColumnName="MedioConocimiento">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="idConsulta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidConsulta" msprop:Generator_ColumnPropNameInRow="idConsulta" msprop:Generator_ColumnPropNameInTable="idConsultaColumn" msprop:Generator_UserColumnName="idConsulta" type="xs:int" />
               <xs:element name="fechaCreada" msprop:Generator_ColumnVarNameInTable="columnfechaCreada" msprop:Generator_ColumnPropNameInRow="fechaCreada" msprop:Generator_ColumnPropNameInTable="fechaCreadaColumn" msprop:Generator_UserColumnName="fechaCreada" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NombreCliente" msprop:Generator_ColumnVarNameInTable="columnNombreCliente" msprop:Generator_ColumnPropNameInRow="NombreCliente" msprop:Generator_ColumnPropNameInTable="NombreClienteColumn" msprop:Generator_UserColumnName="NombreCliente">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido">
+              <xs:element name="NombreCliente" msprop:Generator_ColumnVarNameInTable="columnNombreCliente" msprop:Generator_ColumnPropNameInRow="NombreCliente" msprop:Generator_ColumnPropNameInTable="NombreClienteColumn" msprop:Generator_UserColumnName="NombreCliente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
@@ -87,14 +77,50 @@ FROM            Cliente INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Direccion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ConsultaxInmuebleEstadistica" msprop:Generator_TableClassName="ConsultaxInmuebleEstadisticaDataTable" msprop:Generator_TableVarName="tableConsultaxInmuebleEstadistica" msprop:Generator_TablePropName="ConsultaxInmuebleEstadistica" msprop:Generator_RowDeletingName="ConsultaxInmuebleEstadisticaRowDeleting" msprop:Generator_RowChangingName="ConsultaxInmuebleEstadisticaRowChanging" msprop:Generator_RowEvHandlerName="ConsultaxInmuebleEstadisticaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaxInmuebleEstadisticaRowDeleted" msprop:Generator_UserTableName="ConsultaxInmuebleEstadistica" msprop:Generator_RowChangedName="ConsultaxInmuebleEstadisticaRowChanged" msprop:Generator_RowEvArgName="ConsultaxInmuebleEstadisticaRowChangeEvent" msprop:Generator_RowClassName="ConsultaxInmuebleEstadisticaRow">
+        <xs:element name="ConsultaxInmuebleEstadistica" msprop:Generator_TableClassName="ConsultaxInmuebleEstadisticaDataTable" msprop:Generator_TableVarName="tableConsultaxInmuebleEstadistica" msprop:Generator_RowChangedName="ConsultaxInmuebleEstadisticaRowChanged" msprop:Generator_TablePropName="ConsultaxInmuebleEstadistica" msprop:Generator_RowDeletingName="ConsultaxInmuebleEstadisticaRowDeleting" msprop:Generator_RowChangingName="ConsultaxInmuebleEstadisticaRowChanging" msprop:Generator_RowEvHandlerName="ConsultaxInmuebleEstadisticaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaxInmuebleEstadisticaRowDeleted" msprop:Generator_RowClassName="ConsultaxInmuebleEstadisticaRow" msprop:Generator_UserTableName="ConsultaxInmuebleEstadistica" msprop:Generator_RowEvArgName="ConsultaxInmuebleEstadisticaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="inmueble" msprop:Generator_ColumnVarNameInTable="columninmueble" msprop:Generator_ColumnPropNameInRow="inmueble" msprop:Generator_ColumnPropNameInTable="inmuebleColumn" msprop:Generator_UserColumnName="inmueble" type="xs:string" minOccurs="0" />
-              <xs:element name="cantConsultas" msprop:Generator_ColumnVarNameInTable="columncantConsultas" msprop:Generator_ColumnPropNameInRow="cantConsultas" msprop:Generator_ColumnPropNameInTable="cantConsultasColumn" msprop:Generator_UserColumnName="cantConsultas" type="xs:string" minOccurs="0" />
+              <xs:element name="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_UserColumnName="direccion" type="xs:string" minOccurs="0" />
+              <xs:element name="cantConsultas" msprop:Generator_ColumnVarNameInTable="columncantConsultas" msprop:Generator_ColumnPropNameInRow="cantConsultas" msprop:Generator_ColumnPropNameInTable="cantConsultasColumn" msprop:Generator_UserColumnName="cantConsultas" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConsultaMedioConocimiento" msprop:Generator_TableClassName="ConsultaMedioConocimientoDataTable" msprop:Generator_TableVarName="tableConsultaMedioConocimiento" msprop:Generator_RowChangedName="ConsultaMedioConocimientoRowChanged" msprop:Generator_TablePropName="ConsultaMedioConocimiento" msprop:Generator_RowDeletingName="ConsultaMedioConocimientoRowDeleting" msprop:Generator_RowChangingName="ConsultaMedioConocimientoRowChanging" msprop:Generator_RowEvHandlerName="ConsultaMedioConocimientoRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaMedioConocimientoRowDeleted" msprop:Generator_RowClassName="ConsultaMedioConocimientoRow" msprop:Generator_UserTableName="ConsultaMedioConocimiento" msprop:Generator_RowEvArgName="ConsultaMedioConocimientoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaCreada" msprop:Generator_ColumnVarNameInTable="columnfechaCreada" msprop:Generator_ColumnPropNameInRow="fechaCreada" msprop:Generator_ColumnPropNameInTable="fechaCreadaColumn" msprop:Generator_UserColumnName="fechaCreada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="direccion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_UserColumnName="direccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaMedioConocimiento" msprop:Generator_TableClassName="EstadisticaMedioConocimientoDataTable" msprop:Generator_TableVarName="tableEstadisticaMedioConocimiento" msprop:Generator_RowChangedName="EstadisticaMedioConocimientoRowChanged" msprop:Generator_TablePropName="EstadisticaMedioConocimiento" msprop:Generator_RowDeletingName="EstadisticaMedioConocimientoRowDeleting" msprop:Generator_RowChangingName="EstadisticaMedioConocimientoRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaMedioConocimientoRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaMedioConocimientoRowDeleted" msprop:Generator_RowClassName="EstadisticaMedioConocimientoRow" msprop:Generator_UserTableName="EstadisticaMedioConocimiento" msprop:Generator_RowEvArgName="EstadisticaMedioConocimientoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="medioConocimiento" msprop:Generator_ColumnVarNameInTable="columnmedioConocimiento" msprop:Generator_ColumnPropNameInRow="medioConocimiento" msprop:Generator_ColumnPropNameInTable="medioConocimientoColumn" msprop:Generator_UserColumnName="medioConocimiento" type="xs:string" minOccurs="0" />
+              <xs:element name="cantConsultas" msprop:Generator_ColumnVarNameInTable="columncantConsultas" msprop:Generator_ColumnPropNameInRow="cantConsultas" msprop:Generator_ColumnPropNameInTable="cantConsultasColumn" msprop:Generator_UserColumnName="cantConsultas" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

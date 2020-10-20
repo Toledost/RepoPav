@@ -47,8 +47,10 @@
             this.reporteInmuebleXConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ventaFinanciadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.consultaMedioConocimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -168,10 +170,12 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporteDeInmuebleToolStripMenuItem,
             this.reporteDeVentasToolStripMenuItem,
-            this.reporteInmuebleXConsultaToolStripMenuItem});
+            this.reporteInmuebleXConsultaToolStripMenuItem,
             this.cuotasToolStripMenuItem,
             this.empleadosToolStripMenuItem1,
-            this.ventaFinanciadaToolStripMenuItem});
+            this.ventaFinanciadaToolStripMenuItem,
+            this.vendedoresToolStripMenuItem,
+            this.consultaMedioConocimientoToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -179,30 +183,51 @@
             // reporteDeInmuebleToolStripMenuItem
             // 
             this.reporteDeInmuebleToolStripMenuItem.Name = "reporteDeInmuebleToolStripMenuItem";
-            this.reporteDeInmuebleToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.reporteDeInmuebleToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.reporteDeInmuebleToolStripMenuItem.Text = "Reporte de inmueble";
             this.reporteDeInmuebleToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInmuebleToolStripMenuItem_Click);
             // 
             // reporteDeVentasToolStripMenuItem
             // 
             this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
-            this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.reporteDeVentasToolStripMenuItem.Text = "Reporte de ventas";
             this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
+            // 
+            // reporteInmuebleXConsultaToolStripMenuItem
+            // 
+            this.reporteInmuebleXConsultaToolStripMenuItem.Name = "reporteInmuebleXConsultaToolStripMenuItem";
+            this.reporteInmuebleXConsultaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.reporteInmuebleXConsultaToolStripMenuItem.Text = "Reporte Inmueble x Consulta";
+            this.reporteInmuebleXConsultaToolStripMenuItem.Click += new System.EventHandler(this.reporteInmuebleXConsultaToolStripMenuItem_Click);
             // 
             // cuotasToolStripMenuItem
             // 
             this.cuotasToolStripMenuItem.Name = "cuotasToolStripMenuItem";
-            this.cuotasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.cuotasToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.cuotasToolStripMenuItem.Text = "Cuotas";
             this.cuotasToolStripMenuItem.Click += new System.EventHandler(this.cuotasToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem1
             // 
             this.empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
-            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
+            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(237, 22);
             this.empleadosToolStripMenuItem1.Text = "Empleados";
             this.empleadosToolStripMenuItem1.Click += new System.EventHandler(this.empleadosToolStripMenuItem1_Click);
+            // 
+            // ventaFinanciadaToolStripMenuItem
+            // 
+            this.ventaFinanciadaToolStripMenuItem.Name = "ventaFinanciadaToolStripMenuItem";
+            this.ventaFinanciadaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.ventaFinanciadaToolStripMenuItem.Text = "venta financiada";
+            this.ventaFinanciadaToolStripMenuItem.Click += new System.EventHandler(this.ventaFinanciadaToolStripMenuItem_Click);
+            // 
+            // vendedoresToolStripMenuItem
+            // 
+            this.vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
+            this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.vendedoresToolStripMenuItem.Text = "Vendedores";
+            this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -214,19 +239,12 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // reporteInmuebleXConsultaToolStripMenuItem
+            // consultaMedioConocimientoToolStripMenuItem
             // 
-            this.reporteInmuebleXConsultaToolStripMenuItem.Name = "reporteInmuebleXConsultaToolStripMenuItem";
-            this.reporteInmuebleXConsultaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.reporteInmuebleXConsultaToolStripMenuItem.Text = "Reporte Inmueble x Consulta";
-            this.reporteInmuebleXConsultaToolStripMenuItem.Click += new System.EventHandler(this.reporteInmuebleXConsultaToolStripMenuItem_Click);
-            //
-            // ventaFinanciadaToolStripMenuItem
-            // 
-            this.ventaFinanciadaToolStripMenuItem.Name = "ventaFinanciadaToolStripMenuItem";
-            this.ventaFinanciadaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.ventaFinanciadaToolStripMenuItem.Text = "venta financiada";
-            this.ventaFinanciadaToolStripMenuItem.Click += new System.EventHandler(this.ventaFinanciadaToolStripMenuItem_Click);
+            this.consultaMedioConocimientoToolStripMenuItem.Name = "consultaMedioConocimientoToolStripMenuItem";
+            this.consultaMedioConocimientoToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.consultaMedioConocimientoToolStripMenuItem.Text = "Consulta Medio Conocimiento";
+            this.consultaMedioConocimientoToolStripMenuItem.Click += new System.EventHandler(this.consultaMedioConocimientoToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -271,6 +289,8 @@
         private System.Windows.Forms.ToolStripMenuItem ventaGeneralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ventaFinanciadaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaMedioConocimientoToolStripMenuItem;
     }
 }
 

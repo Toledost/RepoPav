@@ -30,6 +30,21 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetCantConsultasByMedioConocimiento()
+        {
+            string consultaSql = "SELECT " +
+                "m.nombre AS medioConocimiento, " +
+                "COUNT (c.idConsulta) AS cantConsultas " +
+                "FROM MedioConocimiento m  " +
+                "JOIN Consulta c ON c.idMedioConocimiento = m.idMedioConocimiento " +
+                "GROUP BY m.nombre";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetVentasPorFinanciacion()
         {
             string consultaSql = "SELECT Financiacion.nombre AS nombreFinanciacion, " +
@@ -41,6 +56,34 @@ namespace TESTWF2020.DataAccessLayer
             var busqueda = dm.ConsultaSQL2(consultaSql);
 
             return busqueda;
+        }
+
+        internal DataTable GetByFiltersRptConsultaMedioConocimiento(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT " +
+                "MedioConocimiento.nombre, " +
+                "Consulta.fechaCreada, " +
+                "Inmueble.calle + ' ' + CAST(Inmueble.calleNro AS VARCHAR) AS direccion " +
+                "FROM Consulta " +
+                "INNER JOIN MedioConocimiento ON Consulta.idMedioConocimiento = MedioConocimiento.idMedioConocimiento " +
+                "INNER JOIN Inmueble ON Consulta.idInmueble = Inmueble.idInmueble ";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosMedioConocimiento(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
+        private string AgregarParametrosMedioConocimiento(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("nombreMedioConocimiento"))
+                consultaSQL += " AND (MedioConocimiento.nombre LIKE '%' + @nombreMedioConocimiento + '%') ";
+
+            if (diccParametros.ContainsKey("fechaDesde"))
+                consultaSQL += " AND (Consulta.fechaCreada BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            return consultaSQL;
         }
 
         internal DataTable GetVentasPorVendedor()
@@ -58,10 +101,11 @@ namespace TESTWF2020.DataAccessLayer
 
         internal DataTable GetConsultaInmuebleEstadistica()
         {
-            string consultaSql = "SELECT COUNT(c.idConsulta), i.idInmueble " +
+            string consultaSql = "SELECT COUNT(c.idConsulta) AS cantConsultas, " +
+                "(i.calle + ' ' + CAST(i.calleNro AS varchar)) AS direccion " +
                 "FROM Consulta c " +
                 "JOIN Inmueble i ON i.idInmueble = c.idInmueble " +
-                "GROUP BY i.idInmueble ";
+                "GROUP BY i.idInmueble, i.calle, i.calleNro ";
   
             var dm = new DataManager();
             var busqueda = dm.ConsultaSQL2(consultaSql);

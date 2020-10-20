@@ -51,20 +51,24 @@
             this.consultaInmuebleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1ConsultaInmueble = new TESTWF2020.DataSet1ConsultaInmueble();
             this.consultaInmuebleTableAdapter = new TESTWF2020.DataSet1ConsultaInmuebleTableAdapters.ConsultaInmuebleTableAdapter();
+            this.consultaxInmuebleEstadisticaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.consultaInmuebleBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.consultaInmuebleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1ConsultaInmueble)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaxInmuebleEstadisticaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaInmuebleBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // rptvConsultaInmueble
             // 
-            reportDataSource1.Name = "ConsultaInmueble";
-            reportDataSource1.Value = this.consultaInmuebleBindingSource;
+            reportDataSource1.Name = "DataSetConsultaInmueble";
+            reportDataSource1.Value = this.consultaInmuebleBindingSource1;
             this.rptvConsultaInmueble.LocalReport.DataSources.Add(reportDataSource1);
             this.rptvConsultaInmueble.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptConsultaInmueble.rdlc";
             this.rptvConsultaInmueble.Location = new System.Drawing.Point(12, 214);
             this.rptvConsultaInmueble.Name = "rptvConsultaInmueble";
             this.rptvConsultaInmueble.ServerReport.BearerToken = null;
-            this.rptvConsultaInmueble.Size = new System.Drawing.Size(707, 255);
+            this.rptvConsultaInmueble.Size = new System.Drawing.Size(843, 255);
             this.rptvConsultaInmueble.TabIndex = 0;
             // 
             // btnBuscar
@@ -236,6 +240,16 @@
             // 
             this.consultaInmuebleTableAdapter.ClearBeforeFill = true;
             // 
+            // consultaxInmuebleEstadisticaBindingSource
+            // 
+            this.consultaxInmuebleEstadisticaBindingSource.DataMember = "ConsultaxInmuebleEstadistica";
+            this.consultaxInmuebleEstadisticaBindingSource.DataSource = this.dataSet1ConsultaInmueble;
+            // 
+            // consultaInmuebleBindingSource1
+            // 
+            this.consultaInmuebleBindingSource1.DataMember = "ConsultaInmueble";
+            this.consultaInmuebleBindingSource1.DataSource = this.dataSet1ConsultaInmueble;
+            // 
             // frmReporteConsultaInmueble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +278,8 @@
             this.Load += new System.EventHandler(this.frmReporteConsultaInmueble_Load);
             ((System.ComponentModel.ISupportInitialize)(this.consultaInmuebleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1ConsultaInmueble)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaxInmuebleEstadisticaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaInmuebleBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,5 +308,7 @@
         private System.Windows.Forms.ComboBox cboMedioConocimento;
         private System.Windows.Forms.Button btnLimpiarFiltros;
         private System.Windows.Forms.Button btnGrafico;
+        private System.Windows.Forms.BindingSource consultaInmuebleBindingSource1;
+        private System.Windows.Forms.BindingSource consultaxInmuebleEstadisticaBindingSource;
     }
 }

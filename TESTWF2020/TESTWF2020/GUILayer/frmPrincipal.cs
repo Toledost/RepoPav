@@ -157,5 +157,17 @@ namespace TESTWF2020
             frmReporteFinanaciacion frmReporteFinanaciacion = new frmReporteFinanaciacion();
             frmReporteFinanaciacion.ShowDialog();
         }
+
+        private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteVendedor frmReporteVendedor = new frmReporteVendedor();
+            frmReporteVendedor.ShowDialog();
+        }
+
+        private void consultaMedioConocimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteConsultaMedioConocimiento frmReporteConsultaMedioConocimiento = new frmReporteConsultaMedioConocimiento();
+            frmReporteConsultaMedioConocimiento.ShowDialog();
+        }
     }
 }

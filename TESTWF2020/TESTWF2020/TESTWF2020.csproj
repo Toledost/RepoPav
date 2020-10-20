@@ -298,6 +298,12 @@
     <Compile Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.Designer.cs">
       <DependentUpon>frmEstadisticaConsultaInmueble.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaMedioConocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaMedioConocimiento.Designer.cs">
+      <DependentUpon>frmEstadisticaMedioConocimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportes\frmReporteConsultaInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,12 @@
     </Compile>
     <Compile Include="Reportes\frmEstadisticas\frmCuotaEstadistica.Designer.cs">
       <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteConsultaMedioConocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteConsultaMedioConocimiento.Designer.cs">
+      <DependentUpon>frmReporteConsultaMedioConocimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportes\frmReporteCuota.cs">
       <SubType>Form</SubType>
@@ -453,8 +465,12 @@
     </Compile>
     <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaFinanaciacion.rdlc" />
     <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaConsultaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaMedioConocimiento.rdlc" />
     <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.resx">
       <DependentUpon>frmEstadisticaConsultaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaMedioConocimiento.resx">
+      <DependentUpon>frmEstadisticaMedioConocimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteConsultaInmueble.resx">
       <DependentUpon>frmReporteConsultaInmueble.cs</DependentUpon>
@@ -482,6 +498,9 @@
     <EmbeddedResource Include="Reportes\frmEstadisticas\frmCuotaEstadistica.resx">
       <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteConsultaMedioConocimiento.resx">
+      <DependentUpon>frmReporteConsultaMedioConocimiento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteCuota.resx">
       <DependentUpon>frmReporteCuota.cs</DependentUpon>
     </EmbeddedResource>
@@ -501,6 +520,7 @@
       <DependentUpon>frmReporteVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reportes\rptConsultaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptConsultaMedioConocimiento.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptEmpleados.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptFinanciacion.rdlc" />

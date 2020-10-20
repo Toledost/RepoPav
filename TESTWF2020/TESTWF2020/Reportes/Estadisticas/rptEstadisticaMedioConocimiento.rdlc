@@ -7,18 +7,18 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>c4432535-57c3-407d-94a6-23443fc9d86a</rd:DataSourceID>
+      <rd:DataSourceID>4abf0432-ea48-405d-8788-c0654dc2fee7</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1ConsultaxInmuebleEstadistica">
+    <DataSet Name="DataSetEstadisticaMedioConocimiento">
       <Query>
         <DataSourceName>DataSet1ConsultaInmueble</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="direccion">
-          <DataField>direccion</DataField>
+        <Field Name="medioConocimiento">
+          <DataField>medioConocimiento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="cantConsultas">
@@ -29,7 +29,7 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1ConsultaInmueble</rd:DataSetName>
         <rd:SchemaPath>C:\repos\RepoPav\TESTWF2020\TESTWF2020\DataSet1ConsultaInmueble.xsd</rd:SchemaPath>
-        <rd:TableName>ConsultaxInmuebleEstadistica</rd:TableName>
+        <rd:TableName>EstadisticaMedioConocimiento</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -46,15 +46,15 @@
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!direccion.Value</GroupExpression>
+                      <GroupExpression>=Fields!medioConocimiento.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!direccion.Value</Value>
+                      <Value>=Fields!medioConocimiento.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!direccion.Value</Label>
+                  <Label>=Fields!medioConocimiento.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -75,6 +75,8 @@
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
@@ -83,6 +85,7 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
+                  <Type>Shape</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -340,7 +343,6 @@
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
                 </Style>
-                <Position>TopLeft</Position>
                 <ChartLegendTitle>
                   <Caption />
                   <Style>
@@ -384,8 +386,8 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1ConsultaxInmuebleEstadistica</DataSetName>
-            <Height>9.68312cm</Height>
+            <DataSetName>DataSetEstadisticaMedioConocimiento</DataSetName>
+            <Height>9.83869cm</Height>
             <Width>16.51cm</Width>
             <Style>
               <Border>
@@ -397,7 +399,7 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>3.81225in</Height>
+        <Height>3.8735in</Height>
         <Style />
       </Body>
       <Width>6.5in</Width>
@@ -420,5 +422,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>3c8f4a8f-f390-4dd8-a635-161c72455522</rd:ReportID>
+  <rd:ReportID>d1558e10-060b-4eb9-83c3-dbebc91e4617</rd:ReportID>
 </Report>
