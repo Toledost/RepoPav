@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BDInmobiliariaCasaFelizDataSetFinanciacion" targetNamespace="http://tempuri.org/BDInmobiliariaCasaFelizDataSetFinanciacion.xsd" xmlns:mstns="http://tempuri.org/BDInmobiliariaCasaFelizDataSetFinanciacion.xsd" xmlns="http://tempuri.org/BDInmobiliariaCasaFelizDataSetFinanciacion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDInmobiliariaCasaFelizConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDInmobiliariaCasaFelizConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TESTWF2020.Properties.Settings.GlobalReference.Default.BDInmobiliariaCasaFelizConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableFinanciacionTableAdapter" GeneratorDataComponentClassName="DataTableFinanciacionTableAdapter" Name="DataTableFinanciacion" UserDataComponentName="DataTableFinanciacionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Financiacion.nombre, Venta.fechaVenta, Venta.esFinanciada, Venta.montoTotal
+FROM     Venta INNER JOIN
+                  Financiacion ON Venta.financiacion = Financiacion.idFinanciacion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="fechaVenta" DataSetColumn="fechaVenta" />
+              <Mapping SourceColumn="esFinanciada" DataSetColumn="esFinanciada" />
+              <Mapping SourceColumn="montoTotal" DataSetColumn="montoTotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BDInmobiliariaCasaFelizDataSetFinanciacion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSetFinanciacion" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSetFinanciacion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableFinanciacion" msprop:Generator_TableClassName="DataTableFinanciacionDataTable" msprop:Generator_TableVarName="tableDataTableFinanciacion" msprop:Generator_RowChangedName="DataTableFinanciacionRowChanged" msprop:Generator_TablePropName="DataTableFinanciacion" msprop:Generator_RowDeletingName="DataTableFinanciacionRowDeleting" msprop:Generator_RowChangingName="DataTableFinanciacionRowChanging" msprop:Generator_RowEvHandlerName="DataTableFinanciacionRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableFinanciacionRowDeleted" msprop:Generator_RowClassName="DataTableFinanciacionRow" msprop:Generator_UserTableName="DataTableFinanciacion" msprop:Generator_RowEvArgName="DataTableFinanciacionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaVenta" msprop:Generator_ColumnVarNameInTable="columnfechaVenta" msprop:Generator_ColumnPropNameInRow="fechaVenta" msprop:Generator_ColumnPropNameInTable="fechaVentaColumn" msprop:Generator_UserColumnName="fechaVenta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="esFinanciada" msprop:Generator_ColumnVarNameInTable="columnesFinanciada" msprop:Generator_ColumnPropNameInRow="esFinanciada" msprop:Generator_ColumnPropNameInTable="esFinanciadaColumn" msprop:Generator_UserColumnName="esFinanciada" type="xs:boolean" minOccurs="0" />
+              <xs:element name="montoTotal" msprop:Generator_ColumnVarNameInTable="columnmontoTotal" msprop:Generator_ColumnPropNameInRow="montoTotal" msprop:Generator_ColumnPropNameInTable="montoTotalColumn" msprop:Generator_UserColumnName="montoTotal" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableEstadisticaFinanciacion" msprop:Generator_TableClassName="DataTableEstadisticaFinanciacionDataTable" msprop:Generator_TableVarName="tableDataTableEstadisticaFinanciacion" msprop:Generator_TablePropName="DataTableEstadisticaFinanciacion" msprop:Generator_RowDeletingName="DataTableEstadisticaFinanciacionRowDeleting" msprop:Generator_RowChangingName="DataTableEstadisticaFinanciacionRowChanging" msprop:Generator_RowEvHandlerName="DataTableEstadisticaFinanciacionRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableEstadisticaFinanciacionRowDeleted" msprop:Generator_UserTableName="DataTableEstadisticaFinanciacion" msprop:Generator_RowChangedName="DataTableEstadisticaFinanciacionRowChanged" msprop:Generator_RowEvArgName="DataTableEstadisticaFinanciacionRowChangeEvent" msprop:Generator_RowClassName="DataTableEstadisticaFinanciacionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cantVentas" msprop:Generator_ColumnVarNameInTable="columncantVentas" msprop:Generator_ColumnPropNameInRow="cantVentas" msprop:Generator_ColumnPropNameInTable="cantVentasColumn" msprop:Generator_UserColumnName="cantVentas" type="xs:int" minOccurs="0" />
+              <xs:element name="nombreFinanciacion" msprop:Generator_ColumnVarNameInTable="columnnombreFinanciacion" msprop:Generator_ColumnPropNameInRow="nombreFinanciacion" msprop:Generator_ColumnPropNameInTable="nombreFinanciacionColumn" msprop:Generator_UserColumnName="nombreFinanciacion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

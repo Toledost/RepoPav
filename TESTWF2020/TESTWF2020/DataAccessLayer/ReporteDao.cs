@@ -30,6 +30,20 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
+        internal DataTable GetVentasPorFinanciacion()
+        {
+            string consultaSql = "SELECT Financiacion.nombre, " +
+                                "COUNT(Venta.idVenta) " +
+                                "FROM Financiacion " +
+                                "INNER JOIN Venta ON Financiacion.idFinanciacion = Venta.financiacion " +
+                                "GROUP BY Financiacion.nombre ";
+
+            var dm = new DataManager();
+            var busqueda = dm.ConsultaSQL2(consultaSql);
+
+            return busqueda;
+        }
+
         internal DataTable GetEmpleadosPorAñoMes()
         {
             string consultaSql = "SELECT Usuario.nombre AS Usuario, " +
@@ -43,6 +57,30 @@ namespace TESTWF2020.DataAccessLayer
             var busqueda = dm.ConsultaSQL2(consultaSql);
 
             return busqueda;
+        }
+
+        internal DataTable GetByFiltersRptFinanciacion(Dictionary<string, object> diccParametros)
+        {
+            string consultaSQL = "SELECT Financiacion.nombre, Venta.fechaVenta, Venta.esFinanciada, Venta.montoTotal " +
+                                 "FROM Venta " +
+                                 "INNER JOIN Financiacion ON Venta.financiacion = Financiacion.idFinanciacion ";
+
+            var dm = new DataManager();
+            consultaSQL = AgregarParametrosFinanciacion(diccParametros, consultaSQL);
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSQL, diccParametros);
+
+            return busqueda;
+        }
+
+        private string AgregarParametrosFinanciacion(Dictionary<string, object> diccParametros, string consultaSQL)
+        {
+            if (diccParametros.ContainsKey("nombreFinanciacion"))
+                consultaSQL += " AND (Financiacion.nombre LIKE '%' + @nombreFinanciacion + '%') ";
+
+            if (diccParametros.ContainsKey("fechaDesde"))
+                consultaSQL += " AND (Usuario.fechaAlta BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            return consultaSQL;
         }
 
         internal DataTable GetDiasPorEstado()
