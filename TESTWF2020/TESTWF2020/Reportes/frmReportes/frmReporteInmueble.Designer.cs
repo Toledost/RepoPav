@@ -78,6 +78,7 @@
             this.btnGrafico.TabIndex = 1;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // btnBuscar
             // 

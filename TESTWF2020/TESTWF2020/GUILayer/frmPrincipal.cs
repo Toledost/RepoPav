@@ -126,12 +126,30 @@ namespace TESTWF2020
             frmReporteVenta.ShowDialog();
             this.Show();
         }
-
+        
         private void reporteInmuebleXConsultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteConsultaInmueble frmReporteConsultaInmueble = new frmReporteConsultaInmueble();
             frmReporteConsultaInmueble.ShowDialog();
             this.Show();
+        }
+        
+        private void cuotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteCuota frmReporteCuota = new frmReporteCuota();
+            frmReporteCuota.ShowDialog();
+        }
+
+        private void ventaGeneralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVentaGeneral frmVentaGeneral = new frmVentaGeneral();
+            frmVentaGeneral.ShowDialog();
+        }
+
+        private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReporteEmpleado frmReporteEmpleado = new frmReporteEmpleado();
+            frmReporteEmpleado.ShowDialog();
         }
     }
 }

@@ -78,6 +78,15 @@ FROM            Inmueble INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EstadisticaVenta" msprop:Generator_TableClassName="EstadisticaVentaDataTable" msprop:Generator_TableVarName="tableEstadisticaVenta" msprop:Generator_RowChangedName="EstadisticaVentaRowChanged" msprop:Generator_TablePropName="EstadisticaVenta" msprop:Generator_RowDeletingName="EstadisticaVentaRowDeleting" msprop:Generator_RowChangingName="EstadisticaVentaRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaVentaRowDeleted" msprop:Generator_RowClassName="EstadisticaVentaRow" msprop:Generator_UserTableName="EstadisticaVenta" msprop:Generator_RowEvArgName="EstadisticaVentaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:string" minOccurs="0" />
+              <xs:element name="VentasFinanciadas" msprop:Generator_ColumnVarNameInTable="columnVentasFinanciadas" msprop:Generator_ColumnPropNameInRow="VentasFinanciadas" msprop:Generator_ColumnPropNameInTable="VentasFinanciadasColumn" msprop:Generator_UserColumnName="VentasFinanciadas" type="xs:int" minOccurs="0" />
+              <xs:element name="VentasContado" msprop:Generator_ColumnVarNameInTable="columnVentasContado" msprop:Generator_ColumnPropNameInRow="VentasContado" msprop:Generator_ColumnPropNameInTable="VentasContadoColumn" msprop:Generator_UserColumnName="VentasContado" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
+using TESTWF2020.Reportes.frmEstadisticas;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
@@ -95,6 +96,12 @@ namespace TESTWF2020.Reportes.frmReportes
             }
 
             return dict;
+        }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            frmEstadisticaVenta frmEstadisticaVenta = new frmEstadisticaVenta();
+            frmEstadisticaVenta.ShowDialog();
         }
     }
 }

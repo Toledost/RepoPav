@@ -65,15 +65,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDInmobiliariaCasaFelizDataSet.cs">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BDInmobiliariaCasaFelizDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BDInmobiliariaCasaFelizDataSetCuotas.Designer.cs">
+    <Compile Include="BDInmobiliariaCasaFelizDataSetCuota.cs">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetCuota.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetEmpleado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetEmpleado.xsd</DependentUpon>
     </Compile>
     <Compile Include="BusinessLayer\CuotaService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
@@ -280,6 +291,42 @@
     <Compile Include="Reportes\frmReportes\frmReporteConsultaInmueble.Designer.cs">
       <DependentUpon>frmReporteConsultaInmueble.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisiticaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisiticaEmpleado.Designer.cs">
+      <DependentUpon>frmEstadisiticaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.Designer.cs">
+      <DependentUpon>frmEstadisticaInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVenta.Designer.cs">
+      <DependentUpon>frmEstadisticaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmCuotaEstadistica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmCuotaEstadistica.Designer.cs">
+      <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteCuota.Designer.cs">
+      <DependentUpon>frmReporteCuota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteEmpleado.Designer.cs">
+      <DependentUpon>frmReporteEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportes\frmReporteInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +421,28 @@
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteConsultaInmueble.resx">
       <DependentUpon>frmReporteConsultaInmueble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticasEmpleado.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisiticaEmpleado.resx">
+      <DependentUpon>frmEstadisiticaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.resx">
+      <DependentUpon>frmEstadisticaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaVenta.resx">
+      <DependentUpon>frmEstadisticaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticasCuotas.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmCuotaEstadistica.resx">
+      <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteCuota.resx">
+      <DependentUpon>frmReporteCuota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteEmpleado.resx">
+      <DependentUpon>frmReporteEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteInmueble.resx">
       <DependentUpon>frmReporteInmueble.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +451,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reportes\rptConsultaInmueble.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptCuotas.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptEmpleados.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptInmueble.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes\rptVenta.rdlc" />
     <None Include="BDInmobiliariaCasaFelizDataSet.xsc">
@@ -395,16 +465,27 @@
     <None Include="BDInmobiliariaCasaFelizDataSet.xss">
       <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
     </None>
-    <None Include="BDInmobiliariaCasaFelizDataSetCuotas.xsc">
-      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuota.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
     </None>
-    <None Include="BDInmobiliariaCasaFelizDataSetCuotas.xsd">
+    <None Include="BDInmobiliariaCasaFelizDataSetCuota.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BDInmobiliariaCasaFelizDataSetCuotas.Designer.cs</LastGenOutput>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetCuota.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BDInmobiliariaCasaFelizDataSetCuotas.xss">
-      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuotas.xsd</DependentUpon>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuota.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetEmpleado.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetEmpleado.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetEmpleado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetEmpleado.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetEmpleado.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetEmpleado.xsd</DependentUpon>
     </None>
     <None Include="DataSet1ConsultaInmueble.xsc">
       <DependentUpon>DataSet1ConsultaInmueble.xsd</DependentUpon>

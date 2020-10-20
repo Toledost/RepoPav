@@ -36,5 +36,35 @@ namespace TESTWF2020.BusinessLayer
         {
             return reporteDao.GetConsultaInmuebleEstadistica();
         }
+      
+        internal DataTable GetVentasPorMes()
+        {
+            return reporteDao.GetVentasPorMes();
+        }
+
+        internal DataTable GetDiasPorEstado()
+        {
+            return reporteDao.GetDiasPorEstado();
+        }
+
+        internal DataTable GetEmpleadosPorAñoMes()
+        {
+            return reporteDao.GetEmpleadosPorAñoMes();
+        }
+
+        internal DataTable GetByFiltersRptCuota(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptCuota(diccParametros);
+        }
+
+        internal DataTable GetCuotasByDireccion()
+        {
+            return reporteDao.GetCuotasByDireccion();
+        }
+
+        internal DataTable GetByFiltersRptEmpleado(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptEmpleado(diccParametros);
+        }
     }
 }
