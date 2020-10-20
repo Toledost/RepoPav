@@ -27,6 +27,16 @@ namespace TESTWF2020.BusinessLayer
             return reporteDao.GetByFiltersRptVenta(diccParametros);
         }
 
+        internal DataTable GetByFiltersRptConsultaInmueble(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptConsultaInmueble(diccParametros);
+        }
+
+        internal DataTable GetConsultaInmuebleEstadistica()
+        {
+            return reporteDao.GetConsultaInmuebleEstadistica();
+        }
+      
         internal DataTable GetVentasPorMes()
         {
             return reporteDao.GetVentasPorMes();
@@ -40,6 +50,11 @@ namespace TESTWF2020.BusinessLayer
         internal DataTable GetVentasPorFinanciacion()
         {
             return reporteDao.GetVentasPorFinanciacion();
+        }
+
+        internal DataTable GetVentasPorVendedor()
+        {
+            return reporteDao.GetVentasPorVendedor();
         }
 
         internal DataTable GetEmpleadosPorAñoMes()
@@ -65,6 +80,11 @@ namespace TESTWF2020.BusinessLayer
         internal DataTable GetByFiltersRptFinanciacion(Dictionary<string, object> diccParametros)
         {
             return reporteDao.GetByFiltersRptFinanciacion(diccParametros);
+        }
+
+        internal DataTable GetByFiltersRptVendedor(Dictionary<string, object> diccParametros)
+        {
+            return reporteDao.GetByFiltersRptVendedor(diccParametros);
         }
     }
 }

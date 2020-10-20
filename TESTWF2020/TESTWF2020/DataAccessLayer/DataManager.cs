@@ -21,6 +21,7 @@ namespace TESTWF2020.DataAccessLayer
             dbConnection.ConnectionString = @"Data Source=DESKTOP-0C4GOB8\SQLEXPRESS;Initial Catalog=BDInmobiliariaCasaFeliz;Integrated Security=True";
             //dbConnection.ConnectionString = @"Data Source=DESKTOP-VA1EDAU\SQLEXPRESS;Initial Catalog=BDInmobiliariaCasaFeliz;Integrated Security=True";
 
+
         }
 
         public void BeginTransaction()

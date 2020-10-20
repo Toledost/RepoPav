@@ -44,6 +44,7 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInmuebleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteInmuebleXConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -167,6 +168,7 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporteDeInmuebleToolStripMenuItem,
             this.reporteDeVentasToolStripMenuItem,
+            this.reporteInmuebleXConsultaToolStripMenuItem});
             this.cuotasToolStripMenuItem,
             this.empleadosToolStripMenuItem1,
             this.ventaFinanciadaToolStripMenuItem});
@@ -177,7 +179,7 @@
             // reporteDeInmuebleToolStripMenuItem
             // 
             this.reporteDeInmuebleToolStripMenuItem.Name = "reporteDeInmuebleToolStripMenuItem";
-            this.reporteDeInmuebleToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.reporteDeInmuebleToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.reporteDeInmuebleToolStripMenuItem.Text = "Reporte de inmueble";
             this.reporteDeInmuebleToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInmuebleToolStripMenuItem_Click);
             // 
@@ -212,6 +214,13 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // reporteInmuebleXConsultaToolStripMenuItem
+            // 
+            this.reporteInmuebleXConsultaToolStripMenuItem.Name = "reporteInmuebleXConsultaToolStripMenuItem";
+            this.reporteInmuebleXConsultaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.reporteInmuebleXConsultaToolStripMenuItem.Text = "Reporte Inmueble x Consulta";
+            this.reporteInmuebleXConsultaToolStripMenuItem.Click += new System.EventHandler(this.reporteInmuebleXConsultaToolStripMenuItem_Click);
+            //
             // ventaFinanciadaToolStripMenuItem
             // 
             this.ventaFinanciadaToolStripMenuItem.Name = "ventaFinanciadaToolStripMenuItem";
@@ -257,6 +266,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDeInmuebleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDeVentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteInmuebleXConsultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuotasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventaGeneralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem1;
