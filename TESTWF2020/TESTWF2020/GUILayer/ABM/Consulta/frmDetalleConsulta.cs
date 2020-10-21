@@ -62,7 +62,10 @@ namespace TESTWF2020.GUILayer.ABM
             frmInmuebles frmInmuebles = new frmInmuebles(true);
             //this.Hide();
             frmInmuebles.ShowDialog();
-            this.txtIDInmueble.Text = frmInmuebles.InmuebleSeleccionado.Id.ToString();
+            if (frmInmuebles.InmuebleSeleccionado != null)
+            {
+                this.txtIDInmueble.Text = frmInmuebles.InmuebleSeleccionado.Id.ToString();
+            }
         }
 
         private void btnElegirCliente_Click(object sender, EventArgs e)
@@ -70,7 +73,10 @@ namespace TESTWF2020.GUILayer.ABM
             frmConsultarClientes frmConsultarClientes = new frmConsultarClientes(true);
             //this.Hide();
             frmConsultarClientes.ShowDialog();
-            this.txtDNICliente.Text = frmConsultarClientes.dniClienteSeleccionado.ToString();
+            if (frmConsultarClientes.dniClienteSeleccionado != 0)
+            {
+                this.txtDNICliente.Text = frmConsultarClientes.dniClienteSeleccionado.ToString();
+            }
         }
         private void frmDetalleConsulta_Load(object sender, EventArgs e)
         {

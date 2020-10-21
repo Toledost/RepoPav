@@ -159,9 +159,6 @@ namespace TESTWF2020
         {
             frmEmpleados frmEmpleados = new frmEmpleados();
             mostrarFormEnPanel(frmEmpleados);
-            this.Hide();
-            frmABMCVenta.ShowDialog();
-            this.Show();
         }
 
         private void reporteDeInmuebleToolStripMenuItem_Click(object sender, EventArgs e)

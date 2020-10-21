@@ -494,12 +494,14 @@
             this.pictureBox1.TabStop = false;
             // 
             // consultaMedioConocimientoToolStripMenuItem
-            // midPanel
             // 
             this.consultaMedioConocimientoToolStripMenuItem.Name = "consultaMedioConocimientoToolStripMenuItem";
             this.consultaMedioConocimientoToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.consultaMedioConocimientoToolStripMenuItem.Text = "Consulta Medio Conocimiento";
             this.consultaMedioConocimientoToolStripMenuItem.Click += new System.EventHandler(this.consultaMedioConocimientoToolStripMenuItem_Click);
+            //
+            // midPanel
+            //
             this.midPanel.BackColor = System.Drawing.Color.Transparent;
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.midPanel.Location = new System.Drawing.Point(317, 24);
