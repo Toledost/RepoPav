@@ -287,6 +287,9 @@ namespace TESTWF2020.DataAccessLayer
             if (parametros.ContainsKey("tipoInmueble"))
                 consultaSql += " AND (i.idTipoInmueble = @tipoInmueble) ";
 
+            if (parametros.ContainsKey("fechaVenta"))
+                consultaSql += " AND (i.fechaVenta = @fechaVenta)  ";
+
             return consultaSql;
         }
 

@@ -5,6 +5,7 @@ using TESTWF2020.Entities;
 using TESTWF2020.GUILayer;
 using TESTWF2020.GUILayer.ABM;
 using TESTWF2020.GUILayer.FORMFinanciacion;
+using TESTWF2020.Reportes.frmReportes;
 
 namespace TESTWF2020
 {
@@ -17,21 +18,21 @@ namespace TESTWF2020
         public frmPrincipal()
         {
             InitializeComponent();
-            login = new frmLogin();
+            //login = new frmLogin();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            login.ShowDialog();
-            if (login.UsuarioLogueado == null)
-            {
-                this.Close();
-                return;
-            }
-            usuarioLogueado = login.UsuarioLogueado;
-            this.Show();
-            this.Text = string.Concat(tituloOriginal, " - Usuario: ", usuarioLogueado.Nombre);
+            //this.Hide();
+            //login.ShowDialog();
+            //if (login.UsuarioLogueado == null)
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            //usuarioLogueado = login.UsuarioLogueado;
+            //this.Show();
+            //this.Text = string.Concat(tituloOriginal, " - Usuario: ", usuarioLogueado.Nombre);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -110,6 +111,63 @@ namespace TESTWF2020
             this.Hide();
             frmABMCVenta.ShowDialog();
             this.Show();
+        }
+
+        private void reporteDeInmuebleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteInmueble frmReporteInmueble = new frmReporteInmueble();
+            frmReporteInmueble.ShowDialog();
+            this.Show();
+        }
+
+        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteVenta frmReporteVenta = new frmReporteVenta();
+            frmReporteVenta.ShowDialog();
+            this.Show();
+        }
+        
+        private void reporteInmuebleXConsultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteConsultaInmueble frmReporteConsultaInmueble = new frmReporteConsultaInmueble();
+            frmReporteConsultaInmueble.ShowDialog();
+            this.Show();
+        }
+        
+        private void cuotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteCuota frmReporteCuota = new frmReporteCuota();
+            frmReporteCuota.ShowDialog();
+        }
+
+        private void ventaGeneralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVentaGeneral frmVentaGeneral = new frmVentaGeneral();
+            frmVentaGeneral.ShowDialog();
+        }
+
+        private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReporteEmpleado frmReporteEmpleado = new frmReporteEmpleado();
+            frmReporteEmpleado.ShowDialog();
+        }
+
+        private void ventaFinanciadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteFinanaciacion frmReporteFinanaciacion = new frmReporteFinanaciacion();
+            frmReporteFinanaciacion.ShowDialog();
+        }
+
+        private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteVendedor frmReporteVendedor = new frmReporteVendedor();
+            frmReporteVendedor.ShowDialog();
+        }
+
+        private void consultaMedioConocimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteConsultaMedioConocimiento frmReporteConsultaMedioConocimiento = new frmReporteConsultaMedioConocimiento();
+            frmReporteConsultaMedioConocimiento.ShowDialog();
         }
     }
 }
