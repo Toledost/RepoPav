@@ -10,12 +10,13 @@ namespace TESTWF2020.Entities
     {
         public int IdVenta { get; set; }
         public Usuario UsuarioVendedor { get; set; }
+        public Empleado EmpleadoVendedor { get; set; }
         public Inmueble Inmueble { get; set; }
         public DateTime FechaVenta { get; set; }
         public DateTime FechaEntrega { get; set; }
         public Cliente Cliente { get; set; }
         public int MontoTotal { get; set; }
-        public int MontoCuota { get; set; }
+        public float MontoCuota { get; set; }
         public bool EsFinanciada { get; set; }
         public Financiacion Financiacion { get; set; }
     }

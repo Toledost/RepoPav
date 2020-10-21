@@ -24,7 +24,9 @@ namespace TESTWF2020 {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class BDInmobiliariaCasaFelizDataSet : global::System.Data.DataSet {
         
-        private InmuebleDataTable tableInmueble;
+        private tablaVentaDataTable tabletablaVenta;
+        
+        private EstadisticaVentaDataTable tableEstadisticaVenta;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +56,11 @@ namespace TESTWF2020 {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Inmueble"] != null)) {
-                    base.Tables.Add(new InmuebleDataTable(ds.Tables["Inmueble"]));
+                if ((ds.Tables["tablaVenta"] != null)) {
+                    base.Tables.Add(new tablaVentaDataTable(ds.Tables["tablaVenta"]));
+                }
+                if ((ds.Tables["EstadisticaVenta"] != null)) {
+                    base.Tables.Add(new EstadisticaVentaDataTable(ds.Tables["EstadisticaVenta"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +84,19 @@ namespace TESTWF2020 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public InmuebleDataTable Inmueble {
+        public tablaVentaDataTable tablaVenta {
             get {
-                return this.tableInmueble;
+                return this.tabletablaVenta;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EstadisticaVentaDataTable EstadisticaVenta {
+            get {
+                return this.tableEstadisticaVenta;
             }
         }
         
@@ -152,8 +167,11 @@ namespace TESTWF2020 {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Inmueble"] != null)) {
-                    base.Tables.Add(new InmuebleDataTable(ds.Tables["Inmueble"]));
+                if ((ds.Tables["tablaVenta"] != null)) {
+                    base.Tables.Add(new tablaVentaDataTable(ds.Tables["tablaVenta"]));
+                }
+                if ((ds.Tables["EstadisticaVenta"] != null)) {
+                    base.Tables.Add(new EstadisticaVentaDataTable(ds.Tables["EstadisticaVenta"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +206,16 @@ namespace TESTWF2020 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableInmueble = ((InmuebleDataTable)(base.Tables["Inmueble"]));
+            this.tabletablaVenta = ((tablaVentaDataTable)(base.Tables["tablaVenta"]));
             if ((initTable == true)) {
-                if ((this.tableInmueble != null)) {
-                    this.tableInmueble.InitVars();
+                if ((this.tabletablaVenta != null)) {
+                    this.tabletablaVenta.InitVars();
+                }
+            }
+            this.tableEstadisticaVenta = ((EstadisticaVentaDataTable)(base.Tables["EstadisticaVenta"]));
+            if ((initTable == true)) {
+                if ((this.tableEstadisticaVenta != null)) {
+                    this.tableEstadisticaVenta.InitVars();
                 }
             }
         }
@@ -204,13 +228,21 @@ namespace TESTWF2020 {
             this.Namespace = "http://tempuri.org/BDInmobiliariaCasaFelizDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableInmueble = new InmuebleDataTable();
-            base.Tables.Add(this.tableInmueble);
+            this.tabletablaVenta = new tablaVentaDataTable();
+            base.Tables.Add(this.tabletablaVenta);
+            this.tableEstadisticaVenta = new EstadisticaVentaDataTable();
+            base.Tables.Add(this.tableEstadisticaVenta);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeInmueble() {
+        private bool ShouldSerializetablaVenta() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeEstadisticaVenta() {
             return false;
         }
         
@@ -270,41 +302,40 @@ namespace TESTWF2020 {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void InmuebleRowChangeEventHandler(object sender, InmuebleRowChangeEvent e);
+        public delegate void tablaVentaRowChangeEventHandler(object sender, tablaVentaRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void EstadisticaVentaRowChangeEventHandler(object sender, EstadisticaVentaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class InmuebleDataTable : global::System.Data.TypedTableBase<InmuebleRow> {
+        public partial class tablaVentaDataTable : global::System.Data.TypedTableBase<tablaVentaRow> {
             
-            private global::System.Data.DataColumn columnidInmueble;
-            
-            private global::System.Data.DataColumn columncalle;
+            private global::System.Data.DataColumn columncalleInmueble;
             
             private global::System.Data.DataColumn columncalleNro;
             
-            private global::System.Data.DataColumn columnm2;
+            private global::System.Data.DataColumn columnnombreCliente;
             
-            private global::System.Data.DataColumn columncantBaños;
+            private global::System.Data.DataColumn columnapellidoCliente;
             
-            private global::System.Data.DataColumn columncantHabitaciones;
+            private global::System.Data.DataColumn columnlegajoVendedor;
             
-            private global::System.Data.DataColumn columnidTipoInmueble;
+            private global::System.Data.DataColumn columnfechaVenta;
             
-            private global::System.Data.DataColumn columndescripcion;
+            private global::System.Data.DataColumn columnfechaEntrega;
             
-            private global::System.Data.DataColumn columnborrado;
+            private global::System.Data.DataColumn columnmontoCuota;
             
-            private global::System.Data.DataColumn columnmontoAlquiler;
-            
-            private global::System.Data.DataColumn columnmontoVenta;
+            private global::System.Data.DataColumn columnmontoTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleDataTable() {
-                this.TableName = "Inmueble";
+            public tablaVentaDataTable() {
+                this.TableName = "tablaVenta";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -312,7 +343,7 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal InmuebleDataTable(global::System.Data.DataTable table) {
+            internal tablaVentaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -329,24 +360,16 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected InmuebleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tablaVentaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idInmuebleColumn {
+            public global::System.Data.DataColumn calleInmuebleColumn {
                 get {
-                    return this.columnidInmueble;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn calleColumn {
-                get {
-                    return this.columncalle;
+                    return this.columncalleInmueble;
                 }
             }
             
@@ -360,65 +383,57 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn m2Column {
+            public global::System.Data.DataColumn nombreClienteColumn {
                 get {
-                    return this.columnm2;
+                    return this.columnnombreCliente;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cantBañosColumn {
+            public global::System.Data.DataColumn apellidoClienteColumn {
                 get {
-                    return this.columncantBaños;
+                    return this.columnapellidoCliente;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cantHabitacionesColumn {
+            public global::System.Data.DataColumn legajoVendedorColumn {
                 get {
-                    return this.columncantHabitaciones;
+                    return this.columnlegajoVendedor;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idTipoInmuebleColumn {
+            public global::System.Data.DataColumn fechaVentaColumn {
                 get {
-                    return this.columnidTipoInmueble;
+                    return this.columnfechaVenta;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn descripcionColumn {
+            public global::System.Data.DataColumn fechaEntregaColumn {
                 get {
-                    return this.columndescripcion;
+                    return this.columnfechaEntrega;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn borradoColumn {
+            public global::System.Data.DataColumn montoCuotaColumn {
                 get {
-                    return this.columnborrado;
+                    return this.columnmontoCuota;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn montoAlquilerColumn {
+            public global::System.Data.DataColumn montoTotalColumn {
                 get {
-                    return this.columnmontoAlquiler;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn montoVentaColumn {
-                get {
-                    return this.columnmontoVenta;
+                    return this.columnmontoTotal;
                 }
             }
             
@@ -433,62 +448,53 @@ namespace TESTWF2020 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleRow this[int index] {
+            public tablaVentaRow this[int index] {
                 get {
-                    return ((InmuebleRow)(this.Rows[index]));
+                    return ((tablaVentaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InmuebleRowChangeEventHandler InmuebleRowChanging;
+            public event tablaVentaRowChangeEventHandler tablaVentaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InmuebleRowChangeEventHandler InmuebleRowChanged;
+            public event tablaVentaRowChangeEventHandler tablaVentaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InmuebleRowChangeEventHandler InmuebleRowDeleting;
+            public event tablaVentaRowChangeEventHandler tablaVentaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InmuebleRowChangeEventHandler InmuebleRowDeleted;
+            public event tablaVentaRowChangeEventHandler tablaVentaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddInmuebleRow(InmuebleRow row) {
+            public void AddtablaVentaRow(tablaVentaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleRow AddInmuebleRow(string calle, int calleNro, double m2, int cantBaños, int cantHabitaciones, int idTipoInmueble, string descripcion, bool borrado, int montoAlquiler, int montoVenta) {
-                InmuebleRow rowInmuebleRow = ((InmuebleRow)(this.NewRow()));
+            public tablaVentaRow AddtablaVentaRow(string calleInmueble, int calleNro, string nombreCliente, string apellidoCliente, int legajoVendedor, System.DateTime fechaVenta, System.DateTime fechaEntrega, double montoCuota, int montoTotal) {
+                tablaVentaRow rowtablaVentaRow = ((tablaVentaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        calle,
+                        calleInmueble,
                         calleNro,
-                        m2,
-                        cantBaños,
-                        cantHabitaciones,
-                        idTipoInmueble,
-                        descripcion,
-                        borrado,
-                        montoAlquiler,
-                        montoVenta};
-                rowInmuebleRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowInmuebleRow);
-                return rowInmuebleRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleRow FindByidInmueble(int idInmueble) {
-                return ((InmuebleRow)(this.Rows.Find(new object[] {
-                            idInmueble})));
+                        nombreCliente,
+                        apellidoCliente,
+                        legajoVendedor,
+                        fechaVenta,
+                        fechaEntrega,
+                        montoCuota,
+                        montoTotal};
+                rowtablaVentaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtablaVentaRow);
+                return rowtablaVentaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                InmuebleDataTable cln = ((InmuebleDataTable)(base.Clone()));
+                tablaVentaDataTable cln = ((tablaVentaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -496,86 +502,75 @@ namespace TESTWF2020 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new InmuebleDataTable();
+                return new tablaVentaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnidInmueble = base.Columns["idInmueble"];
-                this.columncalle = base.Columns["calle"];
+                this.columncalleInmueble = base.Columns["calleInmueble"];
                 this.columncalleNro = base.Columns["calleNro"];
-                this.columnm2 = base.Columns["m2"];
-                this.columncantBaños = base.Columns["cantBaños"];
-                this.columncantHabitaciones = base.Columns["cantHabitaciones"];
-                this.columnidTipoInmueble = base.Columns["idTipoInmueble"];
-                this.columndescripcion = base.Columns["descripcion"];
-                this.columnborrado = base.Columns["borrado"];
-                this.columnmontoAlquiler = base.Columns["montoAlquiler"];
-                this.columnmontoVenta = base.Columns["montoVenta"];
+                this.columnnombreCliente = base.Columns["nombreCliente"];
+                this.columnapellidoCliente = base.Columns["apellidoCliente"];
+                this.columnlegajoVendedor = base.Columns["legajoVendedor"];
+                this.columnfechaVenta = base.Columns["fechaVenta"];
+                this.columnfechaEntrega = base.Columns["fechaEntrega"];
+                this.columnmontoCuota = base.Columns["montoCuota"];
+                this.columnmontoTotal = base.Columns["montoTotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnidInmueble = new global::System.Data.DataColumn("idInmueble", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidInmueble);
-                this.columncalle = new global::System.Data.DataColumn("calle", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncalle);
+                this.columncalleInmueble = new global::System.Data.DataColumn("calleInmueble", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncalleInmueble);
                 this.columncalleNro = new global::System.Data.DataColumn("calleNro", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncalleNro);
-                this.columnm2 = new global::System.Data.DataColumn("m2", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnm2);
-                this.columncantBaños = new global::System.Data.DataColumn("cantBaños", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncantBaños);
-                this.columncantHabitaciones = new global::System.Data.DataColumn("cantHabitaciones", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncantHabitaciones);
-                this.columnidTipoInmueble = new global::System.Data.DataColumn("idTipoInmueble", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidTipoInmueble);
-                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndescripcion);
-                this.columnborrado = new global::System.Data.DataColumn("borrado", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnborrado);
-                this.columnmontoAlquiler = new global::System.Data.DataColumn("montoAlquiler", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmontoAlquiler);
-                this.columnmontoVenta = new global::System.Data.DataColumn("montoVenta", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmontoVenta);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnidInmueble}, true));
-                this.columnidInmueble.AutoIncrement = true;
-                this.columnidInmueble.AutoIncrementSeed = -1;
-                this.columnidInmueble.AutoIncrementStep = -1;
-                this.columnidInmueble.AllowDBNull = false;
-                this.columnidInmueble.ReadOnly = true;
-                this.columnidInmueble.Unique = true;
-                this.columncalle.MaxLength = 50;
-                this.columndescripcion.MaxLength = 100;
+                this.columnnombreCliente = new global::System.Data.DataColumn("nombreCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombreCliente);
+                this.columnapellidoCliente = new global::System.Data.DataColumn("apellidoCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnapellidoCliente);
+                this.columnlegajoVendedor = new global::System.Data.DataColumn("legajoVendedor", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlegajoVendedor);
+                this.columnfechaVenta = new global::System.Data.DataColumn("fechaVenta", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaVenta);
+                this.columnfechaEntrega = new global::System.Data.DataColumn("fechaEntrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaEntrega);
+                this.columnmontoCuota = new global::System.Data.DataColumn("montoCuota", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmontoCuota);
+                this.columnmontoTotal = new global::System.Data.DataColumn("montoTotal", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmontoTotal);
+                this.columncalleInmueble.MaxLength = 50;
+                this.columnnombreCliente.AllowDBNull = false;
+                this.columnnombreCliente.MaxLength = 30;
+                this.columnapellidoCliente.AllowDBNull = false;
+                this.columnapellidoCliente.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleRow NewInmuebleRow() {
-                return ((InmuebleRow)(this.NewRow()));
+            public tablaVentaRow NewtablaVentaRow() {
+                return ((tablaVentaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new InmuebleRow(builder);
+                return new tablaVentaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(InmuebleRow);
+                return typeof(tablaVentaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.InmuebleRowChanged != null)) {
-                    this.InmuebleRowChanged(this, new InmuebleRowChangeEvent(((InmuebleRow)(e.Row)), e.Action));
+                if ((this.tablaVentaRowChanged != null)) {
+                    this.tablaVentaRowChanged(this, new tablaVentaRowChangeEvent(((tablaVentaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -583,8 +578,8 @@ namespace TESTWF2020 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.InmuebleRowChanging != null)) {
-                    this.InmuebleRowChanging(this, new InmuebleRowChangeEvent(((InmuebleRow)(e.Row)), e.Action));
+                if ((this.tablaVentaRowChanging != null)) {
+                    this.tablaVentaRowChanging(this, new tablaVentaRowChangeEvent(((tablaVentaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -592,8 +587,8 @@ namespace TESTWF2020 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.InmuebleRowDeleted != null)) {
-                    this.InmuebleRowDeleted(this, new InmuebleRowChangeEvent(((InmuebleRow)(e.Row)), e.Action));
+                if ((this.tablaVentaRowDeleted != null)) {
+                    this.tablaVentaRowDeleted(this, new tablaVentaRowChangeEvent(((tablaVentaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -601,14 +596,14 @@ namespace TESTWF2020 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.InmuebleRowDeleting != null)) {
-                    this.InmuebleRowDeleting(this, new InmuebleRowChangeEvent(((InmuebleRow)(e.Row)), e.Action));
+                if ((this.tablaVentaRowDeleting != null)) {
+                    this.tablaVentaRowDeleting(this, new tablaVentaRowChangeEvent(((tablaVentaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveInmuebleRow(InmuebleRow row) {
+            public void RemovetablaVentaRow(tablaVentaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -635,7 +630,282 @@ namespace TESTWF2020 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "InmuebleDataTable";
+                attribute2.FixedValue = "tablaVentaDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EstadisticaVentaDataTable : global::System.Data.TypedTableBase<EstadisticaVentaRow> {
+            
+            private global::System.Data.DataColumn columnMes;
+            
+            private global::System.Data.DataColumn columnVentasFinanciadas;
+            
+            private global::System.Data.DataColumn columnVentasContado;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaVentaDataTable() {
+                this.TableName = "EstadisticaVenta";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal EstadisticaVentaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected EstadisticaVentaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MesColumn {
+                get {
+                    return this.columnMes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VentasFinanciadasColumn {
+                get {
+                    return this.columnVentasFinanciadas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VentasContadoColumn {
+                get {
+                    return this.columnVentasContado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaVentaRow this[int index] {
+                get {
+                    return ((EstadisticaVentaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaVentaRowChangeEventHandler EstadisticaVentaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaVentaRowChangeEventHandler EstadisticaVentaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaVentaRowChangeEventHandler EstadisticaVentaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaVentaRowChangeEventHandler EstadisticaVentaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddEstadisticaVentaRow(EstadisticaVentaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaVentaRow AddEstadisticaVentaRow(string Mes, int VentasFinanciadas, int VentasContado) {
+                EstadisticaVentaRow rowEstadisticaVentaRow = ((EstadisticaVentaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Mes,
+                        VentasFinanciadas,
+                        VentasContado};
+                rowEstadisticaVentaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEstadisticaVentaRow);
+                return rowEstadisticaVentaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                EstadisticaVentaDataTable cln = ((EstadisticaVentaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EstadisticaVentaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnMes = base.Columns["Mes"];
+                this.columnVentasFinanciadas = base.Columns["VentasFinanciadas"];
+                this.columnVentasContado = base.Columns["VentasContado"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnMes = new global::System.Data.DataColumn("Mes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMes);
+                this.columnVentasFinanciadas = new global::System.Data.DataColumn("VentasFinanciadas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVentasFinanciadas);
+                this.columnVentasContado = new global::System.Data.DataColumn("VentasContado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVentasContado);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaVentaRow NewEstadisticaVentaRow() {
+                return ((EstadisticaVentaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EstadisticaVentaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(EstadisticaVentaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EstadisticaVentaRowChanged != null)) {
+                    this.EstadisticaVentaRowChanged(this, new EstadisticaVentaRowChangeEvent(((EstadisticaVentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EstadisticaVentaRowChanging != null)) {
+                    this.EstadisticaVentaRowChanging(this, new EstadisticaVentaRowChangeEvent(((EstadisticaVentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EstadisticaVentaRowDeleted != null)) {
+                    this.EstadisticaVentaRowDeleted(this, new EstadisticaVentaRowChangeEvent(((EstadisticaVentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EstadisticaVentaRowDeleting != null)) {
+                    this.EstadisticaVentaRowDeleting(this, new EstadisticaVentaRowChangeEvent(((EstadisticaVentaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveEstadisticaVentaRow(EstadisticaVentaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                BDInmobiliariaCasaFelizDataSet ds = new BDInmobiliariaCasaFelizDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EstadisticaVentaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -679,41 +949,30 @@ namespace TESTWF2020 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class InmuebleRow : global::System.Data.DataRow {
+        public partial class tablaVentaRow : global::System.Data.DataRow {
             
-            private InmuebleDataTable tableInmueble;
+            private tablaVentaDataTable tabletablaVenta;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal InmuebleRow(global::System.Data.DataRowBuilder rb) : 
+            internal tablaVentaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableInmueble = ((InmuebleDataTable)(this.Table));
+                this.tabletablaVenta = ((tablaVentaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int idInmueble {
-                get {
-                    return ((int)(this[this.tableInmueble.idInmuebleColumn]));
-                }
-                set {
-                    this[this.tableInmueble.idInmuebleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string calle {
+            public string calleInmueble {
                 get {
                     try {
-                        return ((string)(this[this.tableInmueble.calleColumn]));
+                        return ((string)(this[this.tabletablaVenta.calleInmuebleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'calle\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'calleInmueble\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.calleColumn] = value;
+                    this[this.tabletablaVenta.calleInmuebleColumn] = value;
                 }
             }
             
@@ -722,263 +981,301 @@ namespace TESTWF2020 {
             public int calleNro {
                 get {
                     try {
-                        return ((int)(this[this.tableInmueble.calleNroColumn]));
+                        return ((int)(this[this.tabletablaVenta.calleNroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'calleNro\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'calleNro\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.calleNroColumn] = value;
+                    this[this.tabletablaVenta.calleNroColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double m2 {
+            public string nombreCliente {
+                get {
+                    return ((string)(this[this.tabletablaVenta.nombreClienteColumn]));
+                }
+                set {
+                    this[this.tabletablaVenta.nombreClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string apellidoCliente {
+                get {
+                    return ((string)(this[this.tabletablaVenta.apellidoClienteColumn]));
+                }
+                set {
+                    this[this.tabletablaVenta.apellidoClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int legajoVendedor {
                 get {
                     try {
-                        return ((double)(this[this.tableInmueble.m2Column]));
+                        return ((int)(this[this.tabletablaVenta.legajoVendedorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'m2\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'legajoVendedor\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.m2Column] = value;
+                    this[this.tabletablaVenta.legajoVendedorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int cantBaños {
+            public System.DateTime fechaVenta {
                 get {
                     try {
-                        return ((int)(this[this.tableInmueble.cantBañosColumn]));
+                        return ((global::System.DateTime)(this[this.tabletablaVenta.fechaVentaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantBaños\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaVenta\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.cantBañosColumn] = value;
+                    this[this.tabletablaVenta.fechaVentaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int cantHabitaciones {
+            public System.DateTime fechaEntrega {
                 get {
                     try {
-                        return ((int)(this[this.tableInmueble.cantHabitacionesColumn]));
+                        return ((global::System.DateTime)(this[this.tabletablaVenta.fechaEntregaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantHabitaciones\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaEntrega\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.cantHabitacionesColumn] = value;
+                    this[this.tabletablaVenta.fechaEntregaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int idTipoInmueble {
+            public double montoCuota {
                 get {
                     try {
-                        return ((int)(this[this.tableInmueble.idTipoInmuebleColumn]));
+                        return ((double)(this[this.tabletablaVenta.montoCuotaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idTipoInmueble\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoCuota\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.idTipoInmuebleColumn] = value;
+                    this[this.tabletablaVenta.montoCuotaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string descripcion {
+            public int montoTotal {
                 get {
                     try {
-                        return ((string)(this[this.tableInmueble.descripcionColumn]));
+                        return ((int)(this[this.tabletablaVenta.montoTotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'Inmueble\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoTotal\' de la tabla \'tablaVenta\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInmueble.descripcionColumn] = value;
+                    this[this.tabletablaVenta.montoTotalColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool borrado {
-                get {
-                    try {
-                        return ((bool)(this[this.tableInmueble.borradoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'borrado\' de la tabla \'Inmueble\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInmueble.borradoColumn] = value;
-                }
+            public bool IscalleInmuebleNull() {
+                return this.IsNull(this.tabletablaVenta.calleInmuebleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int montoAlquiler {
-                get {
-                    try {
-                        return ((int)(this[this.tableInmueble.montoAlquilerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoAlquiler\' de la tabla \'Inmueble\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInmueble.montoAlquilerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int montoVenta {
-                get {
-                    try {
-                        return ((int)(this[this.tableInmueble.montoVentaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'montoVenta\' de la tabla \'Inmueble\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInmueble.montoVentaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscalleNull() {
-                return this.IsNull(this.tableInmueble.calleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcalleNull() {
-                this[this.tableInmueble.calleColumn] = global::System.Convert.DBNull;
+            public void SetcalleInmuebleNull() {
+                this[this.tabletablaVenta.calleInmuebleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IscalleNroNull() {
-                return this.IsNull(this.tableInmueble.calleNroColumn);
+                return this.IsNull(this.tabletablaVenta.calleNroColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcalleNroNull() {
-                this[this.tableInmueble.calleNroColumn] = global::System.Convert.DBNull;
+                this[this.tabletablaVenta.calleNroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Ism2Null() {
-                return this.IsNull(this.tableInmueble.m2Column);
+            public bool IslegajoVendedorNull() {
+                return this.IsNull(this.tabletablaVenta.legajoVendedorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setm2Null() {
-                this[this.tableInmueble.m2Column] = global::System.Convert.DBNull;
+            public void SetlegajoVendedorNull() {
+                this[this.tabletablaVenta.legajoVendedorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscantBañosNull() {
-                return this.IsNull(this.tableInmueble.cantBañosColumn);
+            public bool IsfechaVentaNull() {
+                return this.IsNull(this.tabletablaVenta.fechaVentaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcantBañosNull() {
-                this[this.tableInmueble.cantBañosColumn] = global::System.Convert.DBNull;
+            public void SetfechaVentaNull() {
+                this[this.tabletablaVenta.fechaVentaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscantHabitacionesNull() {
-                return this.IsNull(this.tableInmueble.cantHabitacionesColumn);
+            public bool IsfechaEntregaNull() {
+                return this.IsNull(this.tabletablaVenta.fechaEntregaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcantHabitacionesNull() {
-                this[this.tableInmueble.cantHabitacionesColumn] = global::System.Convert.DBNull;
+            public void SetfechaEntregaNull() {
+                this[this.tabletablaVenta.fechaEntregaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsidTipoInmuebleNull() {
-                return this.IsNull(this.tableInmueble.idTipoInmuebleColumn);
+            public bool IsmontoCuotaNull() {
+                return this.IsNull(this.tabletablaVenta.montoCuotaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetidTipoInmuebleNull() {
-                this[this.tableInmueble.idTipoInmuebleColumn] = global::System.Convert.DBNull;
+            public void SetmontoCuotaNull() {
+                this[this.tabletablaVenta.montoCuotaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsdescripcionNull() {
-                return this.IsNull(this.tableInmueble.descripcionColumn);
+            public bool IsmontoTotalNull() {
+                return this.IsNull(this.tabletablaVenta.montoTotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetdescripcionNull() {
-                this[this.tableInmueble.descripcionColumn] = global::System.Convert.DBNull;
+            public void SetmontoTotalNull() {
+                this[this.tabletablaVenta.montoTotalColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class EstadisticaVentaRow : global::System.Data.DataRow {
+            
+            private EstadisticaVentaDataTable tableEstadisticaVenta;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal EstadisticaVentaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEstadisticaVenta = ((EstadisticaVentaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsborradoNull() {
-                return this.IsNull(this.tableInmueble.borradoColumn);
+            public string Mes {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadisticaVenta.MesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Mes\' de la tabla \'EstadisticaVenta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadisticaVenta.MesColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetborradoNull() {
-                this[this.tableInmueble.borradoColumn] = global::System.Convert.DBNull;
+            public int VentasFinanciadas {
+                get {
+                    try {
+                        return ((int)(this[this.tableEstadisticaVenta.VentasFinanciadasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'VentasFinanciadas\' de la tabla \'EstadisticaVenta\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadisticaVenta.VentasFinanciadasColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsmontoAlquilerNull() {
-                return this.IsNull(this.tableInmueble.montoAlquilerColumn);
+            public int VentasContado {
+                get {
+                    try {
+                        return ((int)(this[this.tableEstadisticaVenta.VentasContadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'VentasContado\' de la tabla \'EstadisticaVenta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadisticaVenta.VentasContadoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetmontoAlquilerNull() {
-                this[this.tableInmueble.montoAlquilerColumn] = global::System.Convert.DBNull;
+            public bool IsMesNull() {
+                return this.IsNull(this.tableEstadisticaVenta.MesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsmontoVentaNull() {
-                return this.IsNull(this.tableInmueble.montoVentaColumn);
+            public void SetMesNull() {
+                this[this.tableEstadisticaVenta.MesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetmontoVentaNull() {
-                this[this.tableInmueble.montoVentaColumn] = global::System.Convert.DBNull;
+            public bool IsVentasFinanciadasNull() {
+                return this.IsNull(this.tableEstadisticaVenta.VentasFinanciadasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVentasFinanciadasNull() {
+                this[this.tableEstadisticaVenta.VentasFinanciadasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVentasContadoNull() {
+                return this.IsNull(this.tableEstadisticaVenta.VentasContadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVentasContadoNull() {
+                this[this.tableEstadisticaVenta.VentasContadoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -986,22 +1283,56 @@ namespace TESTWF2020 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class InmuebleRowChangeEvent : global::System.EventArgs {
+        public class tablaVentaRowChangeEvent : global::System.EventArgs {
             
-            private InmuebleRow eventRow;
+            private tablaVentaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleRowChangeEvent(InmuebleRow row, global::System.Data.DataRowAction action) {
+            public tablaVentaRowChangeEvent(tablaVentaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InmuebleRow Row {
+            public tablaVentaRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class EstadisticaVentaRowChangeEvent : global::System.EventArgs {
+            
+            private EstadisticaVentaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaVentaRowChangeEvent(EstadisticaVentaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaVentaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1029,7 +1360,7 @@ namespace TESTWF2020.BDInmobiliariaCasaFelizDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class InmuebleTableAdapter : global::System.ComponentModel.Component {
+    public partial class tablaVentaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1043,7 +1374,7 @@ namespace TESTWF2020.BDInmobiliariaCasaFelizDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public InmuebleTableAdapter() {
+        public tablaVentaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1140,96 +1471,17 @@ namespace TESTWF2020.BDInmobiliariaCasaFelizDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Inmueble";
-            tableMapping.ColumnMappings.Add("idInmueble", "idInmueble");
-            tableMapping.ColumnMappings.Add("calle", "calle");
+            tableMapping.DataSetTable = "tablaVenta";
+            tableMapping.ColumnMappings.Add("calleInmueble", "calleInmueble");
             tableMapping.ColumnMappings.Add("calleNro", "calleNro");
-            tableMapping.ColumnMappings.Add("m2", "m2");
-            tableMapping.ColumnMappings.Add("cantBaños", "cantBaños");
-            tableMapping.ColumnMappings.Add("cantHabitaciones", "cantHabitaciones");
-            tableMapping.ColumnMappings.Add("idTipoInmueble", "idTipoInmueble");
-            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
-            tableMapping.ColumnMappings.Add("borrado", "borrado");
-            tableMapping.ColumnMappings.Add("montoAlquiler", "montoAlquiler");
-            tableMapping.ColumnMappings.Add("montoVenta", "montoVenta");
+            tableMapping.ColumnMappings.Add("nombreCliente", "nombreCliente");
+            tableMapping.ColumnMappings.Add("apellidoCliente", "apellidoCliente");
+            tableMapping.ColumnMappings.Add("legajoVendedor", "legajoVendedor");
+            tableMapping.ColumnMappings.Add("fechaVenta", "fechaVenta");
+            tableMapping.ColumnMappings.Add("fechaEntrega", "fechaEntrega");
+            tableMapping.ColumnMappings.Add("montoCuota", "montoCuota");
+            tableMapping.ColumnMappings.Add("montoTotal", "montoTotal");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Inmueble] WHERE (([idInmueble] = @Original_idInmueble) AND ((@IsNull_calle = 1 AND [calle] IS NULL) OR ([calle] = @Original_calle)) AND ((@IsNull_calleNro = 1 AND [calleNro] IS NULL) OR ([calleNro] = @Original_calleNro)) AND ((@IsNull_m2 = 1 AND [m2] IS NULL) OR ([m2] = @Original_m2)) AND ((@IsNull_cantBaños = 1 AND [cantBaños] IS NULL) OR ([cantBaños] = @Original_cantBaños)) AND ((@IsNull_cantHabitaciones = 1 AND [cantHabitaciones] IS NULL) OR ([cantHabitaciones] = @Original_cantHabitaciones)) AND ((@IsNull_idTipoInmueble = 1 AND [idTipoInmueble] IS NULL) OR ([idTipoInmueble] = @Original_idTipoInmueble)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)) AND ((@IsNull_montoAlquiler = 1 AND [montoAlquiler] IS NULL) OR ([montoAlquiler] = @Original_montoAlquiler)) AND ((@IsNull_montoVenta = 1 AND [montoVenta] IS NULL) OR ([montoVenta] = @Original_montoVenta)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idInmueble", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calleNro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calleNro", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calleNro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calleNro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_m2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "m2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_m2", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "m2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cantBaños", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantBaños", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cantBaños", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantBaños", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cantHabitaciones", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantHabitaciones", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cantHabitaciones", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantHabitaciones", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idTipoInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTipoInmueble", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idTipoInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTipoInmueble", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_borrado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "borrado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_borrado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "borrado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_montoAlquiler", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoAlquiler", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_montoAlquiler", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoAlquiler", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_montoVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoVenta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_montoVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoVenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Inmueble] ([calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoAlquiler], [montoVenta]) VALUES (@calle, @calleNro, @m2, @cantBaños, @cantHabitaciones, @idTipoInmueble, @descripcion, @borrado, @montoAlquiler, @montoVenta);
-SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmueble, descripcion, borrado, montoAlquiler, montoVenta FROM Inmueble WHERE (idInmueble = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calleNro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calleNro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@m2", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "m2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cantBaños", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantBaños", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cantHabitaciones", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantHabitaciones", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idTipoInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTipoInmueble", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@borrado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "borrado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@montoAlquiler", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoAlquiler", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@montoVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Inmueble] SET [calle] = @calle, [calleNro] = @calleNro, [m2] = @m2, [cantBaños] = @cantBaños, [cantHabitaciones] = @cantHabitaciones, [idTipoInmueble] = @idTipoInmueble, [descripcion] = @descripcion, [borrado] = @borrado, [montoAlquiler] = @montoAlquiler, [montoVenta] = @montoVenta WHERE (([idInmueble] = @Original_idInmueble) AND ((@IsNull_calle = 1 AND [calle] IS NULL) OR ([calle] = @Original_calle)) AND ((@IsNull_calleNro = 1 AND [calleNro] IS NULL) OR ([calleNro] = @Original_calleNro)) AND ((@IsNull_m2 = 1 AND [m2] IS NULL) OR ([m2] = @Original_m2)) AND ((@IsNull_cantBaños = 1 AND [cantBaños] IS NULL) OR ([cantBaños] = @Original_cantBaños)) AND ((@IsNull_cantHabitaciones = 1 AND [cantHabitaciones] IS NULL) OR ([cantHabitaciones] = @Original_cantHabitaciones)) AND ((@IsNull_idTipoInmueble = 1 AND [idTipoInmueble] IS NULL) OR ([idTipoInmueble] = @Original_idTipoInmueble)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)) AND ((@IsNull_montoAlquiler = 1 AND [montoAlquiler] IS NULL) OR ([montoAlquiler] = @Original_montoAlquiler)) AND ((@IsNull_montoVenta = 1 AND [montoVenta] IS NULL) OR ([montoVenta] = @Original_montoVenta)));
-SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmueble, descripcion, borrado, montoAlquiler, montoVenta FROM Inmueble WHERE (idInmueble = @idInmueble)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@calleNro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calleNro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@m2", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "m2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cantBaños", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantBaños", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cantHabitaciones", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantHabitaciones", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idTipoInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTipoInmueble", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@borrado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "borrado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@montoAlquiler", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoAlquiler", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@montoVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idInmueble", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_calleNro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calleNro", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_calleNro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "calleNro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_m2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "m2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_m2", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "m2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cantBaños", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantBaños", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cantBaños", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantBaños", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cantHabitaciones", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantHabitaciones", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cantHabitaciones", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cantHabitaciones", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idTipoInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTipoInmueble", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idTipoInmueble", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTipoInmueble", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_borrado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "borrado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_borrado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "borrado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_montoAlquiler", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoAlquiler", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_montoAlquiler", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoAlquiler", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_montoVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoVenta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_montoVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "montoVenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idInmueble", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idInmueble", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1245,8 +1497,11 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmueb" +
-                "le, descripcion, borrado, montoAlquiler, montoVenta FROM dbo.Inmueble";
+            this._commandCollection[0].CommandText = @"SELECT        Inmueble.calle AS calleInmueble, Inmueble.calleNro, Cliente.nombre AS nombreCliente, Cliente.apellido AS apellidoCliente, Venta.legajoVendedor, Venta.fechaVenta, Venta.fechaEntrega, Venta.montoCuota, 
+                         Venta.montoTotal
+FROM            Inmueble INNER JOIN
+                         Venta ON Inmueble.idInmueble = Venta.idInmueble INNER JOIN
+                         Cliente ON Venta.dniCliente = Cliente.dni";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1254,7 +1509,7 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BDInmobiliariaCasaFelizDataSet.InmuebleDataTable dataTable) {
+        public virtual int Fill(BDInmobiliariaCasaFelizDataSet.tablaVentaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1267,437 +1522,11 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BDInmobiliariaCasaFelizDataSet.InmuebleDataTable GetData() {
+        public virtual BDInmobiliariaCasaFelizDataSet.tablaVentaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BDInmobiliariaCasaFelizDataSet.InmuebleDataTable dataTable = new BDInmobiliariaCasaFelizDataSet.InmuebleDataTable();
+            BDInmobiliariaCasaFelizDataSet.tablaVentaDataTable dataTable = new BDInmobiliariaCasaFelizDataSet.tablaVentaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BDInmobiliariaCasaFelizDataSet.InmuebleDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BDInmobiliariaCasaFelizDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Inmueble");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_idInmueble, string Original_calle, global::System.Nullable<int> Original_calleNro, global::System.Nullable<double> Original_m2, global::System.Nullable<int> Original_cantBaños, global::System.Nullable<int> Original_cantHabitaciones, global::System.Nullable<int> Original_idTipoInmueble, string Original_descripcion, global::System.Nullable<bool> Original_borrado, global::System.Nullable<int> Original_montoAlquiler, global::System.Nullable<int> Original_montoVenta) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idInmueble));
-            if ((Original_calle == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_calle));
-            }
-            if ((Original_calleNro.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_calleNro.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_m2.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((double)(Original_m2.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cantBaños.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_cantBaños.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cantHabitaciones.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_cantHabitaciones.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_idTipoInmueble.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_idTipoInmueble.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_descripcion == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_descripcion));
-            }
-            if ((Original_borrado.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_borrado.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_montoAlquiler.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_montoAlquiler.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Original_montoVenta.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_montoVenta.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string calle, global::System.Nullable<int> calleNro, global::System.Nullable<double> m2, global::System.Nullable<int> cantBaños, global::System.Nullable<int> cantHabitaciones, global::System.Nullable<int> idTipoInmueble, string descripcion, global::System.Nullable<bool> borrado, global::System.Nullable<int> montoAlquiler, global::System.Nullable<int> montoVenta) {
-            if ((calle == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(calle));
-            }
-            if ((calleNro.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(calleNro.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((m2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(m2.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((cantBaños.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(cantBaños.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((cantHabitaciones.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(cantHabitaciones.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((idTipoInmueble.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(idTipoInmueble.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((descripcion == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(descripcion));
-            }
-            if ((borrado.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(borrado.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((montoAlquiler.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(montoAlquiler.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((montoVenta.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(montoVenta.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string calle, 
-                    global::System.Nullable<int> calleNro, 
-                    global::System.Nullable<double> m2, 
-                    global::System.Nullable<int> cantBaños, 
-                    global::System.Nullable<int> cantHabitaciones, 
-                    global::System.Nullable<int> idTipoInmueble, 
-                    string descripcion, 
-                    global::System.Nullable<bool> borrado, 
-                    global::System.Nullable<int> montoAlquiler, 
-                    global::System.Nullable<int> montoVenta, 
-                    int Original_idInmueble, 
-                    string Original_calle, 
-                    global::System.Nullable<int> Original_calleNro, 
-                    global::System.Nullable<double> Original_m2, 
-                    global::System.Nullable<int> Original_cantBaños, 
-                    global::System.Nullable<int> Original_cantHabitaciones, 
-                    global::System.Nullable<int> Original_idTipoInmueble, 
-                    string Original_descripcion, 
-                    global::System.Nullable<bool> Original_borrado, 
-                    global::System.Nullable<int> Original_montoAlquiler, 
-                    global::System.Nullable<int> Original_montoVenta, 
-                    int idInmueble) {
-            if ((calle == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(calle));
-            }
-            if ((calleNro.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(calleNro.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((m2.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(m2.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((cantBaños.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(cantBaños.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((cantHabitaciones.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(cantHabitaciones.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((idTipoInmueble.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(idTipoInmueble.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(descripcion));
-            }
-            if ((borrado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(borrado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((montoAlquiler.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(montoAlquiler.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((montoVenta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(montoVenta.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_idInmueble));
-            if ((Original_calle == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_calle));
-            }
-            if ((Original_calleNro.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_calleNro.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_m2.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((double)(Original_m2.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cantBaños.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_cantBaños.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cantHabitaciones.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_cantHabitaciones.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_idTipoInmueble.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_idTipoInmueble.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_descripcion));
-            }
-            if ((Original_borrado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((bool)(Original_borrado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Original_montoAlquiler.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_montoAlquiler.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((Original_montoVenta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_montoVenta.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(idInmueble));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string calle, 
-                    global::System.Nullable<int> calleNro, 
-                    global::System.Nullable<double> m2, 
-                    global::System.Nullable<int> cantBaños, 
-                    global::System.Nullable<int> cantHabitaciones, 
-                    global::System.Nullable<int> idTipoInmueble, 
-                    string descripcion, 
-                    global::System.Nullable<bool> borrado, 
-                    global::System.Nullable<int> montoAlquiler, 
-                    global::System.Nullable<int> montoVenta, 
-                    int Original_idInmueble, 
-                    string Original_calle, 
-                    global::System.Nullable<int> Original_calleNro, 
-                    global::System.Nullable<double> Original_m2, 
-                    global::System.Nullable<int> Original_cantBaños, 
-                    global::System.Nullable<int> Original_cantHabitaciones, 
-                    global::System.Nullable<int> Original_idTipoInmueble, 
-                    string Original_descripcion, 
-                    global::System.Nullable<bool> Original_borrado, 
-                    global::System.Nullable<int> Original_montoAlquiler, 
-                    global::System.Nullable<int> Original_montoVenta) {
-            return this.Update(calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmueble, descripcion, borrado, montoAlquiler, montoVenta, Original_idInmueble, Original_calle, Original_calleNro, Original_m2, Original_cantBaños, Original_cantHabitaciones, Original_idTipoInmueble, Original_descripcion, Original_borrado, Original_montoAlquiler, Original_montoVenta, Original_idInmueble);
         }
     }
     
@@ -1713,8 +1542,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         
         private UpdateOrderOption _updateOrder;
         
-        private InmuebleTableAdapter _inmuebleTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1727,20 +1554,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public InmuebleTableAdapter InmuebleTableAdapter {
-            get {
-                return this._inmuebleTableAdapter;
-            }
-            set {
-                this._inmuebleTableAdapter = value;
             }
         }
         
@@ -1763,10 +1576,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._inmuebleTableAdapter != null) 
-                            && (this._inmuebleTableAdapter.Connection != null))) {
-                    return this._inmuebleTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1780,9 +1589,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._inmuebleTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1794,15 +1600,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(BDInmobiliariaCasaFelizDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._inmuebleTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Inmueble.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._inmuebleTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1813,14 +1610,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(BDInmobiliariaCasaFelizDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._inmuebleTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Inmueble.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._inmuebleTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1831,14 +1620,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(BDInmobiliariaCasaFelizDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._inmuebleTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Inmueble.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._inmuebleTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1878,11 +1659,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._inmuebleTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._inmuebleTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
-                        "sma cadena de conexión.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda" +
@@ -1915,15 +1691,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._inmuebleTableAdapter != null)) {
-                    revertConnections.Add(this._inmuebleTableAdapter, this._inmuebleTableAdapter.Connection);
-                    this._inmuebleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._inmuebleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._inmuebleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._inmuebleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._inmuebleTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1981,10 +1748,6 @@ SELECT idInmueble, calle, calleNro, m2, cantBaños, cantHabitaciones, idTipoInmu
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._inmuebleTableAdapter != null)) {
-                    this._inmuebleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._inmuebleTableAdapter]));
-                    this._inmuebleTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

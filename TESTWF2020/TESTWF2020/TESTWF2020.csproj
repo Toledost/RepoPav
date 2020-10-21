@@ -48,6 +48,9 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -62,6 +65,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDInmobiliariaCasaFelizDataSet.cs">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetCuota.cs">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetCuota.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetEmpleado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetEmpleado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetFinanciacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetFinanciacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetVendedor.cs">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetVendedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDInmobiliariaCasaFelizDataSetVendedor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetVendedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\CuotaService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\ConsultaService.cs" />
@@ -72,6 +110,7 @@
     <Compile Include="BusinessLayer\InmuebleService.cs" />
     <Compile Include="BusinessLayer\PerfilService.cs" />
     <Compile Include="BusinessLayer\MedioDeConocimientoService.cs" />
+    <Compile Include="BusinessLayer\ReporteService.cs" />
     <Compile Include="BusinessLayer\TipoInmuebleService.cs" />
     <Compile Include="BusinessLayer\TipoTransaccionService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
@@ -79,6 +118,7 @@
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="BusinessLayer\ViaDeConsultaService.cs" />
     <Compile Include="DataAccessLayer\ConsultaDao.cs" />
+    <Compile Include="DataAccessLayer\CuotaDao.cs" />
     <Compile Include="DataAccessLayer\DataManager.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
@@ -89,10 +129,20 @@
     <Compile Include="DataAccessLayer\InmuebleDao.cs" />
     <Compile Include="DataAccessLayer\PerfilDao.cs" />
     <Compile Include="DataAccessLayer\MedioDeConocimientoDao.cs" />
+    <Compile Include="DataAccessLayer\ReporteDao.cs" />
     <Compile Include="DataAccessLayer\TipoInmuebleDao.cs" />
     <Compile Include="DataAccessLayer\TipoTransaccionDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="DataAccessLayer\VentaDao.cs" />
+    <Compile Include="DataSet1ConsultaInmueble.cs">
+      <DependentUpon>DataSet1ConsultaInmueble.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1ConsultaInmueble.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1ConsultaInmueble.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Cuota.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="DataAccessLayer\ViaDeConsultaDao.cs" />
@@ -109,106 +159,118 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\Venta.cs" />
     <Compile Include="Entities\ViaDeConsulta.cs" />
-    <Compile Include="GUILayer\ABM\frmABMCConsultas.cs">
+    <Compile Include="GUILayer\ABM\Cuota\frmCuotasDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCConsultas.Designer.cs">
+    <Compile Include="GUILayer\ABM\Cuota\frmCuotasDetalle.Designer.cs">
+      <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Consulta\frmABMCConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Consulta\frmABMCConsultas.Designer.cs">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCEmpleado.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmABMCEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCEmpleado.Designer.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmABMCEmpleado.Designer.cs">
       <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCInmueble.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmABMCInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCInmueble.Designer.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmABMCInmueble.Designer.cs">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCUsuario.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmABMCUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCUsuario.Designer.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmABMCUsuario.Designer.cs">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCVenta.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmABMCVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCVenta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmABMCVenta.Designer.cs">
       <DependentUpon>frmABMCVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmGeneralUsuario.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmGeneralUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmGeneralUsuario.Designer.cs">
+    <Compile Include="GUILayer\ABM\Usuario\frmGeneralUsuario.Designer.cs">
       <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCliente.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCliente.Designer.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmABMCliente.Designer.cs">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmConsultarClientes.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmConsultarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmConsultarClientes.Designer.cs">
+    <Compile Include="GUILayer\ABM\Cliente\frmConsultarClientes.Designer.cs">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmVentaGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.Designer.cs">
+    <Compile Include="GUILayer\ABM\Venta\frmVentaGeneral.Designer.cs">
+      <DependentUpon>frmVentaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Financiacion\frmConsultaFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\ABM\Financiacion\frmConsultaFinanciacion.Designer.cs">
       <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.cs">
+    <Compile Include="GUILayer\ABM\Financiacion\frmDetalleFinanciacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.Designer.cs">
+    <Compile Include="GUILayer\ABM\Financiacion\frmDetalleFinanciacion.Designer.cs">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmEmpleados.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmEmpleados.Designer.cs">
+    <Compile Include="GUILayer\ABM\Empleado\frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmABMCMedioDeConocimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCMedioDeConocimiento.Designer.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmABMCMedioDeConocimiento.Designer.cs">
       <DependentUpon>frmABMCMedioDeConocimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleConsulta.cs">
+    <Compile Include="GUILayer\ABM\Consulta\frmDetalleConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleConsulta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Consulta\frmDetalleConsulta.Designer.cs">
       <DependentUpon>frmDetalleConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmDetalleMedioDeConocimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.Designer.cs">
+    <Compile Include="GUILayer\ABM\Medio de conocimiento\frmDetalleMedioDeConocimiento.Designer.cs">
       <DependentUpon>frmDetalleMedioDeConocimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmABMCViaDeConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmABMCViaDeConsulta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmABMCViaDeConsulta.Designer.cs">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmDetalleNuevoViaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.Designer.cs">
+    <Compile Include="GUILayer\ABM\Via de consulta\frmDetalleNuevoViaConsulta.Designer.cs">
       <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmInmuebles.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmInmuebles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmInmuebles.Designer.cs">
+    <Compile Include="GUILayer\ABM\Inmueble\frmInmuebles.Designer.cs">
       <DependentUpon>frmInmuebles.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmPrincipal.cs">
@@ -223,57 +285,166 @@
     <Compile Include="GUILayer\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="InmuebleEstado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InmuebleEstado.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCConsultas.resx">
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.Designer.cs">
+      <DependentUpon>frmEstadisticaConsultaInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaMedioConocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaMedioConocimiento.Designer.cs">
+      <DependentUpon>frmEstadisticaMedioConocimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteConsultaInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteConsultaInmueble.Designer.cs">
+      <DependentUpon>frmReporteConsultaInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisiticaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisiticaEmpleado.Designer.cs">
+      <DependentUpon>frmEstadisiticaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaFinanciacion.Designer.cs">
+      <DependentUpon>frmEstadisticaFinanciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.Designer.cs">
+      <DependentUpon>frmEstadisticaInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVendedor.Designer.cs">
+      <DependentUpon>frmEstadisticaVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmEstadisticaVenta.Designer.cs">
+      <DependentUpon>frmEstadisticaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmCuotaEstadistica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEstadisticas\frmCuotaEstadistica.Designer.cs">
+      <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteConsultaMedioConocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteConsultaMedioConocimiento.Designer.cs">
+      <DependentUpon>frmReporteConsultaMedioConocimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteCuota.Designer.cs">
+      <DependentUpon>frmReporteCuota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteEmpleado.Designer.cs">
+      <DependentUpon>frmReporteEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteFinanaciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteFinanaciacion.Designer.cs">
+      <DependentUpon>frmReporteFinanaciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteInmueble.Designer.cs">
+      <DependentUpon>frmReporteInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteVendedor.Designer.cs">
+      <DependentUpon>frmReporteVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes\frmReporteVenta.Designer.cs">
+      <DependentUpon>frmReporteVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilities\Validador.cs" />
+    <EmbeddedResource Include="GUILayer\ABM\Cuota\frmCuotasDetalle.resx">
+      <DependentUpon>frmCuotasDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\Consulta\frmABMCConsultas.resx">
       <DependentUpon>frmABMCConsultas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCEmpleado.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Empleado\frmABMCEmpleado.resx">
       <DependentUpon>frmABMCEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCInmueble.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Inmueble\frmABMCInmueble.resx">
       <DependentUpon>frmABMCInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCVenta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Venta\frmABMCVenta.resx">
       <DependentUpon>frmABMCVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Venta\frmVentaGeneral.resx">
+      <DependentUpon>frmVentaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ABM\Empleado\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCliente.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Cliente\frmABMCliente.resx">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmConsultarClientes.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Cliente\frmConsultarClientes.resx">
       <DependentUpon>frmConsultarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmConsultaFinanciacion.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Financiacion\frmConsultaFinanciacion.resx">
       <DependentUpon>frmConsultaFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\FORMFinanciacion\frmDetalleFinanciacion.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Financiacion\frmDetalleFinanciacion.resx">
       <DependentUpon>frmDetalleFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCUsuario.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Usuario\frmABMCUsuario.resx">
       <DependentUpon>frmABMCUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmGeneralUsuario.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Usuario\frmGeneralUsuario.resx">
       <DependentUpon>frmGeneralUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCViaDeConsulta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Via de consulta\frmABMCViaDeConsulta.resx">
       <DependentUpon>frmABMCViaDeConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmDetalleConsulta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Consulta\frmDetalleConsulta.resx">
       <DependentUpon>frmDetalleConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmDetalleNuevoViaConsulta.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Via de consulta\frmDetalleNuevoViaConsulta.resx">
       <DependentUpon>frmDetalleNuevoViaConsulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmABMCMedioDeConocimiento.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Medio de conocimiento\frmABMCMedioDeConocimiento.resx">
       <DependentUpon>frmABMCMedioDeConocimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ABM\frmDetalleMedioDeConocimiento.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Medio de conocimiento\frmDetalleMedioDeConocimiento.resx">
       <DependentUpon>frmDetalleMedioDeConocimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmInmuebles.resx">
+    <EmbeddedResource Include="GUILayer\ABM\Inmueble\frmInmuebles.resx">
       <DependentUpon>frmInmuebles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
@@ -292,6 +463,147 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaFinanaciacion.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaConsultaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaMedioConocimiento.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaConsultaInmueble.resx">
+      <DependentUpon>frmEstadisticaConsultaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaMedioConocimiento.resx">
+      <DependentUpon>frmEstadisticaMedioConocimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteConsultaInmueble.resx">
+      <DependentUpon>frmReporteConsultaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticasEmpleado.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaVendedor.rdlc" />
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticaVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisiticaEmpleado.resx">
+      <DependentUpon>frmEstadisiticaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaFinanciacion.resx">
+      <DependentUpon>frmEstadisticaFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaInmueble.resx">
+      <DependentUpon>frmEstadisticaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaVendedor.resx">
+      <DependentUpon>frmEstadisticaVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmEstadisticaVenta.resx">
+      <DependentUpon>frmEstadisticaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Estadisticas\rptEstadisticasCuotas.rdlc" />
+    <EmbeddedResource Include="Reportes\frmEstadisticas\frmCuotaEstadistica.resx">
+      <DependentUpon>frmCuotaEstadistica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteConsultaMedioConocimiento.resx">
+      <DependentUpon>frmReporteConsultaMedioConocimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteCuota.resx">
+      <DependentUpon>frmReporteCuota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteEmpleado.resx">
+      <DependentUpon>frmReporteEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteFinanaciacion.resx">
+      <DependentUpon>frmReporteFinanaciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteInmueble.resx">
+      <DependentUpon>frmReporteInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteVendedor.resx">
+      <DependentUpon>frmReporteVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteVenta.resx">
+      <DependentUpon>frmReporteVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reportes\rptConsultaInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptConsultaMedioConocimiento.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptCuotas.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptEmpleados.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptFinanciacion.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptInmueble.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptVendedor.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\rptVenta.rdlc" />
+    <None Include="BDInmobiliariaCasaFelizDataSet.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSet.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuota.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuota.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetCuota.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetCuota.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetCuota.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetEmpleado.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetEmpleado.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetEmpleado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetEmpleado.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetEmpleado.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetEmpleado.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetFinanciacion.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetFinanciacion.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetFinanciacion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetFinanciacion.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetFinanciacion.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetFinanciacion.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetVendedor.xsc">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetVendedor.xsd</DependentUpon>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetVendedor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDInmobiliariaCasaFelizDataSetVendedor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDInmobiliariaCasaFelizDataSetVendedor.xss">
+      <DependentUpon>BDInmobiliariaCasaFelizDataSetVendedor.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1ConsultaInmueble.xsc">
+      <DependentUpon>DataSet1ConsultaInmueble.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1ConsultaInmueble.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1ConsultaInmueble.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1ConsultaInmueble.xss">
+      <DependentUpon>DataSet1ConsultaInmueble.xsd</DependentUpon>
+    </None>
+    <None Include="InmuebleEstado.xsc">
+      <DependentUpon>InmuebleEstado.xsd</DependentUpon>
+    </None>
+    <None Include="InmuebleEstado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InmuebleEstado.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InmuebleEstado.xss">
+      <DependentUpon>InmuebleEstado.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -349,6 +661,11 @@
     <None Include="Resources\icons8-guardar-como-144.png" />
     <None Include="Resources\icons8-guardar-48.png" />
     <Content Include="Resources\usuario.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <Content Include="SqlServerTypes\x86\msvcr120.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
