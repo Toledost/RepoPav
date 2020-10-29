@@ -140,12 +140,18 @@ namespace TESTWF2020.GUILayer.ABM
         {
             if (dgvGeneralUsuario.SelectedRows.Count == 1)
             {
-                var nombreUsuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value.ToString();
-                Delete(nombreUsuarioSeleccionado);
+                DialogResult dr = MessageBox.Show($"¿ Esta seguro de desea eliminar el Cliente: {this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value} ?", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (dr == DialogResult.Yes)
+                {
+                    var nombreUsuarioSeleccionado = this.dgvGeneralUsuario.CurrentRow.Cells["Nombre"].Value.ToString();
+                    Delete(nombreUsuarioSeleccionado);
+                    btnBuscar_Click(sender, e);
+                }
             }
             else
             {
-                MessageBox.Show("No seleccionó ningún Usuario");
+                MessageBox.Show("No selecciono ningun usuario", "Eliminar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             btnBuscar_Click(sender, e);
         }
@@ -153,7 +159,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void Delete(string nombreUsuarioSeleccionado)
         {
             usuarioService.Delete(nombreUsuarioSeleccionado);
-            MessageBox.Show("Usuario eliminado correctamente");
+            MessageBox.Show("Usuario eliminado correctamente", "Eliminar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)

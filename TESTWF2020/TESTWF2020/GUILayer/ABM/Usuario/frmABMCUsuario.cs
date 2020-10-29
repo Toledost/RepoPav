@@ -47,8 +47,8 @@ namespace TESTWF2020.GUILayer.ABM
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (Validador.ValidarTextBox(txtNombre,txtContraseña) && 
-                Validador.ValidarComboBox(cboPerfil))
+            if (Validador.ValidarTextBox(txtNombre,txtContraseña,txtConfirmarContraseña) && 
+                Validador.ValidarComboBox(cboPerfil) && txtConfirmarContraseña.Text == txtContraseña.Text)
 
             {
                 Usuario user = new Usuario
@@ -82,9 +82,6 @@ namespace TESTWF2020.GUILayer.ABM
                         }
                     }
                     this.Close();
-
-                    //usuarioService.Insert(user);
-                    //MessageBox.Show("Se creo correctamente el usuario");
                 }
                 else
                 {
@@ -93,7 +90,11 @@ namespace TESTWF2020.GUILayer.ABM
                     MessageBox.Show("Se edito correctamente");
                     this.Close();
                 }
-            }           
+            }
+            else
+            {
+                MessageBox.Show("Falta confirmar contraseña", "Confirmar contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void frmABMCUsuario_Load(object sender, EventArgs e)
@@ -107,6 +108,7 @@ namespace TESTWF2020.GUILayer.ABM
             }
             else
             {
+                txtConfirmarContraseña.Enabled = false;
                 this.btnGrabar.Enabled = false;
                 Usuario usuarioSelec = usuarioService.GetUsuario(nombreUsuarioSeleccionado);
                 CargarComboBoxSeleccionado(usuarioSelec);
@@ -148,6 +150,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.btnGrabar.Enabled = true;
+            txtConfirmarContraseña.Enabled = true;
             HabilitarCampos();
         }
 
@@ -155,7 +158,7 @@ namespace TESTWF2020.GUILayer.ABM
         {
             foreach (var textBox in Controls.OfType<TextBox>())
             {
-                if (textBox.Name == "txtNombre" && textBox.Name == "txtContraseña")
+                if (textBox.Name == "txtNombre" && textBox.Name == "txtContraseña" && textBox.Name == "txtConfirmarContraseña")
                 {
                     continue;
                 }
@@ -166,5 +169,22 @@ namespace TESTWF2020.GUILayer.ABM
                 comboBox.Enabled = true;
             }
         }
+
+        private void txtConfirmarContraseña_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConfirmarContraseña.Text == txtContraseña.Text)
+            {
+                this.picCheck.Visible = true;
+                this.picWrong.Visible = false;
+
+            }
+            else if (txtConfirmarContraseña.Text != txtContraseña.Text)
+            {
+                this.picCheck.Visible = false;
+                this.picWrong.Visible = true;
+            }
+
+        }
+
     }
 }
