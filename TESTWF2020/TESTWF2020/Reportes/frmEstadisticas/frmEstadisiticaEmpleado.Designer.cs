@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.rptvEmpleado);
             this.Name = "frmEstadisiticaEmpleado";
-            this.Text = "frmEstadisiticaEmpleado";
+            this.Text = "Estadísticas de Empleado";
             this.Load += new System.EventHandler(this.frmEstadisiticaEmpleado_Load);
             this.ResumeLayout(false);
 

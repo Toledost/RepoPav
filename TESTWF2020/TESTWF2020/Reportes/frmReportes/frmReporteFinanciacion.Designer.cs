@@ -1,6 +1,6 @@
 ﻿namespace TESTWF2020.Reportes.frmReportes
 {
-    partial class frmReporteFinanaciacion
+    partial class frmReporteFinanciacion
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dataTableFinanciacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDInmobiliariaCasaFelizDataSetFinanciacion = new TESTWF2020.BDInmobiliariaCasaFelizDataSetFinanciacion();
-            this.rptvFinanaciacion = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rptvFinanciacion = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dataTableFinanciacionTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetFinanciacionTableAdapters.DataTableFinanciacionTableAdapter();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGrafico = new System.Windows.Forms.Button();
@@ -57,17 +57,18 @@
             this.bDInmobiliariaCasaFelizDataSetFinanciacion.DataSetName = "BDInmobiliariaCasaFelizDataSetFinanciacion";
             this.bDInmobiliariaCasaFelizDataSetFinanciacion.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // rptvFinanaciacion
+            // rptvFinanciacion
             // 
-            reportDataSource1.Name = "DataSetFinanciacion";
-            reportDataSource1.Value = this.dataTableFinanciacionBindingSource;
-            this.rptvFinanaciacion.LocalReport.DataSources.Add(reportDataSource1);
-            this.rptvFinanaciacion.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptFinanciacion.rdlc";
-            this.rptvFinanaciacion.Location = new System.Drawing.Point(1, 186);
-            this.rptvFinanaciacion.Name = "rptvFinanaciacion";
-            this.rptvFinanaciacion.ServerReport.BearerToken = null;
-            this.rptvFinanaciacion.Size = new System.Drawing.Size(798, 325);
-            this.rptvFinanaciacion.TabIndex = 0;
+            reportDataSource2.Name = "DataSetFinanciacion";
+            reportDataSource2.Value = this.dataTableFinanciacionBindingSource;
+            this.rptvFinanciacion.LocalReport.DataSources.Add(reportDataSource2);
+            this.rptvFinanciacion.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptFinanciacion.rdlc";
+            this.rptvFinanciacion.Location = new System.Drawing.Point(1, 151);
+            this.rptvFinanciacion.Margin = new System.Windows.Forms.Padding(2);
+            this.rptvFinanciacion.Name = "rptvFinanciacion";
+            this.rptvFinanciacion.ServerReport.BearerToken = null;
+            this.rptvFinanciacion.Size = new System.Drawing.Size(599, 264);
+            this.rptvFinanciacion.TabIndex = 0;
             // 
             // dataTableFinanciacionTableAdapter
             // 
@@ -75,10 +76,9 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(687, 87);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(515, 71);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 28);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -86,10 +86,9 @@
             // 
             // btnGrafico
             // 
-            this.btnGrafico.Location = new System.Drawing.Point(687, 143);
-            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGrafico.Location = new System.Drawing.Point(515, 116);
             this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Size = new System.Drawing.Size(100, 28);
+            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
             this.btnGrafico.TabIndex = 19;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
@@ -98,74 +97,67 @@
             // lblFechaVenta
             // 
             this.lblFechaVenta.AutoSize = true;
-            this.lblFechaVenta.Location = new System.Drawing.Point(38, 122);
-            this.lblFechaVenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaVenta.Location = new System.Drawing.Point(28, 99);
             this.lblFechaVenta.Name = "lblFechaVenta";
-            this.lblFechaVenta.Size = new System.Drawing.Size(86, 17);
+            this.lblFechaVenta.Size = new System.Drawing.Size(67, 13);
             this.lblFechaVenta.TabIndex = 18;
             this.lblFechaVenta.Text = "Fecha venta";
             // 
             // lblFechaHasta
             // 
             this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(139, 143);
-            this.lblFechaHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaHasta.Location = new System.Drawing.Point(104, 116);
             this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(45, 17);
+            this.lblFechaHasta.Size = new System.Drawing.Size(35, 13);
             this.lblFechaHasta.TabIndex = 17;
             this.lblFechaHasta.Text = "Hasta";
             // 
             // lblFechaDesde
             // 
             this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(139, 98);
-            this.lblFechaDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaDesde.Location = new System.Drawing.Point(104, 80);
             this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(49, 17);
+            this.lblFechaDesde.Size = new System.Drawing.Size(38, 13);
             this.lblFechaDesde.TabIndex = 16;
             this.lblFechaDesde.Text = "Desde";
             // 
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(247, 139);
-            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(185, 113);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(155, 22);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(117, 20);
             this.dtpFechaHasta.TabIndex = 15;
             // 
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(247, 90);
-            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(185, 73);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(155, 22);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(117, 20);
             this.dtpFechaDesde.TabIndex = 14;
             // 
             // lblFinanciacion
             // 
             this.lblFinanciacion.AutoSize = true;
-            this.lblFinanciacion.Location = new System.Drawing.Point(47, 50);
-            this.lblFinanciacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFinanciacion.Location = new System.Drawing.Point(35, 41);
             this.lblFinanciacion.Name = "lblFinanciacion";
-            this.lblFinanciacion.Size = new System.Drawing.Size(141, 17);
+            this.lblFinanciacion.Size = new System.Drawing.Size(107, 13);
             this.lblFinanciacion.TabIndex = 22;
             this.lblFinanciacion.Text = "Nombre Financiacion";
             // 
             // txtFinanciacion
             // 
-            this.txtFinanciacion.Location = new System.Drawing.Point(247, 45);
-            this.txtFinanciacion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFinanciacion.Location = new System.Drawing.Point(185, 37);
             this.txtFinanciacion.Name = "txtFinanciacion";
-            this.txtFinanciacion.Size = new System.Drawing.Size(155, 22);
+            this.txtFinanciacion.Size = new System.Drawing.Size(117, 20);
             this.txtFinanciacion.TabIndex = 21;
             // 
-            // frmReporteFinanaciacion
+            // frmReporteFinanciacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 509);
+            this.ClientSize = new System.Drawing.Size(600, 414);
             this.Controls.Add(this.lblFinanciacion);
             this.Controls.Add(this.txtFinanciacion);
             this.Controls.Add(this.btnBuscar);
@@ -175,10 +167,11 @@
             this.Controls.Add(this.lblFechaDesde);
             this.Controls.Add(this.dtpFechaHasta);
             this.Controls.Add(this.dtpFechaDesde);
-            this.Controls.Add(this.rptvFinanaciacion);
-            this.Name = "frmReporteFinanaciacion";
-            this.Text = "Reporte Finanaciacion";
-            this.Load += new System.EventHandler(this.frmReporteFinanaciacion_Load);
+            this.Controls.Add(this.rptvFinanciacion);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frmReporteFinanciacion";
+            this.Text = "Reporte Financiacion";
+            this.Load += new System.EventHandler(this.frmReporteFinanciacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableFinanciacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetFinanciacion)).EndInit();
             this.ResumeLayout(false);
@@ -188,7 +181,7 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rptvFinanaciacion;
+        private Microsoft.Reporting.WinForms.ReportViewer rptvFinanciacion;
         private BDInmobiliariaCasaFelizDataSetFinanciacion bDInmobiliariaCasaFelizDataSetFinanciacion;
         private System.Windows.Forms.BindingSource dataTableFinanciacionBindingSource;
         private BDInmobiliariaCasaFelizDataSetFinanciacionTableAdapters.DataTableFinanciacionTableAdapter dataTableFinanciacionTableAdapter;

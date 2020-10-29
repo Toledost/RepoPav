@@ -364,11 +364,11 @@
     <Compile Include="Reportes\frmReportes\frmReporteEmpleado.Designer.cs">
       <DependentUpon>frmReporteEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmReportes\frmReporteFinanaciacion.cs">
+    <Compile Include="Reportes\frmReportes\frmReporteFinanciacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\frmReportes\frmReporteFinanaciacion.Designer.cs">
-      <DependentUpon>frmReporteFinanaciacion.cs</DependentUpon>
+    <Compile Include="Reportes\frmReportes\frmReporteFinanciacion.Designer.cs">
+      <DependentUpon>frmReporteFinanciacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportes\frmReporteInmueble.cs">
       <SubType>Form</SubType>
@@ -507,8 +507,8 @@
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteEmpleado.resx">
       <DependentUpon>frmReporteEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\frmReportes\frmReporteFinanaciacion.resx">
-      <DependentUpon>frmReporteFinanaciacion.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\frmReportes\frmReporteFinanciacion.resx">
+      <DependentUpon>frmReporteFinanciacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportes\frmReporteInmueble.resx">
       <DependentUpon>frmReporteInmueble.cs</DependentUpon>

@@ -159,7 +159,7 @@
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.rptvMedioConocimiento);
             this.Name = "frmReporteConsultaMedioConocimiento";
-            this.Text = "frmReporteConsultaMedioConocimiento";
+            this.Text = "Reporte Consulta Medio de Conocimiento";
             this.Load += new System.EventHandler(this.frmReporteConsultaMedioConocimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.consultaMedioConocimientoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1ConsultaInmueble)).EndInit();

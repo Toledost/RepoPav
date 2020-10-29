@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,7 @@ namespace TESTWF2020.Entities
         public int MontoVenta { get; set; }
         public string Descripcion { get; set; }
         public TipoInmueble TipoInmueble { get; set; }
+
+        public string DireccionCompleta => $"{Calle} {CalleNumero}";
     }
 }

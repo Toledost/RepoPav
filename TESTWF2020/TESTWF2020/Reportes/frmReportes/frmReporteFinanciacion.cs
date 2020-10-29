@@ -13,22 +13,14 @@ using TESTWF2020.Reportes.frmEstadisticas;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
-    public partial class frmReporteFinanaciacion : Form
+    public partial class frmReporteFinanciacion : Form
     {
         private ReporteService reporteService;
 
-        public frmReporteFinanaciacion()
+        public frmReporteFinanciacion()
         {
             InitializeComponent();
             reporteService = new ReporteService();
-        }
-
-        private void frmReporteFinanaciacion_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion' Puede moverla o quitarla según sea necesario.
-            this.dataTableFinanciacionTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion);
-
-            this.rptvFinanaciacion.RefreshReport();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -57,7 +49,7 @@ namespace TESTWF2020.Reportes.frmReportes
             else
             {
                 this.dataTableFinanciacionBindingSource.DataSource = tabla;
-                this.rptvFinanaciacion.RefreshReport();
+                this.rptvFinanciacion.RefreshReport();
             }
         }
 
@@ -83,6 +75,14 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             frmEstadisticaFinanciacion frmEstadisticaFinanciacion = new frmEstadisticaFinanciacion();
             frmEstadisticaFinanciacion.ShowDialog();
+        }
+
+        private void frmReporteFinanciacion_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion' Puede moverla o quitarla según sea necesario.
+            this.dataTableFinanciacionTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion);
+
+            this.rptvFinanciacion.RefreshReport();
         }
     }
 }

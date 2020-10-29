@@ -14,5 +14,6 @@ namespace TESTWF2020.Entities
         public string Mail { get; set; }
         public long Telefono { get; set; }
 
+        public string NombreCompleto => $"{Nombre} {Apellido}";
     }
 }

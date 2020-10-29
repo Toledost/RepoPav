@@ -425,10 +425,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetVenta</DataSetName>
-            <Top>1.76953cm</Top>
-            <Left>5.81766cm</Left>
-            <Height>5cm</Height>
-            <Width>7.5cm</Width>
+            <Height>7.72203cm</Height>
+            <Width>20.56724cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>

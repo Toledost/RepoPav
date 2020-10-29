@@ -385,10 +385,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetEstadisticaVendedor</DataSetName>
-            <Top>2.12937cm</Top>
-            <Left>4.81753cm</Left>
-            <Height>5cm</Height>
-            <Width>7.5cm</Width>
+            <Height>7.63737cm</Height>
+            <Width>16.51cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>

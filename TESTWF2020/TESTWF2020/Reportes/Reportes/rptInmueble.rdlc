@@ -449,7 +449,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!fechaFin.Value, DateFormat.ShortDate)</Value>
+                              <Value>=IIF(IsNothing(Fields!fechaFin.Value),Fields!fechaFin.Value,FormatDateTime(Fields!fechaFin.Value, DateFormat.ShortDate))</Value>
                               <Style>
                                 <Format>d</Format>
                               </Style>
@@ -470,7 +470,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

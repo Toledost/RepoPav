@@ -34,7 +34,7 @@
             // rptvEstadisticaFinanciacion
             // 
             this.rptvEstadisticaFinanciacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rptvEstadisticaFinanciacion.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Estadisticas.rptEstadisticaFinanaciacion.rdlc";
+            this.rptvEstadisticaFinanciacion.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Estadisticas.rptEstadisticaFinanciacion.rdlc";
             this.rptvEstadisticaFinanciacion.Location = new System.Drawing.Point(0, 0);
             this.rptvEstadisticaFinanciacion.Name = "rptvEstadisticaFinanciacion";
             this.rptvEstadisticaFinanciacion.ServerReport.BearerToken = null;

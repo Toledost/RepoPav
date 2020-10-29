@@ -431,10 +431,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>EstadisticoCuotaDataSet</DataSetName>
-            <Top>1.45203cm</Top>
-            <Left>0.63183cm</Left>
-            <Height>6.40228cm</Height>
-            <Width>15.87817cm</Width>
+            <Height>7.85432cm</Height>
+            <Width>16.51cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>

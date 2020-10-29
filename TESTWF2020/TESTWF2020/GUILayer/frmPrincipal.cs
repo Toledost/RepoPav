@@ -202,8 +202,8 @@ namespace TESTWF2020
 
         private void ventaFinanciadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReporteFinanaciacion frmReporteFinanaciacion = new frmReporteFinanaciacion();
-            frmReporteFinanaciacion.ShowDialog();
+            frmReporteFinanciacion frmReporteFinanciacion = new frmReporteFinanciacion();
+            frmReporteFinanciacion.ShowDialog();
         }
 
         private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)

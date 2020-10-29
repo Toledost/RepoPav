@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.tablaVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDInmobiliariaCasaFelizDataSet = new TESTWF2020.BDInmobiliariaCasaFelizDataSet();
             this.rptvVenta = new Microsoft.Reporting.WinForms.ReportViewer();
             this.txtNombreComprador = new System.Windows.Forms.TextBox();
             this.txtApellidoComprador = new System.Windows.Forms.TextBox();
@@ -44,12 +46,20 @@
             this.lblFechaVenta = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGrafico = new System.Windows.Forms.Button();
-            this.tablaVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDInmobiliariaCasaFelizDataSet = new TESTWF2020.BDInmobiliariaCasaFelizDataSet();
             this.tablaVentaTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetTableAdapters.tablaVentaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tablaVentaBindingSource
+            // 
+            this.tablaVentaBindingSource.DataMember = "tablaVenta";
+            this.tablaVentaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSet;
+            // 
+            // bDInmobiliariaCasaFelizDataSet
+            // 
+            this.bDInmobiliariaCasaFelizDataSet.DataSetName = "BDInmobiliariaCasaFelizDataSet";
+            this.bDInmobiliariaCasaFelizDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rptvVenta
             // 
@@ -174,16 +184,6 @@
             this.btnGrafico.UseVisualStyleBackColor = true;
             this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
-            // tablaVentaBindingSource
-            // 
-            this.tablaVentaBindingSource.DataMember = "tablaVenta";
-            this.tablaVentaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSet;
-            // 
-            // bDInmobiliariaCasaFelizDataSet
-            // 
-            this.bDInmobiliariaCasaFelizDataSet.DataSetName = "BDInmobiliariaCasaFelizDataSet";
-            this.bDInmobiliariaCasaFelizDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tablaVentaTableAdapter
             // 
             this.tablaVentaTableAdapter.ClearBeforeFill = true;
@@ -208,7 +208,7 @@
             this.Controls.Add(this.txtNombreComprador);
             this.Controls.Add(this.rptvVenta);
             this.Name = "frmReporteVenta";
-            this.Text = "Reporte de venta";
+            this.Text = "Reporte Venta";
             this.Load += new System.EventHandler(this.frmReporteVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaVentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSet)).EndInit();

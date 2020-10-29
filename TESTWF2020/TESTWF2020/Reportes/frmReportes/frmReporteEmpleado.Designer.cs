@@ -74,7 +74,6 @@
             this.rptvEmpleados.ServerReport.BearerToken = null;
             this.rptvEmpleados.Size = new System.Drawing.Size(788, 279);
             this.rptvEmpleados.TabIndex = 1;
-            
             // 
             // bdInmobiliariaCasaFelizDataSet1
             // 
@@ -218,7 +217,7 @@
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.rptvEmpleados);
             this.Name = "frmReporteEmpleado";
-            this.Text = "frmReporteEmpleado";
+            this.Text = "Reporte Empleado";
             this.Load += new System.EventHandler(this.frmReporteEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).EndInit();

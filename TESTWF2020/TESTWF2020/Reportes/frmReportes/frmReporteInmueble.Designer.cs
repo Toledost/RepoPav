@@ -164,7 +164,7 @@
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.rptvInmueble);
             this.Name = "frmReporteInmueble";
-            this.Text = "Reporte de inmueble";
+            this.Text = "Reporte Inmueble";
             this.Load += new System.EventHandler(this.frmReportes_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).EndInit();

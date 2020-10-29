@@ -69,10 +69,11 @@
             reportDataSource1.Value = this.dataTableVendedorBindingSource;
             this.rptvVendedor.LocalReport.DataSources.Add(reportDataSource1);
             this.rptvVendedor.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptVendedor.rdlc";
-            this.rptvVendedor.Location = new System.Drawing.Point(11, 211);
+            this.rptvVendedor.Location = new System.Drawing.Point(8, 171);
+            this.rptvVendedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rptvVendedor.Name = "rptvVendedor";
             this.rptvVendedor.ServerReport.BearerToken = null;
-            this.rptvVendedor.Size = new System.Drawing.Size(927, 363);
+            this.rptvVendedor.Size = new System.Drawing.Size(696, 295);
             this.rptvVendedor.TabIndex = 0;
             // 
             // bDInmobiliariaCasaFelizDataSetVendedorBindingSource
@@ -86,66 +87,63 @@
             // 
             // txtNombreVendedor
             // 
-            this.txtNombreVendedor.Location = new System.Drawing.Point(189, 49);
+            this.txtNombreVendedor.Location = new System.Drawing.Point(142, 40);
+            this.txtNombreVendedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombreVendedor.Name = "txtNombreVendedor";
-            this.txtNombreVendedor.Size = new System.Drawing.Size(205, 22);
+            this.txtNombreVendedor.Size = new System.Drawing.Size(155, 20);
             this.txtNombreVendedor.TabIndex = 1;
             // 
             // lblNombreVendedor
             // 
             this.lblNombreVendedor.AutoSize = true;
-            this.lblNombreVendedor.Location = new System.Drawing.Point(55, 52);
+            this.lblNombreVendedor.Location = new System.Drawing.Point(41, 42);
+            this.lblNombreVendedor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreVendedor.Name = "lblNombreVendedor";
-            this.lblNombreVendedor.Size = new System.Drawing.Size(128, 17);
+            this.lblNombreVendedor.Size = new System.Drawing.Size(96, 13);
             this.lblNombreVendedor.TabIndex = 2;
             this.lblNombreVendedor.Text = "Nombre Vendedor:";
             // 
             // lblFechaDesde
             // 
             this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(55, 88);
-            this.lblFechaDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaDesde.Location = new System.Drawing.Point(41, 72);
             this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(49, 17);
+            this.lblFechaDesde.Size = new System.Drawing.Size(38, 13);
             this.lblFechaDesde.TabIndex = 16;
             this.lblFechaDesde.Text = "Desde";
             // 
             // lblFechaHasta
             // 
             this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(55, 130);
-            this.lblFechaHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaHasta.Location = new System.Drawing.Point(41, 106);
             this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(45, 17);
+            this.lblFechaHasta.Size = new System.Drawing.Size(35, 13);
             this.lblFechaHasta.TabIndex = 15;
             this.lblFechaHasta.Text = "Hasta";
             // 
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(129, 125);
-            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(97, 102);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(265, 22);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaHasta.TabIndex = 14;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
             // 
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(129, 88);
-            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(97, 72);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(265, 22);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaDesde.TabIndex = 13;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(838, 41);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(628, 33);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 28);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -153,60 +151,65 @@
             // 
             // btnGrafico
             // 
-            this.btnGrafico.Location = new System.Drawing.Point(838, 77);
-            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGrafico.Location = new System.Drawing.Point(628, 63);
             this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Size = new System.Drawing.Size(100, 28);
+            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
             this.btnGrafico.TabIndex = 11;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // lblTituloFechas
             // 
             this.lblTituloFechas.AutoSize = true;
-            this.lblTituloFechas.Location = new System.Drawing.Point(161, 151);
+            this.lblTituloFechas.Location = new System.Drawing.Point(121, 123);
+            this.lblTituloFechas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTituloFechas.Name = "lblTituloFechas";
-            this.lblTituloFechas.Size = new System.Drawing.Size(189, 17);
+            this.lblTituloFechas.Size = new System.Drawing.Size(144, 13);
             this.lblTituloFechas.TabIndex = 17;
             this.lblTituloFechas.Text = "Fecha de Venta de Inmueble";
             // 
             // lblCalleInmueble
             // 
             this.lblCalleInmueble.AutoSize = true;
-            this.lblCalleInmueble.Location = new System.Drawing.Point(465, 52);
+            this.lblCalleInmueble.Location = new System.Drawing.Point(349, 42);
+            this.lblCalleInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCalleInmueble.Name = "lblCalleInmueble";
-            this.lblCalleInmueble.Size = new System.Drawing.Size(104, 17);
+            this.lblCalleInmueble.Size = new System.Drawing.Size(79, 13);
             this.lblCalleInmueble.TabIndex = 19;
             this.lblCalleInmueble.Text = "Calle Inmueble:";
             // 
             // txtCalleInmueble
             // 
-            this.txtCalleInmueble.Location = new System.Drawing.Point(575, 49);
+            this.txtCalleInmueble.Location = new System.Drawing.Point(431, 40);
+            this.txtCalleInmueble.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCalleInmueble.Name = "txtCalleInmueble";
-            this.txtCalleInmueble.Size = new System.Drawing.Size(205, 22);
+            this.txtCalleInmueble.Size = new System.Drawing.Size(155, 20);
             this.txtCalleInmueble.TabIndex = 18;
             // 
             // lblNroCalle
             // 
             this.lblNroCalle.AutoSize = true;
-            this.lblNroCalle.Location = new System.Drawing.Point(411, 86);
+            this.lblNroCalle.Location = new System.Drawing.Point(308, 70);
+            this.lblNroCalle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNroCalle.Name = "lblNroCalle";
-            this.lblNroCalle.Size = new System.Drawing.Size(158, 17);
+            this.lblNroCalle.Size = new System.Drawing.Size(119, 13);
             this.lblNroCalle.TabIndex = 21;
             this.lblNroCalle.Text = "Numero Calle Inmueble:";
             // 
             // txtNroCalle
             // 
-            this.txtNroCalle.Location = new System.Drawing.Point(575, 83);
+            this.txtNroCalle.Location = new System.Drawing.Point(431, 67);
+            this.txtNroCalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNroCalle.Name = "txtNroCalle";
-            this.txtNroCalle.Size = new System.Drawing.Size(205, 22);
+            this.txtNroCalle.Size = new System.Drawing.Size(155, 20);
             this.txtNroCalle.TabIndex = 20;
             // 
             // frmReporteVendedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 603);
+            this.ClientSize = new System.Drawing.Size(713, 490);
             this.Controls.Add(this.lblNroCalle);
             this.Controls.Add(this.txtNroCalle);
             this.Controls.Add(this.lblCalleInmueble);
@@ -221,6 +224,7 @@
             this.Controls.Add(this.lblNombreVendedor);
             this.Controls.Add(this.txtNombreVendedor);
             this.Controls.Add(this.rptvVendedor);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmReporteVendedor";
             this.Text = "Reporte Vendedor";
             this.Load += new System.EventHandler(this.frmReporteVendedor_Load);

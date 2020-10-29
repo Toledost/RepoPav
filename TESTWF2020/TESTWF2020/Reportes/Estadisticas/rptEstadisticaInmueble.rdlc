@@ -401,10 +401,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetInmueble</DataSetName>
-            <Top>2.06057cm</Top>
-            <Left>6.34683cm</Left>
-            <Height>5cm</Height>
-            <Width>7.5cm</Width>
+            <Height>7.45744cm</Height>
+            <Width>16.51cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>

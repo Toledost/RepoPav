@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmEstadisticaVenta";
-            this.Text = "frmEstadisticaVenta";
+            this.Text = "Estadistica Venta";
             this.Load += new System.EventHandler(this.frmEstadisticaVenta_Load);
             this.ResumeLayout(false);
 
