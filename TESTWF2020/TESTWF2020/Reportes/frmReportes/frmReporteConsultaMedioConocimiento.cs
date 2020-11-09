@@ -9,24 +9,36 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Reportes.frmEstadisticas;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReporteConsultaMedioConocimiento : Form
     {
         private ReporteService reporteService;
+        private MedioDeConocimientoService medioDeConocimientoService;
         public frmReporteConsultaMedioConocimiento()
         {
             InitializeComponent();
             this.reporteService = new ReporteService();
+            medioDeConocimientoService = new MedioDeConocimientoService();
         }
 
         private void frmReporteConsultaMedioConocimiento_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dataSet1ConsultaInmueble.ConsultaMedioConocimiento' Puede moverla o quitarla según sea necesario.
-            this.consultaMedioConocimientoTableAdapter.Fill(this.dataSet1ConsultaInmueble.ConsultaMedioConocimiento);
+            //this.consultaMedioConocimientoTableAdapter.Fill(this.dataSet1ConsultaInmueble.ConsultaMedioConocimiento);
 
-            this.rptvMedioConocimiento.RefreshReport();
+            //this.rptvMedioConocimiento.RefreshReport();
+            CargarCombos();
+        }
+
+        private void CargarCombos()
+        {
+            this.cboMedioDeConocimiento.DataSource = medioDeConocimientoService.GetAll();
+            this.cboMedioDeConocimiento.ValueMember = "Id";
+            this.cboMedioDeConocimiento.DisplayMember = "Nombre";
+            this.cboMedioDeConocimiento.SelectedIndex = -1;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -47,15 +59,17 @@ namespace TESTWF2020.Reportes.frmReportes
 
             if (tabla.Rows.Count == 0)
             {
-                MessageBox.Show("No existe medio de conocimiento con esas condiciones");
+                MessageBox.Show("No existen resultados con esas condiciones", "Buscar Reporte", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpFechaDesde.Value = DateTime.Today;
                 dtpFechaHasta.Value = DateTime.Today;
-                txtMedioConocimiento.Text = default;
+                cboMedioDeConocimiento.SelectedIndex = -1;
             }
             else
             {
                 this.consultaMedioConocimientoBindingSource.DataSource = tabla;
                 this.rptvMedioConocimiento.RefreshReport();
+                this.btnGrafico.Enabled = true;
             }
 
         }
@@ -64,10 +78,7 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             var dict = new Dictionary<string, object>();
 
-            if (!string.IsNullOrWhiteSpace(this.txtMedioConocimiento.Text))
-            {
-                dict.Add("nombreMedioConocimiento", txtMedioConocimiento.Text);
-            }
+            dict = Validador.CargarDiccionarioComboBox(dict, cboMedioDeConocimiento);
 
             if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
@@ -80,8 +91,31 @@ namespace TESTWF2020.Reportes.frmReportes
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            frmEstadisticaMedioConocimiento frmEstadisticaMedioConocimiento = new frmEstadisticaMedioConocimiento();
+            var diccionario = CrearDiccionario();
+            frmEstadisticaMedioConocimiento frmEstadisticaMedioConocimiento = new frmEstadisticaMedioConocimiento(diccionario);
             frmEstadisticaMedioConocimiento.ShowDialog();
+        }
+
+        private void cboMedioDeConocimiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
+            cboMedioDeConocimiento.SelectedIndex = -1;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
         }
     }
 }

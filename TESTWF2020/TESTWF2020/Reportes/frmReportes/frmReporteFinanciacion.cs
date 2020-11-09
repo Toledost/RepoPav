@@ -10,17 +10,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Reportes.frmEstadisticas;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReporteFinanciacion : Form
     {
         private ReporteService reporteService;
+        private FinanciacionService financiacionService;
 
         public frmReporteFinanciacion()
         {
             InitializeComponent();
             reporteService = new ReporteService();
+            financiacionService = new FinanciacionService();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -41,15 +44,17 @@ namespace TESTWF2020.Reportes.frmReportes
 
             if (tabla.Rows.Count == 0)
             {
-                MessageBox.Show("No existe financiacion con esas condiciones");
-                dtpFechaDesde.Value = DateTime.Today;
-                dtpFechaHasta.Value = DateTime.Today;
-                txtFinanciacion.Text = default;
+                MessageBox.Show("No existen resultados con esas condiciones", "Buscar Reporte", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.btnLimpiarFiltros_Click(sender, e);
+                this.rptvFinanciacion.Clear();
             }
             else
             {
                 this.dataTableFinanciacionBindingSource.DataSource = tabla;
                 this.rptvFinanciacion.RefreshReport();
+                btnGrafico.Enabled = true;
+
             }
         }
 
@@ -57,10 +62,7 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             var dict = new Dictionary<string, object>();
 
-            if (!string.IsNullOrWhiteSpace(this.txtFinanciacion.Text))
-            {
-                dict.Add("nombreFinanciacion", txtFinanciacion.Text);
-            }
+            dict = Validador.CargarDiccionarioComboBox(dict, cboNombreFinanciacion);
 
             if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
@@ -73,16 +75,48 @@ namespace TESTWF2020.Reportes.frmReportes
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            frmEstadisticaFinanciacion frmEstadisticaFinanciacion = new frmEstadisticaFinanciacion();
+            var dict = CrearDiccionario();
+            frmEstadisticaFinanciacion frmEstadisticaFinanciacion = new frmEstadisticaFinanciacion(dict);
             frmEstadisticaFinanciacion.ShowDialog();
         }
 
         private void frmReporteFinanciacion_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion' Puede moverla o quitarla según sea necesario.
-            this.dataTableFinanciacionTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion);
+            //this.dataTableFinanciacionTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetFinanciacion.DataTableFinanciacion);
 
-            this.rptvFinanciacion.RefreshReport();
+            //this.rptvFinanciacion.RefreshReport();
+            CargarCombos();
+        }
+
+        private void CargarCombos()
+        {
+            this.cboNombreFinanciacion.DataSource = financiacionService.GetByFilters(new Dictionary<string, object>());
+            this.cboNombreFinanciacion.ValueMember = "IdFinanciacion";
+            this.cboNombreFinanciacion.DisplayMember = "Nombre";
+            this.cboNombreFinanciacion.SelectedIndex = -1;
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
+            cboNombreFinanciacion.SelectedIndex = -1;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
+        }
+
+        private void cboNombreFinanciacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
         }
     }
 }

@@ -30,30 +30,34 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
-        internal DataTable GetCantConsultasByMedioConocimiento()
+        internal DataTable GetCantConsultasByMedioConocimiento(Dictionary<string, object> diccionario)
         {
             string consultaSql = "SELECT " +
-                "m.nombre AS medioConocimiento, " +
+                "MedioConocimiento.nombre AS medioConocimiento, " +
                 "COUNT (c.idConsulta) AS cantConsultas " +
-                "FROM MedioConocimiento m  " +
-                "JOIN Consulta c ON c.idMedioConocimiento = m.idMedioConocimiento " +
-                "GROUP BY m.nombre";
+                "FROM MedioConocimiento  " +
+                "JOIN Consulta c ON c.idMedioConocimiento = MedioConocimiento.idMedioConocimiento " +
+                "WHERE c.borrado = 0 ";
 
             var dm = new DataManager();
-            var busqueda = dm.ConsultaSQL2(consultaSql);
+            consultaSql = AgregarParametrosMedioConocimiento(diccionario, consultaSql);
+            consultaSql += " GROUP BY MedioConocimiento.nombre ";
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSql, diccionario);
 
             return busqueda;
         }
 
-        internal DataTable GetVentasPorFinanciacion()
+        internal DataTable GetVentasPorFinanciacion(Dictionary<string, object> dict)
         {
             string consultaSql = "SELECT Financiacion.nombre AS nombreFinanciacion, " +
                                 "COUNT(Venta.idVenta) AS cantVentas " +
                                 "FROM Financiacion " +
                                 "INNER JOIN Venta ON Financiacion.idFinanciacion = Venta.financiacion " +
-                                "GROUP BY Financiacion.nombre ";
+                                "WHERE Financiacion.borrado = 0 ";
             var dm = new DataManager();
-            var busqueda = dm.ConsultaSQL2(consultaSql);
+            consultaSql = AgregarParametrosFinanciacion(dict, consultaSql);
+            consultaSql += " GROUP BY Financiacion.nombre ";
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSql, dict);
 
             return busqueda;
         }
@@ -78,10 +82,10 @@ namespace TESTWF2020.DataAccessLayer
         private string AgregarParametrosMedioConocimiento(Dictionary<string, object> diccParametros, string consultaSQL)
         {
             if (diccParametros.ContainsKey("nombreMedioConocimiento"))
-                consultaSQL += " AND (MedioConocimiento.nombre LIKE '%' + @nombreMedioConocimiento + '%') ";
+                consultaSQL += " AND (MedioConocimiento.idMedioConocimiento = @nombreMedioConocimiento ) ";
 
             if (diccParametros.ContainsKey("fechaDesde"))
-                consultaSQL += " AND (Consulta.fechaCreada BETWEEN @fechaDesde AND @fechaHasta) ";
+                consultaSQL += " AND (Consulta.fechaCreada BETWEEN @fechaDesde AND @fechaHasta ) ";
 
             return consultaSQL;
         }
@@ -119,17 +123,19 @@ namespace TESTWF2020.DataAccessLayer
             return busqueda;
         }
 
-        internal DataTable GetEmpleadosPorAñoMes()
+        internal DataTable GetEmpleadosPorAñoMes(Dictionary<string, object> dict)
         {
             string consultaSql = "SELECT Usuario.nombre AS Usuario, " +
                 "Usuario.fechaAlta " +
                 "FROM Empleado " +
                 "INNER JOIN Usuario ON Empleado.usuario = Usuario.nombre " +
                 "INNER JOIN Perfil ON Usuario.idPerfil = Perfil.idPerfil " +
-                "GROUP BY Usuario.nombre,Usuario.fechaAlta ";
+                "WHERE Usuario.borrado = 0 ";
 
             var dm = new DataManager();
-            var busqueda = dm.ConsultaSQL2(consultaSql);
+            consultaSql = AgregarParametrosEmpleado(dict, consultaSql);
+            consultaSql += " GROUP BY Usuario.nombre,Usuario.fechaAlta ";
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSql, dict);
 
             return busqueda;
         }
@@ -170,6 +176,9 @@ namespace TESTWF2020.DataAccessLayer
 
             if (diccParametros.ContainsKey("fechaDesde"))
                 consultaSQL += " AND (Usuario.fechaAlta BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            if (diccParametros.ContainsKey("idFinanciacion"))
+                consultaSQL += " AND (Financiacion.idFinanciacion = @idFinanciacion) ";
 
             return consultaSQL;
         }
@@ -290,7 +299,13 @@ namespace TESTWF2020.DataAccessLayer
             if (diccParametros.ContainsKey("fechaDesde"))
                 consultaSQL += " AND (Usuario.fechaAlta BETWEEN @fechaDesde AND @fechaHasta) ";
 
-              return consultaSQL;
+            if (diccParametros.ContainsKey("legajoEmpleado"))
+                consultaSQL += " AND (Empleado.legajo = @legajoEmpleado ) ";
+
+            if (diccParametros.ContainsKey("nombreUsuario"))
+                consultaSQL += " AND (Usuario.nombre = @nombreUsuario ) ";
+
+            return consultaSQL;
         }
 
         internal DataTable GetVentasPorMes()

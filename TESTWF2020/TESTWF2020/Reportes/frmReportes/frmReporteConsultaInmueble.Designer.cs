@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.consultaInmuebleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1ConsultaInmueble = new TESTWF2020.DataSet1ConsultaInmueble();
             this.rptvConsultaInmueble = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -65,9 +65,9 @@
             // 
             // rptvConsultaInmueble
             // 
-            reportDataSource6.Name = "DataSetConsultaInmueble";
-            reportDataSource6.Value = this.consultaInmuebleBindingSource;
-            this.rptvConsultaInmueble.LocalReport.DataSources.Add(reportDataSource6);
+            reportDataSource1.Name = "DataSetConsultaInmueble";
+            reportDataSource1.Value = this.consultaInmuebleBindingSource;
+            this.rptvConsultaInmueble.LocalReport.DataSources.Add(reportDataSource1);
             this.rptvConsultaInmueble.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptConsultaInmueble.rdlc";
             this.rptvConsultaInmueble.Location = new System.Drawing.Point(12, 214);
             this.rptvConsultaInmueble.Name = "rptvConsultaInmueble";
@@ -77,7 +77,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(722, 171);
+            this.btnBuscar.Location = new System.Drawing.Point(743, 78);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -163,7 +163,7 @@
             // 
             // btnLimpiarFiltros
             // 
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(722, 126);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(743, 136);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
             this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
             this.btnLimpiarFiltros.TabIndex = 17;
@@ -174,7 +174,7 @@
             // btnGrafico
             // 
             this.btnGrafico.Enabled = false;
-            this.btnGrafico.Location = new System.Drawing.Point(627, 171);
+            this.btnGrafico.Location = new System.Drawing.Point(743, 107);
             this.btnGrafico.Name = "btnGrafico";
             this.btnGrafico.Size = new System.Drawing.Size(75, 23);
             this.btnGrafico.TabIndex = 18;

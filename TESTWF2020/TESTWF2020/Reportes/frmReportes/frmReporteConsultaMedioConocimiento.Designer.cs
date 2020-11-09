@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.consultaMedioConocimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1ConsultaInmueble = new TESTWF2020.DataSet1ConsultaInmueble();
             this.rptvMedioConocimiento = new Microsoft.Reporting.WinForms.ReportViewer();
             this.consultaMedioConocimientoTableAdapter = new TESTWF2020.DataSet1ConsultaInmuebleTableAdapters.ConsultaMedioConocimientoTableAdapter();
-            this.txtMedioConocimiento = new System.Windows.Forms.TextBox();
             this.lblMedioConocimiento = new System.Windows.Forms.Label();
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.lblFechaHasta = new System.Windows.Forms.Label();
@@ -42,6 +41,8 @@
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGrafico = new System.Windows.Forms.Button();
+            this.cboMedioDeConocimiento = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.consultaMedioConocimientoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1ConsultaInmueble)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +59,9 @@
             // 
             // rptvMedioConocimiento
             // 
-            reportDataSource1.Name = "DataSetConsultaMedioConocimiento";
-            reportDataSource1.Value = this.consultaMedioConocimientoBindingSource;
-            this.rptvMedioConocimiento.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "DataSetConsultaMedioConocimiento";
+            reportDataSource2.Value = this.consultaMedioConocimientoBindingSource;
+            this.rptvMedioConocimiento.LocalReport.DataSources.Add(reportDataSource2);
             this.rptvMedioConocimiento.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptConsultaMedioConocimiento.rdlc";
             this.rptvMedioConocimiento.Location = new System.Drawing.Point(12, 161);
             this.rptvMedioConocimiento.Name = "rptvMedioConocimiento";
@@ -71,13 +72,6 @@
             // consultaMedioConocimientoTableAdapter
             // 
             this.consultaMedioConocimientoTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtMedioConocimiento
-            // 
-            this.txtMedioConocimiento.Location = new System.Drawing.Point(155, 45);
-            this.txtMedioConocimiento.Name = "txtMedioConocimiento";
-            this.txtMedioConocimiento.Size = new System.Drawing.Size(100, 20);
-            this.txtMedioConocimiento.TabIndex = 16;
             // 
             // lblMedioConocimiento
             // 
@@ -114,6 +108,7 @@
             this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaHasta.TabIndex = 12;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
@@ -123,6 +118,7 @@
             this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaDesde.TabIndex = 11;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // btnBuscar
             // 
@@ -144,12 +140,34 @@
             this.btnGrafico.UseVisualStyleBackColor = true;
             this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
+            // cboMedioDeConocimiento
+            // 
+            this.cboMedioDeConocimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMedioDeConocimiento.FormattingEnabled = true;
+            this.cboMedioDeConocimiento.Location = new System.Drawing.Point(165, 42);
+            this.cboMedioDeConocimiento.Name = "cboMedioDeConocimiento";
+            this.cboMedioDeConocimiento.Size = new System.Drawing.Size(121, 21);
+            this.cboMedioDeConocimiento.TabIndex = 16;
+            this.cboMedioDeConocimiento.Tag = "nombreMedioConocimiento";
+            this.cboMedioDeConocimiento.SelectedIndexChanged += new System.EventHandler(this.cboMedioDeConocimiento_SelectedIndexChanged);
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(688, 116);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
+            this.btnLimpiarFiltros.TabIndex = 18;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
             // frmReporteConsultaMedioConocimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtMedioConocimiento);
+            this.Controls.Add(this.btnLimpiarFiltros);
+            this.Controls.Add(this.cboMedioDeConocimiento);
             this.Controls.Add(this.lblMedioConocimiento);
             this.Controls.Add(this.lblFechaDesde);
             this.Controls.Add(this.lblFechaHasta);
@@ -174,7 +192,6 @@
         private DataSet1ConsultaInmueble dataSet1ConsultaInmueble;
         private System.Windows.Forms.BindingSource consultaMedioConocimientoBindingSource;
         private DataSet1ConsultaInmuebleTableAdapters.ConsultaMedioConocimientoTableAdapter consultaMedioConocimientoTableAdapter;
-        private System.Windows.Forms.TextBox txtMedioConocimiento;
         private System.Windows.Forms.Label lblMedioConocimiento;
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.Label lblFechaHasta;
@@ -182,5 +199,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnGrafico;
+        private System.Windows.Forms.ComboBox cboMedioDeConocimiento;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }

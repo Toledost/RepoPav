@@ -43,6 +43,14 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeInmuebleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteInmuebleXConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaFinanciadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaMedioConocimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.lblUsuarioLogeado = new System.Windows.Forms.Label();
@@ -59,15 +67,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.midPanel = new System.Windows.Forms.Panel();
-            this.reporteDeInmuebleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteInmuebleXConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventaFinanciadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.consultaMedioConocimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -184,11 +183,83 @@
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
+            // ventaGeneralToolStripMenuItem
+            // 
+            this.ventaGeneralToolStripMenuItem.Name = "ventaGeneralToolStripMenuItem";
+            this.ventaGeneralToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.ventaGeneralToolStripMenuItem.Text = "VentaGeneral";
+            this.ventaGeneralToolStripMenuItem.Click += new System.EventHandler(this.ventaGeneralToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDeInmuebleToolStripMenuItem,
+            this.reporteDeVentasToolStripMenuItem,
+            this.reporteInmuebleXConsultaToolStripMenuItem,
+            this.cuotasToolStripMenuItem,
+            this.empleadosToolStripMenuItem1,
+            this.ventaFinanciadaToolStripMenuItem,
+            this.vendedoresToolStripMenuItem,
+            this.consultaMedioConocimientoToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reporteDeInmuebleToolStripMenuItem
+            // 
+            this.reporteDeInmuebleToolStripMenuItem.Name = "reporteDeInmuebleToolStripMenuItem";
+            this.reporteDeInmuebleToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.reporteDeInmuebleToolStripMenuItem.Text = "Reporte de inmueble";
+            this.reporteDeInmuebleToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInmuebleToolStripMenuItem_Click);
+            // 
+            // reporteDeVentasToolStripMenuItem
+            // 
+            this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
+            this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.reporteDeVentasToolStripMenuItem.Text = "Reporte de ventas";
+            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
+            // 
+            // reporteInmuebleXConsultaToolStripMenuItem
+            // 
+            this.reporteInmuebleXConsultaToolStripMenuItem.Name = "reporteInmuebleXConsultaToolStripMenuItem";
+            this.reporteInmuebleXConsultaToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.reporteInmuebleXConsultaToolStripMenuItem.Text = "Reporte Inmueble x Consulta";
+            this.reporteInmuebleXConsultaToolStripMenuItem.Click += new System.EventHandler(this.reporteInmuebleXConsultaToolStripMenuItem_Click);
+            // 
+            // cuotasToolStripMenuItem
+            // 
+            this.cuotasToolStripMenuItem.Name = "cuotasToolStripMenuItem";
+            this.cuotasToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.cuotasToolStripMenuItem.Text = "Cuotas";
+            this.cuotasToolStripMenuItem.Click += new System.EventHandler(this.cuotasToolStripMenuItem_Click);
+            // 
+            // empleadosToolStripMenuItem1
+            // 
+            this.empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
+            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
+            this.empleadosToolStripMenuItem1.Text = "Empleados";
+            this.empleadosToolStripMenuItem1.Click += new System.EventHandler(this.empleadosToolStripMenuItem1_Click);
+            // 
+            // ventaFinanciadaToolStripMenuItem
+            // 
+            this.ventaFinanciadaToolStripMenuItem.Name = "ventaFinanciadaToolStripMenuItem";
+            this.ventaFinanciadaToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.ventaFinanciadaToolStripMenuItem.Text = "venta financiada";
+            this.ventaFinanciadaToolStripMenuItem.Click += new System.EventHandler(this.ventaFinanciadaToolStripMenuItem_Click);
+            // 
+            // vendedoresToolStripMenuItem
+            // 
+            this.vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
+            this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.vendedoresToolStripMenuItem.Text = "Vendedores";
+            this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
+            // 
+            // consultaMedioConocimientoToolStripMenuItem
+            // 
+            this.consultaMedioConocimientoToolStripMenuItem.Name = "consultaMedioConocimientoToolStripMenuItem";
+            this.consultaMedioConocimientoToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.consultaMedioConocimientoToolStripMenuItem.Text = "Consulta Medio Conocimiento";
+            this.consultaMedioConocimientoToolStripMenuItem.Click += new System.EventHandler(this.consultaMedioConocimientoToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -206,7 +277,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(317, 729);
+            this.panel1.Size = new System.Drawing.Size(317, 725);
             this.panel1.TabIndex = 4;
             // 
             // lblLegajo
@@ -239,7 +310,7 @@
             this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientes.Font = new System.Drawing.Font("Poetsen One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.Transparent;
             this.btnClientes.Image = global::TESTWF2020.Properties.Resources.icons8_mano_amiga_961;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,7 +329,7 @@
             this.btnPlanes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnPlanes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlanes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlanes.Font = new System.Drawing.Font("Poetsen One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlanes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlanes.ForeColor = System.Drawing.Color.Transparent;
             this.btnPlanes.Image = global::TESTWF2020.Properties.Resources.icons8_tarjeta_de_fidelidad_961;
             this.btnPlanes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -277,7 +348,7 @@
             this.btnEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleados.Font = new System.Drawing.Font("Poetsen One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleados.ForeColor = System.Drawing.Color.Transparent;
             this.btnEmpleados.Image = global::TESTWF2020.Properties.Resources.icons8_administrador_del_hombre_48;
             this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,7 +377,7 @@
             this.btnConsultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnConsultas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultas.Font = new System.Drawing.Font("Poetsen One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultas.ForeColor = System.Drawing.Color.Transparent;
             this.btnConsultas.Image = global::TESTWF2020.Properties.Resources.icons8_repositorio_961;
             this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -325,7 +396,7 @@
             this.btnInmuebles.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnInmuebles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInmuebles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInmuebles.Font = new System.Drawing.Font("Poetsen One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInmuebles.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInmuebles.ForeColor = System.Drawing.Color.Transparent;
             this.btnInmuebles.Image = global::TESTWF2020.Properties.Resources.icons8_ciudad_96;
             this.btnInmuebles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,7 +415,7 @@
             this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Poetsen One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.Transparent;
             this.btnReportes.Image = global::TESTWF2020.Properties.Resources.icons8_gráfico_combinado_48;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -362,7 +433,7 @@
             this.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Font = new System.Drawing.Font("Poetsen One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.Transparent;
             this.btnVentas.Image = global::TESTWF2020.Properties.Resources.icons8_vender_propiedad_961;
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -383,7 +454,7 @@
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(317, 677);
+            this.panel2.Location = new System.Drawing.Point(317, 673);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1041, 76);
             this.panel2.TabIndex = 5;
@@ -412,77 +483,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // ventaGeneralToolStripMenuItem
-            // 
-            this.ventaGeneralToolStripMenuItem.Name = "ventaGeneralToolStripMenuItem";
-            this.ventaGeneralToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.ventaGeneralToolStripMenuItem.Text = "VentaGeneral";
-            this.ventaGeneralToolStripMenuItem.Click += new System.EventHandler(this.ventaGeneralToolStripMenuItem_Click);
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporteDeInmuebleToolStripMenuItem,
-            this.reporteDeVentasToolStripMenuItem,
-            this.reporteInmuebleXConsultaToolStripMenuItem,
-            this.cuotasToolStripMenuItem,
-            this.empleadosToolStripMenuItem1,
-            this.ventaFinanciadaToolStripMenuItem,
-            this.vendedoresToolStripMenuItem,
-            this.consultaMedioConocimientoToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // reporteDeInmuebleToolStripMenuItem
-            // 
-            this.reporteDeInmuebleToolStripMenuItem.Name = "reporteDeInmuebleToolStripMenuItem";
-            this.reporteDeInmuebleToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.reporteDeInmuebleToolStripMenuItem.Text = "Reporte de inmueble";
-            this.reporteDeInmuebleToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInmuebleToolStripMenuItem_Click);
-            // 
-            // reporteDeVentasToolStripMenuItem
-            // 
-            this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
-            this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.reporteDeVentasToolStripMenuItem.Text = "Reporte de ventas";
-            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
-            // 
-            // reporteInmuebleXConsultaToolStripMenuItem
-            // 
-            this.reporteInmuebleXConsultaToolStripMenuItem.Name = "reporteInmuebleXConsultaToolStripMenuItem";
-            this.reporteInmuebleXConsultaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.reporteInmuebleXConsultaToolStripMenuItem.Text = "Reporte Inmueble x Consulta";
-            this.reporteInmuebleXConsultaToolStripMenuItem.Click += new System.EventHandler(this.reporteInmuebleXConsultaToolStripMenuItem_Click);
-            // 
-            // cuotasToolStripMenuItem
-            // 
-            this.cuotasToolStripMenuItem.Name = "cuotasToolStripMenuItem";
-            this.cuotasToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.cuotasToolStripMenuItem.Text = "Cuotas";
-            this.cuotasToolStripMenuItem.Click += new System.EventHandler(this.cuotasToolStripMenuItem_Click);
-            // 
-            // empleadosToolStripMenuItem1
-            // 
-            this.empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
-            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(237, 22);
-            this.empleadosToolStripMenuItem1.Text = "Empleados";
-            this.empleadosToolStripMenuItem1.Click += new System.EventHandler(this.empleadosToolStripMenuItem1_Click);
-            // 
-            // ventaFinanciadaToolStripMenuItem
-            // 
-            this.ventaFinanciadaToolStripMenuItem.Name = "ventaFinanciadaToolStripMenuItem";
-            this.ventaFinanciadaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.ventaFinanciadaToolStripMenuItem.Text = "venta financiada";
-            this.ventaFinanciadaToolStripMenuItem.Click += new System.EventHandler(this.ventaFinanciadaToolStripMenuItem_Click);
-            // 
-            // vendedoresToolStripMenuItem
-            // 
-            this.vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
-            this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.vendedoresToolStripMenuItem.Text = "Vendedores";
-            this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TESTWF2020.Properties.Resources.LOGO;
@@ -493,20 +493,13 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // consultaMedioConocimientoToolStripMenuItem
-            // 
-            this.consultaMedioConocimientoToolStripMenuItem.Name = "consultaMedioConocimientoToolStripMenuItem";
-            this.consultaMedioConocimientoToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.consultaMedioConocimientoToolStripMenuItem.Text = "Consulta Medio Conocimiento";
-            this.consultaMedioConocimientoToolStripMenuItem.Click += new System.EventHandler(this.consultaMedioConocimientoToolStripMenuItem_Click);
-            //
             // midPanel
-            //
+            // 
             this.midPanel.BackColor = System.Drawing.Color.Transparent;
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.midPanel.Location = new System.Drawing.Point(317, 24);
             this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(1041, 653);
+            this.midPanel.Size = new System.Drawing.Size(1041, 649);
             this.midPanel.TabIndex = 6;
             // 
             // frmPrincipal
@@ -516,7 +509,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::TESTWF2020.Properties.Resources.fondo2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1358, 753);
+            this.ClientSize = new System.Drawing.Size(1358, 749);
             this.Controls.Add(this.midPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

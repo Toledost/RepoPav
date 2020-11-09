@@ -15,8 +15,17 @@ namespace TESTWF2020.Reportes.frmEstadisticas
     public partial class frmEstadisiticaEmpleado : Form
     {
         private ReporteService reporteService;
+        private Dictionary<string, object> dict;
+
         public frmEstadisiticaEmpleado()
         {
+            InitializeComponent();
+            reporteService = new ReporteService();
+        }
+
+        public frmEstadisiticaEmpleado(Dictionary<string, object> dict)
+        {
+            this.dict = dict;
             InitializeComponent();
             reporteService = new ReporteService();
         }
@@ -31,7 +40,7 @@ namespace TESTWF2020.Reportes.frmEstadisticas
         private void rptvEmpleado_Load(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
-            tabla = reporteService.GetEmpleadosPorAñoMes();
+            tabla = reporteService.GetEmpleadosPorAñoMes(dict);
 
             ReportDataSource ds = new ReportDataSource("DataSetEmpleado", tabla);
 

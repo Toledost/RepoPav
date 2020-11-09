@@ -335,7 +335,7 @@
               </ChartArea>
             </ChartAreas>
             <ChartLegends>
-              <ChartLegend Name="Default">
+              <ChartLegend Name="Cantidad_de_consultas">
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
@@ -355,7 +355,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Título del gráfico</Caption>
+                <Caption>Consultas por inmueble</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>

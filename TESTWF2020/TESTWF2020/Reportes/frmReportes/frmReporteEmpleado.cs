@@ -9,26 +9,43 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Reportes.frmEstadisticas;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReporteEmpleado : Form
     {
-        private ReporteService reporteService;  
+        private ReporteService reporteService;
+        private EmpleadoService empleadoService;
+        private UsuarioService usuarioService;
         public frmReporteEmpleado()
         {
             InitializeComponent();
             reporteService = new ReporteService();
+            empleadoService = new EmpleadoService();
+            usuarioService = new UsuarioService();
         }
 
         private void frmReporteEmpleado_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'bDInmobiliariaCasaFelizDataSetEmpleado.tablaEmpleado' Puede moverla o quitarla según sea necesario.
-            this.tablaEmpleadoTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetEmpleado.tablaEmpleado);
-            this.rptvEmpleados.RefreshReport();
+            //this.tablaEmpleadoTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetEmpleado.tablaEmpleado);
+            //this.rptvEmpleados.RefreshReport();
+            CargarCombos();
         }
 
-        
+        private void CargarCombos()
+        {
+            this.cboNombreEmpleado.DataSource = empleadoService.GetByFilters(new Dictionary<string, object>());
+            this.cboNombreEmpleado.ValueMember = "Legajo";
+            this.cboNombreEmpleado.DisplayMember = "NombreCompleto";
+            this.cboNombreEmpleado.SelectedIndex = -1;
+
+            this.cboUsuario.DataSource = usuarioService.GetByFilters(new Dictionary<string, object>(),false);
+            this.cboUsuario.ValueMember = "Nombre";
+            this.cboUsuario.DisplayMember = "Nombre";
+            this.cboUsuario.SelectedIndex = -1;
+        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -48,16 +65,18 @@ namespace TESTWF2020.Reportes.frmReportes
 
             if (tabla.Rows.Count == 0)
             {
-                MessageBox.Show("No existe Empleado con esas condiciones");
-                dtpFechaDesde.Value = DateTime.Today;
-                dtpFechaHasta.Value = DateTime.Today;
-                txtNombreEmpleado.Text = default;
-                txtUsuario.Text = default;
+                MessageBox.Show("No existen resultados con esas condiciones", "Buscar Reporte", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.btnLimpiarFiltros_Click(sender, e);
+
+                this.rptvEmpleados.Clear();
             }
             else
             {
                 this.tablaEmpleadoBindingSource.DataSource = tabla;
                 this.rptvEmpleados.RefreshReport();
+                this.btnGrafico.Enabled = true;
+
             }
         }
 
@@ -65,18 +84,7 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             var dict = new Dictionary<string, object>();
 
-            if (!string.IsNullOrWhiteSpace(this.txtNombreEmpleado.Text))
-            {
-                dict.Add("nombreEmpleado", txtNombreEmpleado.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtApellidoEmpleado.Text))
-            {
-                dict.Add("apellidoEmpleado", txtApellidoEmpleado.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtUsuario.Text))
-            {
-                dict.Add("usuario", txtUsuario.Text);
-            }
+            dict = Validador.CargarDiccionarioComboBox(dict, cboNombreEmpleado, cboUsuario);
 
             if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
@@ -89,8 +97,37 @@ namespace TESTWF2020.Reportes.frmReportes
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            frmEstadisiticaEmpleado frmEstadisiticaEmpleado = new frmEstadisiticaEmpleado();
+            var dict = CrearDiccionario();
+            frmEstadisiticaEmpleado frmEstadisiticaEmpleado = new frmEstadisiticaEmpleado(dict);
             frmEstadisiticaEmpleado.ShowDialog();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
+            cboNombreEmpleado.SelectedIndex = -1;
+            cboUsuario.SelectedIndex = -1;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
+        }
+
+        private void cboNombreEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
+        }
+
+        private void cboUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGrafico.Enabled = false;
         }
     }
 }

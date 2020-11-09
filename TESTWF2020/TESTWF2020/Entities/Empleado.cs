@@ -15,6 +15,6 @@ namespace TESTWF2020.Entities
         public string Apellido { get; set; }
 
         public Usuario Usuario { get; set; }
-
+        public string NombreCompleto => $"{Nombre} {Apellido}";
     }
 }

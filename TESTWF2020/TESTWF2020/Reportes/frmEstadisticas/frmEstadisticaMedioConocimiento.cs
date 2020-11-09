@@ -15,22 +15,30 @@ namespace TESTWF2020.Reportes.frmEstadisticas
     public partial class frmEstadisticaMedioConocimiento : Form
     {
         private ReporteService reporteService;
+        private Dictionary<string, object> diccionario;
+
         public frmEstadisticaMedioConocimiento()
         {
             InitializeComponent();
             this.reporteService = new ReporteService();
         }
 
+        public frmEstadisticaMedioConocimiento(Dictionary<string, object> diccionario)
+        {
+            this.diccionario = diccionario;
+            InitializeComponent();
+            this.reporteService = new ReporteService();
+        }
+
         private void frmEstadisticaMedioConocimiento_Load(object sender, EventArgs e)
         {
-
             this.rptvEstadisticaMedioConocimiento.RefreshReport();
         }
 
         private void rptvEstadisticaMedioConocimiento_Load(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
-            tabla = reporteService.GetCantConsultasByMedioConocimiento();
+            tabla = reporteService.GetCantConsultasByMedioConocimiento(diccionario);
 
             ReportDataSource ds = new ReportDataSource("DataSetEstadisticaMedioConocimiento", tabla);
 
