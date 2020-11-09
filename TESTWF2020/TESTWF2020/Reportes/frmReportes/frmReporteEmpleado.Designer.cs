@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource9 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tablaEmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDInmobiliariaCasaFelizDataSetEmpleado = new TESTWF2020.BDInmobiliariaCasaFelizDataSetEmpleado();
             this.rptvEmpleados = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -41,13 +41,12 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lblFechaAlta = new System.Windows.Forms.Label();
-            this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.tablaEmpleadoTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetEmpleadoTableAdapters.tablaEmpleadoTableAdapter();
-            this.txtApellidoEmpleado = new System.Windows.Forms.TextBox();
-            this.lblApellidoEmpleado = new System.Windows.Forms.Label();
+            this.cboUsuario = new System.Windows.Forms.ComboBox();
+            this.lblNombreEmpleado = new System.Windows.Forms.Label();
+            this.cboNombreEmpleado = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
@@ -65,16 +64,15 @@
             // 
             // rptvEmpleados
             // 
-            reportDataSource1.Name = "DataSetEmpleados";
-            reportDataSource1.Value = this.tablaEmpleadoBindingSource;
-            this.rptvEmpleados.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource9.Name = "DataSetEmpleados";
+            reportDataSource9.Value = this.tablaEmpleadoBindingSource;
+            this.rptvEmpleados.LocalReport.DataSources.Add(reportDataSource9);
             this.rptvEmpleados.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptEmpleados.rdlc";
             this.rptvEmpleados.Location = new System.Drawing.Point(0, 159);
             this.rptvEmpleados.Name = "rptvEmpleados";
             this.rptvEmpleados.ServerReport.BearerToken = null;
             this.rptvEmpleados.Size = new System.Drawing.Size(788, 279);
             this.rptvEmpleados.TabIndex = 1;
-            
             // 
             // bdInmobiliariaCasaFelizDataSet1
             // 
@@ -104,7 +102,7 @@
             // lblFechaDesde
             // 
             this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(360, 83);
+            this.lblFechaDesde.Location = new System.Drawing.Point(366, 85);
             this.lblFechaDesde.Name = "lblFechaDesde";
             this.lblFechaDesde.Size = new System.Drawing.Size(38, 13);
             this.lblFechaDesde.TabIndex = 10;
@@ -127,6 +125,7 @@
             this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaHasta.TabIndex = 8;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
@@ -136,6 +135,7 @@
             this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaDesde.TabIndex = 7;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // lblFechaAlta
             // 
@@ -146,33 +146,10 @@
             this.lblFechaAlta.TabIndex = 11;
             this.lblFechaAlta.Text = "FechaAlta";
             // 
-            // txtNombreEmpleado
-            // 
-            this.txtNombreEmpleado.Location = new System.Drawing.Point(124, 12);
-            this.txtNombreEmpleado.Name = "txtNombreEmpleado";
-            this.txtNombreEmpleado.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreEmpleado.TabIndex = 12;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(124, 68);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuario.TabIndex = 13;
-            // 
-            // lblNombreEmpleado
-            // 
-            this.lblNombreEmpleado.AutoSize = true;
-            this.lblNombreEmpleado.Location = new System.Drawing.Point(5, 16);
-            this.lblNombreEmpleado.Name = "lblNombreEmpleado";
-            this.lblNombreEmpleado.Size = new System.Drawing.Size(94, 13);
-            this.lblNombreEmpleado.TabIndex = 14;
-            this.lblNombreEmpleado.Text = "Nombre Empleado";
-            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(56, 68);
+            this.lblUsuario.Location = new System.Drawing.Point(76, 68);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 15;
@@ -182,33 +159,57 @@
             // 
             this.tablaEmpleadoTableAdapter.ClearBeforeFill = true;
             // 
-            // txtApellidoEmpleado
+            // cboUsuario
             // 
-            this.txtApellidoEmpleado.Location = new System.Drawing.Point(124, 39);
-            this.txtApellidoEmpleado.Name = "txtApellidoEmpleado";
-            this.txtApellidoEmpleado.Size = new System.Drawing.Size(100, 20);
-            this.txtApellidoEmpleado.TabIndex = 16;
+            this.cboUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUsuario.FormattingEnabled = true;
+            this.cboUsuario.Location = new System.Drawing.Point(125, 65);
+            this.cboUsuario.Name = "cboUsuario";
+            this.cboUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cboUsuario.TabIndex = 19;
+            this.cboUsuario.Tag = "nombreUsuario";
+            this.cboUsuario.SelectedIndexChanged += new System.EventHandler(this.cboUsuario_SelectedIndexChanged);
             // 
-            // lblApellidoEmpleado
+            // lblNombreEmpleado
             // 
-            this.lblApellidoEmpleado.AutoSize = true;
-            this.lblApellidoEmpleado.Location = new System.Drawing.Point(5, 46);
-            this.lblApellidoEmpleado.Name = "lblApellidoEmpleado";
-            this.lblApellidoEmpleado.Size = new System.Drawing.Size(94, 13);
-            this.lblApellidoEmpleado.TabIndex = 17;
-            this.lblApellidoEmpleado.Text = "Apellido Empleado";
+            this.lblNombreEmpleado.AutoSize = true;
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(25, 29);
+            this.lblNombreEmpleado.Name = "lblNombreEmpleado";
+            this.lblNombreEmpleado.Size = new System.Drawing.Size(93, 13);
+            this.lblNombreEmpleado.TabIndex = 14;
+            this.lblNombreEmpleado.Text = "Nombre empleado";
+            // 
+            // cboNombreEmpleado
+            // 
+            this.cboNombreEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNombreEmpleado.FormattingEnabled = true;
+            this.cboNombreEmpleado.Location = new System.Drawing.Point(125, 26);
+            this.cboNombreEmpleado.Name = "cboNombreEmpleado";
+            this.cboNombreEmpleado.Size = new System.Drawing.Size(121, 21);
+            this.cboNombreEmpleado.TabIndex = 18;
+            this.cboNombreEmpleado.Tag = "legajoEmpleado";
+            this.cboNombreEmpleado.SelectedIndexChanged += new System.EventHandler(this.cboNombreEmpleado_SelectedIndexChanged);
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(677, 98);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
+            this.btnLimpiarFiltros.TabIndex = 20;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // frmReporteEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblApellidoEmpleado);
-            this.Controls.Add(this.txtApellidoEmpleado);
+            this.Controls.Add(this.btnLimpiarFiltros);
+            this.Controls.Add(this.cboUsuario);
+            this.Controls.Add(this.cboNombreEmpleado);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblNombreEmpleado);
-            this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.txtNombreEmpleado);
             this.Controls.Add(this.lblFechaAlta);
             this.Controls.Add(this.lblFechaDesde);
             this.Controls.Add(this.lblFechaHasta);
@@ -218,7 +219,7 @@
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.rptvEmpleados);
             this.Name = "frmReporteEmpleado";
-            this.Text = "frmReporteEmpleado";
+            this.Text = "Reporte Empleado";
             this.Load += new System.EventHandler(this.frmReporteEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).EndInit();
@@ -242,11 +243,10 @@
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.Label lblFechaAlta;
-        private System.Windows.Forms.TextBox txtNombreEmpleado;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Label lblNombreEmpleado;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.TextBox txtApellidoEmpleado;
-        private System.Windows.Forms.Label lblApellidoEmpleado;
+        private System.Windows.Forms.ComboBox cboUsuario;
+        private System.Windows.Forms.Label lblNombreEmpleado;
+        private System.Windows.Forms.ComboBox cboNombreEmpleado;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }

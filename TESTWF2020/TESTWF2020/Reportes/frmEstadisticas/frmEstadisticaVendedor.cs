@@ -15,11 +15,19 @@ namespace TESTWF2020.Reportes.frmEstadisticas
     public partial class frmEstadisticaVendedor : Form
     {
         private ReporteService reporteService;
+        private Dictionary<string, object> dict;
 
         public frmEstadisticaVendedor()
         {
             InitializeComponent();
             reporteService = new ReporteService();
+        }
+
+        public frmEstadisticaVendedor(Dictionary<string, object> dict)
+        {
+            InitializeComponent();
+            reporteService = new ReporteService();
+            this.dict = dict;
         }
 
         private void frmEstadisticaVendedor_Load(object sender, EventArgs e)
@@ -30,7 +38,7 @@ namespace TESTWF2020.Reportes.frmEstadisticas
         private void rptvEstadisticaVendedor_Load(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
-            tabla = reporteService.GetVentasPorVendedor();
+            tabla = reporteService.GetVentasPorVendedor(dict);
 
             ReportDataSource ds = new ReportDataSource("DataSetEstadisticaVendedor", tabla);
 

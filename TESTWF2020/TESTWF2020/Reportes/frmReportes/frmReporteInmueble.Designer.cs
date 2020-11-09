@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.inmuebleEstado1 = new TESTWF2020.InmuebleEstado();
             this.rptvInmueble = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -40,9 +40,10 @@
             this.lblFechaHasta = new System.Windows.Forms.Label();
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.lblInmueble = new System.Windows.Forms.Label();
-            this.txtIdInmueble = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.relacionInmuebleEstadoTableAdapter1 = new TESTWF2020.InmuebleEstadoTableAdapters.RelacionInmuebleEstadoTableAdapter();
+            this.cboInmueble = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -60,9 +61,9 @@
             // 
             // rptvInmueble
             // 
-            reportDataSource1.Name = "DataSet2";
-            reportDataSource1.Value = this.bindingSource2;
-            this.rptvInmueble.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource6.Name = "DataSet2";
+            reportDataSource6.Value = this.bindingSource2;
+            this.rptvInmueble.LocalReport.DataSources.Add(reportDataSource6);
             this.rptvInmueble.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptInmueble.rdlc";
             this.rptvInmueble.Location = new System.Drawing.Point(-1, 159);
             this.rptvInmueble.Name = "rptvInmueble";
@@ -98,6 +99,7 @@
             this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaDesde.TabIndex = 3;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // dtpFechaHasta
             // 
@@ -107,6 +109,7 @@
             this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaHasta.TabIndex = 4;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // lblFechaHasta
             // 
@@ -131,16 +134,9 @@
             this.lblInmueble.AutoSize = true;
             this.lblInmueble.Location = new System.Drawing.Point(46, 35);
             this.lblInmueble.Name = "lblInmueble";
-            this.lblInmueble.Size = new System.Drawing.Size(65, 13);
+            this.lblInmueble.Size = new System.Drawing.Size(53, 13);
             this.lblInmueble.TabIndex = 7;
-            this.lblInmueble.Text = "Id Inmueble:";
-            // 
-            // txtIdInmueble
-            // 
-            this.txtIdInmueble.Location = new System.Drawing.Point(113, 36);
-            this.txtIdInmueble.Name = "txtIdInmueble";
-            this.txtIdInmueble.Size = new System.Drawing.Size(100, 20);
-            this.txtIdInmueble.TabIndex = 8;
+            this.lblInmueble.Text = "Inmueble:";
             // 
             // bindingSource1
             // 
@@ -151,10 +147,32 @@
             // 
             this.relacionInmuebleEstadoTableAdapter1.ClearBeforeFill = true;
             // 
+            // cboInmueble
+            // 
+            this.cboInmueble.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboInmueble.FormattingEnabled = true;
+            this.cboInmueble.Location = new System.Drawing.Point(113, 27);
+            this.cboInmueble.Name = "cboInmueble";
+            this.cboInmueble.Size = new System.Drawing.Size(121, 21);
+            this.cboInmueble.TabIndex = 8;
+            this.cboInmueble.Tag = "inmueble";
+            this.cboInmueble.SelectedIndexChanged += new System.EventHandler(this.cboInmueble_SelectedIndexChanged);
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(691, 106);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
+            this.btnLimpiarFiltros.TabIndex = 18;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
             // frmReporteInmueble
             // 
             this.ClientSize = new System.Drawing.Size(804, 461);
-            this.Controls.Add(this.txtIdInmueble);
+            this.Controls.Add(this.btnLimpiarFiltros);
+            this.Controls.Add(this.cboInmueble);
             this.Controls.Add(this.lblInmueble);
             this.Controls.Add(this.lblFechaDesde);
             this.Controls.Add(this.lblFechaHasta);
@@ -164,7 +182,7 @@
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.rptvInmueble);
             this.Name = "frmReporteInmueble";
-            this.Text = "Reporte de inmueble";
+            this.Text = "Reporte Inmueble";
             this.Load += new System.EventHandler(this.frmReportes_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inmuebleEstado1)).EndInit();
@@ -192,6 +210,7 @@
         private System.Windows.Forms.Label lblFechaHasta;
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.Label lblInmueble;
-        private System.Windows.Forms.TextBox txtIdInmueble;
+        private System.Windows.Forms.ComboBox cboInmueble;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }

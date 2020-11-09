@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tablaCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDInmobiliariaCasaFelizDataSetCuota = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuota();
             this.rptvCuotas = new Microsoft.Reporting.WinForms.ReportViewer();
             this.bdInmobiliariaCasaFelizDataSet1 = new TESTWF2020.BDInmobiliariaCasaFelizDataSet();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -40,19 +42,16 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lblNombreComprador = new System.Windows.Forms.Label();
-            this.lblApellidoComprador = new System.Windows.Forms.Label();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.txtApellidoCliente = new System.Windows.Forms.TextBox();
-            this.txtCalleInmueble = new System.Windows.Forms.TextBox();
             this.lblCalleInmueble = new System.Windows.Forms.Label();
             this.lblFechaVencimiento = new System.Windows.Forms.Label();
-            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDInmobiliariaCasaFelizDataSetCuota = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuota();
             this.tablaCuotaTableAdapter = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuotaTableAdapters.TablaCuotaTableAdapter();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
+            this.cboInmueble = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaCuotaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tablaCuotaBindingSource
@@ -60,11 +59,21 @@
             this.tablaCuotaBindingSource.DataMember = "TablaCuota";
             this.tablaCuotaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource;
             // 
+            // bDInmobiliariaCasaFelizDataSetCuotaBindingSource
+            // 
+            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetCuota;
+            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.Position = 0;
+            // 
+            // bDInmobiliariaCasaFelizDataSetCuota
+            // 
+            this.bDInmobiliariaCasaFelizDataSetCuota.DataSetName = "BDInmobiliariaCasaFelizDataSetCuota";
+            this.bDInmobiliariaCasaFelizDataSetCuota.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // rptvCuotas
             // 
-            reportDataSource1.Name = "DataSetCuota";
-            reportDataSource1.Value = this.tablaCuotaBindingSource;
-            this.rptvCuotas.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource7.Name = "DataSetCuota";
+            reportDataSource7.Value = this.tablaCuotaBindingSource;
+            this.rptvCuotas.LocalReport.DataSources.Add(reportDataSource7);
             this.rptvCuotas.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptCuotas.rdlc";
             this.rptvCuotas.Location = new System.Drawing.Point(2, 160);
             this.rptvCuotas.Name = "rptvCuotas";
@@ -100,7 +109,7 @@
             // lblFechaDesde
             // 
             this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(397, 95);
+            this.lblFechaDesde.Location = new System.Drawing.Point(238, 85);
             this.lblFechaDesde.Name = "lblFechaDesde";
             this.lblFechaDesde.Size = new System.Drawing.Size(38, 13);
             this.lblFechaDesde.TabIndex = 10;
@@ -109,7 +118,7 @@
             // lblFechaHasta
             // 
             this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(406, 131);
+            this.lblFechaHasta.Location = new System.Drawing.Point(238, 119);
             this.lblFechaHasta.Name = "lblFechaHasta";
             this.lblFechaHasta.Size = new System.Drawing.Size(35, 13);
             this.lblFechaHasta.TabIndex = 9;
@@ -118,103 +127,96 @@
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(463, 125);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(295, 113);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaHasta.TabIndex = 8;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(463, 91);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(295, 79);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaDesde.TabIndex = 7;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // lblNombreComprador
             // 
             this.lblNombreComprador.AutoSize = true;
-            this.lblNombreComprador.Location = new System.Drawing.Point(66, 23);
+            this.lblNombreComprador.Location = new System.Drawing.Point(44, 23);
             this.lblNombreComprador.Name = "lblNombreComprador";
-            this.lblNombreComprador.Size = new System.Drawing.Size(98, 13);
+            this.lblNombreComprador.Size = new System.Drawing.Size(42, 13);
             this.lblNombreComprador.TabIndex = 11;
-            this.lblNombreComprador.Text = "Nombre Comprador";
-            // 
-            // lblApellidoComprador
-            // 
-            this.lblApellidoComprador.AutoSize = true;
-            this.lblApellidoComprador.Location = new System.Drawing.Point(66, 54);
-            this.lblApellidoComprador.Name = "lblApellidoComprador";
-            this.lblApellidoComprador.Size = new System.Drawing.Size(98, 13);
-            this.lblApellidoComprador.TabIndex = 12;
-            this.lblApellidoComprador.Text = "Apellido Comprador";
-            // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(170, 23);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreCliente.TabIndex = 13;
-            // 
-            // txtApellidoCliente
-            // 
-            this.txtApellidoCliente.Location = new System.Drawing.Point(170, 54);
-            this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtApellidoCliente.TabIndex = 14;
-            // 
-            // txtCalleInmueble
-            // 
-            this.txtCalleInmueble.Location = new System.Drawing.Point(373, 23);
-            this.txtCalleInmueble.Name = "txtCalleInmueble";
-            this.txtCalleInmueble.Size = new System.Drawing.Size(100, 20);
-            this.txtCalleInmueble.TabIndex = 16;
+            this.lblNombreComprador.Text = "Cliente:";
             // 
             // lblCalleInmueble
             // 
             this.lblCalleInmueble.AutoSize = true;
             this.lblCalleInmueble.Location = new System.Drawing.Point(292, 26);
             this.lblCalleInmueble.Name = "lblCalleInmueble";
-            this.lblCalleInmueble.Size = new System.Drawing.Size(75, 13);
+            this.lblCalleInmueble.Size = new System.Drawing.Size(50, 13);
             this.lblCalleInmueble.TabIndex = 15;
-            this.lblCalleInmueble.Text = "Calle inmueble";
+            this.lblCalleInmueble.Text = "Inmueble";
             // 
             // lblFechaVencimiento
             // 
             this.lblFechaVencimiento.AutoSize = true;
-            this.lblFechaVencimiento.Location = new System.Drawing.Point(292, 116);
+            this.lblFechaVencimiento.Location = new System.Drawing.Point(124, 104);
             this.lblFechaVencimiento.Name = "lblFechaVencimiento";
             this.lblFechaVencimiento.Size = new System.Drawing.Size(98, 13);
             this.lblFechaVencimiento.TabIndex = 17;
             this.lblFechaVencimiento.Text = "Fecha Vencimiento";
             // 
-            // bDInmobiliariaCasaFelizDataSetCuotaBindingSource
-            // 
-            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.DataSource = this.bDInmobiliariaCasaFelizDataSetCuota;
-            this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.Position = 0;
-            // 
-            // bDInmobiliariaCasaFelizDataSetCuota
-            // 
-            this.bDInmobiliariaCasaFelizDataSetCuota.DataSetName = "BDInmobiliariaCasaFelizDataSetCuota";
-            this.bDInmobiliariaCasaFelizDataSetCuota.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tablaCuotaTableAdapter
             // 
             this.tablaCuotaTableAdapter.ClearBeforeFill = true;
+            // 
+            // cboCliente
+            // 
+            this.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(131, 20);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(121, 21);
+            this.cboCliente.TabIndex = 18;
+            this.cboCliente.Tag = "nombreComprador";
+            this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.cboCliente_SelectedIndexChanged);
+            // 
+            // cboInmueble
+            // 
+            this.cboInmueble.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboInmueble.FormattingEnabled = true;
+            this.cboInmueble.Location = new System.Drawing.Point(371, 20);
+            this.cboInmueble.Name = "cboInmueble";
+            this.cboInmueble.Size = new System.Drawing.Size(121, 21);
+            this.cboInmueble.TabIndex = 20;
+            this.cboInmueble.Tag = "nombreInmueble";
+            this.cboInmueble.SelectedIndexChanged += new System.EventHandler(this.cboInmueble_SelectedIndexChanged);
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(587, 47);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 52);
+            this.btnLimpiarFiltros.TabIndex = 21;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // frmReporteCuota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpiarFiltros);
+            this.Controls.Add(this.cboInmueble);
+            this.Controls.Add(this.cboCliente);
             this.Controls.Add(this.lblFechaVencimiento);
-            this.Controls.Add(this.txtCalleInmueble);
             this.Controls.Add(this.lblCalleInmueble);
-            this.Controls.Add(this.txtApellidoCliente);
-            this.Controls.Add(this.txtNombreCliente);
-            this.Controls.Add(this.lblApellidoComprador);
             this.Controls.Add(this.lblNombreComprador);
             this.Controls.Add(this.lblFechaDesde);
             this.Controls.Add(this.lblFechaHasta);
@@ -224,12 +226,12 @@
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.rptvCuotas);
             this.Name = "frmReporteCuota";
-            this.Text = "frmReporteCuota";
+            this.Text = "Reporte Cuota";
             this.Load += new System.EventHandler(this.frmReporteCuota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaCuotaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,11 +252,10 @@
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.Label lblNombreComprador;
-        private System.Windows.Forms.Label lblApellidoComprador;
-        private System.Windows.Forms.TextBox txtNombreCliente;
-        private System.Windows.Forms.TextBox txtApellidoCliente;
-        private System.Windows.Forms.TextBox txtCalleInmueble;
         private System.Windows.Forms.Label lblCalleInmueble;
         private System.Windows.Forms.Label lblFechaVencimiento;
+        private System.Windows.Forms.ComboBox cboCliente;
+        private System.Windows.Forms.ComboBox cboInmueble;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }

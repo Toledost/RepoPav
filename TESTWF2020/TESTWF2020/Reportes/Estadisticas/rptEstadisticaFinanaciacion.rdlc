@@ -355,7 +355,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Título del gráfico</Caption>
+                <Caption>Ventas por financiación</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -385,10 +385,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetEstadisticaFinanciacion</DataSetName>
-            <Top>1.9177cm</Top>
-            <Left>4.30953cm</Left>
-            <Height>7.43417cm</Height>
-            <Width>7.5cm</Width>
+            <Height>10.62187cm</Height>
+            <Width>17.75737cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>

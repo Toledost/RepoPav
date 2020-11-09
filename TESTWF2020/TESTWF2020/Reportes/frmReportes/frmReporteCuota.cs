@@ -9,24 +9,45 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Reportes.frmEstadisticas;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReporteCuota : Form
     {
         private ReporteService reporteService;
+        private InmuebleService inmuebleService;
+        private ClienteService clienteService;
         public frmReporteCuota()
         {
             InitializeComponent();
             reporteService = new ReporteService();
+            inmuebleService = new InmuebleService();
+            clienteService = new ClienteService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReporteCuota_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'bDInmobiliariaCasaFelizDataSetCuota.TablaCuota' Puede moverla o quitarla según sea necesario.
-            this.tablaCuotaTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetCuota.TablaCuota);
+            //this.tablaCuotaTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetCuota.TablaCuota);
 
-            this.rptvCuotas.RefreshReport();
+            //this.rptvCuotas.RefreshReport();
+            CargarCombos();
+        }
+
+        private void CargarCombos()
+        {
+            this.cboInmueble.DataSource = inmuebleService.GetByFilters(new Dictionary<string, object>());
+            this.cboInmueble.ValueMember = "Id";
+            this.cboInmueble.DisplayMember = "DireccionCompleta";
+            this.cboInmueble.SelectedIndex = -1;
+
+            this.cboCliente.DataSource = clienteService.GetAll();
+            this.cboCliente.ValueMember = "Dni";
+            this.cboCliente.DisplayMember = "NombreCompleto";
+            this.cboCliente.SelectedIndex = -1;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -45,15 +66,15 @@ namespace TESTWF2020.Reportes.frmReportes
 
             if (tabla.Rows.Count == 0)
             {
-                MessageBox.Show("No existe inmueble con esas condiciones");
-                dtpFechaDesde.Value = DateTime.Today;
-                dtpFechaHasta.Value = DateTime.Today;
-                txtNombreCliente.Text = default;
+                MessageBox.Show("No existen resultados con esas condiciones", "Buscar Reporte", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.btnLimpiarFiltros_Click(sender, e);
+                this.rptvCuotas.Clear();
             }
             else
             {
                 this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource.DataSource = tabla;
                 this.rptvCuotas.RefreshReport();
+                this.btnGrafico.Enabled = true;
             }
         }
 
@@ -61,18 +82,7 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             var dict = new Dictionary<string, object>();
 
-            if (!string.IsNullOrWhiteSpace(this.txtNombreCliente.Text))
-            {
-                dict.Add("nombreCliente", txtNombreCliente.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtApellidoCliente.Text))
-            {
-                dict.Add("apellidoCliente", txtApellidoCliente.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtCalleInmueble.Text))
-            {
-                dict.Add("calleInmueble", txtCalleInmueble.Text);
-            }
+            dict = Validador.CargarDiccionarioComboBox(dict, cboCliente, cboInmueble);
 
             if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
@@ -85,8 +95,37 @@ namespace TESTWF2020.Reportes.frmReportes
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            frmCuotaEstadistica frmCuotaEstadistica = new frmCuotaEstadistica();
+            var diccParametros = CrearDiccionario();
+            frmCuotaEstadistica frmCuotaEstadistica = new frmCuotaEstadistica(diccParametros);
             frmCuotaEstadistica.ShowDialog();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
+            cboCliente.SelectedIndex = -1;
+            cboInmueble.SelectedIndex = -1;
+        }
+
+        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void cboInmueble_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
         }
     }
 }

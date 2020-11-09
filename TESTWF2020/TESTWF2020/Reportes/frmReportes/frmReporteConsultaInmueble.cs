@@ -17,23 +17,26 @@ namespace TESTWF2020.Reportes.frmReportes
     {
         private ReporteService reporteService;
         private EstadoConsultaService estadoConsultaService;
-        private MedioDeConocimientoService medioDeConocimientoService;
-
+        private InmuebleService inmuebleService;
+        private ClienteService clienteService;
 
         public frmReporteConsultaInmueble()
         {
             InitializeComponent();
             reporteService = new ReporteService();
             estadoConsultaService = new EstadoConsultaService();
-            medioDeConocimientoService = new MedioDeConocimientoService();
+            inmuebleService = new InmuebleService();
+            clienteService = new ClienteService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReporteConsultaInmueble_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dataSet1ConsultaInmueble.ConsultaInmueble' Puede moverla o quitarla según sea necesario.
-            this.consultaInmuebleTableAdapter.Fill(this.dataSet1ConsultaInmueble.ConsultaInmueble);
+            //this.consultaInmuebleTableAdapter.Fill(this.dataSet1ConsultaInmueble.ConsultaInmueble);
 
-            this.rptvConsultaInmueble.RefreshReport();
+            //this.rptvConsultaInmueble.RefreshReport();
 
             CargarCombos();
         }
@@ -45,10 +48,15 @@ namespace TESTWF2020.Reportes.frmReportes
             this.cboEstadoConsulta.DisplayMember = "Nombre";
             this.cboEstadoConsulta.SelectedIndex = -1;
 
-            this.cboMedioConocimento.DataSource = medioDeConocimientoService.GetAll();
-            this.cboMedioConocimento.ValueMember = "Id";
-            this.cboMedioConocimento.DisplayMember = "Nombre";
-            this.cboMedioConocimento.SelectedIndex = -1;
+            this.cboInmueble.DataSource = inmuebleService.GetByFilters(new Dictionary<string, object>());
+            this.cboInmueble.ValueMember = "Id";
+            this.cboInmueble.DisplayMember = "DireccionCompleta";
+            this.cboInmueble.SelectedIndex = -1;
+
+            this.cboCliente.DataSource = clienteService.GetAll();
+            this.cboCliente.ValueMember = "Dni";
+            this.cboCliente.DisplayMember = "NombreCompleto";
+            this.cboCliente.SelectedIndex = -1;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -71,12 +79,14 @@ namespace TESTWF2020.Reportes.frmReportes
             {
                 MessageBox.Show("No existen resultados con esas condiciones", "Buscar Reporte", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.btnLimpiarFiltros_Click(sender,e);
-                
+
+                this.rptvConsultaInmueble.Clear();
             }
             else
             {
                 this.consultaInmuebleBindingSource.DataSource = tabla;
                 this.rptvConsultaInmueble.RefreshReport();
+                this.btnGrafico.Enabled = true;
             }
         }
 
@@ -84,8 +94,7 @@ namespace TESTWF2020.Reportes.frmReportes
         {            
             var dicc = new Dictionary<string, object>();
 
-            Validador.CargarDiccionarioTextBox(dicc, txtCalle,txtNombreCliente,txtApellidoCliente);
-            Validador.CargarDiccionarioComboBox(dicc, cboEstadoConsulta, cboMedioConocimento);
+            Validador.CargarDiccionarioComboBox(dicc, cboEstadoConsulta, cboInmueble, cboCliente);
 
             if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
@@ -100,19 +109,42 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             dtpFechaDesde.Value = DateTime.Today;
             dtpFechaHasta.Value = DateTime.Today;
-            txtCalle.Text = default;
-            txtNombreCliente.Text = default;
-            txtApellidoCliente.Text = default;
             cboEstadoConsulta.SelectedIndex = -1;
-            cboMedioConocimento.SelectedIndex = -1;
+            cboCliente.SelectedIndex = -1;
+            cboInmueble.SelectedIndex = -1;
         }
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            frmEstadisticaConsultaInmueble frmEstadisticaConsultaInmueble = new frmEstadisticaConsultaInmueble();
+            var diccParametros = CrearDiccionario();
+            frmEstadisticaConsultaInmueble frmEstadisticaConsultaInmueble = new frmEstadisticaConsultaInmueble(diccParametros);
             frmEstadisticaConsultaInmueble.ShowDialog();
             this.Show();
+        }
 
+        private void cboInmueble_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void cboEstadoConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
         }
     }
 }

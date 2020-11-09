@@ -15,11 +15,20 @@ namespace TESTWF2020.Reportes.frmEstadisticas
     public partial class frmEstadisticaConsultaInmueble : Form
     {
 
-        ReporteService reporteService;
+        private ReporteService reporteService;
+        private Dictionary<string, object> diccParametros;
+
         public frmEstadisticaConsultaInmueble()
         {
             InitializeComponent();
             reporteService = new ReporteService();
+        }
+
+        public frmEstadisticaConsultaInmueble(Dictionary<string, object> diccParametros)
+        {
+            InitializeComponent();
+            reporteService = new ReporteService();
+            this.diccParametros = diccParametros;
         }
 
         private void frmEstadisticaConsultaInmueble_Load(object sender, EventArgs e)
@@ -31,7 +40,7 @@ namespace TESTWF2020.Reportes.frmEstadisticas
         private void rptvEstadisticaConsultaInmueble_Load(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
-            tabla = reporteService.GetConsultaInmuebleEstadistica();
+            tabla = reporteService.GetConsultaInmuebleEstadistica(diccParametros);
 
             ReportDataSource ds = new ReportDataSource("DataSet1ConsultaxInmuebleEstadistica", tabla);
 

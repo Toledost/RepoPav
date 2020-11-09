@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.rptvEstadisticaMedioConocimiento);
             this.Name = "frmEstadisticaMedioConocimiento";
-            this.Text = "frmEstadisticaMedioConocimiento";
+            this.Text = "Estadistica Medio de Conocimiento";
             this.Load += new System.EventHandler(this.frmEstadisticaMedioConocimiento_Load);
             this.ResumeLayout(false);
 

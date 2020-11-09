@@ -361,7 +361,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Título del gráfico</Caption>
+                <Caption>Fecha de alta de empleado (usuario)</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -391,10 +391,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetEmpleado</DataSetName>
-            <Top>1.00224cm</Top>
-            <Left>5.39433cm</Left>
-            <Height>5cm</Height>
-            <Width>7.5cm</Width>
+            <Height>6.61078cm</Height>
+            <Width>16.51cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>

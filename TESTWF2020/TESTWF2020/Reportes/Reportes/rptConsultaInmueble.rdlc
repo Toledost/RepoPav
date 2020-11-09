@@ -187,7 +187,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=FormatDateTime(Fields!fechaCreada.Value, DateFormat.ShortDate)</Value>
-                              <Style />
+                              <Style>
+                                <Format>d</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -205,6 +207,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
