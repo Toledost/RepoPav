@@ -15,10 +15,19 @@ namespace TESTWF2020.Reportes.frmEstadisticas
     public partial class frmCuotaEstadistica : Form
     {
         private ReporteService reporteService;
+        private Dictionary<string, object> diccParametros;
+
         public frmCuotaEstadistica()
         {
             InitializeComponent();
             this.reporteService = new ReporteService();
+        }
+
+        public frmCuotaEstadistica(Dictionary<string, object> diccParametros)
+        {
+            InitializeComponent();
+            this.reporteService = new ReporteService();
+            this.diccParametros = diccParametros;
         }
 
         private void frmCuotaEstadistica_Load(object sender, EventArgs e)
@@ -30,7 +39,7 @@ namespace TESTWF2020.Reportes.frmEstadisticas
         private void reportViewer1_Load(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
-            tabla = reporteService.GetCuotasByDireccion();
+            tabla = reporteService.GetCuotasByDireccion(diccParametros);
 
             ReportDataSource ds = new ReportDataSource("EstadisticoCuotaDataSet", tabla);
 

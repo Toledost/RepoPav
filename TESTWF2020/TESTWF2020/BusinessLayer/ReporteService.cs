@@ -42,14 +42,14 @@ namespace TESTWF2020.BusinessLayer
             return reporteDao.GetCantConsultasByMedioConocimiento(diccionario);
         }
 
-        internal DataTable GetVentasPorMes()
+        internal DataTable GetVentasPorMes(Dictionary<string, object> dict)
         {
-            return reporteDao.GetVentasPorMes();
+            return reporteDao.GetVentasPorMes(dict);
         }
 
-        internal DataTable GetDiasPorEstado()
+        internal DataTable GetDiasPorEstado(Dictionary<string, object> dict)
         {
-            return reporteDao.GetDiasPorEstado();
+            return reporteDao.GetDiasPorEstado(dict);
         }
 
         internal DataTable GetVentasPorFinanciacion(Dictionary<string, object> dict)
@@ -77,9 +77,9 @@ namespace TESTWF2020.BusinessLayer
             return reporteDao.GetByFiltersRptCuota(diccParametros);
         }
 
-        internal DataTable GetCuotasByDireccion()
+        internal DataTable GetCuotasByDireccion(Dictionary<string, object> diccParametros)
         {
-            return reporteDao.GetCuotasByDireccion();
+            return reporteDao.GetCuotasByDireccion(diccParametros);
         }
 
         internal DataTable GetByFiltersRptEmpleado(Dictionary<string, object> diccParametros)
