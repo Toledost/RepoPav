@@ -27,6 +27,8 @@ namespace TESTWF2020.Reportes.frmReportes
             estadoConsultaService = new EstadoConsultaService();
             inmuebleService = new InmuebleService();
             clienteService = new ClienteService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReporteConsultaInmueble_Load(object sender, EventArgs e)

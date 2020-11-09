@@ -57,9 +57,9 @@ namespace TESTWF2020.BusinessLayer
             return reporteDao.GetVentasPorFinanciacion(dict);
         }
 
-        internal DataTable GetVentasPorVendedor()
+        internal DataTable GetVentasPorVendedor(Dictionary<string, object> dict)
         {
-            return reporteDao.GetVentasPorVendedor();
+            return reporteDao.GetVentasPorVendedor(dict);
         }
 
         internal DataTable GetByFiltersRptConsultaMedioConocimiento(Dictionary<string, object> diccParametros)

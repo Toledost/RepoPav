@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TESTWF2020.BusinessLayer;
 using TESTWF2020.Reportes.frmEstadisticas;
+using TESTWF2020.Utilities;
 
 namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReporteVendedor : Form
     {
         private ReporteService reporteService;
+        private InmuebleService inmuebleService;
+        private EmpleadoService empleadoService;
         private object txtN;
         private object txtNText;
 
@@ -22,14 +25,33 @@ namespace TESTWF2020.Reportes.frmReportes
         {
             InitializeComponent();
             reporteService = new ReporteService();
+            inmuebleService = new InmuebleService();
+            empleadoService = new EmpleadoService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReporteVendedor_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'bDInmobiliariaCasaFelizDataSetVendedor.DataTableVendedor' Puede moverla o quitarla según sea necesario.
-            this.dataTableVendedorTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetVendedor.DataTableVendedor);
+            //this.dataTableVendedorTableAdapter.Fill(this.bDInmobiliariaCasaFelizDataSetVendedor.DataTableVendedor);
 
-            this.rptvVendedor.RefreshReport();
+            //this.rptvVendedor.RefreshReport();
+
+            CargarCombos();
+        }
+
+        private void CargarCombos()
+        {
+            this.cboNombreEmpleado.DataSource = empleadoService.GetByFilters(new Dictionary<string, object>());
+            this.cboNombreEmpleado.ValueMember = "Legajo";
+            this.cboNombreEmpleado.DisplayMember = "NombreCompleto";
+            this.cboNombreEmpleado.SelectedIndex = -1;
+
+            this.cboInmueble.DataSource = inmuebleService.GetByFilters(new Dictionary<string, object>());
+            this.cboInmueble.ValueMember = "Id";
+            this.cboInmueble.DisplayMember = "DireccionCompleta";
+            this.cboInmueble.SelectedIndex = -1;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -50,33 +72,24 @@ namespace TESTWF2020.Reportes.frmReportes
 
             if (tabla.Rows.Count == 0)
             {
-                MessageBox.Show("No existe Vendedor con esas condiciones");
-                dtpFechaDesde.Value = DateTime.Today;
-                dtpFechaHasta.Value = DateTime.Today;
-                txtNombreVendedor.Text = default;
+                MessageBox.Show("No existen resultados con esas condiciones", "Buscar Reporte", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.btnLimpiarFiltros_Click(sender, e);
+
+                this.rptvVendedor.Clear();
             }
             else
             {
                 this.dataTableVendedorBindingSource.DataSource = tabla;
                 this.rptvVendedor.RefreshReport();
+                this.btnGrafico.Enabled = true;
             }
         }
         private Dictionary<string, object> CrearDiccionario()
         {
             var dict = new Dictionary<string, object>();
 
-            if (!string.IsNullOrWhiteSpace(this.txtNombreVendedor.Text))
-            {
-                dict.Add("nombreVendedor", txtNombreVendedor.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtCalleInmueble.Text))
-            {
-                dict.Add("calleInmueble", txtCalleInmueble.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtNroCalle.Text))
-            {
-                dict.Add("nroCalleInmueble", txtNroCalle.Text);
-            }
+            dict = Validador.CargarDiccionarioComboBox(dict, cboInmueble, cboNombreEmpleado);
 
             if (dtpFechaDesde.Value.Date != dtpFechaHasta.Value.Date)
             {
@@ -89,8 +102,37 @@ namespace TESTWF2020.Reportes.frmReportes
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            frmEstadisticaVendedor frmEstadisticaVendedor = new frmEstadisticaVendedor();
+            var dict = CrearDiccionario();
+            frmEstadisticaVendedor frmEstadisticaVendedor = new frmEstadisticaVendedor(dict);
             frmEstadisticaVendedor.ShowDialog();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
+            cboInmueble.SelectedIndex = -1;
+            cboNombreEmpleado.SelectedIndex = -1;
+        }
+
+        private void cboNombreEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void cboInmueble_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            this.btnGrafico.Enabled = false;
         }
     }
 }

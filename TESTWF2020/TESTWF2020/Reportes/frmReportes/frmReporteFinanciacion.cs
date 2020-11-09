@@ -24,6 +24,8 @@ namespace TESTWF2020.Reportes.frmReportes
             InitializeComponent();
             reporteService = new ReporteService();
             financiacionService = new FinanciacionService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

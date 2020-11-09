@@ -23,6 +23,8 @@ namespace TESTWF2020.Reportes.frmReportes
             InitializeComponent();
             reporteService = new ReporteService();
             inmuebleService = new InmuebleService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReportes_Load_1(object sender, EventArgs e)

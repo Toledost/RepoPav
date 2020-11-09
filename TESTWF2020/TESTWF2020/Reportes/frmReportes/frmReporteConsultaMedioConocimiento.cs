@@ -22,6 +22,8 @@ namespace TESTWF2020.Reportes.frmReportes
             InitializeComponent();
             this.reporteService = new ReporteService();
             medioDeConocimientoService = new MedioDeConocimientoService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReporteConsultaMedioConocimiento_Load(object sender, EventArgs e)

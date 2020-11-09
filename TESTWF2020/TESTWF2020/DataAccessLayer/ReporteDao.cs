@@ -90,15 +90,19 @@ namespace TESTWF2020.DataAccessLayer
             return consultaSQL;
         }
 
-        internal DataTable GetVentasPorVendedor()
+        internal DataTable GetVentasPorVendedor(Dictionary<string, object> dict)
         {
             string consultaSql = "SELECT Empleado.nombre + ' ' + Empleado.apellido AS nombreEmpleado, " +
                                 "COUNT(Venta.idVenta) AS ventas " +
                                 "FROM Empleado " +
                                 "INNER JOIN Venta ON Empleado.legajo = Venta.legajoVendedor " +
-                                "GROUP BY Empleado.legajo, Empleado.nombre, Empleado.apellido ";
+                                "INNER JOIN Inmueble ON Venta.idInmueble = Inmueble.idInmueble " +
+                                "WHERE Venta.borrado = 0 ";
+
             var dm = new DataManager();
-            var busqueda = dm.ConsultaSQL2(consultaSql);
+            consultaSql = AgregarParametrosVendedor(dict, consultaSql);
+            consultaSql += " GROUP BY Empleado.legajo, Empleado.nombre, Empleado.apellido ";
+            var busqueda = dm.ConsultaSQLConParametros2(consultaSql, dict);
 
             return busqueda;
         }
@@ -217,6 +221,12 @@ namespace TESTWF2020.DataAccessLayer
 
             if (diccParametros.ContainsKey("fechaDesde"))
                 consultaSQL += " AND (Venta.fechaVenta BETWEEN @fechaDesde AND @fechaHasta) ";
+
+            if (diccParametros.ContainsKey("legajoEmpleado"))
+                consultaSQL += " AND (Venta.legajoVendedor = @legajoEmpleado )";
+
+            if (diccParametros.ContainsKey("inmueble"))
+                consultaSQL += " AND (Inmueble.idInmueble = @inmueble) ";
 
             return consultaSQL;
         }

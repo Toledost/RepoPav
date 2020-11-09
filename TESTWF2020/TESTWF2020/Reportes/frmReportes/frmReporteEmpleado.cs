@@ -24,6 +24,8 @@ namespace TESTWF2020.Reportes.frmReportes
             reporteService = new ReporteService();
             empleadoService = new EmpleadoService();
             usuarioService = new UsuarioService();
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
         }
 
         private void frmReporteEmpleado_Load(object sender, EventArgs e)
