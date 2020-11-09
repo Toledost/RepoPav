@@ -122,15 +122,19 @@ namespace TESTWF2020.GUILayer
         {
             if (dgvCliente.SelectedRows.Count == 1)
             {
-                var clienteSeleccionado = (int)this.dgvCliente.CurrentRow.Cells["DNI"].Value;
-                clienteService.Delete(clienteSeleccionado);
-                MessageBox.Show("Cliente eliminado", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnBuscar_Click(sender, e);
-                
+                DialogResult dr = MessageBox.Show($"¿ Esta seguro de desea eliminar el Cliente: {this.dgvCliente.CurrentRow.Cells["Nombre"].Value} ?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (dr == DialogResult.Yes)
+                {
+                    var clienteSeleccionado = (int)this.dgvCliente.CurrentRow.Cells["DNI"].Value;
+                    clienteService.Delete(clienteSeleccionado);
+                    MessageBox.Show("Cliente eliminado", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnBuscar_Click(sender, e);
+                }
             }
             else
             {
-                MessageBox.Show("No seleccionó ningún Cliente");
+                MessageBox.Show("No selecciono ningun cliente", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
