@@ -36,18 +36,20 @@
             this.rptvEstadisticaConsultaInmueble.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rptvEstadisticaConsultaInmueble.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Estadisticas.rptEstadisticaConsultaInmueble.rdlc";
             this.rptvEstadisticaConsultaInmueble.Location = new System.Drawing.Point(0, 0);
+            this.rptvEstadisticaConsultaInmueble.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rptvEstadisticaConsultaInmueble.Name = "rptvEstadisticaConsultaInmueble";
             this.rptvEstadisticaConsultaInmueble.ServerReport.BearerToken = null;
-            this.rptvEstadisticaConsultaInmueble.Size = new System.Drawing.Size(800, 450);
+            this.rptvEstadisticaConsultaInmueble.Size = new System.Drawing.Size(1370, 758);
             this.rptvEstadisticaConsultaInmueble.TabIndex = 0;
             this.rptvEstadisticaConsultaInmueble.Load += new System.EventHandler(this.rptvEstadisticaConsultaInmueble_Load);
             // 
             // frmEstadisticaConsultaInmueble
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
             this.Controls.Add(this.rptvEstadisticaConsultaInmueble);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmEstadisticaConsultaInmueble";
             this.Text = "Estadísticas de Consultas";
             this.Load += new System.EventHandler(this.frmEstadisticaConsultaInmueble_Load);

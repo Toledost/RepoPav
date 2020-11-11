@@ -36,18 +36,20 @@
             this.rptvEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rptvEmpleado.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Estadisticas.rptEstadisticasEmpleado.rdlc";
             this.rptvEmpleado.Location = new System.Drawing.Point(0, 0);
+            this.rptvEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rptvEmpleado.Name = "rptvEmpleado";
             this.rptvEmpleado.ServerReport.BearerToken = null;
-            this.rptvEmpleado.Size = new System.Drawing.Size(800, 450);
+            this.rptvEmpleado.Size = new System.Drawing.Size(1370, 758);
             this.rptvEmpleado.TabIndex = 0;
             this.rptvEmpleado.Load += new System.EventHandler(this.rptvEmpleado_Load);
             // 
             // frmEstadisiticaEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
             this.Controls.Add(this.rptvEmpleado);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmEstadisiticaEmpleado";
             this.Text = "Estadísticas de Empleado";
             this.Load += new System.EventHandler(this.frmEstadisiticaEmpleado_Load);

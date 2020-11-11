@@ -38,7 +38,7 @@
             this.rptvEstadisticaVendedor.Location = new System.Drawing.Point(0, 0);
             this.rptvEstadisticaVendedor.Name = "rptvEstadisticaVendedor";
             this.rptvEstadisticaVendedor.ServerReport.BearerToken = null;
-            this.rptvEstadisticaVendedor.Size = new System.Drawing.Size(951, 599);
+            this.rptvEstadisticaVendedor.Size = new System.Drawing.Size(1370, 758);
             this.rptvEstadisticaVendedor.TabIndex = 0;
             this.rptvEstadisticaVendedor.Load += new System.EventHandler(this.rptvEstadisticaVendedor_Load);
             // 
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 599);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
             this.Controls.Add(this.rptvEstadisticaVendedor);
             this.Name = "frmEstadisticaVendedor";
             this.Text = "Estadistica Vendedor";

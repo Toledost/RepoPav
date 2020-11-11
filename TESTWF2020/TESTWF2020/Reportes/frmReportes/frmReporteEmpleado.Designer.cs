@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource9 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tablaEmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDInmobiliariaCasaFelizDataSetEmpleado = new TESTWF2020.BDInmobiliariaCasaFelizDataSetEmpleado();
             this.rptvEmpleados = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -47,9 +47,11 @@
             this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.cboNombreEmpleado = new System.Windows.Forms.ComboBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tablaEmpleadoBindingSource
@@ -64,14 +66,15 @@
             // 
             // rptvEmpleados
             // 
-            reportDataSource9.Name = "DataSetEmpleados";
-            reportDataSource9.Value = this.tablaEmpleadoBindingSource;
-            this.rptvEmpleados.LocalReport.DataSources.Add(reportDataSource9);
+            reportDataSource1.Name = "DataSetEmpleados";
+            reportDataSource1.Value = this.tablaEmpleadoBindingSource;
+            this.rptvEmpleados.LocalReport.DataSources.Add(reportDataSource1);
             this.rptvEmpleados.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptEmpleados.rdlc";
-            this.rptvEmpleados.Location = new System.Drawing.Point(0, 159);
+            this.rptvEmpleados.Location = new System.Drawing.Point(13, 225);
+            this.rptvEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rptvEmpleados.Name = "rptvEmpleados";
             this.rptvEmpleados.ServerReport.BearerToken = null;
-            this.rptvEmpleados.Size = new System.Drawing.Size(788, 279);
+            this.rptvEmpleados.Size = new System.Drawing.Size(1344, 520);
             this.rptvEmpleados.TabIndex = 1;
             // 
             // bdInmobiliariaCasaFelizDataSet1
@@ -81,48 +84,59 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(677, 36);
+            this.btnBuscar.Image = global::TESTWF2020.Properties.Resources.icons8_gráfico_combinado_48;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(1074, 19);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(263, 53);
             this.btnBuscar.TabIndex = 4;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Consultar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnGrafico
             // 
-            this.btnGrafico.Location = new System.Drawing.Point(677, 65);
+            this.btnGrafico.Image = global::TESTWF2020.Properties.Resources.icons8_fácil_de_encontrar_40;
+            this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrafico.Location = new System.Drawing.Point(1074, 80);
+            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafico.Size = new System.Drawing.Size(263, 56);
             this.btnGrafico.TabIndex = 3;
-            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.Text = "Gráfico";
+            this.btnGrafico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGrafico.UseVisualStyleBackColor = true;
             this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // lblFechaDesde
             // 
             this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(366, 85);
+            this.lblFechaDesde.Location = new System.Drawing.Point(634, 54);
+            this.lblFechaDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(38, 13);
+            this.lblFechaDesde.Size = new System.Drawing.Size(75, 25);
             this.lblFechaDesde.TabIndex = 10;
-            this.lblFechaDesde.Text = "Desde";
+            this.lblFechaDesde.Text = "Desde:";
             // 
             // lblFechaHasta
             // 
             this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(369, 111);
+            this.lblFechaHasta.Location = new System.Drawing.Point(634, 143);
+            this.lblFechaHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblFechaHasta.Size = new System.Drawing.Size(69, 25);
             this.lblFechaHasta.TabIndex = 9;
-            this.lblFechaHasta.Text = "Hasta";
+            this.lblFechaHasta.Text = "Hasta:";
             // 
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(426, 105);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(722, 138);
+            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(265, 30);
             this.dtpFechaHasta.TabIndex = 8;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
             this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
@@ -130,9 +144,10 @@
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(426, 79);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(722, 52);
+            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(265, 30);
             this.dtpFechaDesde.TabIndex = 7;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
             this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
@@ -140,20 +155,22 @@
             // lblFechaAlta
             // 
             this.lblFechaAlta.AutoSize = true;
-            this.lblFechaAlta.Location = new System.Drawing.Point(308, 105);
+            this.lblFechaAlta.Location = new System.Drawing.Point(527, 96);
+            this.lblFechaAlta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaAlta.Name = "lblFechaAlta";
-            this.lblFechaAlta.Size = new System.Drawing.Size(55, 13);
+            this.lblFechaAlta.Size = new System.Drawing.Size(133, 25);
             this.lblFechaAlta.TabIndex = 11;
-            this.lblFechaAlta.Text = "FechaAlta";
+            this.lblFechaAlta.Text = "Fecha de Alta";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(76, 68);
+            this.lblUsuario.Location = new System.Drawing.Point(143, 130);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(85, 25);
             this.lblUsuario.TabIndex = 15;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Text = "Usuario:";
             // 
             // tablaEmpleadoTableAdapter
             // 
@@ -163,9 +180,10 @@
             // 
             this.cboUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUsuario.FormattingEnabled = true;
-            this.cboUsuario.Location = new System.Drawing.Point(125, 65);
+            this.cboUsuario.Location = new System.Drawing.Point(236, 127);
+            this.cboUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboUsuario.Name = "cboUsuario";
-            this.cboUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cboUsuario.Size = new System.Drawing.Size(212, 33);
             this.cboUsuario.TabIndex = 19;
             this.cboUsuario.Tag = "nombreUsuario";
             this.cboUsuario.SelectedIndexChanged += new System.EventHandler(this.cboUsuario_SelectedIndexChanged);
@@ -173,59 +191,79 @@
             // lblNombreEmpleado
             // 
             this.lblNombreEmpleado.AutoSize = true;
-            this.lblNombreEmpleado.Location = new System.Drawing.Point(25, 29);
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(48, 57);
+            this.lblNombreEmpleado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreEmpleado.Name = "lblNombreEmpleado";
-            this.lblNombreEmpleado.Size = new System.Drawing.Size(93, 13);
+            this.lblNombreEmpleado.Size = new System.Drawing.Size(180, 25);
             this.lblNombreEmpleado.TabIndex = 14;
-            this.lblNombreEmpleado.Text = "Nombre empleado";
+            this.lblNombreEmpleado.Text = "Nombre Empleado:";
             // 
             // cboNombreEmpleado
             // 
             this.cboNombreEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNombreEmpleado.FormattingEnabled = true;
-            this.cboNombreEmpleado.Location = new System.Drawing.Point(125, 26);
+            this.cboNombreEmpleado.Location = new System.Drawing.Point(236, 54);
+            this.cboNombreEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboNombreEmpleado.Name = "cboNombreEmpleado";
-            this.cboNombreEmpleado.Size = new System.Drawing.Size(121, 21);
+            this.cboNombreEmpleado.Size = new System.Drawing.Size(212, 33);
             this.cboNombreEmpleado.TabIndex = 18;
             this.cboNombreEmpleado.Tag = "legajoEmpleado";
             this.cboNombreEmpleado.SelectedIndexChanged += new System.EventHandler(this.cboNombreEmpleado_SelectedIndexChanged);
             // 
             // btnLimpiarFiltros
             // 
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(677, 98);
+            this.btnLimpiarFiltros.Image = global::TESTWF2020.Properties.Resources.icons8_borrar_48;
+            this.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(1074, 143);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 38);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(263, 55);
             this.btnLimpiarFiltros.TabIndex = 20;
             this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.groupBox1.Controls.Add(this.btnLimpiarFiltros);
+            this.groupBox1.Controls.Add(this.dtpFechaDesde);
+            this.groupBox1.Controls.Add(this.cboUsuario);
+            this.groupBox1.Controls.Add(this.btnGrafico);
+            this.groupBox1.Controls.Add(this.cboNombreEmpleado);
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.lblUsuario);
+            this.groupBox1.Controls.Add(this.dtpFechaHasta);
+            this.groupBox1.Controls.Add(this.lblNombreEmpleado);
+            this.groupBox1.Controls.Add(this.lblFechaHasta);
+            this.groupBox1.Controls.Add(this.lblFechaAlta);
+            this.groupBox1.Controls.Add(this.lblFechaDesde);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1344, 206);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtro Reporte Empleado";
+            // 
             // frmReporteEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.cboUsuario);
-            this.Controls.Add(this.cboNombreEmpleado);
-            this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.lblNombreEmpleado);
-            this.Controls.Add(this.lblFechaAlta);
-            this.Controls.Add(this.lblFechaDesde);
-            this.Controls.Add(this.lblFechaHasta);
-            this.Controls.Add(this.dtpFechaHasta);
-            this.Controls.Add(this.dtpFechaDesde);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnGrafico);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
             this.Controls.Add(this.rptvEmpleados);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmReporteEmpleado";
             this.Text = "Reporte Empleado";
             this.Load += new System.EventHandler(this.frmReporteEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleadoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetEmpleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -248,5 +286,6 @@
         private System.Windows.Forms.Label lblNombreEmpleado;
         private System.Windows.Forms.ComboBox cboNombreEmpleado;
         private System.Windows.Forms.Button btnLimpiarFiltros;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -36,18 +36,20 @@
             this.rptvEstadisticaMedioConocimiento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rptvEstadisticaMedioConocimiento.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Estadisticas.rptEstadisticaMedioConocimiento.rdlc";
             this.rptvEstadisticaMedioConocimiento.Location = new System.Drawing.Point(0, 0);
+            this.rptvEstadisticaMedioConocimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rptvEstadisticaMedioConocimiento.Name = "rptvEstadisticaMedioConocimiento";
             this.rptvEstadisticaMedioConocimiento.ServerReport.BearerToken = null;
-            this.rptvEstadisticaMedioConocimiento.Size = new System.Drawing.Size(800, 450);
+            this.rptvEstadisticaMedioConocimiento.Size = new System.Drawing.Size(1370, 758);
             this.rptvEstadisticaMedioConocimiento.TabIndex = 0;
             this.rptvEstadisticaMedioConocimiento.Load += new System.EventHandler(this.rptvEstadisticaMedioConocimiento_Load);
             // 
             // frmEstadisticaMedioConocimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
             this.Controls.Add(this.rptvEstadisticaMedioConocimiento);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmEstadisticaMedioConocimiento";
             this.Text = "Estadistica Medio de Conocimiento";
             this.Load += new System.EventHandler(this.frmEstadisticaMedioConocimiento_Load);

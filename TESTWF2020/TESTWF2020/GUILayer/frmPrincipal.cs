@@ -217,5 +217,17 @@ namespace TESTWF2020
             frmReporteConsultaMedioConocimiento frmReporteConsultaMedioConocimiento = new frmReporteConsultaMedioConocimiento();
             frmReporteConsultaMedioConocimiento.ShowDialog();
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            frmReportesPrincipal frmReportesPrincipal = new frmReportesPrincipal();
+            mostrarFormEnPanel(frmReportesPrincipal);
+        }
+
+        private void btnConsultarVentas_Click(object sender, EventArgs e)
+        {
+            frmVentaGeneral frmVentaGeneral = new frmVentaGeneral();
+            mostrarFormEnPanel(frmVentaGeneral);
+        }
     }
 }

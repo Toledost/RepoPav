@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tablaCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDInmobiliariaCasaFelizDataSetCuota = new TESTWF2020.BDInmobiliariaCasaFelizDataSetCuota();
@@ -48,10 +48,12 @@
             this.cboCliente = new System.Windows.Forms.ComboBox();
             this.cboInmueble = new System.Windows.Forms.ComboBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaCuotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tablaCuotaBindingSource
@@ -71,14 +73,15 @@
             // 
             // rptvCuotas
             // 
-            reportDataSource7.Name = "DataSetCuota";
-            reportDataSource7.Value = this.tablaCuotaBindingSource;
-            this.rptvCuotas.LocalReport.DataSources.Add(reportDataSource7);
+            reportDataSource1.Name = "DataSetCuota";
+            reportDataSource1.Value = this.tablaCuotaBindingSource;
+            this.rptvCuotas.LocalReport.DataSources.Add(reportDataSource1);
             this.rptvCuotas.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Reportes.rptCuotas.rdlc";
-            this.rptvCuotas.Location = new System.Drawing.Point(2, 160);
+            this.rptvCuotas.Location = new System.Drawing.Point(12, 249);
+            this.rptvCuotas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rptvCuotas.Name = "rptvCuotas";
             this.rptvCuotas.ServerReport.BearerToken = null;
-            this.rptvCuotas.Size = new System.Drawing.Size(801, 292);
+            this.rptvCuotas.Size = new System.Drawing.Size(1345, 496);
             this.rptvCuotas.TabIndex = 0;
             // 
             // bdInmobiliariaCasaFelizDataSet1
@@ -88,48 +91,59 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(682, 47);
+            this.btnBuscar.Image = global::TESTWF2020.Properties.Resources.icons8_fácil_de_encontrar_40;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(1067, 30);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(261, 53);
             this.btnBuscar.TabIndex = 4;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Consultar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnGrafico
             // 
-            this.btnGrafico.Location = new System.Drawing.Point(682, 76);
+            this.btnGrafico.Image = global::TESTWF2020.Properties.Resources.icons8_gráfico_combinado_48;
+            this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrafico.Location = new System.Drawing.Point(1067, 95);
+            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafico.Size = new System.Drawing.Size(261, 53);
             this.btnGrafico.TabIndex = 3;
-            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.Text = "Gráfico";
+            this.btnGrafico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGrafico.UseVisualStyleBackColor = true;
             this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // lblFechaDesde
             // 
             this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(238, 85);
+            this.lblFechaDesde.Location = new System.Drawing.Point(231, 124);
+            this.lblFechaDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(38, 13);
+            this.lblFechaDesde.Size = new System.Drawing.Size(75, 25);
             this.lblFechaDesde.TabIndex = 10;
-            this.lblFechaDesde.Text = "Desde";
+            this.lblFechaDesde.Text = "Desde:";
             // 
             // lblFechaHasta
             // 
             this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(238, 119);
+            this.lblFechaHasta.Location = new System.Drawing.Point(237, 186);
+            this.lblFechaHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblFechaHasta.Size = new System.Drawing.Size(69, 25);
             this.lblFechaHasta.TabIndex = 9;
-            this.lblFechaHasta.Text = "Hasta";
+            this.lblFechaHasta.Text = "Hasta:";
             // 
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(295, 113);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(314, 181);
+            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(265, 30);
             this.dtpFechaHasta.TabIndex = 8;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
             this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
@@ -137,9 +151,10 @@
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(295, 79);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(314, 119);
+            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(265, 30);
             this.dtpFechaDesde.TabIndex = 7;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
             this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
@@ -147,27 +162,30 @@
             // lblNombreComprador
             // 
             this.lblNombreComprador.AutoSize = true;
-            this.lblNombreComprador.Location = new System.Drawing.Point(44, 23);
+            this.lblNombreComprador.Location = new System.Drawing.Point(143, 63);
+            this.lblNombreComprador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreComprador.Name = "lblNombreComprador";
-            this.lblNombreComprador.Size = new System.Drawing.Size(42, 13);
+            this.lblNombreComprador.Size = new System.Drawing.Size(79, 25);
             this.lblNombreComprador.TabIndex = 11;
             this.lblNombreComprador.Text = "Cliente:";
             // 
             // lblCalleInmueble
             // 
             this.lblCalleInmueble.AutoSize = true;
-            this.lblCalleInmueble.Location = new System.Drawing.Point(292, 26);
+            this.lblCalleInmueble.Location = new System.Drawing.Point(559, 63);
+            this.lblCalleInmueble.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCalleInmueble.Name = "lblCalleInmueble";
-            this.lblCalleInmueble.Size = new System.Drawing.Size(50, 13);
+            this.lblCalleInmueble.Size = new System.Drawing.Size(98, 25);
             this.lblCalleInmueble.TabIndex = 15;
-            this.lblCalleInmueble.Text = "Inmueble";
+            this.lblCalleInmueble.Text = "Inmueble:";
             // 
             // lblFechaVencimiento
             // 
             this.lblFechaVencimiento.AutoSize = true;
-            this.lblFechaVencimiento.Location = new System.Drawing.Point(124, 104);
+            this.lblFechaVencimiento.Location = new System.Drawing.Point(42, 156);
+            this.lblFechaVencimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaVencimiento.Name = "lblFechaVencimiento";
-            this.lblFechaVencimiento.Size = new System.Drawing.Size(98, 13);
+            this.lblFechaVencimiento.Size = new System.Drawing.Size(180, 25);
             this.lblFechaVencimiento.TabIndex = 17;
             this.lblFechaVencimiento.Text = "Fecha Vencimiento";
             // 
@@ -179,9 +197,10 @@
             // 
             this.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCliente.FormattingEnabled = true;
-            this.cboCliente.Location = new System.Drawing.Point(131, 20);
+            this.cboCliente.Location = new System.Drawing.Point(242, 60);
+            this.cboCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCliente.Name = "cboCliente";
-            this.cboCliente.Size = new System.Drawing.Size(121, 21);
+            this.cboCliente.Size = new System.Drawing.Size(270, 33);
             this.cboCliente.TabIndex = 18;
             this.cboCliente.Tag = "nombreComprador";
             this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.cboCliente_SelectedIndexChanged);
@@ -190,41 +209,59 @@
             // 
             this.cboInmueble.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboInmueble.FormattingEnabled = true;
-            this.cboInmueble.Location = new System.Drawing.Point(371, 20);
+            this.cboInmueble.Location = new System.Drawing.Point(677, 60);
+            this.cboInmueble.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboInmueble.Name = "cboInmueble";
-            this.cboInmueble.Size = new System.Drawing.Size(121, 21);
+            this.cboInmueble.Size = new System.Drawing.Size(270, 33);
             this.cboInmueble.TabIndex = 20;
             this.cboInmueble.Tag = "nombreInmueble";
             this.cboInmueble.SelectedIndexChanged += new System.EventHandler(this.cboInmueble_SelectedIndexChanged);
             // 
             // btnLimpiarFiltros
             // 
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(587, 47);
+            this.btnLimpiarFiltros.Image = global::TESTWF2020.Properties.Resources.icons8_borrar_48;
+            this.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(1067, 156);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(75, 52);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(261, 55);
             this.btnLimpiarFiltros.TabIndex = 21;
-            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.Text = "Limpiar Campos";
+            this.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.groupBox1.Controls.Add(this.btnLimpiarFiltros);
+            this.groupBox1.Controls.Add(this.cboInmueble);
+            this.groupBox1.Controls.Add(this.cboCliente);
+            this.groupBox1.Controls.Add(this.lblFechaVencimiento);
+            this.groupBox1.Controls.Add(this.lblCalleInmueble);
+            this.groupBox1.Controls.Add(this.lblNombreComprador);
+            this.groupBox1.Controls.Add(this.lblFechaDesde);
+            this.groupBox1.Controls.Add(this.lblFechaHasta);
+            this.groupBox1.Controls.Add(this.dtpFechaHasta);
+            this.groupBox1.Controls.Add(this.dtpFechaDesde);
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.btnGrafico);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1344, 227);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros Reporte Cuotas";
+            // 
             // frmReporteCuota
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.cboInmueble);
-            this.Controls.Add(this.cboCliente);
-            this.Controls.Add(this.lblFechaVencimiento);
-            this.Controls.Add(this.lblCalleInmueble);
-            this.Controls.Add(this.lblNombreComprador);
-            this.Controls.Add(this.lblFechaDesde);
-            this.Controls.Add(this.lblFechaHasta);
-            this.Controls.Add(this.dtpFechaHasta);
-            this.Controls.Add(this.dtpFechaDesde);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnGrafico);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rptvCuotas);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmReporteCuota";
             this.Text = "Reporte Cuota";
             this.Load += new System.EventHandler(this.frmReporteCuota_Load);
@@ -232,8 +269,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuotaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDInmobiliariaCasaFelizDataSetCuota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdInmobiliariaCasaFelizDataSet1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -257,5 +295,6 @@
         private System.Windows.Forms.ComboBox cboCliente;
         private System.Windows.Forms.ComboBox cboInmueble;
         private System.Windows.Forms.Button btnLimpiarFiltros;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

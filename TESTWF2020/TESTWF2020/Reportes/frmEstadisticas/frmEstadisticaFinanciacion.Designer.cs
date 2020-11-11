@@ -36,20 +36,20 @@
             this.rptvEstadisticaFinanciacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rptvEstadisticaFinanciacion.LocalReport.ReportEmbeddedResource = "TESTWF2020.Reportes.Estadisticas.rptEstadisticaFinanaciacion.rdlc";
             this.rptvEstadisticaFinanciacion.Location = new System.Drawing.Point(0, 0);
-            this.rptvEstadisticaFinanciacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rptvEstadisticaFinanciacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rptvEstadisticaFinanciacion.Name = "rptvEstadisticaFinanciacion";
             this.rptvEstadisticaFinanciacion.ServerReport.BearerToken = null;
-            this.rptvEstadisticaFinanciacion.Size = new System.Drawing.Size(600, 366);
+            this.rptvEstadisticaFinanciacion.Size = new System.Drawing.Size(1370, 758);
             this.rptvEstadisticaFinanciacion.TabIndex = 0;
             this.rptvEstadisticaFinanciacion.Load += new System.EventHandler(this.rptvEstadisticaFinanciacion_Load);
             // 
             // frmEstadisticaFinanciacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(1370, 758);
             this.Controls.Add(this.rptvEstadisticaFinanciacion);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmEstadisticaFinanciacion";
             this.Text = "Estadistica Financiacion";
             this.Load += new System.EventHandler(this.frmEstadisticaFinanciacion_Load);
