@@ -70,14 +70,14 @@
             this.rptvInmueble.Location = new System.Drawing.Point(12, 233);
             this.rptvInmueble.Name = "rptvInmueble";
             this.rptvInmueble.ServerReport.BearerToken = null;
-            this.rptvInmueble.Size = new System.Drawing.Size(1346, 513);
+            this.rptvInmueble.Size = new System.Drawing.Size(1004, 371);
             this.rptvInmueble.TabIndex = 0;
             // 
             // btnGrafico
             // 
             this.btnGrafico.Image = global::TESTWF2020.Properties.Resources.icons8_gráfico_combinado_48;
             this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrafico.Location = new System.Drawing.Point(1078, 80);
+            this.btnGrafico.Location = new System.Drawing.Point(741, 84);
             this.btnGrafico.Name = "btnGrafico";
             this.btnGrafico.Size = new System.Drawing.Size(257, 52);
             this.btnGrafico.TabIndex = 1;
@@ -90,7 +90,7 @@
             // 
             this.btnBuscar.Image = global::TESTWF2020.Properties.Resources.icons8_fácil_de_encontrar_40;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(1078, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(741, 25);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(257, 49);
             this.btnBuscar.TabIndex = 2;
@@ -104,7 +104,7 @@
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaDesde.Location = new System.Drawing.Point(105, 142);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 30);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 26);
             this.dtpFechaDesde.TabIndex = 3;
             this.dtpFechaDesde.Value = new System.DateTime(2020, 10, 17, 18, 49, 17, 0);
             this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
@@ -114,7 +114,7 @@
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaHasta.Location = new System.Drawing.Point(436, 142);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 30);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 26);
             this.dtpFechaHasta.TabIndex = 4;
             this.dtpFechaHasta.Value = new System.DateTime(2020, 10, 17, 18, 48, 47, 0);
             this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
@@ -124,7 +124,7 @@
             this.lblFechaHasta.AutoSize = true;
             this.lblFechaHasta.Location = new System.Drawing.Point(361, 142);
             this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(69, 25);
+            this.lblFechaHasta.Size = new System.Drawing.Size(56, 20);
             this.lblFechaHasta.TabIndex = 5;
             this.lblFechaHasta.Text = "Hasta:";
             // 
@@ -133,7 +133,7 @@
             this.lblFechaDesde.AutoSize = true;
             this.lblFechaDesde.Location = new System.Drawing.Point(30, 142);
             this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(75, 25);
+            this.lblFechaDesde.Size = new System.Drawing.Size(60, 20);
             this.lblFechaDesde.TabIndex = 6;
             this.lblFechaDesde.Text = "Desde:";
             // 
@@ -142,7 +142,7 @@
             this.lblInmueble.AutoSize = true;
             this.lblInmueble.Location = new System.Drawing.Point(30, 57);
             this.lblInmueble.Name = "lblInmueble";
-            this.lblInmueble.Size = new System.Drawing.Size(98, 25);
+            this.lblInmueble.Size = new System.Drawing.Size(79, 20);
             this.lblInmueble.TabIndex = 7;
             this.lblInmueble.Text = "Inmueble:";
             // 
@@ -161,7 +161,7 @@
             this.cboInmueble.FormattingEnabled = true;
             this.cboInmueble.Location = new System.Drawing.Point(134, 54);
             this.cboInmueble.Name = "cboInmueble";
-            this.cboInmueble.Size = new System.Drawing.Size(280, 33);
+            this.cboInmueble.Size = new System.Drawing.Size(280, 28);
             this.cboInmueble.TabIndex = 8;
             this.cboInmueble.Tag = "inmueble";
             this.cboInmueble.SelectedIndexChanged += new System.EventHandler(this.cboInmueble_SelectedIndexChanged);
@@ -170,7 +170,7 @@
             // 
             this.btnLimpiarFiltros.Image = global::TESTWF2020.Properties.Resources.icons8_borrar_48;
             this.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(1078, 147);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(741, 142);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
             this.btnLimpiarFiltros.Size = new System.Drawing.Size(257, 54);
             this.btnLimpiarFiltros.TabIndex = 18;
@@ -192,16 +192,16 @@
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnGrafico);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1341, 207);
+            this.groupBox1.Size = new System.Drawing.Size(1004, 207);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro Reporte Inmuebles";
             // 
             // frmReporteInmueble
             // 
-            this.ClientSize = new System.Drawing.Size(1370, 758);
+            this.ClientSize = new System.Drawing.Size(1028, 616);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rptvInmueble);
             this.Name = "frmReporteInmueble";

@@ -12,6 +12,7 @@ namespace TESTWF2020.Reportes.frmReportes
 {
     public partial class frmReportesPrincipal : Form
     {
+
         public frmReportesPrincipal()
         {
             InitializeComponent();

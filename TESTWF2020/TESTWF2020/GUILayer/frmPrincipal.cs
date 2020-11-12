@@ -54,7 +54,7 @@ namespace TESTWF2020
             frmPrincipal_Load(sender, e);
         }
 
-        private void mostrarFormEnPanel(Form form)
+        public void mostrarFormEnPanel(Form form)
         {
             if (midPanel.Controls.Count > 0) midPanel.Controls.RemoveAt(0);
             form.TopLevel = false;
@@ -164,58 +164,55 @@ namespace TESTWF2020
         private void reporteDeInmuebleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteInmueble frmReporteInmueble = new frmReporteInmueble();
-            frmReporteInmueble.ShowDialog();
-            this.Show();
+            mostrarFormEnPanel(frmReporteInmueble);
         }
 
         private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteVenta frmReporteVenta = new frmReporteVenta();
-            frmReporteVenta.ShowDialog();
-            this.Show();
+            mostrarFormEnPanel(frmReporteVenta);
         }
         
         private void reporteInmuebleXConsultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteConsultaInmueble frmReporteConsultaInmueble = new frmReporteConsultaInmueble();
-            frmReporteConsultaInmueble.ShowDialog();
-            this.Show();
+            mostrarFormEnPanel(frmReporteConsultaInmueble);
         }
         
         private void cuotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteCuota frmReporteCuota = new frmReporteCuota();
-            frmReporteCuota.ShowDialog();
+            mostrarFormEnPanel(frmReporteCuota);
         }
 
         private void ventaGeneralToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmVentaGeneral frmVentaGeneral = new frmVentaGeneral();
-            frmVentaGeneral.ShowDialog();
+            mostrarFormEnPanel(frmVentaGeneral);
         }
 
         private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmReporteEmpleado frmReporteEmpleado = new frmReporteEmpleado();
-            frmReporteEmpleado.ShowDialog();
+            mostrarFormEnPanel(frmReporteEmpleado);
         }
 
         private void ventaFinanciadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteFinanciacion frmReporteFinanciacion = new frmReporteFinanciacion();
-            frmReporteFinanciacion.ShowDialog();
+            mostrarFormEnPanel(frmReporteFinanciacion);
         }
 
         private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteVendedor frmReporteVendedor = new frmReporteVendedor();
-            frmReporteVendedor.ShowDialog();
+            mostrarFormEnPanel(frmReporteVendedor);
         }
 
         private void consultaMedioConocimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteConsultaMedioConocimiento frmReporteConsultaMedioConocimiento = new frmReporteConsultaMedioConocimiento();
-            frmReporteConsultaMedioConocimiento.ShowDialog();
+            mostrarFormEnPanel(frmReporteConsultaMedioConocimiento);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
