@@ -233,7 +233,8 @@ namespace TESTWF2020.DataAccessLayer
 
         internal DataTable GetDiasPorEstado(Dictionary<string, object> dict)
         {
-            string consultaSql = "SELECT Inmueble.idInmueble,  " +
+            string consultaSql = "SELECT Inmueble.idInmueble, " +
+                "(Inmueble.Calle + ' ' + CAST(Inmueble.CalleNro AS VARCHAR)) AS Direccion, " +
                 "EstadoInmueble.nombre AS Estado, " +
                 "DATEDIFF(day, HistorialEstado.fechaInicio,HistorialEstado.fechaFin) AS Dias " +
                 "FROM EstadoInmueble " +
@@ -244,6 +245,8 @@ namespace TESTWF2020.DataAccessLayer
             var dm = new DataManager();
             consultaSql = AgregarParametrosConsultaInmueble(dict, consultaSql);
             consultaSql += "GROUP BY Inmueble.idInmueble, " +
+                "Inmueble.Calle, " +
+                "Inmueble.CalleNro, " +
                 "HistorialEstado.fechaInicio, " +
                 "HistorialEstado.fechaFin, " +
                 "HistorialEstado.idEstadoInmueble, " +

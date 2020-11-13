@@ -29,10 +29,14 @@
           <DataField>Dias</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Direccion">
+          <DataField>Direccion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>InmuebleEstado</rd:DataSetName>
-        <rd:SchemaPath>D:\TERCER AÑO\PAV1\REPO2\TESTWF2020\TESTWF2020\InmuebleEstado.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\repos\RepoPav\TESTWF2020\TESTWF2020\InmuebleEstado.xsd</rd:SchemaPath>
         <rd:TableName>EstadisticaInmueble</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -50,15 +54,15 @@
                 <ChartMember>
                   <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Idinmueble.Value</GroupExpression>
+                      <GroupExpression>=Fields!Direccion.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Idinmueble.Value</Value>
+                      <Value>=Fields!Direccion.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Idinmueble.Value</Label>
+                  <Label>=Fields!Direccion.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -402,7 +406,7 @@
             </ChartNoDataMessage>
             <DataSetName>DataSetInmueble</DataSetName>
             <Height>7.45744cm</Height>
-            <Width>16.51cm</Width>
+            <Width>27.06687cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -416,7 +420,7 @@
         <Height>2.936in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>10.65625in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

@@ -32,7 +32,7 @@ namespace TESTWF2020.DataAccessLayer
                                 "@fechaEntrega, " +
                                 "@dniCliente, " +
                                 "@montoTotal, " +
-                                "@montoCuota, " +
+                                "ROUND(@montoCuota, 2), " +
                                 "@esFinanciada" +
                                 (venta.EsFinanciada ? ", @financiacion) " : ")");
             var parametrosVenta = CrearDiccionario(venta);

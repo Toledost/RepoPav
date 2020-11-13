@@ -40,7 +40,7 @@ namespace TESTWF2020.GUILayer.ABM
             IList<Cuota> cuotas = cuotaService.GetByVenta(idVentaSeleccionada);
             foreach (var cuota in cuotas)
             {
-                dgvCuotas.Rows.Add(cuota.NumeroCuota, cuota.FechaPago, cuota.FechaVencimiento, cuota.Pagado);
+                dgvCuotas.Rows.Add(cuota.NumeroCuota, cuota.FechaPago, cuota.FechaVencimiento, cuota.Pagado ? "Sí" : "No");
             }
         }
 
