@@ -15,7 +15,6 @@ namespace TESTWF2020.Entities
         public double MetrosCuadrados { get; set; }
         public int Baños { get; set; }
         public int Habitaciones { get; set; }
-        public int MontoAlquiler { get; set; }
         public int MontoVenta { get; set; }
         public string Descripcion { get; set; }
         public TipoInmueble TipoInmueble { get; set; }

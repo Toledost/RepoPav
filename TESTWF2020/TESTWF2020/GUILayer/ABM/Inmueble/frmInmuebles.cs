@@ -79,14 +79,6 @@ namespace TESTWF2020.GUILayer
             {
                 dict.Add("habitaciones", txtHabitaciones.Text);
             }
-            if (!string.IsNullOrWhiteSpace(this.txtMontoAlqMin.Text))
-            {
-                dict.Add("montoAlqMin", txtMontoAlqMin.Text);
-            }
-            if (!string.IsNullOrWhiteSpace(this.txtMontoAlqMax.Text))
-            {
-                dict.Add("montoAlqMax", txtMontoAlqMax.Text);
-            }
             if (!string.IsNullOrWhiteSpace(this.txtMontoVtaMin.Text))
             {
                 dict.Add("montoVtaMin", txtMontoVtaMin.Text);

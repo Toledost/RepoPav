@@ -24,7 +24,6 @@ namespace TESTWF2020.DataAccessLayer
                 ", i.[cantHabitaciones]" +
                 ", i.[idTipoInmueble]" +
                 ", i.[descripcion]" +
-                ", i.[montoAlquiler]" +
                 ", i.[montoVenta]" +
                 ", t.[idTipoInmueble]" +
                 ", t.[nombre]" +
@@ -61,7 +60,6 @@ namespace TESTWF2020.DataAccessLayer
                 ", i.[cantHabitaciones]" +
                 ", i.[idTipoInmueble]" +
                 ", i.[descripcion]" +
-                ", i.[montoAlquiler]" +
                 ", i.[montoVenta]" +
                 ", t.[idTipoInmueble]" +
                 ", t.[nombre]" +
@@ -89,7 +87,6 @@ namespace TESTWF2020.DataAccessLayer
                 ",[cantHabitaciones]" +
                 ",[idTipoInmueble]" +
                 ",[descripcion]" +
-                ",[montoAlquiler]" +
                 ",[montoVenta]) " +
                 "VALUES " +
                 "(@calle" +
@@ -99,7 +96,6 @@ namespace TESTWF2020.DataAccessLayer
                 ",@cantHabitaciones" +
                 ",@idTipoInmueble" +
                 ",@descripcion" +
-                ",@montoAlquiler" +
                 ",@montoVenta) ";
 
             Dictionary<string, object> parametrosInmueble = CargarParametros(inmueble);
@@ -155,7 +151,6 @@ namespace TESTWF2020.DataAccessLayer
             parametros.Add("cantBaños", inmueble.Baños);
             parametros.Add("cantHabitaciones", inmueble.Habitaciones);
             parametros.Add("descripcion", inmueble.Descripcion);
-            parametros.Add("montoAlquiler", inmueble.MontoAlquiler);
             parametros.Add("montoVenta", inmueble.MontoVenta);
             parametros.Add("id", inmueble.Id);
 
@@ -173,7 +168,6 @@ namespace TESTWF2020.DataAccessLayer
                 ",[cantHabitaciones] = @cantHabitaciones" +
                 ",[idTipoInmueble] = @idTipoInmueble" +
                 ",[descripcion] = @descripcion" +
-                ",[montoAlquiler] = @montoAlquiler" +
                 ",[montoVenta] = @montoVenta " +
                 "WHERE idInmueble = @id ";
 
@@ -272,12 +266,6 @@ namespace TESTWF2020.DataAccessLayer
             if (parametros.ContainsKey("mtsMax"))
                 consultaSql += " AND (i.m2 <= @mtsMax) ";
 
-            if (parametros.ContainsKey("montoAlqMin"))
-                consultaSql += " AND (i.montoAlquiler >= @montoAlqMin) ";
-
-            if (parametros.ContainsKey("montoAlqMax"))
-                consultaSql += " AND (i.montoAlquiler <= @montoAlqMax) ";
-
             if (parametros.ContainsKey("montoVtaMin"))
                 consultaSql += " AND (i.montoVenta >= @montoVtaMin) ";
 
@@ -307,7 +295,6 @@ namespace TESTWF2020.DataAccessLayer
                 Baños = (int)row["cantBaños"],
                 Habitaciones = (int)row["cantHabitaciones"],
                 Descripcion = row["descripcion"].ToString(),
-                MontoAlquiler = (int)row["montoalquiler"],
                 MontoVenta = (int)row["montoventa"],
                 TipoInmueble = new TipoInmueble()
                 {

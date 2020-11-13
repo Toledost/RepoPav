@@ -148,7 +148,6 @@ namespace TESTWF2020.GUILayer.ABM
             this.txtMetrosCuadrados.Text = inmuebleSeleccionado.MetrosCuadrados.ToString();
             this.txtBaños.Text = inmuebleSeleccionado.Baños.ToString();
             this.txtHabitaciones.Text = inmuebleSeleccionado.Habitaciones.ToString();
-            this.txtMontoAlq.Text = inmuebleSeleccionado.MontoAlquiler.ToString();
             this.txtMontoVta.Text = inmuebleSeleccionado.MontoVenta.ToString();
             this.txtDescripcion.Text = inmuebleSeleccionado.Descripcion.ToString();
             
@@ -158,7 +157,7 @@ namespace TESTWF2020.GUILayer.ABM
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             if (Validador.ValidarTextBox(txtCalle,txtNro,txtMetrosCuadrados,txtBaños,
-                txtHabitaciones,txtMontoAlq,txtMontoVta,txtDescripcion) && 
+                txtHabitaciones,txtMontoVta,txtDescripcion) && 
                 Validador.ValidarComboBox(cboEstado,cboTipoInmueble))
 
             {
@@ -213,7 +212,6 @@ namespace TESTWF2020.GUILayer.ABM
                 Habitaciones = Convert.ToInt32(this.txtHabitaciones.Text),
                 Descripcion = this.txtDescripcion.Text,
                 MetrosCuadrados = Convert.ToDouble(this.txtMetrosCuadrados.Text),
-                MontoAlquiler = Convert.ToInt32(this.txtMontoAlq.Text),
                 MontoVenta = Convert.ToInt32(this.txtMontoVta.Text),
                 TipoInmueble = new TipoInmueble
                 {

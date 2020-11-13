@@ -26,7 +26,6 @@ namespace TESTWF2020.DataAccessLayer
                 "i.calle, " +
                 "i.calleNro, " +
                 "i.montoVenta, " +
-                "i.montoAlquiler, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombreCliente, " +
                 "cl.apellido as apellidoCliente, " +
@@ -76,7 +75,6 @@ namespace TESTWF2020.DataAccessLayer
                 "i.calle, " +
                 "i.calleNro, " +
                 "i.montoVenta, " +
-                "i.montoAlquiler, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombreCliente, " +
                 "cl.apellido as apellidoCliente, " +
@@ -120,7 +118,6 @@ namespace TESTWF2020.DataAccessLayer
                 "i.calle, " +
                 "i.calleNro, " +
                 "i.montoVenta, " +
-                "i.montoAlquiler, " +
                 "cl.dni as dni, " +
                 "cl.nombre as nombreCliente, " +
                 "cl.apellido as apellidoCliente, " +
@@ -285,25 +282,13 @@ namespace TESTWF2020.DataAccessLayer
                 {
                     Id = (int)row["idTipoTransaccion"],
                     Nombre = row["nombreTipoTransaccion"].ToString(),
-                    //Descripcion = row["descripcion"].ToString()
                 },
                 Inmueble = new Inmueble
                 {
                     Id = (int)row["idInmueble"],
                     Calle = row["calle"].ToString(),
                     CalleNumero = (int)row["calleNro"],
-                    //MetrosCuadrados = (double)row["m2"],
-                    //Baños = (int)row["cantBaños"],
-                    //Habitaciones = (int)row["cantHabitaciones"],
-                    //Descripcion = row["descripcion"].ToString(),
-                    MontoAlquiler = (int)row["montoAlquiler"],
                     MontoVenta = (int)row["montoVenta"],
-                    //TipoInmueble = new TipoInmueble()
-                    //{
-                    //    Id = (int)row["idTipoInmueble"],
-                    //    //Nombre = row["nombre"].ToString(),
-                    //    //Descripcion = row["descripcionTipoInmueble"].ToString()
-                    //}
                 },
 
                 Cliente = new Cliente
@@ -317,19 +302,16 @@ namespace TESTWF2020.DataAccessLayer
                 {
                     Id = (int)row["idMedioConocimiento"],
                     Nombre = row["nombreMedioConocimiento"].ToString(),
-                    //Descripcion = row["descripcion"].ToString()
                 },
                 ViaDeConsulta = new ViaDeConsulta
                 {
                     Id = (int)row["idViaDeConsulta"],
                     Nombre = row["nombreViaDeConsulta"].ToString(),
-                    //Descripcion = row["descripcion"].ToString()
                 },
                 EstadoConsulta = new EstadoConsulta
                 {
                     Id = (int)row["idEstadoConsulta"],
                     Nombre = row["nombreEstadoConsulta"].ToString(),
-                    //Descripcion = row["descripcion"].ToString()
                 },
                 FechaCierre = row["fechaCierre"] != DBNull.Value ? (DateTime)row["fechaCierre"] : (DateTime?)null,
             };
