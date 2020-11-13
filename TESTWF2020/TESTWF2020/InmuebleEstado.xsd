@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InmuebleEstado" targetNamespace="http://tempuri.org/InmuebleEstado.xsd" xmlns:mstns="http://tempuri.org/InmuebleEstado.xsd" xmlns="http://tempuri.org/InmuebleEstado.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDInmobiliariaCasaFelizConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDInmobiliariaCasaFelizConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TESTWF2020.Properties.Settings.GlobalReference.Default.BDInmobiliariaCasaFelizConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RelacionInmuebleEstadoTableAdapter" GeneratorDataComponentClassName="RelacionInmuebleEstadoTableAdapter" Name="RelacionInmuebleEstado" UserDataComponentName="RelacionInmuebleEstadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Inmueble.idInmueble, Inmueble.calle, Inmueble.calleNro, HistorialEstado.fechaInicio, HistorialEstado.fechaFin, HistorialEstado.idEstadoInmueble, EstadoInmueble.nombre AS Estado, DATEDIFF(day, HistorialEstado.fechaInicio, 
+                         HistorialEstado.fechaFin) AS Dias
+FROM            EstadoInmueble INNER JOIN
+                         HistorialEstado ON EstadoInmueble.idEstadoInmueble = HistorialEstado.idEstadoInmueble INNER JOIN
+                         Inmueble ON HistorialEstado.idInmueble = Inmueble.idInmueble</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="fechaInicio" DataSetColumn="fechaInicio" />
+              <Mapping SourceColumn="idEstadoInmueble" DataSetColumn="idEstadoInmueble" />
+              <Mapping SourceColumn="fechaFin" DataSetColumn="fechaFin" />
+              <Mapping SourceColumn="idInmueble" DataSetColumn="idInmueble" />
+              <Mapping SourceColumn="calle" DataSetColumn="calle" />
+              <Mapping SourceColumn="calleNro" DataSetColumn="calleNro" />
+              <Mapping SourceColumn="Dias" DataSetColumn="Dias" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InmuebleEstado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="InmuebleEstado" msprop:Generator_UserDSName="InmuebleEstado">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RelacionInmuebleEstado" msprop:Generator_TableClassName="RelacionInmuebleEstadoDataTable" msprop:Generator_TableVarName="tableRelacionInmuebleEstado" msprop:Generator_TablePropName="RelacionInmuebleEstado" msprop:Generator_RowDeletingName="RelacionInmuebleEstadoRowDeleting" msprop:Generator_RowChangingName="RelacionInmuebleEstadoRowChanging" msprop:Generator_RowEvHandlerName="RelacionInmuebleEstadoRowChangeEventHandler" msprop:Generator_RowDeletedName="RelacionInmuebleEstadoRowDeleted" msprop:Generator_UserTableName="RelacionInmuebleEstado" msprop:Generator_RowChangedName="RelacionInmuebleEstadoRowChanged" msprop:Generator_RowEvArgName="RelacionInmuebleEstadoRowChangeEvent" msprop:Generator_RowClassName="RelacionInmuebleEstadoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fechaInicio" msprop:Generator_ColumnVarNameInTable="columnfechaInicio" msprop:Generator_ColumnPropNameInRow="fechaInicio" msprop:Generator_ColumnPropNameInTable="fechaInicioColumn" msprop:Generator_UserColumnName="fechaInicio" type="xs:dateTime" />
+              <xs:element name="idEstadoInmueble" msprop:Generator_ColumnVarNameInTable="columnidEstadoInmueble" msprop:Generator_ColumnPropNameInRow="idEstadoInmueble" msprop:Generator_ColumnPropNameInTable="idEstadoInmuebleColumn" msprop:Generator_UserColumnName="idEstadoInmueble" type="xs:int" />
+              <xs:element name="fechaFin" msprop:Generator_ColumnVarNameInTable="columnfechaFin" msprop:Generator_ColumnPropNameInRow="fechaFin" msprop:Generator_ColumnPropNameInTable="fechaFinColumn" msprop:Generator_UserColumnName="fechaFin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idInmueble" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" />
+              <xs:element name="calle" msprop:Generator_ColumnVarNameInTable="columncalle" msprop:Generator_ColumnPropNameInRow="calle" msprop:Generator_ColumnPropNameInTable="calleColumn" msprop:Generator_UserColumnName="calle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="calleNro" msprop:Generator_ColumnVarNameInTable="columncalleNro" msprop:Generator_ColumnPropNameInRow="calleNro" msprop:Generator_ColumnPropNameInTable="calleNroColumn" msprop:Generator_UserColumnName="calleNro" type="xs:int" minOccurs="0" />
+              <xs:element name="Dias" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:int" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaInmueble" msprop:Generator_TableClassName="EstadisticaInmuebleDataTable" msprop:Generator_TableVarName="tableEstadisticaInmueble" msprop:Generator_TablePropName="EstadisticaInmueble" msprop:Generator_RowDeletingName="EstadisticaInmuebleRowDeleting" msprop:Generator_RowChangingName="EstadisticaInmuebleRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaInmuebleRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaInmuebleRowDeleted" msprop:Generator_UserTableName="EstadisticaInmueble" msprop:Generator_RowChangedName="EstadisticaInmuebleRowChanged" msprop:Generator_RowEvArgName="EstadisticaInmuebleRowChangeEvent" msprop:Generator_RowClassName="EstadisticaInmuebleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Idinmueble" msprop:Generator_ColumnVarNameInTable="columnIdinmueble" msprop:Generator_ColumnPropNameInRow="Idinmueble" msprop:Generator_ColumnPropNameInTable="IdinmuebleColumn" msprop:Generator_UserColumnName="Idinmueble" type="xs:int" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" type="xs:string" minOccurs="0" />
+              <xs:element name="Dias" msprop:Generator_ColumnVarNameInTable="columnDias" msprop:Generator_ColumnPropNameInRow="Dias" msprop:Generator_ColumnPropNameInTable="DiasColumn" msprop:Generator_UserColumnName="Dias" type="xs:int" minOccurs="0" />
+              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

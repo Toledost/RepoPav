@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BDInmobiliariaCasaFelizDataSetCuota" targetNamespace="http://tempuri.org/BDInmobiliariaCasaFelizDataSetCuota.xsd" xmlns:mstns="http://tempuri.org/BDInmobiliariaCasaFelizDataSetCuota.xsd" xmlns="http://tempuri.org/BDInmobiliariaCasaFelizDataSetCuota.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDInmobiliariaCasaFelizConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDInmobiliariaCasaFelizConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TESTWF2020.Properties.Settings.GlobalReference.Default.BDInmobiliariaCasaFelizConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TablaCuotaTableAdapter" GeneratorDataComponentClassName="TablaCuotaTableAdapter" Name="TablaCuota" UserDataComponentName="TablaCuotaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInmobiliariaCasaFelizConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Cuota.nroCuota, Cuota.fechaVencimiento, Cuota.fechaPago, Venta.idInmueble, Venta.dniCliente, Venta.montoCuota, Cliente.nombre, Cliente.apellido, Inmueble.calle
+FROM            Cliente INNER JOIN
+                         Venta ON Cliente.dni = Venta.dniCliente INNER JOIN
+                         Cuota ON Venta.idVenta = Cuota.idVenta INNER JOIN
+                         Inmueble ON Venta.idInmueble = Inmueble.idInmueble</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nroCuota" DataSetColumn="nroCuota" />
+              <Mapping SourceColumn="fechaVencimiento" DataSetColumn="fechaVencimiento" />
+              <Mapping SourceColumn="fechaPago" DataSetColumn="fechaPago" />
+              <Mapping SourceColumn="idInmueble" DataSetColumn="idInmueble" />
+              <Mapping SourceColumn="dniCliente" DataSetColumn="dniCliente" />
+              <Mapping SourceColumn="montoCuota" DataSetColumn="montoCuota" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="calle" DataSetColumn="calle" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BDInmobiliariaCasaFelizDataSetCuota" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDInmobiliariaCasaFelizDataSetCuota" msprop:Generator_UserDSName="BDInmobiliariaCasaFelizDataSetCuota">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TablaCuota" msprop:Generator_TableClassName="TablaCuotaDataTable" msprop:Generator_TableVarName="tableTablaCuota" msprop:Generator_TablePropName="TablaCuota" msprop:Generator_RowDeletingName="TablaCuotaRowDeleting" msprop:Generator_RowChangingName="TablaCuotaRowChanging" msprop:Generator_RowEvHandlerName="TablaCuotaRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaCuotaRowDeleted" msprop:Generator_UserTableName="TablaCuota" msprop:Generator_RowChangedName="TablaCuotaRowChanged" msprop:Generator_RowEvArgName="TablaCuotaRowChangeEvent" msprop:Generator_RowClassName="TablaCuotaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nroCuota" msprop:Generator_ColumnVarNameInTable="columnnroCuota" msprop:Generator_ColumnPropNameInRow="nroCuota" msprop:Generator_ColumnPropNameInTable="nroCuotaColumn" msprop:Generator_UserColumnName="nroCuota" type="xs:int" />
+              <xs:element name="fechaVencimiento" msprop:Generator_ColumnVarNameInTable="columnfechaVencimiento" msprop:Generator_ColumnPropNameInRow="fechaVencimiento" msprop:Generator_ColumnPropNameInTable="fechaVencimientoColumn" msprop:Generator_UserColumnName="fechaVencimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaPago" msprop:Generator_ColumnVarNameInTable="columnfechaPago" msprop:Generator_ColumnPropNameInRow="fechaPago" msprop:Generator_ColumnPropNameInTable="fechaPagoColumn" msprop:Generator_UserColumnName="fechaPago" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idInmueble" msprop:Generator_ColumnVarNameInTable="columnidInmueble" msprop:Generator_ColumnPropNameInRow="idInmueble" msprop:Generator_ColumnPropNameInTable="idInmuebleColumn" msprop:Generator_UserColumnName="idInmueble" type="xs:int" minOccurs="0" />
+              <xs:element name="dniCliente" msprop:Generator_ColumnVarNameInTable="columndniCliente" msprop:Generator_ColumnPropNameInRow="dniCliente" msprop:Generator_ColumnPropNameInTable="dniClienteColumn" msprop:Generator_UserColumnName="dniCliente" type="xs:int" minOccurs="0" />
+              <xs:element name="montoCuota" msprop:Generator_ColumnVarNameInTable="columnmontoCuota" msprop:Generator_ColumnPropNameInRow="montoCuota" msprop:Generator_ColumnPropNameInTable="montoCuotaColumn" msprop:Generator_UserColumnName="montoCuota" type="xs:double" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="calle" msprop:Generator_ColumnVarNameInTable="columncalle" msprop:Generator_ColumnPropNameInRow="calle" msprop:Generator_ColumnPropNameInTable="calleColumn" msprop:Generator_UserColumnName="calle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaCuota" msprop:Generator_TableClassName="EstadisticaCuotaDataTable" msprop:Generator_TableVarName="tableEstadisticaCuota" msprop:Generator_TablePropName="EstadisticaCuota" msprop:Generator_RowDeletingName="EstadisticaCuotaRowDeleting" msprop:Generator_RowChangingName="EstadisticaCuotaRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCuotaRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCuotaRowDeleted" msprop:Generator_UserTableName="EstadisticaCuota" msprop:Generator_RowChangedName="EstadisticaCuotaRowChanged" msprop:Generator_RowEvArgName="EstadisticaCuotaRowChangeEvent" msprop:Generator_RowClassName="EstadisticaCuotaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DireccionInmueble" msprop:Generator_ColumnVarNameInTable="columnDireccionInmueble" msprop:Generator_ColumnPropNameInRow="DireccionInmueble" msprop:Generator_ColumnPropNameInTable="DireccionInmuebleColumn" msprop:Generator_UserColumnName="DireccionInmueble" type="xs:string" minOccurs="0" />
+              <xs:element name="CuotasPagadas" msprop:Generator_ColumnVarNameInTable="columnCuotasPagadas" msprop:Generator_ColumnPropNameInRow="CuotasPagadas" msprop:Generator_ColumnPropNameInTable="CuotasPagadasColumn" msprop:Generator_UserColumnName="CuotasPagadas" type="xs:int" minOccurs="0" />
+              <xs:element name="CuotasPendientes" msprop:Generator_ColumnVarNameInTable="columnCuotasPendientes" msprop:Generator_ColumnPropNameInRow="CuotasPendientes" msprop:Generator_ColumnPropNameInTable="CuotasPendientesColumn" msprop:Generator_UserColumnName="CuotasPendientes" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

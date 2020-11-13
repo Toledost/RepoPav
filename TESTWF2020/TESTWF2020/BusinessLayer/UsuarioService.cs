@@ -8,9 +8,11 @@ using TESTWF2020.Entities;
 
 namespace TESTWF2020.BusinessLayer
 {
+    
     public class UsuarioService
     {
         private UsuarioDao usuarioDao;
+        
         public UsuarioService()
         {
             usuarioDao = new UsuarioDao();
@@ -24,6 +26,41 @@ namespace TESTWF2020.BusinessLayer
                 return resUsuario;
             }
             return null;
+        }
+
+        internal void Insert(Usuario user)
+        {
+            usuarioDao.Insert(user);
+        }
+
+        internal IList<Usuario> GetAll()
+        {
+            return usuarioDao.GetAll();
+        }
+
+        internal IList<Usuario> GetByFilters(Dictionary<string,object> dicc,bool esLibre)
+        {
+            return usuarioDao.GetByFilters(dicc, esLibre);
+        }
+
+        internal Usuario GetUsuario(string nombreUsuario, bool buscarBorrado = false)
+        {
+            return usuarioDao.GetUsuario(nombreUsuario, buscarBorrado);
+        }
+
+        internal void Update(Usuario user, string nombreOriginal)
+        {
+            usuarioDao.Update(user, nombreOriginal);
+        }
+
+        internal void Delete(string nombreUsuarioSeleccionado)
+        {
+            usuarioDao.Delete(nombreUsuarioSeleccionado);
+        }
+
+        internal void Recuperar(string nombreUsuarioSeleccinado)
+        {
+            usuarioDao.Recuperar(nombreUsuarioSeleccinado);
         }
     }
 }
