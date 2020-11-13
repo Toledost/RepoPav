@@ -1,0 +1,1016 @@
+USE [master]
+GO
+/****** Object:  Database [BDInmobiliariaCasaFeliz]    Script Date: 13/11/2020 11:23:18 ******/
+CREATE DATABASE [BDInmobiliariaCasaFeliz]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'BDInmobiliariaCasaFeliz', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\BDInmobiliariaCasaFeliz.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'BDInmobiliariaCasaFeliz_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\BDInmobiliariaCasaFeliz_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [BDInmobiliariaCasaFeliz].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET  MULTI_USER 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET QUERY_STORE = OFF
+GO
+USE [BDInmobiliariaCasaFeliz]
+GO
+/****** Object:  Table [dbo].[Cliente]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cliente](
+	[dni] [int] NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[apellido] [varchar](30) NOT NULL,
+	[mail] [varchar](50) NULL,
+	[telefono] [bigint] NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [clientes_PK] PRIMARY KEY CLUSTERED 
+(
+	[dni] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Consulta]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Consulta](
+	[idConsulta] [int] IDENTITY(1,1) NOT NULL,
+	[fechaCreada] [datetime] NULL,
+	[usuarioUltimaModificacion] [varchar](30) NULL,
+	[idTipoTransaccion] [int] NULL,
+	[idInmueble] [int] NULL,
+	[dniCliente] [int] NULL,
+	[idMedioConocimiento] [int] NULL,
+	[idViaDeConsulta] [int] NULL,
+	[idEstadoConsulta] [int] NULL,
+	[fechaCierre] [datetime] NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [consultas_PK] PRIMARY KEY CLUSTERED 
+(
+	[idConsulta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cuota]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cuota](
+	[nroCuota] [int] NOT NULL,
+	[idVenta] [int] NOT NULL,
+	[fechaVencimiento] [date] NULL,
+	[fechaPago] [date] NULL,
+	[pagado] [bit] NULL,
+	[borrado] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Empleado]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Empleado](
+	[legajo] [int] NOT NULL,
+	[nombre] [varchar](30) NULL,
+	[apellido] [varchar](30) NULL,
+	[usuario] [varchar](30) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [empleado_PK] PRIMARY KEY CLUSTERED 
+(
+	[legajo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EstadoConsulta]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EstadoConsulta](
+	[idEstadoConsulta] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [estadoConsulta_PK] PRIMARY KEY CLUSTERED 
+(
+	[idEstadoConsulta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EstadoInmueble]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EstadoInmueble](
+	[idEstadoInmueble] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [estadoInmueble_PK] PRIMARY KEY CLUSTERED 
+(
+	[idEstadoInmueble] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Financiacion]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Financiacion](
+	[idFinanciacion] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NULL,
+	[porcentajeAumento] [int] NULL,
+	[cantCuotas] [int] NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [PK_Refinanciacion] PRIMARY KEY CLUSTERED 
+(
+	[idFinanciacion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HistorialEstado]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HistorialEstado](
+	[idInmueble] [int] NOT NULL,
+	[idEstadoInmueble] [int] NOT NULL,
+	[fechaInicio] [datetime] NOT NULL,
+	[fechaFin] [datetime] NULL,
+	[borrado] [bit] NOT NULL,
+ CONSTRAINT [historial_PK] PRIMARY KEY CLUSTERED 
+(
+	[idInmueble] ASC,
+	[idEstadoInmueble] ASC,
+	[fechaInicio] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Inmueble]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Inmueble](
+	[idInmueble] [int] IDENTITY(1,1) NOT NULL,
+	[calle] [varchar](50) NULL,
+	[calleNro] [int] NULL,
+	[m2] [float] NULL,
+	[cantBaños] [int] NULL,
+	[cantHabitaciones] [int] NULL,
+	[idTipoInmueble] [int] NULL,
+	[descripcion] [varchar](100) NULL,
+	[borrado] [bit] NULL,
+	[montoVenta] [int] NULL,
+ CONSTRAINT [inmueble_id_pk] PRIMARY KEY CLUSTERED 
+(
+	[idInmueble] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MedioConocimiento]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MedioConocimiento](
+	[idMedioConocimiento] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [mediosConocimiento_PK] PRIMARY KEY CLUSTERED 
+(
+	[idMedioConocimiento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Perfil]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Perfil](
+	[idPerfil] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [cargos_PK] PRIMARY KEY CLUSTERED 
+(
+	[idPerfil] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoInmueble]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoInmueble](
+	[idTipoInmueble] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [tipoInmueble_PK] PRIMARY KEY CLUSTERED 
+(
+	[idTipoInmueble] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoTransaccion]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoTransaccion](
+	[idTipoTransaccion] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [tipoTransaccion_PK] PRIMARY KEY CLUSTERED 
+(
+	[idTipoTransaccion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[nombre] [varchar](30) NOT NULL,
+	[contraseña] [varchar](30) NULL,
+	[fechaAlta] [date] NULL,
+	[idPerfil] [int] NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [usuario_PK] PRIMARY KEY CLUSTERED 
+(
+	[nombre] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Venta]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Venta](
+	[idVenta] [int] IDENTITY(1,1) NOT NULL,
+	[legajoVendedor] [int] NULL,
+	[idInmueble] [int] NULL,
+	[fechaVenta] [date] NULL,
+	[fechaEntrega] [date] NULL,
+	[dniCliente] [int] NULL,
+	[montoTotal] [int] NULL,
+	[montoCuota] [float] NULL,
+	[esFinanciada] [bit] NULL,
+	[borrado] [bit] NULL,
+	[financiacion] [int] NULL,
+ CONSTRAINT [PK_Venta] PRIMARY KEY CLUSTERED 
+(
+	[idVenta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ViaDeConsulta]    Script Date: 13/11/2020 11:23:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ViaDeConsulta](
+	[idViaDeConsulta] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](30) NOT NULL,
+	[descripcion] [varchar](50) NULL,
+	[borrado] [bit] NULL,
+ CONSTRAINT [viasDeConsulta_PK] PRIMARY KEY CLUSTERED 
+(
+	[idViaDeConsulta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Cliente] ([dni], [nombre], [apellido], [mail], [telefono], [borrado]) VALUES (32321456, N'Juan', N'Fernandez', N'juanfernandez@gmail.com', 3413658754, 0)
+GO
+INSERT [dbo].[Cliente] ([dni], [nombre], [apellido], [mail], [telefono], [borrado]) VALUES (32416518, N'Gustavo', N'Colombres', N'gustavo@gmail.com', 3429652387, 0)
+GO
+INSERT [dbo].[Cliente] ([dni], [nombre], [apellido], [mail], [telefono], [borrado]) VALUES (35896748, N'Julieta', N'Rodriguez', N'julirodri@gmail.com', 3516574389, 0)
+GO
+INSERT [dbo].[Cliente] ([dni], [nombre], [apellido], [mail], [telefono], [borrado]) VALUES (38330551, N'Pedro', N'Palotes', N'pedropalotes@live.com', 3702354780, 0)
+GO
+INSERT [dbo].[Cliente] ([dni], [nombre], [apellido], [mail], [telefono], [borrado]) VALUES (39745842, N'Homero', N'Suarez', N'homerosuarez@gmail.com', 3512369857, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Consulta] ON 
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (1, CAST(N'2020-09-10T00:00:00.000' AS DateTime), N'admin', 1, 15, 32416518, 1, 5, 4, CAST(N'2020-09-29T20:42:25.117' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (2, CAST(N'2020-09-26T00:00:00.000' AS DateTime), N'admin', 2, 12, 32416518, 1, 4, 4, CAST(N'2020-09-29T20:19:18.750' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (5, CAST(N'2020-09-29T21:32:30.533' AS DateTime), N'franco', 1, 22, 32321456, 1, 2, 4, CAST(N'2020-09-29T21:36:11.707' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (6, CAST(N'2020-09-29T21:32:55.453' AS DateTime), N'admin', 1, 22, 32416518, 1, 3, 4, CAST(N'2020-10-12T20:36:13.903' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (7, CAST(N'2020-10-01T19:07:17.410' AS DateTime), N'bruno23', 1, 13, 38330551, 1, 3, 4, CAST(N'2020-10-01T19:07:57.633' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (8, CAST(N'2020-10-01T22:43:58.497' AS DateTime), N'admin', 1, 13, 32416518, 1, 3, 4, CAST(N'2020-10-12T11:46:40.720' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (9, CAST(N'2020-10-14T10:17:32.850' AS DateTime), N'admin', 2, 23, 39745842, 1, 2, 4, CAST(N'2020-10-14T10:38:37.760' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (10, CAST(N'2020-10-14T10:44:06.010' AS DateTime), N'admin', 1, 14, 32416518, 3, 1, 1, NULL, 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (11, CAST(N'2020-10-14T10:44:33.920' AS DateTime), N'bruno23', 1, 14, 39745842, 2, 3, 4, CAST(N'2020-10-14T11:00:23.453' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (12, CAST(N'2020-10-19T10:15:11.933' AS DateTime), N'admin', 2, 24, 35896748, 2, 2, 4, CAST(N'2020-10-21T09:40:48.737' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (13, CAST(N'2020-10-20T17:40:17.560' AS DateTime), N'admin', 1, 24, 35896748, 2, 2, 4, CAST(N'2020-10-21T09:40:48.737' AS DateTime), 0)
+GO
+INSERT [dbo].[Consulta] ([idConsulta], [fechaCreada], [usuarioUltimaModificacion], [idTipoTransaccion], [idInmueble], [dniCliente], [idMedioConocimiento], [idViaDeConsulta], [idEstadoConsulta], [fechaCierre], [borrado]) VALUES (14, CAST(N'2020-10-20T23:14:20.577' AS DateTime), N'bruno23', 1, 25, 35896748, 3, 2, 4, CAST(N'2020-10-20T23:16:06.533' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[Consulta] OFF
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (1, 20, CAST(N'2020-11-14' AS Date), CAST(N'2020-10-14' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (2, 20, CAST(N'2020-12-14' AS Date), CAST(N'2020-10-14' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (3, 20, CAST(N'2021-01-14' AS Date), CAST(N'2020-10-14' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (4, 20, CAST(N'2021-02-14' AS Date), CAST(N'2020-10-14' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (5, 20, CAST(N'2021-03-14' AS Date), CAST(N'2020-10-14' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (6, 20, CAST(N'2021-04-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (7, 20, CAST(N'2021-05-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (8, 20, CAST(N'2021-06-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (9, 20, CAST(N'2021-07-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (10, 20, CAST(N'2021-08-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (11, 20, CAST(N'2021-09-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (12, 20, CAST(N'2021-10-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (13, 20, CAST(N'2021-11-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (14, 20, CAST(N'2021-12-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (15, 20, CAST(N'2022-01-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (16, 20, CAST(N'2022-02-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (17, 20, CAST(N'2022-03-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (18, 20, CAST(N'2022-04-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (19, 20, CAST(N'2022-05-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (20, 20, CAST(N'2022-06-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (21, 20, CAST(N'2022-07-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (22, 20, CAST(N'2022-08-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (23, 20, CAST(N'2022-09-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (24, 20, CAST(N'2022-10-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (25, 20, CAST(N'2022-11-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (26, 20, CAST(N'2022-12-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (27, 20, CAST(N'2023-01-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (28, 20, CAST(N'2023-02-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (29, 20, CAST(N'2023-03-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (30, 20, CAST(N'2023-04-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (31, 20, CAST(N'2023-05-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (32, 20, CAST(N'2023-06-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (33, 20, CAST(N'2023-07-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (34, 20, CAST(N'2023-08-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (35, 20, CAST(N'2023-09-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (36, 20, CAST(N'2023-10-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (37, 20, CAST(N'2023-11-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (38, 20, CAST(N'2023-12-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (39, 20, CAST(N'2024-01-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (40, 20, CAST(N'2024-02-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (41, 20, CAST(N'2024-03-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (42, 20, CAST(N'2024-04-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (43, 20, CAST(N'2024-05-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (44, 20, CAST(N'2024-06-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (45, 20, CAST(N'2024-07-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (46, 20, CAST(N'2024-08-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (47, 20, CAST(N'2024-09-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (48, 20, CAST(N'2024-10-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (49, 20, CAST(N'2024-11-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (50, 20, CAST(N'2024-12-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (51, 20, CAST(N'2025-01-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (52, 20, CAST(N'2025-02-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (53, 20, CAST(N'2025-03-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (54, 20, CAST(N'2025-04-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (55, 20, CAST(N'2025-05-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (56, 20, CAST(N'2025-06-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (57, 20, CAST(N'2025-07-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (58, 20, CAST(N'2025-08-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (59, 20, CAST(N'2025-09-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (60, 20, CAST(N'2025-10-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (61, 20, CAST(N'2025-11-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (62, 20, CAST(N'2025-12-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (63, 20, CAST(N'2026-01-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (64, 20, CAST(N'2026-02-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (65, 20, CAST(N'2026-03-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (66, 20, CAST(N'2026-04-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (67, 20, CAST(N'2026-05-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (68, 20, CAST(N'2026-06-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (69, 20, CAST(N'2026-07-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (70, 20, CAST(N'2026-08-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (71, 20, CAST(N'2026-09-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (72, 20, CAST(N'2026-10-14' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (1, 22, CAST(N'2020-11-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (2, 22, CAST(N'2020-12-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (3, 22, CAST(N'2021-01-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (4, 22, CAST(N'2021-02-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (5, 22, CAST(N'2021-03-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (6, 22, CAST(N'2021-04-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (7, 22, CAST(N'2021-05-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (8, 22, CAST(N'2021-06-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (9, 22, CAST(N'2021-07-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (10, 22, CAST(N'2021-08-19' AS Date), CAST(N'2020-10-19' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (11, 22, CAST(N'2021-09-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (12, 22, CAST(N'2021-10-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (13, 22, CAST(N'2021-11-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (14, 22, CAST(N'2021-12-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (15, 22, CAST(N'2022-01-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (16, 22, CAST(N'2022-02-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (17, 22, CAST(N'2022-03-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (18, 22, CAST(N'2022-04-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (19, 22, CAST(N'2022-05-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (20, 22, CAST(N'2022-06-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (21, 22, CAST(N'2022-07-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (22, 22, CAST(N'2022-08-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (23, 22, CAST(N'2022-09-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (24, 22, CAST(N'2022-10-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (25, 22, CAST(N'2022-11-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (26, 22, CAST(N'2022-12-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (27, 22, CAST(N'2023-01-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (28, 22, CAST(N'2023-02-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (29, 22, CAST(N'2023-03-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (30, 22, CAST(N'2023-04-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (31, 22, CAST(N'2023-05-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (32, 22, CAST(N'2023-06-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (33, 22, CAST(N'2023-07-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (34, 22, CAST(N'2023-08-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (35, 22, CAST(N'2023-09-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (36, 22, CAST(N'2023-10-19' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (1, 23, CAST(N'2020-11-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (2, 23, CAST(N'2020-12-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (3, 23, CAST(N'2021-01-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (4, 23, CAST(N'2021-02-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (5, 23, CAST(N'2021-03-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (6, 23, CAST(N'2021-04-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (7, 23, CAST(N'2021-05-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (8, 23, CAST(N'2021-06-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (9, 23, CAST(N'2021-07-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (10, 23, CAST(N'2021-08-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (11, 23, CAST(N'2021-09-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (12, 23, CAST(N'2021-10-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (13, 23, CAST(N'2021-11-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (14, 23, CAST(N'2021-12-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (15, 23, CAST(N'2022-01-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (16, 23, CAST(N'2022-02-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (17, 23, CAST(N'2022-03-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (18, 23, CAST(N'2022-04-20' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (1, 24, CAST(N'2020-11-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (2, 24, CAST(N'2020-12-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (3, 24, CAST(N'2021-01-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (4, 24, CAST(N'2021-02-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (5, 24, CAST(N'2021-03-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (6, 24, CAST(N'2021-04-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (7, 24, CAST(N'2021-05-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (8, 24, CAST(N'2021-06-21' AS Date), CAST(N'2020-10-21' AS Date), 1, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (9, 24, CAST(N'2021-07-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (10, 24, CAST(N'2021-08-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (11, 24, CAST(N'2021-09-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (12, 24, CAST(N'2021-10-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (13, 24, CAST(N'2021-11-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (14, 24, CAST(N'2021-12-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (15, 24, CAST(N'2022-01-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (16, 24, CAST(N'2022-02-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (17, 24, CAST(N'2022-03-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Cuota] ([nroCuota], [idVenta], [fechaVencimiento], [fechaPago], [pagado], [borrado]) VALUES (18, 24, CAST(N'2022-04-21' AS Date), NULL, 0, 0)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (0, N'Pedro', N'Suarez', N'admin', 0)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (1, N'Lautaro', N'Goye', N'lautaro', 0)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (2, N'Federico', N'Ayme', N'federico', 1)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (3, N'Bruno', N'Toledo', N'bruno23', 0)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (4, N'Mario', N'Cars', N'mario', 0)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (6, N'Walter', N'Roccia', N'walter', 0)
+GO
+INSERT [dbo].[Empleado] ([legajo], [nombre], [apellido], [usuario], [borrado]) VALUES (7, N'Martin', N'Gomez', N'martin', 0)
+GO
+SET IDENTITY_INSERT [dbo].[EstadoConsulta] ON 
+GO
+INSERT [dbo].[EstadoConsulta] ([idEstadoConsulta], [nombre], [descripcion], [borrado]) VALUES (1, N'Abierta', N'recien hecha', 0)
+GO
+INSERT [dbo].[EstadoConsulta] ([idEstadoConsulta], [nombre], [descripcion], [borrado]) VALUES (2, N'Cerrada', N'concretada', 0)
+GO
+INSERT [dbo].[EstadoConsulta] ([idEstadoConsulta], [nombre], [descripcion], [borrado]) VALUES (3, N'Alquilada', N'alquilada', 0)
+GO
+INSERT [dbo].[EstadoConsulta] ([idEstadoConsulta], [nombre], [descripcion], [borrado]) VALUES (4, N'Vendida', N'vendida', 0)
+GO
+INSERT [dbo].[EstadoConsulta] ([idEstadoConsulta], [nombre], [descripcion], [borrado]) VALUES (5, N'Financiada', N'financiada', 0)
+GO
+SET IDENTITY_INSERT [dbo].[EstadoConsulta] OFF
+GO
+SET IDENTITY_INSERT [dbo].[EstadoInmueble] ON 
+GO
+INSERT [dbo].[EstadoInmueble] ([idEstadoInmueble], [nombre], [descripcion], [borrado]) VALUES (1, N'Disponible', N'disponible', 0)
+GO
+INSERT [dbo].[EstadoInmueble] ([idEstadoInmueble], [nombre], [descripcion], [borrado]) VALUES (3, N'Vendido', N'vendido', 0)
+GO
+INSERT [dbo].[EstadoInmueble] ([idEstadoInmueble], [nombre], [descripcion], [borrado]) VALUES (4, N'Financiado', N'financiado', 0)
+GO
+SET IDENTITY_INSERT [dbo].[EstadoInmueble] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Financiacion] ON 
+GO
+INSERT [dbo].[Financiacion] ([idFinanciacion], [nombre], [porcentajeAumento], [cantCuotas], [borrado]) VALUES (1, N'Promo Navidad', 15, 72, 0)
+GO
+INSERT [dbo].[Financiacion] ([idFinanciacion], [nombre], [porcentajeAumento], [cantCuotas], [borrado]) VALUES (2, N'Promo Ahora 18', 15, 18, 0)
+GO
+INSERT [dbo].[Financiacion] ([idFinanciacion], [nombre], [porcentajeAumento], [cantCuotas], [borrado]) VALUES (3, N'Promo financiación 36 cuotas', 5, 36, 0)
+GO
+INSERT [dbo].[Financiacion] ([idFinanciacion], [nombre], [porcentajeAumento], [cantCuotas], [borrado]) VALUES (4, N'Promo SuperCuota', 45, 36, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Financiacion] OFF
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (11, 1, CAST(N'2020-06-10T00:00:00.000' AS DateTime), CAST(N'2020-09-15T00:00:00.000' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (12, 1, CAST(N'2020-09-10T00:00:00.000' AS DateTime), CAST(N'2020-09-29T20:19:18.813' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (12, 3, CAST(N'2020-09-29T20:19:18.813' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (13, 1, CAST(N'2020-09-15T00:00:00.000' AS DateTime), CAST(N'2020-10-12T11:46:40.797' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (13, 3, CAST(N'2020-10-12T11:46:40.797' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (14, 1, CAST(N'2020-09-15T00:00:00.000' AS DateTime), CAST(N'2020-10-14T11:00:23.457' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (14, 3, CAST(N'2020-10-14T11:02:00.827' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (15, 1, CAST(N'2020-03-08T00:00:00.000' AS DateTime), CAST(N'2020-09-15T00:00:00.000' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (15, 3, CAST(N'2020-09-29T20:13:23.027' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (22, 1, CAST(N'2020-09-28T00:00:00.000' AS DateTime), CAST(N'2020-10-12T20:36:13.700' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (22, 1, CAST(N'2020-11-13T11:16:27.497' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (22, 3, CAST(N'2020-10-12T20:36:13.930' AS DateTime), CAST(N'2020-11-13T11:16:27.493' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (23, 1, CAST(N'2020-09-29T21:36:11.740' AS DateTime), CAST(N'2020-10-14T10:38:37.763' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (23, 3, CAST(N'2020-10-14T10:38:37.763' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (24, 1, CAST(N'2020-10-19T10:14:12.620' AS DateTime), CAST(N'2020-10-19T10:15:44.907' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (24, 4, CAST(N'2020-10-21T09:40:48.743' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (25, 1, CAST(N'2020-10-19T10:15:44.910' AS DateTime), CAST(N'2020-10-20T23:16:06.537' AS DateTime), 0)
+GO
+INSERT [dbo].[HistorialEstado] ([idInmueble], [idEstadoInmueble], [fechaInicio], [fechaFin], [borrado]) VALUES (25, 4, CAST(N'2020-10-20T23:16:06.540' AS DateTime), NULL, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Inmueble] ON 
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (11, N'Parana', 720, 20, 1, 2, 1, N'Departamento a estrenar', 0, 5000000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (12, N'Santiago Temple', 444, 25, 1, 1, 1, N'departamento situado cerca de ciudad universitaria', 0, 1500000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (13, N'Cristobal Colon', 8741, 40, 2, 5, 2, N'Casa en montecristo', 0, 12500000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (14, N'Rivadavia', 566, 30, 1, 5, 1, N'Departamento lujoso', 0, 145000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (15, N'Rondeau', 456, 10, 2, 5, 1, N'Departamento a estrenar', 0, 9500000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (22, N'Av Siempre viva', 123, 123, 3, 2, 2, N'Casa amplia', 0, 123)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (23, N'Esposos Curie', 9758, 50, 2, 4, 2, N'Casa muy grande', 0, 1500000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (24, N'Calle Publica', 297, 24, 2, 2, 2, N'Una casa linda', 0, 1250000)
+GO
+INSERT [dbo].[Inmueble] ([idInmueble], [calle], [calleNro], [m2], [cantBaños], [cantHabitaciones], [idTipoInmueble], [descripcion], [borrado], [montoVenta]) VALUES (25, N'Velez Sarsfield', 654, 29, 2, 3, 1, N'Departamento ubicado al lado del kempes', 0, 2500000)
+GO
+SET IDENTITY_INSERT [dbo].[Inmueble] OFF
+GO
+SET IDENTITY_INSERT [dbo].[MedioConocimiento] ON 
+GO
+INSERT [dbo].[MedioConocimiento] ([idMedioConocimiento], [nombre], [descripcion], [borrado]) VALUES (1, N'Twitter', N'Red Social', 0)
+GO
+INSERT [dbo].[MedioConocimiento] ([idMedioConocimiento], [nombre], [descripcion], [borrado]) VALUES (2, N'Television', N'TV', 0)
+GO
+INSERT [dbo].[MedioConocimiento] ([idMedioConocimiento], [nombre], [descripcion], [borrado]) VALUES (3, N'Facebook', N'Red Social', 0)
+GO
+INSERT [dbo].[MedioConocimiento] ([idMedioConocimiento], [nombre], [descripcion], [borrado]) VALUES (4, N'Instagram', N'Red Social', 0)
+GO
+SET IDENTITY_INSERT [dbo].[MedioConocimiento] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Perfil] ON 
+GO
+INSERT [dbo].[Perfil] ([idPerfil], [nombre], [descripcion], [borrado]) VALUES (1, N'Administrativo', N'Atiende llamadas y deriva', 0)
+GO
+INSERT [dbo].[Perfil] ([idPerfil], [nombre], [descripcion], [borrado]) VALUES (2, N'Vendedor', N'Vendedor de inmuebles', 0)
+GO
+INSERT [dbo].[Perfil] ([idPerfil], [nombre], [descripcion], [borrado]) VALUES (3, N'Adm de Usuarios', N'Gestión de usuarios', 0)
+GO
+INSERT [dbo].[Perfil] ([idPerfil], [nombre], [descripcion], [borrado]) VALUES (4, N'Administrador', N'Administrador', 0)
+GO
+SET IDENTITY_INSERT [dbo].[Perfil] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TipoInmueble] ON 
+GO
+INSERT [dbo].[TipoInmueble] ([idTipoInmueble], [nombre], [descripcion], [borrado]) VALUES (1, N'Departamento', N'Departamento', 0)
+GO
+INSERT [dbo].[TipoInmueble] ([idTipoInmueble], [nombre], [descripcion], [borrado]) VALUES (2, N'Casa', N'Casa', 0)
+GO
+SET IDENTITY_INSERT [dbo].[TipoInmueble] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TipoTransaccion] ON 
+GO
+INSERT [dbo].[TipoTransaccion] ([idTipoTransaccion], [nombre], [descripcion], [borrado]) VALUES (1, N'Venta Contado', N'Venta realizada en contado (1 pago)', 0)
+GO
+INSERT [dbo].[TipoTransaccion] ([idTipoTransaccion], [nombre], [descripcion], [borrado]) VALUES (2, N'Venta Financiada', N'Venta realizada con una financiacion elegida', 0)
+GO
+SET IDENTITY_INSERT [dbo].[TipoTransaccion] OFF
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'admin', N'admin', CAST(N'2000-05-05' AS Date), 4, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'bruno23', N'12345', CAST(N'2015-05-09' AS Date), 1, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'federico', N'1234', CAST(N'2015-08-12' AS Date), 1, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'franco', N'1234', CAST(N'2013-09-06' AS Date), 1, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'jose', N'maria', CAST(N'2020-09-23' AS Date), 3, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'juan', N'juan', CAST(N'2020-09-21' AS Date), 2, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'kele', N'pasaba', CAST(N'2020-09-23' AS Date), 2, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'lautaro', N'1234', CAST(N'2015-08-13' AS Date), 2, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'maria', N'elena', CAST(N'2020-09-16' AS Date), 1, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'mario', N'cars', CAST(N'2020-09-21' AS Date), 2, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'martin', N'1234', CAST(N'2014-08-05' AS Date), 3, 0)
+GO
+INSERT [dbo].[Usuario] ([nombre], [contraseña], [fechaAlta], [idPerfil], [borrado]) VALUES (N'walter', N'olmos', CAST(N'2020-09-21' AS Date), 1, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Venta] ON 
+GO
+INSERT [dbo].[Venta] ([idVenta], [legajoVendedor], [idInmueble], [fechaVenta], [fechaEntrega], [dniCliente], [montoTotal], [montoCuota], [esFinanciada], [borrado], [financiacion]) VALUES (17, 0, 22, CAST(N'2020-10-12' AS Date), CAST(N'2020-10-12' AS Date), 32416518, 123, 1, 1, 0, 1)
+GO
+INSERT [dbo].[Venta] ([idVenta], [legajoVendedor], [idInmueble], [fechaVenta], [fechaEntrega], [dniCliente], [montoTotal], [montoCuota], [esFinanciada], [borrado], [financiacion]) VALUES (20, 0, 23, CAST(N'2020-10-14' AS Date), CAST(N'2020-10-14' AS Date), 39745842, 1500000, 23957.94921875, 1, 0, 1)
+GO
+INSERT [dbo].[Venta] ([idVenta], [legajoVendedor], [idInmueble], [fechaVenta], [fechaEntrega], [dniCliente], [montoTotal], [montoCuota], [esFinanciada], [borrado], [financiacion]) VALUES (21, 3, 14, CAST(N'2020-10-14' AS Date), CAST(N'2020-10-14' AS Date), 39745842, 145000, 0, 0, 0, NULL)
+GO
+INSERT [dbo].[Venta] ([idVenta], [legajoVendedor], [idInmueble], [fechaVenta], [fechaEntrega], [dniCliente], [montoTotal], [montoCuota], [esFinanciada], [borrado], [financiacion]) VALUES (22, 3, 24, CAST(N'2020-10-19' AS Date), CAST(N'2020-11-20' AS Date), 35896748, 1250000, 36458.1015625, 1, 0, 3)
+GO
+INSERT [dbo].[Venta] ([idVenta], [legajoVendedor], [idInmueble], [fechaVenta], [fechaEntrega], [dniCliente], [montoTotal], [montoCuota], [esFinanciada], [borrado], [financiacion]) VALUES (23, 3, 25, CAST(N'2020-10-20' AS Date), CAST(N'2020-10-20' AS Date), 35896748, 2500000, 159721.203125, 1, 0, 2)
+GO
+INSERT [dbo].[Venta] ([idVenta], [legajoVendedor], [idInmueble], [fechaVenta], [fechaEntrega], [dniCliente], [montoTotal], [montoCuota], [esFinanciada], [borrado], [financiacion]) VALUES (24, 0, 24, CAST(N'2020-10-21' AS Date), CAST(N'2020-10-21' AS Date), 35896748, 1250000, 79860.6015625, 1, 1, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Venta] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ViaDeConsulta] ON 
+GO
+INSERT [dbo].[ViaDeConsulta] ([idViaDeConsulta], [nombre], [descripcion], [borrado]) VALUES (1, N'Mail', N'consulta ingresada por mail', 0)
+GO
+INSERT [dbo].[ViaDeConsulta] ([idViaDeConsulta], [nombre], [descripcion], [borrado]) VALUES (2, N'Teléfono', N'consulta ingresada por telefono', 0)
+GO
+INSERT [dbo].[ViaDeConsulta] ([idViaDeConsulta], [nombre], [descripcion], [borrado]) VALUES (3, N'Presencial', N'consulta presencial', 0)
+GO
+INSERT [dbo].[ViaDeConsulta] ([idViaDeConsulta], [nombre], [descripcion], [borrado]) VALUES (4, N'Twitter', N'consulta via red social', 0)
+GO
+INSERT [dbo].[ViaDeConsulta] ([idViaDeConsulta], [nombre], [descripcion], [borrado]) VALUES (5, N'Carta', N'consulta via correo', 0)
+GO
+SET IDENTITY_INSERT [dbo].[ViaDeConsulta] OFF
+GO
+ALTER TABLE [dbo].[Cliente] ADD  CONSTRAINT [DF__Cliente__borrado__2EA5EC27]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Consulta] ADD  CONSTRAINT [DF__Consulta__borrad__662B2B3B]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Cuota] ADD  CONSTRAINT [DF_Cuota_pagado]  DEFAULT ((0)) FOR [pagado]
+GO
+ALTER TABLE [dbo].[Cuota] ADD  CONSTRAINT [DF_Cuota_borrado]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Empleado] ADD  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[EstadoConsulta] ADD  CONSTRAINT [DF__EstadoCon__borra__6BE40491]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[EstadoInmueble] ADD  CONSTRAINT [DF__EstadoInm__borra__6EC0713C]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Financiacion] ADD  CONSTRAINT [DF_Financiacion_borrado]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[HistorialEstado] ADD  CONSTRAINT [DF__Historial__borra__719CDDE7]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Inmueble] ADD  CONSTRAINT [DF__Inmueble__borrad__1D7B6025]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[MedioConocimiento] ADD  CONSTRAINT [DF__MedioCono__borra__7755B73D]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Perfil] ADD  CONSTRAINT [DF__Perfil__borrado__607251E5]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[TipoInmueble] ADD  CONSTRAINT [DF__TipoInmue__borra__7D0E9093]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[TipoTransaccion] ADD  CONSTRAINT [DF__TipoConsu__borra__7A3223E8]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Usuario] ADD  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Venta] ADD  CONSTRAINT [DF_Venta_borrado]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[ViaDeConsulta] ADD  CONSTRAINT [DF__ViaDeCons__borra__05A3D694]  DEFAULT ((0)) FOR [borrado]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [consulta_FK_dniCliente] FOREIGN KEY([dniCliente])
+REFERENCES [dbo].[Cliente] ([dni])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [consulta_FK_dniCliente]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [consultas_FK_estado] FOREIGN KEY([idEstadoConsulta])
+REFERENCES [dbo].[EstadoConsulta] ([idEstadoConsulta])
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [consultas_FK_estado]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [consultas_FK_inmueble] FOREIGN KEY([idInmueble])
+REFERENCES [dbo].[Inmueble] ([idInmueble])
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [consultas_FK_inmueble]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [consultas_FK_medioConocimiento] FOREIGN KEY([idMedioConocimiento])
+REFERENCES [dbo].[MedioConocimiento] ([idMedioConocimiento])
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [consultas_FK_medioConocimiento]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [consultas_FK_tipoTransaccion] FOREIGN KEY([idTipoTransaccion])
+REFERENCES [dbo].[TipoTransaccion] ([idTipoTransaccion])
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [consultas_FK_tipoTransaccion]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [consultas_FK_viaConsulta] FOREIGN KEY([idViaDeConsulta])
+REFERENCES [dbo].[ViaDeConsulta] ([idViaDeConsulta])
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [consultas_FK_viaConsulta]
+GO
+ALTER TABLE [dbo].[Consulta]  WITH CHECK ADD  CONSTRAINT [FK_Consulta_Usuario] FOREIGN KEY([usuarioUltimaModificacion])
+REFERENCES [dbo].[Usuario] ([nombre])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[Consulta] CHECK CONSTRAINT [FK_Consulta_Usuario]
+GO
+ALTER TABLE [dbo].[Cuota]  WITH CHECK ADD  CONSTRAINT [FK_Cuota_Venta] FOREIGN KEY([idVenta])
+REFERENCES [dbo].[Venta] ([idVenta])
+GO
+ALTER TABLE [dbo].[Cuota] CHECK CONSTRAINT [FK_Cuota_Venta]
+GO
+ALTER TABLE [dbo].[Empleado]  WITH CHECK ADD  CONSTRAINT [empleado_FK_usuario] FOREIGN KEY([usuario])
+REFERENCES [dbo].[Usuario] ([nombre])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[Empleado] CHECK CONSTRAINT [empleado_FK_usuario]
+GO
+ALTER TABLE [dbo].[HistorialEstado]  WITH CHECK ADD  CONSTRAINT [historial_FK_Estado] FOREIGN KEY([idEstadoInmueble])
+REFERENCES [dbo].[EstadoInmueble] ([idEstadoInmueble])
+GO
+ALTER TABLE [dbo].[HistorialEstado] CHECK CONSTRAINT [historial_FK_Estado]
+GO
+ALTER TABLE [dbo].[HistorialEstado]  WITH CHECK ADD  CONSTRAINT [historial_FK_Inmuebles] FOREIGN KEY([idInmueble])
+REFERENCES [dbo].[Inmueble] ([idInmueble])
+GO
+ALTER TABLE [dbo].[HistorialEstado] CHECK CONSTRAINT [historial_FK_Inmuebles]
+GO
+ALTER TABLE [dbo].[Inmueble]  WITH CHECK ADD  CONSTRAINT [tipo_inmueble_fk] FOREIGN KEY([idTipoInmueble])
+REFERENCES [dbo].[TipoInmueble] ([idTipoInmueble])
+GO
+ALTER TABLE [dbo].[Inmueble] CHECK CONSTRAINT [tipo_inmueble_fk]
+GO
+ALTER TABLE [dbo].[Usuario]  WITH CHECK ADD  CONSTRAINT [usuario_FK_perfil] FOREIGN KEY([idPerfil])
+REFERENCES [dbo].[Perfil] ([idPerfil])
+GO
+ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [usuario_FK_perfil]
+GO
+ALTER TABLE [dbo].[Venta]  WITH CHECK ADD  CONSTRAINT [FK_Venta_Cliente] FOREIGN KEY([dniCliente])
+REFERENCES [dbo].[Cliente] ([dni])
+GO
+ALTER TABLE [dbo].[Venta] CHECK CONSTRAINT [FK_Venta_Cliente]
+GO
+ALTER TABLE [dbo].[Venta]  WITH CHECK ADD  CONSTRAINT [FK_Venta_Empleado] FOREIGN KEY([legajoVendedor])
+REFERENCES [dbo].[Empleado] ([legajo])
+GO
+ALTER TABLE [dbo].[Venta] CHECK CONSTRAINT [FK_Venta_Empleado]
+GO
+ALTER TABLE [dbo].[Venta]  WITH CHECK ADD  CONSTRAINT [fk_venta_financiacion] FOREIGN KEY([financiacion])
+REFERENCES [dbo].[Financiacion] ([idFinanciacion])
+GO
+ALTER TABLE [dbo].[Venta] CHECK CONSTRAINT [fk_venta_financiacion]
+GO
+ALTER TABLE [dbo].[Venta]  WITH CHECK ADD  CONSTRAINT [FK_Venta_Inmueble] FOREIGN KEY([idInmueble])
+REFERENCES [dbo].[Inmueble] ([idInmueble])
+GO
+ALTER TABLE [dbo].[Venta] CHECK CONSTRAINT [FK_Venta_Inmueble]
+GO
+USE [master]
+GO
+ALTER DATABASE [BDInmobiliariaCasaFeliz] SET  READ_WRITE 
+GO
