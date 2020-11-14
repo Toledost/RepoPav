@@ -46,10 +46,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::TESTWF2020.Properties.Resources.icons8_fácil_de_encontrar_40;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(576, 13);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(830, 12);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(248, 59);
+            this.btnBuscar.Size = new System.Drawing.Size(186, 48);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Consultar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -59,10 +58,9 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::TESTWF2020.Properties.Resources.icons8_cerrar_ventana_48;
-            this.btnSalir.Location = new System.Drawing.Point(724, 490);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(941, 555);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 51);
+            this.btnSalir.Size = new System.Drawing.Size(75, 49);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -70,10 +68,9 @@
             // btnNuevo
             // 
             this.btnNuevo.Image = global::TESTWF2020.Properties.Resources.icons8_añadir_48;
-            this.btnNuevo.Location = new System.Drawing.Point(13, 490);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevo.Location = new System.Drawing.Point(10, 555);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(100, 51);
+            this.btnNuevo.Size = new System.Drawing.Size(75, 49);
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -81,10 +78,9 @@
             // btnDetalle
             // 
             this.btnDetalle.Image = global::TESTWF2020.Properties.Resources.icons8_ver_archivo_40;
-            this.btnDetalle.Location = new System.Drawing.Point(121, 490);
-            this.btnDetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDetalle.Location = new System.Drawing.Point(91, 555);
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(100, 51);
+            this.btnDetalle.Size = new System.Drawing.Size(75, 49);
             this.btnDetalle.TabIndex = 4;
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
@@ -98,12 +94,11 @@
             this.id,
             this.nombre,
             this.descripcion});
-            this.dgvMedioConocimiento.Location = new System.Drawing.Point(13, 92);
-            this.dgvMedioConocimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvMedioConocimiento.Location = new System.Drawing.Point(10, 75);
             this.dgvMedioConocimiento.Name = "dgvMedioConocimiento";
             this.dgvMedioConocimiento.ReadOnly = true;
             this.dgvMedioConocimiento.RowHeadersWidth = 51;
-            this.dgvMedioConocimiento.Size = new System.Drawing.Size(811, 367);
+            this.dgvMedioConocimiento.Size = new System.Drawing.Size(1006, 465);
             this.dgvMedioConocimiento.TabIndex = 5;
             // 
             // id
@@ -133,10 +128,9 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::TESTWF2020.Properties.Resources.icons8_eliminar_48;
-            this.btnEliminar.Location = new System.Drawing.Point(229, 490);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(172, 555);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 51);
+            this.btnEliminar.Size = new System.Drawing.Size(75, 49);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -145,18 +139,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Location = new System.Drawing.Point(11, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(405, 29);
+            this.label1.Size = new System.Drawing.Size(325, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Buscar Medios de Conocimiento: ";
             // 
             // frmABMCMedioDeConocimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(877, 565);
+            this.ClientSize = new System.Drawing.Size(1028, 616);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvMedioConocimiento);
@@ -164,7 +159,6 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmABMCMedioDeConocimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medio de Conocimiento";
